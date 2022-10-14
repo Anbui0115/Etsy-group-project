@@ -1,0 +1,26 @@
+.nav_bar {
+    display: flex;
+    flex-direction: row;
+    background-color: aqua;
+    margin: none;
+    width: 1400px;
+    min-height: 70px;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.outer_nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav_searchbar {
+    height: 50px;
+    width: 1000px;
+    background-color: aliceblue;
+    border-radius: 96px;
+    padding: 0px 18px 0px 0px;
+}
