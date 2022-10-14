@@ -7,8 +7,8 @@ class Review(db.Model):
     __tablename__ = 'reviews'
 
     id = db.Column(db.Integer, primary_key=True)
-    itemId = db.Column(db.Integer, db.ForeignKey("items.id", ondelete="CASCADE"), nullable=False)
-    userId = db.Column(db.Integer, db.ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
+    item_id = db.Column(db.Integer, db.ForeignKey("items.id", ondelete="CASCADE"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
     stars = db.Column(db.Integer, nullable=False)
     title = db.Column(db.String(255), nullable=False)
     description = db.Column(db.String(255), nullable=False)
@@ -16,8 +16,8 @@ class Review(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'itemId': self.itemId,
-            'userId': self.userId,
+            'item_id': self.itemId,
+            'user_id': self.userId,
             'stars': self.stars,
             'title': self.title,
             'description': self.description
