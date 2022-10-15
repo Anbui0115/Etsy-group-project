@@ -2,11 +2,8 @@ from app.models import db, Item
 
 
 def seed_items():
-    itemName = Item(
-        user_id = 1, title = "item name", description = "item description", price = 11.11
-    )
-
-    db.session.add(itemName)
+    item26 = Item( user_id = 9, title = "Existential Funnel Cake", description = "When you walk through an amusement park, do you ever wonder, 'Wow, I'm paying money to experience excitement. Does that make it any less real?'\nAnyway, you can have that existentialism without waiting in a long line to get into Knott's Berry Farm or something.", price = "84.66")
+    db.session.add(item26)
 
     db.session.commit()
 
