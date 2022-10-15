@@ -8,10 +8,9 @@ function LoginFormModal() {
 console.log("SHOW MODAL NOW",showModal)
   return (
     <>
-      <button className="login-button-modal" onClick={() =>{
-         setShowModal(true)
-         console.log("SHOW MODAL NOW",showModal)
-      }} >
+      <button className="login-button-modal" onClick={() =>setShowModal(true)
+        //  console.log("SHOW MODAL NOW",showModal)
+      } >
         Log Innnn
       </button>
       {showModal && (
