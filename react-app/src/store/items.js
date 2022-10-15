@@ -3,7 +3,7 @@ const GET_ITEMS = 'items/GET_ITEMS';
 const CREATE_ITEM = 'items/CREATE_ITEM';
 const EDIT_ITEM = 'items/EDIT_ITEM';
 const DELETE_ITEM = 'items/DELETE_ITEM';
-// const CLEAR_SONGS = 'songs/CLEAR_SONG';
+// const CLEAR_ITEMS = 'items/CLEAR_ITEM';
 
 // Action Creators
 const getItemsAction = (items) => {
@@ -34,9 +34,9 @@ export const deleteItemAction = (itemId) => {
     }
 }
 
-// export const clearSongAction = () => {
+// export const clearItemAction = () => {
 //     return {
-//         type: CLEAR_SONGS
+//         type: CLEAR_ITEMS
 //     }
 // }
 
