@@ -3,7 +3,7 @@ from app.models import db, Item
 
 def seed_items():
     itemName = Item(
-        user_id = "user_id", title = "item name", description = "item description", price = "item price"
+        user_id = 1, title = "item name", description = "item description", price = 11.11
     )
 
     db.session.add(itemName)
