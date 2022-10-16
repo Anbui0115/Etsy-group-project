@@ -1,7 +1,7 @@
 """changed owner-id and added relationships
 
 Revision ID: 864d4d3a7b1b
-Revises: ae2375d726f3
+Revises: 47ad9eb6c610
 Create Date: 2022-10-16 14:02:31.622688
 
 """
@@ -11,7 +11,7 @@ import sqlalchemy as sa
 
 # revision identifiers, used by Alembic.
 revision = '864d4d3a7b1b'
-down_revision = 'ae2375d726f3'
+down_revision = '47ad9eb6c610'
 branch_labels = None
 depends_on = None
 

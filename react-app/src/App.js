@@ -8,6 +8,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
+import { getAllItems } from './store/items';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -18,6 +19,7 @@ function App() {
       await dispatch(authenticate());
       setLoaded(true);
     })();
+    dispatch(getAllItems());
   }, [dispatch]);
 
   if (!loaded) {

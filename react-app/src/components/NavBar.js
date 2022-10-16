@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import styles from './NavBar.module.css'
 import { useSelector } from 'react-redux';
+import LoginFormModal from "./LoginFormModal"
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user)
@@ -23,9 +24,12 @@ const NavBar = () => {
   else {
     sessionLinks = (
       <>
-        <NavLink to='/login' exact={true} activeClassName='active'>
+        {/* <NavLink to='/login' exact={true} activeClassName='active'>
           Login
-        </NavLink>
+        </NavLink> */}
+        <div>
+          <LoginFormModal/>
+        </div>
         <NavLink to='/sign-up' exact={true} activeClassName='active'>
           Sign Up
         </NavLink>
