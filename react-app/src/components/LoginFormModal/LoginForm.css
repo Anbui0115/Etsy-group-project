@@ -48,10 +48,9 @@
   color: #222222;
   /* border: 1px solid black; */
   justify-content: space-between;
-  height: 60px;
+  height: 40px;
   align-items: center;
   align-content: center;
-  padding: 0px 0px 12px;
 }
 
 .login-text-container {
@@ -63,7 +62,7 @@
   font-weight: 600;
   margin-top: 10px;
   margin-bottom: 40px;
-  margin-left: 20px;
+  margin-left: 10px;
   margin-right: 20px;
   color: rgb(34, 34, 34);
   font-family: Circular, -apple-system, "system-ui", Roboto, "Helvetica Neue",
@@ -73,7 +72,7 @@
 .text-login {
   /* border: 1px slateblue solid; */
   margin: 10px;
-  font-size: 22px;
+  font-size: 21px;
   font-weight: 600;
   align-self: center;
   font-family: Circular, -apple-system, "system-ui", Roboto, "Helvetica Neue",
@@ -82,7 +81,7 @@
 
 .register {
   /* border: dashed 1px purple; */
-  margin: 10px;
+  margin: 5px;
   align-self: center;
   justify-content: space-evenly;
   font-family: Circular, -apple-system, "system-ui", Roboto, "Helvetica Neue",
