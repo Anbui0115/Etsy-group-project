@@ -11,10 +11,14 @@ class Shopping_cart(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
     quantity = db.Column(db.Integer, nullable=False)
     
+    #relationship
+    items = db.relationship("Item", back_populates="shopping_cart")
+    user = db.relationship("User",back_populates="shopping_cart")
+
     def to_dict(self):
         return {
             'id': self.id,
-            'item_id': self.itemId,
-            'user_id': self.userId,
+            'item_id': self.item_id,
+            'user_id': self.user_id,
             'quantity': self.quantity            
         }
