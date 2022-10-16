@@ -10,9 +10,12 @@ def seed_users():
     bobbie = User(
         username='bobbie', email='bobbie@aa.io', password='password')
 
-    db.session.add(demo)
-    db.session.add(marnie)
-    db.session.add(bobbie)
+    if User.query.filter_by(email=demo.email).first() is None:
+        db.session.add(demo)
+    if User.query.filter_by(email=marnie.email).first() is None:
+        db.session.add(marnie)
+    if User.query.filter_by(email=bobbie.email).first() is None:
+        db.session.add(bobbie)
 
     db.session.commit()
 

@@ -12,14 +12,16 @@ class Review(db.Model):
     stars = db.Column(db.Integer, nullable=False)
     title = db.Column(db.String(255), nullable=False)
     description = db.Column(db.String(255), nullable=False)
-
+    # relationship
+    user_review = db.relationship("User", back_populates="reviews")
+    item = db.relationship("Item", back_populates="reviews")
+    
     def to_dict(self):
         return {
             'id': self.id,
-            'item_id': self.itemId,
-            'user_id': self.userId,
+            'item_id': self.item_id,
+            'user_id': self.user_id,
             'stars': self.stars,
             'title': self.title,
-            'description': self.description
-            
+            'description': self.description    
         }
