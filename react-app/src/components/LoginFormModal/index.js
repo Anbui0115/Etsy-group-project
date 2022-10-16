@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Modal } from "../../context/Modal";
 import LoginForm from "./LoginForm";
-// import "./LoginForm.css";
+import "./LoginForm.css";
 
 function LoginFormModal() {
   const [showModal, setShowModal] = useState(false);
@@ -11,7 +11,7 @@ console.log("SHOW MODAL NOW",showModal)
       <button className="login-button-modal" onClick={() =>setShowModal(true)
         //  console.log("SHOW MODAL NOW",showModal)
       } >
-        Log Innnn
+        Sign in
       </button>
       {showModal && (
 
