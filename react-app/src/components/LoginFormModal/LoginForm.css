@@ -73,8 +73,8 @@
 .text-login {
   /* border: 1px slateblue solid; */
   margin: 10px;
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 22px;
+  font-weight: 600;
   align-self: center;
   font-family: Circular, -apple-system, "system-ui", Roboto, "Helvetica Neue",
     sans-serif;
@@ -83,8 +83,6 @@
 .register {
   /* border: dashed 1px purple; */
   margin: 10px;
-  font-size: 17px;
-  font-weight: 500;
   align-self: center;
   justify-content: space-evenly;
   font-family: Circular, -apple-system, "system-ui", Roboto, "Helvetica Neue",
@@ -93,20 +91,18 @@
 
 .register-text {
   border: 2px black solid;
-  /* height: 37px;
-  width: 82px; */
-  padding: 10px 10px;
-  border-radius: 40px;
   justify-self: flex-end;
+  font-family: Circular, -apple-system, "system-ui", Roboto, "Helvetica Neue",
+    sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 9px 16px;
+  border-radius: 40px;
   margin-top: 10px;
   margin-bottom: 40px;
   margin-left: 20px;
   margin-right: 20px;
   color: rgb(34, 34, 34);
-  font-family: Circular, -apple-system, "system-ui", Roboto, "Helvetica Neue",
-    sans-serif;
-  /* border: black 2px; */
-  /* border-radius: 5px; */
 }
 
 .login-container {
@@ -143,11 +139,9 @@
   /* border-radius: 13px; */
   display: flex;
   flex-direction: column;
-  /* height: 48px; */
-  /* margin-top: 10px; */
   font-family: Circular, -apple-system, "system-ui", Roboto, "Helvetica Neue",
     sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   color: rgb(34, 34, 34);
   width: 100%;
