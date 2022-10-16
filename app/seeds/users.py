@@ -16,7 +16,7 @@ def seed_users():
         db.session.add(marnie)
     if User.query.filter_by(email=bobbie.email).first() is None:
         db.session.add(bobbie)
-
+     
     db.session.commit()
 
 
