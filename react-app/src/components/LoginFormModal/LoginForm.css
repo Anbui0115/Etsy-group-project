@@ -125,7 +125,7 @@
   /* border: 1px solid salmon; */
   display: flex;
   flex-direction: column;
-  margin: 0px 0px 12px;
+  margin: 0px 0px 16px;
   color: rgb(34, 34, 34);
   justify-content: center;
   align-items: center;
@@ -156,7 +156,6 @@
   color: rgb(34, 34, 34);
   font-family: Circular, -apple-system, "system-ui", Roboto, "Helvetica Neue",
     sans-serif;
-  /* padding: 9px, 12px, 9px, 12px; */
   padding-top: 9px;
   padding-bottom: 9px;
   padding-left: 12px;
@@ -168,21 +167,19 @@
 } */
 
 .login-button {
+  /* border: 1px solid black; */
   display: flex;
   flex-direction: row;
-  /* border: 1px solid black; */
   border: none;
   background-color: #222222;
   color: white;
   justify-content: center;
-  /* margin top | right | bottom | left */
-  /* margin: 8px 20px 0px 18px; */
+  margin-top: 20px;
   padding: 12px 18px;
   height: 48px;
   font-size: 15pt;
   align-items: center;
   cursor: pointer;
-  /* width: 100%; */
   font-size: 16px;
   font-weight: 600;
   font-family: Circular, -apple-system, "system-ui", Roboto, "Helvetica Neue",
