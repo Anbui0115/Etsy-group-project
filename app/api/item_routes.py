@@ -3,7 +3,7 @@ from app.models import User, db, Item
 from flask_login import login_required
 # from app.forms import ItemsForm #TODO ItemsForm needs to be created, added to forms.__init__.py
 
-item_routes = Blueprint('items', __name__,url_prefix="")
+item_routes = Blueprint('items', __name__)
 
 
 @item_routes.route('/')
