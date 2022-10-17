@@ -66,12 +66,14 @@ const LandingPage = () => {
                 </div>
                 <div className="header-bar"></div>
             </div>
-            <div className="basic-preview">
-                <div className='preview-text'>
+
+            <div className='preview-text'>
                     Please Spend Your Money Here!
-                </div>
+            </div>
+
+            <div className="basic-preview">
                 <div className='basic-cards'>
-                    {items.slice(0, 8).map(item => {
+                    {items.slice(0, 10).map(item => {
                         let img = 'https://media.discordapp.net/attachments/1017492963720433868/1030624725350760448/pexels-klaus-nielsen-6294375.jpg'
                         return (
                             <>

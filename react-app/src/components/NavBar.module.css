@@ -1,8 +1,8 @@
 .outer_nav {
+  /* border: 1px solid pink; */
   display: flex;
   flex-direction: row;
   width: 80%;
-  border: 1px solid pink;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
