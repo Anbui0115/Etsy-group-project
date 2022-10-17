@@ -44,10 +44,10 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
+        <Route path='/' exact={true} >
           {/* <h1>My Home Page</h1> */}
           <HomePage/>
-        </ProtectedRoute>
+        </Route>
       </Switch>
     </BrowserRouter>
   );
