@@ -14,9 +14,9 @@ class Item(db.Model):
 
     #relationships 
     owner = db.relationship("User", back_populates="items")
-    reviews = db.relationship("Review", back_populates="item", lazy=False)
-    images = db.relationship("Image", back_populates="item",lazy=False)
-    shopping_cart = db.relationship("Shopping_cart", back_populates="items")
+    reviews = db.relationship("Review", cascade="all, delete", back_populates="item", lazy=False)
+    images = db.relationship("Image", cascade="all, delete", back_populates="item",lazy=False)
+    shopping_cart = db.relationship("Shopping_cart",cascade="all, delete", back_populates="items")
 
     
     def to_dict(self):
