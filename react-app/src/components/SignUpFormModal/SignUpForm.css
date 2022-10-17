@@ -1,38 +1,12 @@
-/* to do: add styling here */
-/* .login-form {
-
-  display: flex;
-  flex-direction: column;
-  min-height: 48px;
-  height: 500px;
-  width: 500px;
-  border-radius: 15px;
-  cursor: pointer;
-  background-color: transparent;
-  justify-content: space-between;
-  display: flex !important;
-  flex: 0 0 auto !important;
-  align-items: center !important;
-  justify-content: space-between;
-  padding: 0px 24px !important;
-  min-height: 48px !important;
-  color: rgb(34, 34, 34) !important;
-  font-size: 16px !important;
-  line-height: 20px !important;
-  font-weight: 800 !important;
-}
-
-} */
-.login-form {
-  /* border: 1px dashed orange; */
+.signup-form {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 380px;
+  height: 580px;
   line-height: 19.6px;
   max-width: 100%;
-  width: 362px;
+  width: 384px;
   cursor: default;
   min-height: 48px;
   /* border-radius: 24px;  HANDLED IN MODAL.CSS*/
@@ -41,72 +15,39 @@
   font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
     Arial, sans-serif;
 }
-
-.sign-in-and-register {
+.create-account {
+  /* border: 1px solid red; */
   display: flex;
-  flex-direction: row;
-  color: #222222;
-  /* border: 1px solid black; */
-  justify-content: space-between;
-  height: 40px;
-  align-items: center;
-  align-content: center;
+  flex-direction: column;
+  margin: 10px 20px 10px;
+  color: rgb(34, 34, 34);
+  font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
+    Arial, sans-serif;
+  box-sizing: border-box;
 }
-
-.login-text-container {
-  display: flex;
-  /* border: 1px solid salmon; */
-  /* justify-content: center; */
-  align-items: center;
+.create-acct-text {
+  margin-bottom: 8px;
   font-size: 20px;
   font-weight: 600;
-  margin-top: 10px;
-  margin-bottom: 40px;
-  margin-left: 10px;
-  margin-right: 20px;
-  color: rgb(34, 34, 34);
+  font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
+    Arial, sans-serif;
+  box-sizing: border-box;
+  line-height: 28px;
+  height: 28px;
+  width: 200px;
+}
+.registration {
+  box-sizing: border-box;
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: 400;
+  height: 30px;
+  line-height: 24px;
+  width: 324px;
   font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
     Arial, sans-serif;
 }
-.text-login {
-  /* border: 1px slateblue solid; */
-  margin: 10px;
-  font-size: 21px;
-  font-weight: 600;
-  align-self: center;
-  font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
-    Arial, sans-serif;
-}
-
-.register {
-  /* border: dashed 1px purple; */
-  margin: 5px;
-  font-size: 13px;
-  font-weight: 500;
-  align-self: center;
-  justify-content: space-evenly;
-  font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
-    Arial, sans-serif;
-}
-
-.register-text {
-  border: 2px black solid;
-  justify-self: flex-end;
-  font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
-    Arial, sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 9px 16px;
-  border-radius: 40px;
-  margin-top: 10px;
-  margin-bottom: 40px;
-  margin-left: 20px;
-  margin-right: 20px;
-  color: rgb(34, 34, 34);
-}
-
-.login-container {
-  /* border: 1px solid black; */
+.signup-container {
   margin-left: 20px;
   margin-right: 20px;
   cursor: pointer;
@@ -114,17 +55,17 @@
   font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
     Arial, sans-serif;
 }
-
-.login-errors {
+.signup-errors {
   /* border: 1px red dashed; */
   color: rgb(205, 47, 47);
   font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
     Arial, sans-serif;
   padding: 8px 8px;
 }
-
+.signup-body {
+}
 .input-field {
-  /* border: 1px solid salmon; */
+  /* border: 1px hotpink solid; */
   display: flex;
   flex-direction: column;
   margin: 0px 0px 16px;
@@ -133,11 +74,13 @@
   align-items: center;
   font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
     Arial, sans-serif;
+  box-sizing: border-box;
+  font-size: 14px;
+  width: 324px;
+  height: 74px;
+  line-height: 19.6px;
 }
-
 .input {
-  /* border: 1px solid royalblue; */
-  /* border-radius: 13px; */
   display: flex;
   flex-direction: column;
   font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
@@ -147,9 +90,7 @@
   color: rgb(34, 34, 34);
   width: 100%;
 }
-
 .credential {
-  /* border: 1px solid black; */
   display: flex;
   width: 92%;
   height: 30px;
@@ -163,12 +104,7 @@
   padding-left: 12px;
   padding-right: 12px;
 }
-
-/* .text {
-  align-self: center;
-} */
-
-.login-button {
+.signup-button {
   /* border: 1px solid black; */
   display: flex;
   flex-direction: row;
@@ -195,28 +131,12 @@
   width: 324px;
   border-radius: 50px;
 }
-
-@media (min-width: 744px) {
-  .login-form {
-    min-height: 64px;
-  }
-}
-
-.login-button-modal {
+.signup-button-modal {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 700;
   font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
     Arial, sans-serif;
-    box-sizing: border-box;
-    color: rgb(34, 34, 34);
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: 700;
-    height: 36px;
-    line-height: 18px;
-    width: 73px;
-    
 }

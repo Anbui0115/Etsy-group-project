@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../store/session";
-
+import SignUpFormModal from "../SignUpFormModal";
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
@@ -44,7 +44,9 @@ const LoginForm = () => {
           <h1 className="text-login">Sign in</h1>
         </div>
         <div className="register">
-          <div className="register-text">Register</div>
+          <div className="register-text">
+            <SignUpFormModal />
+          </div>
         </div>
       </div>
 
@@ -67,6 +69,7 @@ const LoginForm = () => {
               // placeholder="Email"
               value={email}
               onChange={updateEmail}
+              required
             />
           </div>
 
@@ -81,6 +84,7 @@ const LoginForm = () => {
               // placeholder="Password"
               value={password}
               onChange={updatePassword}
+              required
             />
           </div>
           <button

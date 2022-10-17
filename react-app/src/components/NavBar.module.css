@@ -1,26 +1,86 @@
 .nav_bar {
-    display: flex;
-    flex-direction: row;
-    background-color: aqua;
-    margin: none;
-    width: 1400px;
-    min-height: 70px;
-    justify-content: space-between;
-    align-items: center;
-
+  display: flex;
+  flex-direction: row;
+  /* background-color: aqua; */
+  margin: none;
+  width: 1400px;
+  min-height: 70px;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  color: rgb(34, 34, 34);
+  font-size: 14px;
+  height: 72px;
+  line-height: 19.6px;
+  max-width: 1400px;
+  width: 1400px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 0px;
+  padding-bottom: 12px;
+  padding-left: 36px;
+  padding-right: 36px;
+  padding-top: 12px;
+  text-size-adjust: 100%;
+  font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
+    Arial, sans-serif;
 }
 
 .outer_nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* justify-content: space-between; */
+  align-items: center;
+  box-sizing: border-box;
+  color: rgb(34, 34, 34);
+  font-size: 14px;
+  height: 72px;
+  line-height: 19.6px;
+  max-width: 1400px;
+  width: 1400px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 0px;
+  padding-bottom: 12px;
+  padding-left: 36px;
+  padding-right: 36px;
+  padding-top: 12px;
+  text-size-adjust: 100%;
 }
-
+.home_logo {
+  box-sizing: border-box;
+  cursor: pointer;
+  height: 40px;
+  line-height: 19.6px;
+  text-size-adjust: 100%;
+  width: 80px;
+  font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
+    Arial, sans-serif;
+}
 .nav_searchbar {
-    height: 50px;
-    width: 1000px;
-    background-color: aliceblue;
+  height: 50px;
+  width: 1000px;
+  /* background-color: aliceblue; */
+  background-color: rgba(0,0,0,0);
+  border-radius: 96px;
+  padding: 0px 18px 0px 0px;
+  font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
+    Arial, sans-serif;
     border-radius: 96px;
-    padding: 0px 18px 0px 0px;
+    border: 2px solid rgb(34, 34, 34);
+    box-sizing: border-box;
+    color: rgb(34, 34, 34);
+    cursor: text;
+    font-size: 16px;
+    font-weight: 400;
+    height: 48px;
+    line-height: 28px;
+    text-align: start;
+    text-indent: 0px;
+    text-rendering: auto;
+    text-shadow: none;
+    text-size-adjust: 100%;
+    width: 1035px;
+
 }
