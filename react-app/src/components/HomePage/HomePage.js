@@ -1,5 +1,7 @@
 import { useSelector } from "react-redux";
 import LandingPage from './LandingPage'
+import './HomePage.css'
+
 /* TODO:
 if user is not logged in, render <LandingPage />
 else render all components for homepage
@@ -7,7 +9,9 @@ else render all components for homepage
 const HomePage=()=>{
     const sessionUser = useSelector((state) => state.session.user);
     if(sessionUser){
-       return <h1>Welcome Logged in User</h1>;
+       return (
+       <h1>Welcome Logged in User</h1>
+       )
     }
     else{
         //if the user is not logged in,
