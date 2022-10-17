@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 const LandingPage = () => {
     const itemsObj = useSelector(state => state.items)
     const items = Object.values(itemsObj)
-
+    console.log(itemsObj)
     const imgURL = "https://purepng.com/public/uploads/medium/purepng.com-pokeballpokeballdevicepokemon-ballpokemon-capture-ball-1701527825876ch1zq.png"
     const fixed_data = {
         "Classmate Gifts": {
@@ -70,20 +70,16 @@ const LandingPage = () => {
             <div className='preview-text'>
                     Please Spend Your Money Here!
             </div>
-
             <div className="basic-preview">
-                <div className='basic-cards'>
-                    {items.slice(0, 10).map(item => {
-                        let img = 'https://media.discordapp.net/attachments/1017492963720433868/1030624725350760448/pexels-klaus-nielsen-6294375.jpg'
-                        return (
-                            <>
-                                <div className='splash-item-card' style={{ backgroundImage: `url(${img})` }}>
-                                    <div className='item-card-price'>${item.price}</div>
-                                </div>
-                            </>
-                        )
-                    })}
-                </div>
+
+                {items.slice(0, 10).map(item => {
+                    let img = 'https://media.discordapp.net/attachments/1017492963720433868/1030624725350760448/pexels-klaus-nielsen-6294375.jpg'
+                    return (
+                        <div className='splash-item-card' style={{ backgroundImage: `url(${img})` }}>
+                            <div className='item-card-price'>${item.price}</div>
+                        </div>
+                    )
+                })}
             </div>
 
         </div>
