@@ -1,10 +1,13 @@
 /* TODO Add site wide styles */
 body {
     margin: 0px 0px 0px 0px;
-    width: 1400px;
+    width: 80%;
     margin: auto;
+    font-family: "Graphik Webfont",-apple-system,"Helvetica Neue","Droid Sans",Arial,sans-serif;
   }
+
 * {
    font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
     Arial, sans-serif;
 }
+
