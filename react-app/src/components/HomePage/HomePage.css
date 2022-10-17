@@ -11,9 +11,12 @@
 
 .splash-search-circles {
     border: green 1px solid;
+    background-color: green;
     height: 185px;
     width: 80%;
-    
+    position:relative;
+    bottom: 120px;
+    left:10%;
     z-index: 3;
 }
 

@@ -12,7 +12,14 @@ const LandingPage = () => {
                     <h1>You need to log in</h1>
 
                 </div>
-                <div className="splash-search-circles"></div>
+                <div className="splash-search-circles">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
                 <div className="header-bar"></div>
 
             </div>
