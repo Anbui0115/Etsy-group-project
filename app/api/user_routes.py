@@ -8,6 +8,9 @@ user_routes = Blueprint('users', __name__)
 @user_routes.route('/')
 @login_required
 def users():
+    """
+    Get logged in user detail
+    """
     users = User.query.all()
     return {'users': [user.to_dict() for user in users]}
 
