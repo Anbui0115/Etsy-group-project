@@ -24,3 +24,15 @@
     border: pink 1px solid;
 
 }
+
+.splash-circle-photo > img {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+}
+
+.splash-search-circles {
+    display: flex;
+    justify-content: space-around;
+}
