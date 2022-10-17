@@ -1,10 +1,12 @@
 .Outer-container {
     width: 100%;
+    border: 1px solid blue;
 }
 
 .colored-header {
-    border: rgb(0, 217, 255) 1px solid;
+    border: rgb(0, 217, 255) 5px solid;
     height: 275px;
+    text-align: center;
 }
 
 .header-color-bar {
@@ -25,13 +27,13 @@
 }
 
 .splash-search-circles {
-    /* border: green 1px solid; */
+    border: green 1px solid;
     /* background-color: green; */
     height: 185px;
-    width: 80%;
+    width: 100%;
     position:relative;
     bottom: 120px;
-    left:10%;
+    /* left:22%; */
     z-index: 3;
 }
 

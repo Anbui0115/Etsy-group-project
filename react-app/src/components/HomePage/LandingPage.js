@@ -5,29 +5,30 @@ import { Link } from 'react-router-dom'
 
 const LandingPage = () => {
 
+    const imgURL = "https://purepng.com/public/uploads/medium/purepng.com-pokeballpokeballdevicepokemon-ballpokemon-capture-ball-1701527825876ch1zq.png"
     const fixed_data = {
         "Classmate Gifts": {
-            "imgUrl": "https://media.discordapp.net/attachments/1017492963720433868/1031627816208445461/spongebob_PNG16.png",
+            "imgUrl": imgURL,
             "searchUrl": "/",
         },
         "Uncanny Valley": {
-            "imgUrl": "https://media.discordapp.net/attachments/1017492963720433868/1031627816208445461/spongebob_PNG16.png",
+            "imgUrl": imgURL,
             "searchUrl": "/",
         },
         "Holiday": {
-            "imgUrl": "https://media.discordapp.net/attachments/1017492963720433868/1031627816208445461/spongebob_PNG16.png",
+            "imgUrl": imgURL,
             "searchUrl": "/",
         },
         "Staples": {
-            "imgUrl": "https://media.discordapp.net/attachments/1017492963720433868/1031627816208445461/spongebob_PNG16.png",
+            "imgUrl": imgURL,
             "searchUrl": "/",
         },
         "Fancy Living": {
-            "imgUrl": "https://media.discordapp.net/attachments/1017492963720433868/1031627816208445461/spongebob_PNG16.png",
+            "imgUrl": imgURL,
             "searchUrl": "/",
         },
         "Wedding Gifts": {
-            "imgUrl": "https://media.discordapp.net/attachments/1017492963720433868/1031627816208445461/spongebob_PNG16.png",
+            "imgUrl": imgURL,
             "searchUrl": "/",
         },
     }
