@@ -2,6 +2,8 @@
 body {
     margin: 0px 0px 0px 0px;
     width: 80%;
+    display: flex;
+    justify-content: center;
     margin: auto;
     font-family: "Graphik Webfont",-apple-system,"Helvetica Neue","Droid Sans",Arial,sans-serif;
   }
@@ -10,4 +12,3 @@ body {
    font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
     Arial, sans-serif;
 }
-

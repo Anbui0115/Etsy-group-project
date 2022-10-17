@@ -17,9 +17,9 @@ const NavBar = () => {
         <div className='profile_dropdown'>
           <ProfileButton/>
         </div>
-        <div>
+        {/* <div>
           <LogoutButton />
-        </div>
+        </div> */}
       </>
     )
   }
