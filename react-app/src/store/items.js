@@ -43,10 +43,11 @@ export const deleteItemAction = (itemId) => {
 
 // Thunks
 export const getAllItems = () => async dispatch => {
-    const res = await fetch('/api/items');
-
-    if (res.ok) {
-        const items = await res.json();
+    const res = await fetch('/api/items/');
+console.log("thunk res", res)
+if (res.ok) {
+    const items = await res.json();
+    console.log("res.ok", items.items)
         dispatch(getItemsAction(items.items));
     }
 };
@@ -54,7 +55,7 @@ export const getAllItems = () => async dispatch => {
 export const createItem = (itemData) => async dispatch => {
     // if (!itemData.imageUrl) itemData.imageUrl = "https://media.istockphoto.com/photos/scattered-crumbs-of-butter-cookies-on-white-background-picture-id1222390473?k=20&m=1222390473&s=612x612&w=0&h=6UXsl_v8Kp2aG6ykg3l4lSHjoB4biCndCx2OVIiHNSQ="
 
-    const res = await fetch(`/api/items/`, {
+    const res = await fetch(`/api/items`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(itemData)
@@ -100,6 +101,7 @@ export default function itemsReducer(state = initialState, action) {
     const newState = { ...state }
     switch (action.type) {
         case GET_ITEMS:
+            console.log("action.items", action.items)
             action.items.forEach(item => newState[item.id] = item)
             return newState;
         case CREATE_ITEM:
