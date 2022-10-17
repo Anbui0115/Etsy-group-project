@@ -64,7 +64,7 @@ const LandingPage = () => {
             </div>
             <div className="basic-preview">
                 <div className='preview-text'>
-                    
+                    Please Spend Your Money Here!
                 </div>
 
                 <div className='basic-cards'>

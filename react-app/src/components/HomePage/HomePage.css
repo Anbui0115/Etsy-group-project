@@ -1,3 +1,7 @@
+.Outer-container {
+    width: 100%;
+}
+
 .colored-header {
     border: rgb(0, 217, 255) 1px solid;
     height: 275px;
@@ -7,6 +11,7 @@
     border: blue 1px solid;
     background-color: #F8EBE6;
     height: 175px;
+    width: 100vw;
 }
 
 .header-text {
@@ -49,8 +54,9 @@
 
 .splash-search-circles {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     position: relative;
+    width: 50%;
 }
 
 .splash-circle-photo > img {
@@ -74,9 +80,10 @@
     width: 70%;
 }
 
-/* #splash-circle-title-id {
-
-} */
+.preview-text {
+    font-weight: 600;
+    font-size: 16px;
+}
 .header-bar {
     border: pink 1px solid;
 }
