@@ -14,8 +14,8 @@ class Item(db.Model):
 
     #relationships 
     owner = db.relationship("User", back_populates="items")
-    reviews = db.relationship("Review", back_populates="item")
-    images = db.relationship("Image", back_populates="item")
+    reviews = db.relationship("Review", back_populates="item", lazy=False)
+    images = db.relationship("Image", back_populates="item",lazy=False)
     shopping_cart = db.relationship("Shopping_cart", back_populates="items")
 
     
@@ -25,5 +25,7 @@ class Item(db.Model):
             'owner_id': self.owner_id,
             'title': self.title,
             'description': self.description,
-            'price': self.price
+            'price': self.price,
+            'images': [i.to_dict() for i in self.images],
+            'reviews': [i.to_dict() for i in self.reviews]
         }
