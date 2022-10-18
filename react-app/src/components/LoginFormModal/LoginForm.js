@@ -43,11 +43,9 @@ const LoginForm = () => {
         <div className="login-text-container">
           <h1 className="text-login">Sign in</h1>
         </div>
-        <div className="register">
-          <div className="register-text">
+        {/* <div className="register-text"> */}
             <SignUpFormModal />
-          </div>
-        </div>
+        {/* </div> */}
       </div>
 
       <div className="login-container">

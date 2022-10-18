@@ -11,27 +11,27 @@ const LandingPage = () => {
     const imgURL = "https://purepng.com/public/uploads/medium/purepng.com-pokeballpokeballdevicepokemon-ballpokemon-capture-ball-1701527825876ch1zq.png"
     const fixed_data = {
         "Classmate Gifts": {
-            "imgUrl": imgURL,
+            "imgUrl": "https://images.pexels.com/photos/2675061/pexels-photo-2675061.jpeg",
             "searchUrl": "/",
         },
         "Uncanny Valley": {
-            "imgUrl": imgURL,
+            "imgUrl": "https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg",
             "searchUrl": "/",
         },
         "Holiday": {
-            "imgUrl": imgURL,
+            "imgUrl": "https://images.pexels.com/photos/949592/pexels-photo-949592.jpeg",
             "searchUrl": "/",
         },
         "Staples": {
-            "imgUrl": imgURL,
+            "imgUrl": "https://images.pexels.com/photos/227383/pexels-photo-227383.jpeg",
             "searchUrl": "/",
         },
         "Fancy Living": {
-            "imgUrl": imgURL,
+            "imgUrl": "https://images.pexels.com/photos/67603/pexels-photo-67603.jpeg",
             "searchUrl": "/",
         },
         "Wedding Gifts": {
-            "imgUrl": imgURL,
+            "imgUrl": "https://images.pexels.com/photos/888899/pexels-photo-888899.jpeg",
             "searchUrl": "/",
         },
     }
@@ -57,7 +57,7 @@ const LandingPage = () => {
             <div className="colored-header">
                 <div className="header-color-bar">
                     <div className='header-text'>
-                        <h1 className='header-text'>You need to log in</h1>
+                        <h1 className='header-text'>Log In For More Fun Products!</h1>
                     </div>
 
                 </div>
@@ -75,9 +75,9 @@ const LandingPage = () => {
                 {items.slice(0, 10).map(item => {
                     let img = 'https://media.discordapp.net/attachments/1017492963720433868/1030624725350760448/pexels-klaus-nielsen-6294375.jpg'
                     return (
-                        <div className='splash-item-card' style={{ backgroundImage: `url(${img})` }}>
+                        <Link to="/" className='splash-item-card' style={{ backgroundImage: `url(${item.images[0]["image_url"]})` }}>
                             <div className='item-card-price'>${item.price}</div>
-                        </div>
+                        </Link>
                     )
                 })}
             </div>

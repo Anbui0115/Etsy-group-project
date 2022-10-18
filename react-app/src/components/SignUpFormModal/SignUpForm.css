@@ -132,8 +132,21 @@
   border-radius: 50px;
 }
 .signup-button-modal {
+  border: 2px black solid;
+  justify-self: flex-end;
+  font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
+    Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 9px 16px;
+  border-radius: 40px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
+  color: rgb(34, 34, 34);
   background-color: transparent;
-  border: none;
+  /* border: none; */
   cursor: pointer;
   font-size: 13px;
   font-weight: 700;
