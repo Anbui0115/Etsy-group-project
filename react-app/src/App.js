@@ -10,6 +10,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import { getAllItems } from './store/items';
 import HomePage from './components/HomePage/HomePage';
+import Footer from './components/Footer/Footer';
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
@@ -39,7 +40,7 @@ function App() {
           <SignUpForm />
         </Route> */}
         <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
+          <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
@@ -49,6 +50,7 @@ function App() {
           <HomePage />
         </Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }
