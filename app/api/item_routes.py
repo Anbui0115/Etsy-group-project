@@ -26,7 +26,6 @@ def create_new_item():
     """
     Create new item
     """  
-    print(request.get_json())
     owner_id = current_user.id
     print(owner_id)
     form = CreateItem()
@@ -34,14 +33,16 @@ def create_new_item():
     form['csrf_token'].data = request.cookies['csrf_token']
     
     if form.validate_on_submit():
-        # print(form)
-        # image = Image()
-        # form.populate_obj(image)
-
         item = Item()
         form.populate_obj(item)
         item.owner_id = owner_id
-        # item.images.append(image)
+
+
+        for image_url in form.image_urls.data:
+            image = Image()
+            image.image_url = image_url
+            item.images.append(image)            
+
         db.session.add(item)
         db.session.commit()
         return item.to_dict()
