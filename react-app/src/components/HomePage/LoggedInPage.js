@@ -6,7 +6,8 @@ import { useSelector } from 'react-redux';
 
 const LoggedInPage = () => {
     const itemsObj = useSelector(state => state.items)
-    const items = Object.values(itemsObj)
+    let items = Object.values(itemsObj)
+    items.reverse()
     // console.log(itemsObj)
     // const imgURL = "https://purepng.com/public/uploads/medium/purepng.com-pokeballpokeballdevicepokemon-ballpokemon-capture-ball-1701527825876ch1zq.png"
     const fixed_data = {
@@ -51,6 +52,13 @@ const LoggedInPage = () => {
         )
     })
 
+    let blankitems = [];
+    for (let i = 0; i < Math.abs(items.length % 5 - 5); i++) {
+        blankitems.push(
+            <div className='splash-item-card splash-item-card-blank'>
+            </div>
+        )
+    }
 
     return (
         <div className="Outer-container">
@@ -67,20 +75,21 @@ const LoggedInPage = () => {
                 <div className="header-bar"></div>
             </div>
 
-            {/* <div className='preview-text'>
-                    Please Spend Your Money Here!
+            <div className='preview-text'>
+                    Look! Contemplate! Buy!
             </div>
             <div className="basic-preview">
 
-                {items.slice(10, 20).map(item => {
+                {items.map(item => {
                     // let img = 'https://media.discordapp.net/attachments/1017492963720433868/1030624725350760448/pexels-klaus-nielsen-6294375.jpg'
                     return (
                         <Link to="/" alt={item.title} className='splash-item-card' style={{ backgroundImage: `url(${item.images[0]["image_url"]})` }}>
-                            <div className='item-card-price'>${item.price}</div>
+                            <div className='item-card-price'>${String(item.price).length === 5 ? item.price : String(item.price)+"0"}</div>
                         </Link>
                     )
                 })}
-            </div> */}
+                {blankitems}
+            </div>
 
         </div>
     )
