@@ -7,8 +7,8 @@ import { useSelector } from 'react-redux';
 const LandingPage = () => {
     const itemsObj = useSelector(state => state.items)
     const items = Object.values(itemsObj)
-    console.log(itemsObj)
-    const imgURL = "https://purepng.com/public/uploads/medium/purepng.com-pokeballpokeballdevicepokemon-ballpokemon-capture-ball-1701527825876ch1zq.png"
+    // console.log(itemsObj)
+    // const imgURL = "https://purepng.com/public/uploads/medium/purepng.com-pokeballpokeballdevicepokemon-ballpokemon-capture-ball-1701527825876ch1zq.png"
     const fixed_data = {
         "Classmate Gifts": {
             "imgUrl": "https://images.pexels.com/photos/2675061/pexels-photo-2675061.jpeg",
@@ -41,7 +41,7 @@ const LandingPage = () => {
             <div className="splash-circle-card">
                 <Link to="/" className='no-underline'>
                     <div className="splash-circle-photo">
-                        <img src={fixed_data[name]["imgUrl"]} />
+                        <img alt="" src={fixed_data[name]["imgUrl"]} />
                     </div>
                     <div className="splash-circle-title" id="splash-circle-title-id">
                         {name}
@@ -73,7 +73,7 @@ const LandingPage = () => {
             <div className="basic-preview">
 
                 {items.slice(0, 10).map(item => {
-                    let img = 'https://media.discordapp.net/attachments/1017492963720433868/1030624725350760448/pexels-klaus-nielsen-6294375.jpg'
+                    // let img = 'https://media.discordapp.net/attachments/1017492963720433868/1030624725350760448/pexels-klaus-nielsen-6294375.jpg'
                     return (
                         <Link to="/" className='splash-item-card' style={{ backgroundImage: `url(${item.images[0]["image_url"]})` }}>
                             <div className='item-card-price'>${item.price}</div>

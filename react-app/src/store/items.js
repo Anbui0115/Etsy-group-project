@@ -43,8 +43,8 @@ export const deleteItemAction = (itemId) => {
 
 // Thunks
 export const getAllItems = () => async dispatch => {
-    const res = await fetch('/api/items/');
-    
+    const res = await fetch('/api/items');
+
 if (res.ok) {
     const items = await res.json();
         dispatch(getItemsAction(items.items));
