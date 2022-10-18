@@ -75,7 +75,7 @@ const LandingPage = () => {
                 {items.slice(0, 10).map(item => {
                     // let img = 'https://media.discordapp.net/attachments/1017492963720433868/1030624725350760448/pexels-klaus-nielsen-6294375.jpg'
                     return (
-                        <Link to="/" className='splash-item-card' style={{ backgroundImage: `url(${item.images[0]["image_url"]})` }}>
+                        <Link to="/" alt={item.title} className='splash-item-card' style={{ backgroundImage: `url(${item.images[0]["image_url"]})` }}>
                             <div className='item-card-price'>${item.price}</div>
                         </Link>
                     )

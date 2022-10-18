@@ -110,8 +110,10 @@
 
 
 
-.splash-item-card {
+.splash-item-card, .splash-item-card:active, .splash-item-card:hover {
     /* border: black solid 1px; */
+    text-decoration: none;
+    color: black;
     width: 19%;
     padding-top: 19%;
     background-size: cover;
