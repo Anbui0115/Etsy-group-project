@@ -20,22 +20,22 @@ def get_shopping_cart():
 @login_required
 def add_shopping_cart():
     """
-    Add to shopping cart 
+    Add to shopping cart
     """
     owner_id = current_user.id
     form = CreateShoppingCart()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        shopping_cart = Shopping_cart()        
+        shopping_cart = Shopping_cart()
         form.populate_obj(shopping_cart)
         shopping_cart.user_id = owner_id
         db.session.add(shopping_cart)
         db.session.commit()
         return {'shopping_cart': shopping_cart.to_dict()}
     else:
-        return {'errors': form.errors}, 400  
+        return {'errors': form.errors}, 400
 
-@shopping_cart_routes.route('/<int:id>', methods="DELETE")
+@shopping_cart_routes.route('/<int:id>', methods=["DELETE"])
 def delete_shopping_cart(id):
     """
     Delete item in shopping cart by id
@@ -53,5 +53,3 @@ def delete_shopping_cart(id):
 # @shopping_cart_routes.route('/')
 # def edit_shopping_cart():
 #     pass
-
-
