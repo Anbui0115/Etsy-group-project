@@ -14,37 +14,44 @@ const ItemCard = ({ item }) => {
   console.log("item---", itemImg);
   return (
     <div className="owner-each-item">
-      <div>
+      {/* <div>
         <NavLink to="/listings/create">Add listing</NavLink>
-      </div>
+      </div> */}
 
-      <div className="owner-item-img">
-        {/* <img src={itemImg} alt="owner-item" /> */}
+      <div className="owner-each-listing">
+        <img
+          className="owner-each-listing-img"
+          src={itemImg}
+          alt="owner-item"
+        />
       </div>
 
       <div>
         <div className="owner-item-info">
-          <div className="owner-spot-price">{item.title}</div>
-          <div>${item.price}</div>
+          <div className="owner-item-title">{item.title}</div>
+          <div className="owner-item-price-and-onwer">
+            <div>owner name</div>
+            <div className="owner-item-price">${item.price}</div>
+          </div>
         </div>
       </div>
 
-      <div>
-        <button className="onwer-edit-button">
+      <div className="listing-buttons">
+        <div className="onwer-edit-button">
           {/* <NavLink
                         to={`/spots/${spot.id}/edit`}
                         style={{ textDecoration: "none", color: "white" }}
                       > */}
           Edit
           {/* </NavLink> */}
-        </button>
+        </div>
 
-        <button
+        <div
           className="onwer-delete-button"
           // onClick={(e) => onClickDelete(e, spot.id)}
         >
           Delete
-        </button>
+        </div>
       </div>
     </div>
   );
