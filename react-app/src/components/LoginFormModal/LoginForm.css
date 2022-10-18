@@ -80,16 +80,16 @@
 
 .register {
   /* border: dashed 1px purple; */
-  margin: 5px;
+  /* margin: 5px;
   font-size: 13px;
   font-weight: 500;
   align-self: center;
   justify-content: space-evenly;
   font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
-    Arial, sans-serif;
+    Arial, sans-serif; */
 }
 
-.register-text {
+/* .register-text {
   border: 2px black solid;
   justify-self: flex-end;
   font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
@@ -103,7 +103,7 @@
   margin-left: 20px;
   margin-right: 20px;
   color: rgb(34, 34, 34);
-}
+} */
 
 .login-container {
   /* border: 1px solid black; */
@@ -121,6 +121,7 @@
   font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
     Arial, sans-serif;
   padding: 8px 8px;
+  cursor: auto;
 }
 
 .input-field {
@@ -218,5 +219,5 @@
     height: 36px;
     line-height: 18px;
     width: 73px;
-    
+
 }
