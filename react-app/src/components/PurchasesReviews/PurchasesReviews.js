@@ -31,6 +31,7 @@ const PurchasesReviews= ()=>{
                 const item = itemsObj[purchase.itemId]
 
                 let reviewPreview = <></>
+                let hasReview = false
                 if (purchase.review.length !== 0) {
                     const itemReview = purchase.review[0]
                     reviewPreview = (
@@ -40,9 +41,10 @@ const PurchasesReviews= ()=>{
                             {/* <div>{itemReview["description"]}</div> */}
                         </div>
                     )
+                    hasReview = true
                 }
                 return (
-                    <div className="purchase-card">
+                    <div key={item.id} className="purchase-card">
                         <div className="purchase-card-image-container">
                             <div className="purchase-card-image">
                                 <img src={item["images"][0]["image_url"]}></img>
@@ -55,7 +57,7 @@ const PurchasesReviews= ()=>{
                             {reviewPreview}
                         </div>
                         <div className="purchase-card-right">
-                            <ReviewModal />
+                            <ReviewModal hasReview={hasReview} review={purchase.review[0]} item={item} />
                         </div>
                     </div>
                 )

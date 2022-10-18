@@ -23,7 +23,7 @@ class Review(db.Model):
             'id': self.id,
             'item_id': self.item_id,
             'user_id': self.user_id,
-            # 'purchase_id' : self.purchase_id,
+            'purchase_id' : self.purchase_id,
             'stars': self.stars,
             'title': self.title,
             'description': self.description
