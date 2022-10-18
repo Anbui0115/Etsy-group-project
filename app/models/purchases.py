@@ -10,7 +10,12 @@ class Purchase(db.Model):
     item_id = db.Column(db.Integer, db.ForeignKey("items.id", ondelete="CASCADE"), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
     quantity = db.Column(db.Integer, nullable=False)
+    price = db.Column(db.Float, nullable=False)
    
+    #relationships
+    user = db.relationship("User", back_populates="user_purchases")
+    item = db.relationship("Item", back_populates="purchases")
+
     def to_dict(self):
         return {
             'id': self.id,

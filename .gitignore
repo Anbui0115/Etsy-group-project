@@ -6,3 +6,4 @@ __pycache__/
 .vscode/
 *Zone.Identifier
 app/dev.db
+*.swp
