@@ -55,7 +55,7 @@ const LandingPage = () => {
     return (
         <div className="Outer-container">
             <div className="colored-header">
-                <div className="header-color-bar">
+                <div className="header-color-bar-logged-in">
                     <div className='header-text'>
                         <h1 className='header-text'>Log In For More Fun Products!</h1>
                     </div>
