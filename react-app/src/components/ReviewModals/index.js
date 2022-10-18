@@ -11,11 +11,12 @@ function ReviewModal({hasReview, review, item}) {
 
   const form = hasReview ? <>has review</> : <MakeReviewForm item={item} />
   const btntext = hasReview ? <>Manage Review</> : <>Make Review</>
+  const css = hasReview ? "edit-review-modal erw" : "edit-review-modal erb"
 
   return (
     <>
       <button
-        className="edit-review-modal"
+        className={css}
         onClick={
           () => setShowModal(true)
           //  console.log("SHOW MODAL NOW",showModal)

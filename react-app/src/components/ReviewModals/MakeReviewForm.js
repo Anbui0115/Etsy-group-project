@@ -4,6 +4,9 @@ import { Redirect } from "react-router-dom";
 // import { signUp } from "../../store/session";
 
 const MakeReviewForm = ({item}) => {
+    const user = useSelector((state) => state.session.user);
+    const dispatch = useDispatch();
+
     const [errors, setErrors] = useState([]);
     const [title, setTitle] = useState("");
     const [stars, setStars] = useState("");
@@ -11,24 +14,74 @@ const MakeReviewForm = ({item}) => {
 
     // also need to plug in item_id, user_id, purchase_id
 
+    const updateTitle = (e) => {
+        setTitle(e.target.value);
+    };
 
+    const updateStars = (e) => {
+        setStars(e.target.value);
+    };
+
+    const updateDescription = (e) => {
+        setDescription(e.target.value);
+    };
 
     return (
-        <>
-        make review form
-        </>
+        <form className="make-review-form" >
+        <div className="create-account">
+            <div className="create-acct-text">Share Your Thoughts!</div>
+        </div>
+
+        <div className="signup-container">
+            <div className="signup-errors">
+            {errors.map((error, ind) => (
+                <div key={ind}>{error}</div>
+            ))}
+            </div>
+
+            <div className="signup-body">
+            <div className="input-field">
+                <label>Title</label>
+                <input
+                className="credential"
+                type="text"
+                name="title"
+                onChange={updateTitle}
+                value={title}
+                required
+                ></input>
+            </div>
+            <div className="input-field">
+                <label>Stars</label>
+                <input
+                className="credential"
+                type="text"
+                name="stars"
+                onChange={updateStars}
+                value={stars}
+                required
+                ></input>
+            </div>
+            <div className="input-field">
+                <label className="input">Description</label>
+                <textarea
+                type="text"
+                name="description"
+                onChange={updateDescription}
+                value={description}
+                required
+                ></textarea>
+            </div>
+            <button className="signup-button" type="submit">
+                Sign Up
+            </button>{" "}
+            </div>
+        </div>
+        </form>
     )
 }
 
 // const SignUpForm = () => {
-//   const [errors, setErrors] = useState([]);
-//   const [username, setUsername] = useState("");
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [repeatPassword, setRepeatPassword] = useState("");
-//   const user = useSelector((state) => state.session.user);
-//   const dispatch = useDispatch();
-
 //   const onSignUp = async (e) => {
 //     e.preventDefault();
 //     if (password === repeatPassword) {
@@ -39,21 +92,7 @@ const MakeReviewForm = ({item}) => {
 //     }
 //   };
 
-//   const updateUsername = (e) => {
-//     setUsername(e.target.value);
-//   };
 
-//   const updateEmail = (e) => {
-//     setEmail(e.target.value);
-//   };
-
-//   const updatePassword = (e) => {
-//     setPassword(e.target.value);
-//   };
-
-//   const updateRepeatPassword = (e) => {
-//     setRepeatPassword(e.target.value);
-//   };
 
 //   if (user) {
 //     return <Redirect to="/" />;
