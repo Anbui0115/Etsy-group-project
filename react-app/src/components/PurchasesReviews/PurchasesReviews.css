@@ -1,0 +1,40 @@
+.purchases-container {
+    /* border: 1px solid black; */
+    margin: auto;
+    width: 80%;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.purchase-card {
+    border: 1px solid cyan;
+    margin: auto;
+    width: 95%;
+    aspect-ratio: 5/1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.purchase-card-image {
+    width: 20%;
+    border: 1px solid green;
+    height: 100%;
+    display: flex;
+}
+
+.purchase-card-image > img {
+    width: 80%;
+    margin: auto;
+    object-fit: contain;
+}
+
+.purchase-card-right {
+    /* border: 1px solid red; */
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
