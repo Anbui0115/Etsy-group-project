@@ -35,12 +35,23 @@ def add_shopping_cart():
     else:
         return {'errors': form.errors}, 400  
 
+@shopping_cart_routes.route('/<int:id>', methods="DELETE")
+def delete_shopping_cart(id):
+    """
+    Delete item in shopping cart by id
+    """
+    cart = Shopping_cart.query.filter(id=id).first()
+    if cart is not None:
+        db.session.delete(cart)
+        db.session.commit()
+        return {"message": "Deleted successfuly"}
+    else:
+        return {'errors':["Item couldn't be found"]}, 400
+
+
 
 # @shopping_cart_routes.route('/')
 # def edit_shopping_cart():
 #     pass
 
 
-# @shopping_cart_routes.route('/')
-# def delete_shopping_cart():
-#     pass
