@@ -46,15 +46,11 @@ Migrate(app, db)
 # Application Security
 CORS(app)
 
-@app.route('/api/help', methods = ['GET'])
-def help():
-    """Print available functions."""
-    func_list = {}
-    for rule in app.url_map.iter_rules():
-        if rule.endpoint != 'static':
-            func_list[rule.rule] = app.view_functions[rule.endpoint].__doc__
-    return jsonify(func_list)
-
+@app.route("/api/help")
+def api_help():
+    route_list = { rule.rule: app.view_functions[rule.endpoint].__doc__ 
+                    for rule in app.url_map.iter_rules() if rule.endpoint != 'static' }
+    return route_list
 # Since we are deploying with Docker and Flask,
 # we won't be using a buildpack when we deploy to Heroku.
 # Therefore, we need to make sure that in production any

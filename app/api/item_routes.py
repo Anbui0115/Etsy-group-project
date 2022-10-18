@@ -3,19 +3,70 @@ from flask import Blueprint, jsonify, request
 from app.models import User, db, Item,Image,Review
 from flask_login import login_required
 from ..forms.create_item import CreateItem
+from ..forms.update_item_form import UpdateItem
+
 from flask_login import login_required, current_user
 from app.models.reviews import Review
 # from app.forms import ItemsForm #TODO ItemsForm needs to be created, added to forms.__init__.py
 
 item_routes = Blueprint('items', __name__)
 
-@item_routes.route('/', methods=["GET"])
+@item_routes.route('', methods=["GET"])
 def get_item():
     """
     Get all items
     """
     items = Item.query.all()
     return {'items': [i.to_dict() for i in items]}
+
+
+@item_routes.route('', methods=["POST"])
+@login_required
+def create_new_item():
+    """
+    Create new item
+    """  
+    print(request.get_json())
+    owner_id = current_user.id
+    print(owner_id)
+    form = CreateItem()
+    print(form.data)
+    form['csrf_token'].data = request.cookies['csrf_token']
+    
+    if form.validate_on_submit():
+        # print(form)
+        # image = Image()
+        # form.populate_obj(image)
+
+        item = Item()
+        form.populate_obj(item)
+        item.owner_id = owner_id
+        # item.images.append(image)
+        db.session.add(item)
+        db.session.commit()
+        return item.to_dict()
+    else:
+        return {'errors': form.errors}, 400  
+    
+@item_routes.route('/<int:id>', methods=["PUT"])
+@login_required
+def edit_item(id):
+    """
+    Update item
+    """  
+    owner_id = current_user.id
+    form = UpdateItem()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    
+    if form.validate_on_submit():
+        item = Item.query.filter_by(id=id).first()
+        if item is None:
+            return {'error': "Item couldn't be found"}, 404 
+        form.populate_obj(item)
+        db.session.commit()
+        return item.to_dict()
+    else:
+        return {'errors': form.errors}, 400  
 
 @item_routes.route('/<int:id>', methods=["GET"])
 def get_item_by_id(id):
@@ -36,47 +87,4 @@ def delete_item_by_id(id):
         db.session.commit()
         return {"message": "Deleted successfuly"}
     else:
-        return {"message": "item is not found"}    
-
-@item_routes.route('/', methods=["POST"])
-# @login_required
-def create_item():
-    """
-    Create new item
-    """
-    form = CreateItem()
-    form['csrf_token'].data = request.cookies['csrf_token']
-    # if form.validate_on_submit():
-    title = request.form["title"]
-    description = request.form["description"]
-    price = request.form["price"]
-    owner_id = 1
-    # owner_id = current_user.id
-    item = Item(owner_id,title,description,price)
-    db.session.add(item)
-
-    image_url = request.form["image_url"]
-    item_id = item.id
-    image = Image(item_id, image_url)
-    
-    db.session.add(image)
-    db.session.commit()
-
-    return {'items': [i.to_dict() for i in item]}
-    
-    
-    
-    
-
-
-    
-
-
-# @item_routes.route('/')
-# def edit_item():
-#     pass
-
-
-# @item_routes.route('/')
-# def delete_item():
-#     pass
+        return {'errors': ["Item couldn't be found"]}, 404      
