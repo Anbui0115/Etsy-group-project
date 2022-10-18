@@ -27,6 +27,18 @@ const PurchasesReviews= ()=>{
         purchaseCards =
             purchases.map(purchase => {
                 const item = itemsObj[purchase.itemId]
+
+                let reviewPreview = <></>
+                if (purchase.review.length !== 0) {
+                    const itemReview = purchase.review[0]
+                    reviewPreview = (
+                        <div className="review-preview">
+                            {/* <div>{itemReview["title"]}</div> */}
+                            <div>Your Rating: {"★".repeat(parseInt(itemReview["stars"]))}</div>
+                            {/* <div>{itemReview["description"]}</div> */}
+                        </div>
+                    )
+                }
                 return (
                     <div className="purchase-card">
                         <div className="purchase-card-image-container">
@@ -35,10 +47,10 @@ const PurchasesReviews= ()=>{
                             </div>
                         </div>
                         <div className="purchase-card-mid">
-                            <div className="purchase-card-title">{item.title}</div>
+                            <div className="purchase-card-title">{item.title} ({purchase.quantity})</div>
                             {/* <div className="purchase-card-description">{item.description}</div> */}
-                            <div className="purchase-card-price">${makeProperPrice(purchase.price)}</div>
-
+                            <div className="purchase-card-price">${makeProperPrice(purchase.price)} ea</div>
+                            {reviewPreview}
                         </div>
                         <div className="purchase-card-right">
                             <div>Leave a Review</div>
