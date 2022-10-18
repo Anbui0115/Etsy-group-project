@@ -5,6 +5,8 @@ import { useHistory } from "react-router-dom";
 import { getPurchasesAction } from "../../store/session";
 import { makeProperPrice } from "../../utils/properPrice";
 import './PurchasesReviews.css'
+import ReviewModal from "../ReviewModals"
+
 /* TODO:
 if user is not logged in, render <LandingPage />
 else render all components for homepage
@@ -53,7 +55,7 @@ const PurchasesReviews= ()=>{
                             {reviewPreview}
                         </div>
                         <div className="purchase-card-right">
-                            <div>Leave a Review</div>
+                            <ReviewModal />
                         </div>
                     </div>
                 )
