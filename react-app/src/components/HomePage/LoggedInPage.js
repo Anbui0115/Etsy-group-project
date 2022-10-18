@@ -91,8 +91,8 @@ const LoggedInPage = () => {
                     {createLopsidedCard(items[5],true)}
                 </div>
                 <div className='lopsided-homepage-column'>
-                    {createLopsidedCard(items[2],true)}
-                    {createLopsidedCard(items[3],false)}
+                    {createLopsidedCard(items[6],true)}
+                    {createLopsidedCard(items[7],false)}
                 </div>
             </div>
         )
