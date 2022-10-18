@@ -8,7 +8,7 @@ import { NavLink, Redirect } from "react-router-dom";
 
 import "./UserListing.css";
 import CreateUserItem from "../CreateItem/CreateItemForm";
-import ItemCard from "../EachItemCard";
+import ItemCard from "../User's_Item_Card";
 
 function UserListing() {
   const dispatch = useDispatch();
@@ -25,66 +25,40 @@ function UserListing() {
 
   console.log("LISTING BY OWNER", listingByOwner);
 
-  useEffect(() => {
-    // todo:create get item by owner thunk
-    // and dispatch it here
-    // dispatch(getItemsByOwnerThunk());
-    return () => {
-      //optional
-      //   dispatch(cleanUpAllItems());
-    };
-  }, [dispatch]);
+  // useEffect(() => {
+  //   // todo:create get item by owner thunk
+  //   // and dispatch it here
+  //   // dispatch(getItemsByOwnerThunk());
+  //   return () => {
+  //     //optional
+  //     //   dispatch(cleanUpAllItems());
+  //   };
+  // }, [dispatch]);
 
-  const onClickDelete = async (e, spotId) => {
-    e.preventDefault();
-    // await dispatch(deleteASpotThunk(spotId));
-    history.push(`/`);
-  };
+  // const onClickDelete = async (e, spotId) => {
+  //   e.preventDefault();
+  //   // await dispatch(deleteASpotThunk(spotId));
+  //   history.push(`/`);
+  // };
 
-  if (!items) return null;
+  if (!listingByOwner) return null;
   if (!sessionUser) return <Redirect to="/" />;
 
   return (
-    { itemsArray } && (
+    { listingByOwner } && (
       <>
         <div className="owner-items-outer-container">
-          <div className="onwer-listing">Your listings </div>
+          <div className="onwer-listing">Stock your shop</div>
+          <div className="owner-listing-subtitle">
+            Add the rest of your items or try starting with five. Keep in mind:
+            The more you have, the more likely you'll be discovered.
+          </div>
           <div className="owner-items-inner-container">
-           <NavLink to='/listings/create'>Add listing</NavLink>
+            {/* <NavLink to="/listings/create">Add listing</NavLink> */}
             <div className="owner-item-display">
               {listingByOwner.map((item) => (
                 <div className="owner-each-item">
-
-                    <ItemCard item={item}/>
-                  {/* <div className="owner-item-img">
-                    <img src={item.image_urls} alt="owner-item" />
-                  </div>
-
-                  <div>
-                    <div className="owner-item-info">
-                      <div className="owner-spot-price">
-                        {item.title}, {item.description}, ${item.price}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div> */}
-                    {/* <button className="onwer-edit-button">
-                      <NavLink
-                        to={`/spots/${spot.id}/edit`}
-                        style={{ textDecoration: "none", color: "white" }}
-                      >
-                        Edit Spot
-                      </NavLink>
-                    </button> */}
-
-                    {/* <button
-                      className="onwer-delete-button"
-                      onClick={(e) => onClickDelete(e, spot.id)}
-                    >
-                      Delete your spot
-                    </button> */}
-                  {/* </div> */}
+                  <ItemCard item={item} />
                 </div>
               ))}
             </div>
