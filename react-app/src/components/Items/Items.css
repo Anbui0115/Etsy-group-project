@@ -1,0 +1,27 @@
+.outer-div {
+    display: flex;
+    width: 80%;
+}
+
+.item-by-id {
+    border: orange 1px solid;
+    width: auto;
+    flex-direction: column;
+}
+
+.picture-and-reviews {
+    border: red 2px solid;
+    display: flex;
+    position: relative;
+    /* width: 66%; */
+    /* align-items:center; */
+}
+
+.item-info-and-cart-button {
+    border: blue 2px solid;
+    display: flex;
+    position:relative;
+    /* width: 33%; */
+    /* justify-content:center; */
+    /* align-content: flex-end; */
+}

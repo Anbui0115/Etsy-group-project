@@ -1,6 +1,8 @@
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
+import "../Items.css"
+
 const ItemById = () => {
     const { itemId } = useParams();
     const sessionState = useSelector(state => state.session);
@@ -25,7 +27,7 @@ const ItemById = () => {
                             <div className="picture-and-reviews">
                                 <div className="pictures">
                                     <div className="picture-list">
-                                        {/* Display carosel here with {item.images} */}
+                                        {/* Display image carrossel here with {item.images} */}
                                     </div>
                                     <div className="display-picture">
                                         <img src={item.images[0].image_url} />
@@ -40,7 +42,10 @@ const ItemById = () => {
                                     <div className="individual-item-price">{item.price}</div>
                                 </div>
                                 <div className="add-to-cart-button">{/* render "add to cart" button*/}</div>
-                                <div className="item-description">{item.description}</div>
+                                <div className="description-title-and-description">
+                                    <div className="item-description-title">Description</div>
+                                    <div className="item-description">{item.description}</div>
+                                </div>
                             </div>
                         </div>
 
