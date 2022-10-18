@@ -21,5 +21,6 @@ class Purchase(db.Model):
             'id': self.id,
             'itemId': self.item_id,
             'userId': self.user_id,
-            'quantity': self.quantity
+            'quantity': self.quantity,
+            'price' : self.price
         }

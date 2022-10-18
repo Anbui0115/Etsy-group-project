@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 
 import { useHistory } from "react-router-dom";
 import { getPurchasesAction } from "../../store/session";
+import { makeProperPrice } from "../../utils/properPrice";
 import './PurchasesReviews.css'
 /* TODO:
 if user is not logged in, render <LandingPage />
@@ -32,6 +33,9 @@ const PurchasesReviews= ()=>{
                             <img src={item["images"][0]["image_url"]}></img>
                         </div>
                         <div className="purchase-card-right">
+                            <div>{item.title}</div>
+                            <div>{item.description}</div>
+                            <div>{makeProperPrice(purchase.price)}</div>
 
                         </div>
                     </div>
