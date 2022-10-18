@@ -6,6 +6,7 @@ const CREATE_SHOPPINGCART = 'shoppingCarts/CREATE_SHOPPINGCART';
 const EDIT_SHOPPINGCART = 'shoppingCarts/EDIT_SHOPPINGCART';
 const DELETE_SHOPPINGCART = 'shoppingCarts/DELETE_SHOPPINGCART';
 const CLEAR_SHOPPINGCART = 'shoppingCarts/CLEAR_SHOPPINGCART';
+const GET_PURCHASES = "items/GET_PURCHASES";
 
 // Action Creators
 const setUser = (user) => ({
@@ -48,6 +49,13 @@ export const deleteShoppingCartAction = (shoppingCartId) => {
 export const clearShoppingCartAction = () => {
   return {
       type: CLEAR_SHOPPINGCART
+  }
+}
+
+const getPurchases = (purchases) => {
+  return {
+      type: GET_PURCHASES,
+      purchases
   }
 }
 
@@ -185,6 +193,17 @@ export const deleteShoppingCart = (shoppingCartId) => async dispatch => {
   }
 }
 
+export const getPurchasesAction = (id) => async dispatch => {
+  // console.log("fadsfadsfdsafsa", id)
+  const res = await fetch(`/api/purchases/${id}`)
+
+  if (res.ok) {
+    const purchases = await res.json()
+    // console.log(purchases)
+    dispatch(getPurchases(purchases))
+  }
+}
+
 const initialState = { user: null };
 
 //Reducer
@@ -209,6 +228,10 @@ export default function reducer(state = initialState, action) {
         return newState;
     case CLEAR_SHOPPINGCART:
         return {}
+    case GET_PURCHASES:
+        // console.log(action.purchases.purchases)
+        newState["purchases"] = action.purchases.purchases
+        return newState
     default:
       return state;
   }

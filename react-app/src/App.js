@@ -14,6 +14,7 @@ import HomePage from "./components/HomePage/HomePage";
 import CreateUserItem from "./components/CreateItem/CreateItemForm";
 import UserListing from "./components/Listing/UserListing";
 import Footer from './components/Footer/Footer';
+import PurchasesReviews from "./components/PurchasesReviews/PurchasesReviews";
 
 
 
@@ -63,6 +64,9 @@ function App() {
         <Route path="/listings/create" exact={true}>
           <CreateUserItem />
         </Route>
+        <ProtectedRoute path="/purchases-and-reviews" exact={true}>
+          <PurchasesReviews />
+        </ProtectedRoute>
       </Switch>
       <Footer />
     </BrowserRouter>
