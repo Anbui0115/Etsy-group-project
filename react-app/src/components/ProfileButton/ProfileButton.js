@@ -3,9 +3,11 @@ import { Modal } from "../../context/Modal";
 import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
 // import profileButton from "./profileButton.png";
-import { useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import "./ProfileButton.css";
 import LogoutButton from "../auth/LogoutButton";
+
+
 
 function ProfileButton({ user }) {
   // console.log("user in Profile Button", user);
@@ -74,13 +76,13 @@ function ProfileButton({ user }) {
           >
             Purchases and reviews
           </div>
-          <div
+          {/* <div
             className="manage-your-listing"
             // onClick={() => history.push("")}
-          >
+          ></div> */}
+          <NavLink className="manage-your-listing" to="/listings">
             Manage Listing
-          </div>
-
+          </NavLink>
           <div className="profile-log-out" onClick={logout}>
             <LogoutButton />
           </div>
