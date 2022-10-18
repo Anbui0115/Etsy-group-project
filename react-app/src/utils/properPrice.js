@@ -1,3 +1,5 @@
+// import { makeProperPrice } from "../../utils/properPrice";
+
 export const makeProperPrice = (price) => {
     let s = String(price).split(".")
     if (s.length === 1) return s[0] + ".00"
