@@ -7,7 +7,7 @@ const ItemById = () => {
     const reviewsState = useSelector(state => state.reviews);
     const itemsStateObj = useSelector(state => state.items);
     const items = Object.values(itemsStateObj);
-    const currentUserId = session.user.id;
+    const currentUserId = sessionState.user.id;
 
     if (!itemId) return null;
     if (!reviewsState) return null;
@@ -17,7 +17,6 @@ const ItemById = () => {
 
     return (
         <div className="outer-div">
-            <h1> Hi there!</h1>
             <div className="picture-and-reviews">
                 <div className="pictures">
                     <div className="picture-list"></div>
