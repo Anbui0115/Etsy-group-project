@@ -89,3 +89,16 @@
     /* width: 1035px; */
 
 }
+.profile_dropdown{
+  border-radius: 50 px;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 12px 6px 12px 12px;
+}
+
+.profile_dropdown:hover{
+  border-radius: 50 px;
+  cursor: pointer;
+  padding: 12px 6px 12px 12px;
+  background-color: grey;
+}

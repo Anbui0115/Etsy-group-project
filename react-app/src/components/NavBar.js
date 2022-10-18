@@ -6,20 +6,20 @@ import styles from './NavBar.module.css'
 import { useSelector } from 'react-redux';
 import LoginFormModal from "./LoginFormModal"
 import ProfileButton from "./ProfileButton/ProfileButton"
+import Cart from './Cart/Cart';
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user)
-  const cartIcon = <i class="fa-solid fa-cart-shopping"></i>
   let sessionLinks;
-
   if (sessionUser) {
     sessionLinks = (
       <>
+        <div className='profile_dropdown'> 
+          <NavLink to="/cart" className='profile_dropdown'><i class="fa-solid fa-cart-shopping"></i></NavLink>           
+        </div>
         <div className='profile_dropdown'>
           <ProfileButton/>
         </div>
-        <div>
-          {/* <button className= {styles.profile_dropdown}></button> */}
-        </div>
+       
         {/* <div>
           <LogoutButton />
         </div> */}

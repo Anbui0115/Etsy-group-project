@@ -15,6 +15,7 @@ import CreateUserItem from "./components/CreateItem/CreateItemForm";
 import UserListing from "./components/Listing/UserListing";
 import Footer from './components/Footer/Footer';
 import PurchasesReviews from "./components/PurchasesReviews/PurchasesReviews";
+import Cart from "./components/Cart/Cart";
 
 
 
@@ -47,7 +48,6 @@ function App() {
 
 
         <ProtectedRoute path='/users' exact={true} >
-
           <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true}>
@@ -57,9 +57,11 @@ function App() {
           {/* <h1>My Home Page</h1> */}
           <HomePage />
         </Route>
-
         <Route path="/listings" exact={true}>
           <UserListing />
+        </Route>
+        <Route path="/cart" exact={true}>
+          <Cart />
         </Route>
         <Route path="/listings/create" exact={true}>
           <CreateUserItem />
