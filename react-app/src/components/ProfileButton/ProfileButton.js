@@ -72,7 +72,7 @@ function ProfileButton({ user }) {
 
           <div
             className="purchases-and-reviews"
-            // onClick={() => history.push("")}
+            onClick={() => history.push("/purchases-and-reviews")}
           >
             Purchases and reviews
           </div>
