@@ -31,16 +31,16 @@ const ItemById = () => {
                                         <img src={item.images[0].image_url} />
                                         </div>
                                 </div>
-                                <div className="reviews"></div>
+                                <div className="reviews">{/* render "reviews" here*/}</div>
                             </div>
                             <div className="item-info-and-cart-button">
                                 <div className="store-name">From {item.owner.username}'s shop</div>
                                 <div className="item-title-and-price">
-                                    <div className="individual-item-title"></div>
-                                    <div className="individual-item-price"></div>
+                                    <div className="individual-item-title">{item.title}</div>
+                                    <div className="individual-item-price">{item.price}</div>
                                 </div>
-                                <div className="add-to-cart-button">{/* render "add to cart"*/}</div>
-                                <div className="item-description"></div>
+                                <div className="add-to-cart-button">{/* render "add to cart" button*/}</div>
+                                <div className="item-description">{item.description}</div>
                             </div>
                         </div>
 
