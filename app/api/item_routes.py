@@ -32,8 +32,6 @@ def create_new_item():
         item = Item()
         form.populate_obj(item)
         item.owner_id = owner_id
-
-
         for image_url in form.image_urls.data:
             image = Image()
             image.image_url = image_url

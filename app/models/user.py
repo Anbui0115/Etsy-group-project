@@ -12,7 +12,7 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
 
     # relationships
-    items = db.relationship("Item",back_populates="owner")
+    items = db.relationship("Item",back_populates="owner" )
     reviews = db.relationship("Review", back_populates="user_review")
     shopping_cart = db.relationship("Shopping_cart", back_populates="user")
     user_purchases = db.relationship("Purchase", back_populates="user")

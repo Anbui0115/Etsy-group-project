@@ -8,7 +8,7 @@ import LoginFormModal from "./LoginFormModal"
 import ProfileButton from "./ProfileButton/ProfileButton"
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user)
-
+  const cartIcon = <i class="fa-solid fa-cart-shopping"></i>
   let sessionLinks;
 
   if (sessionUser) {
@@ -16,6 +16,9 @@ const NavBar = () => {
       <>
         <div className='profile_dropdown'>
           <ProfileButton/>
+        </div>
+        <div>
+          {/* <button className= {styles.profile_dropdown}></button> */}
         </div>
         {/* <div>
           <LogoutButton />
