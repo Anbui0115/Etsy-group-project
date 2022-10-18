@@ -2,6 +2,7 @@ footer {
     background-color: #2F466C;
     width: 100%;
     margin-top: 20px;
+    bottom: 0;
 }
 
 .footer-container {
@@ -21,7 +22,8 @@ footer {
     flex-direction: row;
     justify-content:center;
     align-items: center;
-    width: 15%;
+    width: 10%;
+    margin-right: 5%;
 }
 
 .Dev-info {
