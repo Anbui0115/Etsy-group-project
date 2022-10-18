@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, session, redirect
+from flask import Flask, render_template, request, session, redirect,jsonify
 from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect, generate_csrf
@@ -8,6 +8,11 @@ from flask_login import LoginManager
 from .models import db, User
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
+from .api.item_routes import item_routes
+# from .api.review_routes import review_routes
+# from .api.shopping_cart_routes import shopping_cart_routes
+# from .api.search_routes import search_routes
+
 
 from .seeds import seed_commands
 
@@ -31,13 +36,21 @@ app.cli.add_command(seed_commands)
 app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
+app.register_blueprint(item_routes, url_prefix='/api/items')
+# app.register_blueprint(review_routes, url_prefix='/api/reviews')
+# app.register_blueprint(shopping_cart_routes, url_prefix='/api/shopping_carts')
+# app.register_blueprint(search_routes, url_prefix='/api/searches')
 db.init_app(app)
 Migrate(app, db)
 
 # Application Security
 CORS(app)
 
-
+@app.route("/api/help")
+def api_help():
+    route_list = { rule.rule: app.view_functions[rule.endpoint].__doc__ 
+                    for rule in app.url_map.iter_rules() if rule.endpoint != 'static' }
+    return route_list
 # Since we are deploying with Docker and Flask,
 # we won't be using a buildpack when we deploy to Heroku.
 # Therefore, we need to make sure that in production any
