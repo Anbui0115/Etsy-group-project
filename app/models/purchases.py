@@ -15,6 +15,7 @@ class Purchase(db.Model):
     #relationships
     user = db.relationship("User", back_populates="user_purchases")
     item = db.relationship("Item", back_populates="purchases")
+    reviews = db.relationship("Review")
 
     def to_dict(self):
         return {
@@ -22,5 +23,6 @@ class Purchase(db.Model):
             'itemId': self.item_id,
             'userId': self.user_id,
             'quantity': self.quantity,
-            'price' : self.price
+            'price' : self.price,
+            'review' : [i.to_dict() for i in self.reviews]
         }
