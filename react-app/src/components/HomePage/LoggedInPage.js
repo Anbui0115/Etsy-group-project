@@ -60,6 +60,46 @@ const LoggedInPage = () => {
         )
     }
 
+    const createLopsidedCard = (item, isSmall) => {
+        let sizeClass = 'lopsided-big-card lopsided-card'
+        if (isSmall) {
+            sizeClass = 'lopsided-small-card lopsided-card'
+        }
+        // return (<></>)
+        return (
+            <Link to="/" alt={item.title} className={sizeClass} style={{ backgroundImage: `url(${item.images[0]["image_url"]})` }}>
+                <div className='lopsided-item-card-price'>${String(item.price).length === 5 ? item.price : String(item.price)+"0"}</div>
+            </Link>
+        )
+    }
+
+    let lopsided = ( <></>)
+    try {
+
+        lopsided = (
+            <div className='lopsided-homepage-previews'>
+                <div className='lopsided-homepage-column'>
+                    {createLopsidedCard(items[0],false)}
+                    {createLopsidedCard(items[1],true)}
+                </div>
+                <div className='lopsided-homepage-column'>
+                    {createLopsidedCard(items[2],true)}
+                    {createLopsidedCard(items[3],false)}
+                </div>
+                <div className='lopsided-homepage-column'>
+                    {createLopsidedCard(items[4],false)}
+                    {createLopsidedCard(items[5],true)}
+                </div>
+                <div className='lopsided-homepage-column'>
+                    {createLopsidedCard(items[2],true)}
+                    {createLopsidedCard(items[3],false)}
+                </div>
+            </div>
+        )
+    }
+    catch {
+        lopsided = (<></>)
+    }
     return (
         <div className="Outer-container">
             <div className="colored-header">
@@ -75,12 +115,14 @@ const LoggedInPage = () => {
                 <div className="header-bar"></div>
             </div>
 
+            {lopsided}
+
             <div className='preview-text'>
                     Look! Contemplate! Buy!
             </div>
             <div className="basic-preview">
 
-                {items.map(item => {
+                {items.slice(8).map(item => {
                     // let img = 'https://media.discordapp.net/attachments/1017492963720433868/1030624725350760448/pexels-klaus-nielsen-6294375.jpg'
                     return (
                         <Link to="/" alt={item.title} className='splash-item-card' style={{ backgroundImage: `url(${item.images[0]["image_url"]})` }}>
