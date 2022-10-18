@@ -29,14 +29,19 @@ const PurchasesReviews= ()=>{
                 const item = itemsObj[purchase.itemId]
                 return (
                     <div className="purchase-card">
-                        <div className="purchase-card-image">
-                            <img src={item["images"][0]["image_url"]}></img>
+                        <div className="purchase-card-image-container">
+                            <div className="purchase-card-image">
+                                <img src={item["images"][0]["image_url"]}></img>
+                            </div>
+                        </div>
+                        <div className="purchase-card-mid">
+                            <div className="purchase-card-title">{item.title}</div>
+                            {/* <div className="purchase-card-description">{item.description}</div> */}
+                            <div className="purchase-card-price">${makeProperPrice(purchase.price)}</div>
+
                         </div>
                         <div className="purchase-card-right">
-                            <div>{item.title}</div>
-                            <div>{item.description}</div>
-                            <div>{makeProperPrice(purchase.price)}</div>
-
+                            <div>Leave a Review</div>
                         </div>
                     </div>
                 )
