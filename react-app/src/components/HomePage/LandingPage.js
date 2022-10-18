@@ -55,7 +55,7 @@ const LandingPage = () => {
     return (
         <div className="Outer-container">
             <div className="colored-header">
-                <div className="header-color-bar-logged-in">
+                <div className="header-color-bar">
                     <div className='header-text'>
                         <h1 className='header-text'>Log In For More Fun Products!</h1>
                     </div>
@@ -76,7 +76,7 @@ const LandingPage = () => {
                     // let img = 'https://media.discordapp.net/attachments/1017492963720433868/1030624725350760448/pexels-klaus-nielsen-6294375.jpg'
                     return (
                         <Link to="/" alt={item.title} className='splash-item-card' style={{ backgroundImage: `url(${item.images[0]["image_url"]})` }}>
-                            <div className='item-card-price'>${item.price}</div>
+                            <div className='item-card-price'>${String(item.price).length === 5 ? item.price : String(item.price)+"0"}</div>
                         </Link>
                     )
                 })}
