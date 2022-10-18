@@ -1,24 +1,24 @@
 from pickle import NONE
 from flask import Blueprint, jsonify, request
-# from app.api.auth_routes import login
+from app.api.auth_routes import login
 from app.models import User, db, Purchase
 # from flask_login import login_required
 # from ..forms.create_item import CreateItem
 # from ..forms.update_item_form import UpdateItem
 
-# from flask_login import login_required, current_user
+from flask_login import login_required, current_user
 # from app.models.reviews import Review
 # from app.forms import ItemsForm #TODO ItemsForm needs to be created, added to forms.__init__.py
 
 purchase_routes = Blueprint('purchases', __name__)
 
-@purchase_routes.route('', methods=["GET"])
-def get_item():
+@purchase_routes.route('/<int:id>', methods=["GET"])
+@login_required
+def get_item(id):
     """
     Get all purchases for current user
     """
-    id = 1
-    # purchases = db.get_or_404(db.select(Purchase).filter_by(user_id=id))
+
     purchases = Purchase.query.filter_by(user_id=id)
     print(purchases)
     return {'purchases': [i.to_dict() for i in purchases]}

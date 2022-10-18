@@ -1,5 +1,6 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { getPurchasesAction } from "../../store/session";
 
 /* TODO:
 if user is not logged in, render <LandingPage />
@@ -8,7 +9,10 @@ else render all components for homepage
 const PurchasesReviews=()=>{
     const sessionUser = useSelector((state) => state.session.user);
     const history = useHistory();
+    const dispatch = useDispatch();
 
+    let n = 1
+    const data = dispatch(getPurchasesAction(n));
 
 
     if(sessionUser){

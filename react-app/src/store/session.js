@@ -39,13 +39,6 @@ const editShoppingCartAction = (shoppingCart) => {
   }
 }
 
-const getPurchases = (purchases) => {
-  return {
-      type: GET_PURCHASES,
-      purchases
-  }
-}
-
 export const deleteShoppingCartAction = (shoppingCartId) => {
   return {
       type: DELETE_SHOPPINGCART,
@@ -56,6 +49,13 @@ export const deleteShoppingCartAction = (shoppingCartId) => {
 export const clearShoppingCartAction = () => {
   return {
       type: CLEAR_SHOPPINGCART
+  }
+}
+
+const getPurchases = (purchases) => {
+  return {
+      type: GET_PURCHASES,
+      purchases
   }
 }
 
@@ -193,11 +193,14 @@ export const deleteShoppingCart = (shoppingCartId) => async dispatch => {
   }
 }
 
-export const getPurchasesAction = () => async dispatch => {
-  const res = await fetch(`/api/purchases`)
+export const getPurchasesAction = (id) => async dispatch => {
+  // console.log("fadsfadsfdsafsa", id)
+  const res = await fetch(`/api/purchases/${id}`)
 
   if (res.ok) {
-    dispatch(getPurchases(res))
+    const purchases = await res.json()
+    // console.log(purchases)
+    dispatch(getPurchases(purchases))
   }
 }
 
@@ -226,7 +229,8 @@ export default function reducer(state = initialState, action) {
     case CLEAR_SHOPPINGCART:
         return {}
     case GET_PURCHASES:
-        newState["purchases"] = action.purchases
+        // console.log(action.purchases.purchases)
+        newState["purchases"] = action.purchases.purchases
         return newState
     default:
       return state;
