@@ -1,3 +1,4 @@
+
 function etsy-reset-db(){
 	cd app
 	rm dev.db
@@ -35,6 +36,7 @@ elif [ "$command" == "2" ]; then
         etsy-hard-reset-db
     else
         echo "canceling."
+    fi
 fi
 
 echo "done"
