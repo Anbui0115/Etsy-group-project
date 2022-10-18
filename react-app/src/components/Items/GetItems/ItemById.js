@@ -31,17 +31,19 @@ const ItemById = () => {
                                     </div>
                                     <div className="display-picture">
                                         <img src={item.images[0].image_url} />
-                                        </div>
+                                    </div>
                                 </div>
-                                <div className="reviews">{/* render "reviews" here*/}</div>
+                                <div className="reviews">REVIEWS BE HERE! aggregate number and stars
+                                    <div className="review-cards">{/* render "reviews" here*/} </div>
+                                </div>
                             </div>
                             <div className="item-info-and-cart-button">
                                 <div className="store-name">From {item.owner.username}'s shop</div>
                                 <div className="item-title-and-price">
                                     <div className="individual-item-title">{item.title}</div>
-                                    <div className="individual-item-price">{item.price}</div>
+                                    <div className="individual-item-price">${item.price}</div>
                                 </div>
-                                <div className="add-to-cart-button">{/* render "add to cart" button*/}</div>
+                                <div className="add-to-cart-button">{/* render "add to cart" button*/}ADD TO CART BUTTON GOES HERE</div>
                                 <div className="description-title-and-description">
                                     <div className="item-description-title">Description</div>
                                     <div className="item-description">{item.description}</div>

@@ -1,7 +1,15 @@
+.outer_most {
+  border-bottom: 2px solid #222222;
+  width: 100%;
+  display: flex;
+}
+
 .outer_nav {
-  /* border: 1px solid pink; */
+  border: 1px solid pink;
   display: flex;
   flex-direction: row;
+  position:relative;
+  left: 8.8%;
   width: 80%;
   justify-content: center;
   align-items: center;
@@ -10,11 +18,8 @@
   font-size: 14px;
   height: 72px;
   line-height: 19.6px;
-  /* max-width: 1400px;
-  width: 1400px; */
   margin-left: 20px;
   margin-right: 20px;
-  margin-top: 0px;
   padding-bottom: 12px;
   padding-left: 36px;
   padding-right: 36px;

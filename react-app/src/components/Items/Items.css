@@ -1,27 +1,64 @@
 .outer-div {
-    display: flex;
     width: 80%;
 }
 
 .item-by-id {
     border: orange 1px solid;
-    width: auto;
-    flex-direction: column;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
 }
 
 .picture-and-reviews {
     border: red 2px solid;
     display: flex;
-    position: relative;
-    /* width: 66%; */
-    /* align-items:center; */
+    flex-direction: column;
+    width: 66%;
 }
 
 .item-info-and-cart-button {
-    border: blue 2px solid;
+    /* border: blue 2px solid; */
     display: flex;
-    position:relative;
-    /* width: 33%; */
-    /* justify-content:center; */
-    /* align-content: flex-end; */
+    flex-direction: column;
+    width: 33%;
+    margin: 5px;
+}
+/*
+.store-name {
+    margin: 5px;
+} */
+
+.item-title-and-price{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.individual-item-title {
+    font-family: "Guardian-EgypTT",Charter,"Charter Bitstream",Cambria,"Noto Serif Light","Droid Serif",Georgia,serif;
+    font-size: 26px;
+    font-weight:100;
+    /* margin: 5px; */
+}
+
+.individual-item-price {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.description-title-and-description {
+    margin-top: 10px;
+}
+
+.item-description-title {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.item-description {
+    line-height: 28px;
+    font-size: 16px;
+    font-weight: 400;
 }
