@@ -12,8 +12,8 @@ const Footer = () => {
                     <div className="dev-name">
                         Maliha Omair
                         <div className="dev-links">
-                            <a className="dev-link" href=""> GitHub </a>
-                            <a className="dev-link" href=""> LinkedIn </a>
+                            <a className="dev-link" href="https://github.com/maliha-omair"> GitHub </a>
+                            <a className="dev-link" href="https://www.linkedin.com/in/maliha-omair/"> LinkedIn </a>
                         </div>
                     </div>
                     <div className="dev-name">
