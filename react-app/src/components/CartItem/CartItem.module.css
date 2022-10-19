@@ -2,6 +2,8 @@
     display:flex;
     flex-direction: row;
     padding-top: 20px;
+    width: 100%;
+    
     
 }
 
@@ -55,7 +57,7 @@
    padding: 0px 36px 0px 12px;
    font-size: 16px;
    color: #222222;
-   width: 80px;
+   width: 60px;
    height: 48px; 
    line-height: 1.4;
    box-shadow: 0 1px 6px 0 rgb(34 34 34 / 15%);
@@ -70,4 +72,8 @@
    padding-right: 36px;
    margin: 0;
    overflow: visible !important;
+}
+
+.image{
+    border-radius: 6px;
 }

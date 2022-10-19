@@ -32,7 +32,7 @@ export default function CartItem({item}){
         <div className={styles.mainDiv}>           
                 <div>
                     <div className={styles.itemCard}>
-                        <div><img src={item.item.images[0].image_url+"?width=187&height=148"}></img></div>
+                        <div><img src={item.item.images[0].image_url+"?width=187&height=148"} className={styles.image}></img></div>
 
                         <div className={styles.descDiv}>
                             <div className={styles.descText}>{item.item.title}</div>
@@ -42,7 +42,7 @@ export default function CartItem({item}){
                         
                         <form>
                             
-                            <input type="number" min="1" value={quantity} onChange={(e)=> handleItemCount(e.target.value)} />
+                            <input type="number" min="1" value={quantity} className={styles.itemCount} onChange={(e)=> handleItemCount(e.target.value)} />
                         </form>
                         <div className={styles.price}>
                             <div ><b> {dollarFormmatter.format(quantity * item.item.price)}</b></div> 
