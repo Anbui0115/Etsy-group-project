@@ -2,7 +2,7 @@ import re
 from flask import Blueprint, jsonify, request
 from app.models import User, db, Review, Purchase
 from flask_login import login_required
-from app.forms.review_form import CreateReviewForm
+from app.forms.review_form import CreateReviewForm, EditReviewForm
 
 review_routes = Blueprint('review', __name__)
 
@@ -18,9 +18,16 @@ def create_review():
     return {'ok': "ok"}
 
 
-@review_routes.route('/')
-def edit_review():
-    pass
+@review_routes.route('/<int:id>', methods=["PUT"])
+@login_required
+def edit_review(id):
+    print(id)
+    # print(f"test\n\n\n\n")
+    form = EditReviewForm()
+    review = Review.query.filter_by(id=id).first()
+    form.populate_obj(review)
+    db.session.commit()
+    return {'ok': "ok"}
 
 
 @review_routes.route('/')

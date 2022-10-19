@@ -11,3 +11,9 @@ class CreateReviewForm(FlaskForm):
     stars = IntegerField('stars')
     title = StringField('title')
     description = StringField('description')
+
+
+class EditReviewForm(FlaskForm):
+    stars = IntegerField('stars')
+    title = StringField('title')
+    description = StringField('description')
