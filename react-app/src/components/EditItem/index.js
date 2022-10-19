@@ -1,38 +1,43 @@
+import "./EditItem.css";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory, useParams } from "react-router-dom";
 import { createItem, getAllItems } from "../../store/items";
-// import { getAllSpotsThunk, addImgThunk } from "../../store/spots";
-// import { useHistory } from "react-router-dom";
-import "./CreateItemForm.css";
 
-function CreateUserItem() {
+const EditItemForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
-  const [image_urls, setImage_urls] = useState("");
+
+  const items = useSelector((state) => state.items);
+  const { itemId } = useParams();
+    const item = items[Number(itemId)];
+//   const item = items[itemId];
+  console.log("ITEM to EDIT~~~~", item);
+
+  const [title, setTitle] = useState(item?.title);
+  const [description, setDescription] = useState(item?.description);
+  const [price, setPrice] = useState(item?.price);
+  const [image_urls, setImage_urls] = useState(item?.image_urls);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // //errors
   const [errors, setErrors] = useState([]);
 
-  useEffect(() => {
-    dispatch(getAllItems());
-  }, [dispatch]);
+  //   useEffect(() => {
+  //     dispatch(getAllSpotsThunk()).then(dispatch(getSpotByIdThunk(spotId)));
+  //     // .then(setIsLoaded(true));
+  //   }, [dispatch, spotId]);
 
   useEffect(() => {
     let errors = [];
-    if (title.length < 4 || title.length > 255)
+    if (title?.length < 4 || title?.length > 255)
       errors.push("Title needs to be between 4 and 255 characters");
-    if (description.length < 4 || description.length > 2000)
+    if (description?.length < 4 || description?.length > 2000)
       errors.push("Description needs to be between 4 and 2000 characters");
 
     if (
-      !image_urls.includes(".jpg") &&
-      !image_urls.includes(".png") &&
-      !image_urls.includes(".jpeg")
+      !image_urls?.includes(".jpg") &&
+      !image_urls?.includes(".png") &&
+      !image_urls?.includes(".jpeg")
     ) {
       errors.push("Please provide a valid image ends with png, jpg, or jpeg");
     }
@@ -66,11 +71,12 @@ function CreateUserItem() {
       history.push(`/listings`);
     }
   };
+
   return (
     <form className="create-item-form" onSubmit={onSubmit}>
       {/* <h1>Form</h1> */}
       <div className="create-title">
-        <div className="create-title-text">Create a listing</div>
+        <div className="create-title-text">Edit your listing</div>
       </div>
 
       <div className="create-subtitle">
@@ -166,5 +172,6 @@ function CreateUserItem() {
       {/* </div> */}
     </form>
   );
-}
-export default CreateUserItem;
+};
+
+export default EditItemForm;

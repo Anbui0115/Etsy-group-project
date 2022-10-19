@@ -6,6 +6,7 @@ import { NavLink, Redirect } from "react-router-dom";
 // import reviewAvatar from "./review-avatar.jpeg";
 import "./EachItemCard.css";
 import { editItem, deleteItem } from "../../store/items";
+import EditItemForm from "../EditItem";
 
 const ItemCard = ({ item }) => {
   const sessionUser = useSelector((state) => state.session.user);
@@ -22,11 +23,12 @@ console.log('itemId--',item.id,typeof itemId)//this works
     await dispatch(deleteItem(itemId));
     history.push(`/listings`);
   };
-  // const onClickEdit = async (e, itemId) => {
-  //   e.preventDefault();
-  //   await dispatch(editItem(itemId));
-  //   history.push(`/`);
-  // };
+  const onClickEdit = async (e, itemId) => {
+    e.preventDefault();
+    // await dispatch(editItem(itemId));
+    history.push(`/listing/${itemId}/edit`);
+    // <EditItemForm itemId={itemId} />;
+  };
   return (
     <div className="owner-each-item">
       {/* <div>
@@ -52,14 +54,26 @@ console.log('itemId--',item.id,typeof itemId)//this works
       </div>
 
       <div className="listing-buttons">
-        <div className="onwer-edit-button"
-        // onClick={onClickEdit}
+        <div
+          className="onwer-edit-button"
+          onClick={(e) => onClickEdit(e, itemId)}
         >
           Edit
+{/* <NavLink
+          to={`/spots/${spot.id}/edit`}
+          style={{ textDecoration: "none", color: "white" }}
+        >
+          Edit Spot
+        </NavLink> */}
+
+
+
         </div>
 
-        <div className="onwer-delete-button"
-        onClick={e=>onClickDelete(e,itemId)}>
+        <div
+          className="onwer-delete-button"
+          onClick={(e) => onClickDelete(e, itemId)}
+        >
           Delete
         </div>
       </div>
