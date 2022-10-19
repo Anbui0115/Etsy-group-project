@@ -51,9 +51,9 @@ const PurchasesReviews= ()=>{
                             </div>
                         </div>
                         <div className="purchase-card-mid">
-                            <div className="purchase-card-title">{item.title} ({purchase.quantity})</div>
+                            <div className="purchase-card-title">{item.title}</div>
                             {/* <div className="purchase-card-description">{item.description}</div> */}
-                            <div className="purchase-card-price">${makeProperPrice(purchase.price)} ea</div>
+                            <div className="purchase-card-price"> qty. {purchase.quantity} | ${makeProperPrice(purchase.price)} ea | total ${makeProperPrice(purchase.price * purchase.quantity)}</div>
                             {reviewPreview}
                         </div>
                         <div className="purchase-card-right">
