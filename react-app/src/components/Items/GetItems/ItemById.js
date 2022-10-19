@@ -18,7 +18,7 @@ const ItemById = () => {
     if (!itemsStateObj) return null;
 
     const filteredItem = items.filter(item => item.id === +itemId)
-    const carrossel = (item) => {
+    const carrousel = (item) => {
         let images = item.images.map(image => {
             return { original: image.image_url,
                      originalClass: "carrouselBig",
@@ -37,16 +37,14 @@ const ItemById = () => {
                             <div className="picture-and-reviews">
                                 <div className="pictures">
                                         <ImageGallery
-                                        items={carrossel(item)}
+                                        items={carrousel(item)}
                                         thumbnailPosition="left"
                                         showFullscreenButton="false"
+                                        showPlayButton={false}
                                         />
                                     {/* <div className="picture-list">
-
-                                        Display image carrossel here with {item.images}
                                     </div>
                                     <div className="display-picture">
-                                        <img src={item.images[0].image_url} />
                                     </div> */}
                                 </div>
                                 <div className="reviews">REVIEWS BE HERE! aggregate number and stars
