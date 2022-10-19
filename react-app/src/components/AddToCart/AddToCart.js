@@ -7,8 +7,6 @@ export default function AddToCart({item}){
     const history = useHistory()
 
     function handleAddToCart(){
-        alert("Add to cart Item ID ")
-        alert(item)
         dispatch(addToShoppingCartThunk(item,1))
         .then(()=>{
             history.push("/cart")            
