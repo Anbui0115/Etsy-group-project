@@ -23,11 +23,11 @@ def get_item():
 def create_new_item():
     """
     Create new item
-    """  
+    """
     owner_id = current_user.id
     form = CreateItem()
     form['csrf_token'].data = request.cookies['csrf_token']
-    
+
     if form.validate_on_submit():
         item = Item()
         form.populate_obj(item)
@@ -35,33 +35,33 @@ def create_new_item():
         for image_url in form.image_urls.data:
             image = Image()
             image.image_url = image_url
-            item.images.append(image)            
+            item.images.append(image)
 
         db.session.add(item)
         db.session.commit()
         return {'items': item.to_dict()}
     else:
-        return {'errors': form.errors}, 400  
-    
+        return {'errors': form.errors}, 400
+
 @item_routes.route('/<int:id>', methods=["PUT"])
 @login_required
 def edit_item(id):
     """
     Update item
-    """  
+    """
     owner_id = current_user.id
     form = UpdateItem()
     form['csrf_token'].data = request.cookies['csrf_token']
-    
+
     if form.validate_on_submit():
         item = Item.query.filter_by(id=id).first()
         if item is None:
-            return {'error': "Item couldn't be found"}, 404 
+            return {'error': "Item couldn't be found"}, 404
         form.populate_obj(item)
         db.session.commit()
         return {'items': item.to_dict()}
     else:
-        return {'errors': form.errors}, 400  
+        return {'errors': form.errors}, 400
 
 @item_routes.route('/<int:id>', methods=["GET"])
 def get_item_by_id(id):
@@ -75,11 +75,12 @@ def get_item_by_id(id):
 def delete_item_by_id(id):
     """
     Delete item by id
-    """     
+    """
     item = Item.query.filter_by(id=id).first()
-    if item is not None:      
+    print('ITEM WILL BE DELETED',item)
+    if item is not None:
         db.session.delete(item)
         db.session.commit()
         return {"message": "Deleted successfuly"}
     else:
-        return {'errors': ["Item couldn't be found"]}, 404      
+        return {'errors': ["Item couldn't be found"]}, 404

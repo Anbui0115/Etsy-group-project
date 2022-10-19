@@ -13,6 +13,7 @@ const ItemCard = ({ item }) => {
   const history = useHistory();
   const itemImg = item["images"][0]["image_url"];
   const itemId = item.id;
+
 console.log('itemId--',item.id,typeof itemId)//this works
 
   const onClickDelete = async (e, itemId) => {
@@ -58,7 +59,7 @@ console.log('itemId--',item.id,typeof itemId)//this works
         </div>
 
         <div className="onwer-delete-button"
-        onClick={onClickDelete}>
+        onClick={e=>onClickDelete(e,itemId)}>
           Delete
         </div>
       </div>

@@ -1,7 +1,8 @@
+
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { createItem } from "../../store/items";
+import { createItem,getAllItems } from "../../store/items";
 // import { getAllSpotsThunk, addImgThunk } from "../../store/spots";
 // import { useHistory } from "react-router-dom";
 import "./CreateItemForm.css";
@@ -18,9 +19,9 @@ function CreateUserItem() {
   // //errors
   const [errors, setErrors] = useState([]);
 
-  // useEffect(() => {
-  //   dispatch(getAllSpotsThunk());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(getAllItems());
+  }, [dispatch]);
 
   useEffect(() => {
     let errors = [];
@@ -63,7 +64,7 @@ function CreateUserItem() {
       //need to redirect to the newly created item?
       //   history.push(`/items/${data.id}`);
       console.log("DATA IS VALID", data);
-      history.push(`/`);
+      history.push(`/listings`);
     }
   };
   return (
