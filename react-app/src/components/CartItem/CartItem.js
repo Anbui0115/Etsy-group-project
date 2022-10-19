@@ -35,7 +35,7 @@ export default function CartItem({item}){
                         <div><img src={item.item.images[0].image_url+"?width=187&height=148"}></img></div>
 
                         <div className={styles.descDiv}>
-                            <div className={styles.descText}>{item.item.description}</div>
+                            <div className={styles.descText}>{item.item.title}</div>
                             <div className={styles.remove} key={item.id} value={item.id} onClick={()=>{handleRemove(item.id)}}><b>Remove</b></div>
                             
                         </div>

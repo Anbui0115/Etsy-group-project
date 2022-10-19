@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import ImageGallery from 'react-image-gallery';
 
 import "../Items.css"
+import AddToCart from "../../AddToCart/AddToCart";
 
 const ItemById = () => {
     const { itemId } = useParams();
@@ -18,7 +19,7 @@ const ItemById = () => {
     if (!itemsStateObj) return null;
 
     const filteredItem = items.filter(item => item.id === +itemId)
-    const carrossel = (item) => {
+    const carrousel = (item) => {
         let images = item.images.map(image => {
             return { original: image.image_url,
                      originalClass: "carrouselBig",
@@ -37,16 +38,14 @@ const ItemById = () => {
                             <div className="picture-and-reviews">
                                 <div className="pictures">
                                         <ImageGallery
-                                        items={carrossel(item)}
+                                        items={carrousel(item)}
                                         thumbnailPosition="left"
                                         showFullscreenButton="false"
+                                        showPlayButton={false}
                                         />
                                     {/* <div className="picture-list">
-
-                                        Display image carrossel here with {item.images}
                                     </div>
                                     <div className="display-picture">
-                                        <img src={item.images[0].image_url} />
                                     </div> */}
                                 </div>
                                 <div className="reviews">REVIEWS BE HERE! aggregate number and stars
@@ -59,7 +58,7 @@ const ItemById = () => {
                                     <div className="individual-item-title">{item.title}</div>
                                     <div className="individual-item-price">${item.price}</div>
                                 </div>
-                                <div className="add-to-cart-button">{/* render "add to cart" button*/}ADD TO CART BUTTON GOES HERE</div>
+                                <div className="add-to-cart-button"><AddToCart item={item.id}/></div>
                                 <div className="description-title-and-description">
                                     <div className="item-description-title">Description</div>
                                     <div className="item-description">{item.description}</div>

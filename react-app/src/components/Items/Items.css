@@ -18,14 +18,26 @@
     margin-bottom: 10px;
 }
 
+.pictures {
+    width: 85%;
+}
+
 .image-gallery-image image {
     border-radius:5px;
 }
 
+.image-gallery-thumbnail {
+    border-radius: 10px;
+}
+
+.image-gallery-thumbnail:focus {
+    border-radius: 10px;
+}
 
 .image-gallery-thumbnail.active {
     border-radius: 10px;
 }
+
 .image-gallery-thumbnail:hover {
     border-radius: 10px;
 }
@@ -52,13 +64,8 @@
     flex-direction: column;
     width: 30%;
     margin: 5px;
-    margin-left: 30px;
-    /* border: solid red 1px; */
+    margin-left: 0px;
 }
-/*
-.store-name {
-    margin: 5px;
-} */
 
 .item-title-and-price{
     margin-top: 10px;
