@@ -68,7 +68,7 @@ const ItemById = () => {
                     )
                 })}
             </div>
-            <ItemReviews reviews={filteredItem[0].reviews} />
+            <ItemReviews reviews={filteredItem[0].reviews ? filteredItem[0].reviews : ""} />
         </div>
     )
 }
