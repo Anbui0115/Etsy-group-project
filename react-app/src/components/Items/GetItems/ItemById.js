@@ -19,7 +19,13 @@ const ItemById = () => {
     if (!itemsStateObj) return null;
 
     const filteredItem = items.filter(item => item.id === +itemId)
-    // console.log(filteredItem[0].reviews)
+    let reviews = {}
+    try {
+        reviews = filteredItem[0].reviews
+    }
+    catch {
+        reviews = {}
+    }
     // const reviews = filteredItem[0].reviews
     const carrousel = (item) => {
         let images = item.images.map(image => {
@@ -68,7 +74,7 @@ const ItemById = () => {
                     )
                 })}
             </div>
-            <ItemReviews reviews={filteredItem[0].reviews ? filteredItem[0].reviews : ""} />
+            <ItemReviews reviews={reviews} />
         </div>
     )
 }
