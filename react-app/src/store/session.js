@@ -7,6 +7,7 @@ const EDIT_SHOPPINGCART = 'shoppingCarts/EDIT_SHOPPINGCART';
 const DELETE_SHOPPINGCART = 'shoppingCarts/DELETE_SHOPPINGCART';
 const CLEAR_SHOPPINGCART = 'shoppingCarts/CLEAR_SHOPPINGCART';
 const GET_PURCHASES = "items/GET_PURCHASES";
+const SET_CART = "cart/setCartItems"
 
 // Action Creators
 const setUser = (user) => ({
@@ -14,43 +15,64 @@ const setUser = (user) => ({
   payload: user
 });
 
+
+const setCart=(item)=>{
+  return{
+      type: SET_CART,
+      payload: item
+  }
+}
+
 const removeUser = () => ({
   type: REMOVE_USER,
 })
 
-const getShoppingCartsAction = (shoppingCarts) => {
-  return {
-      type: GET_SHOPPINGCARTS,
-      shoppingCarts
-  }
-}
+// const getShoppingCartsAction = (shoppingCarts) => {
+//   return {
+//       type: GET_SHOPPINGCARTS,
+//       shoppingCarts
+//   }
+// }
 
-const createShoppingCartAction = (shoppingCart) => {
-  return {
-      type: CREATE_SHOPPINGCART,
-      shoppingCart
+export const getCartItemsThunk=()=>async dispatch =>{
+  const response = await fetch("/api/cart", {
+      method: "GET"
+  });
+  if(response.ok){
+      const data = await response.json();
+      if (data.errors) {
+        return data.errors;
+      }
+      dispatch(setCart(data));
+      return response
   }
-}
+} 
+// const createShoppingCartAction = (shoppingCart) => {
+//   return {
+//       type: CREATE_SHOPPINGCART,
+//       shoppingCart
+//   }
+// }
 
-const editShoppingCartAction = (shoppingCart) => {
-  return {
-      type: EDIT_SHOPPINGCART,
-      shoppingCart
-  }
-}
+// const editShoppingCartAction = (shoppingCart) => {
+//   return {
+//       type: EDIT_SHOPPINGCART,
+//       shoppingCart
+//   }
+// }
 
-export const deleteShoppingCartAction = (shoppingCartId) => {
-  return {
-      type: DELETE_SHOPPINGCART,
-      shoppingCartId
-  }
-}
+// export const deleteShoppingCartAction = (shoppingCartId) => {
+//   return {
+//       type: DELETE_SHOPPINGCART,
+//       shoppingCartId
+//   }
+// }
 
-export const clearShoppingCartAction = () => {
-  return {
-      type: CLEAR_SHOPPINGCART
-  }
-}
+// export const clearShoppingCartAction = () => {
+//   return {
+//       type: CLEAR_SHOPPINGCART
+//   }
+// }
 
 const getPurchases = (purchases) => {
   return {
@@ -144,54 +166,54 @@ export const signUp = (username, email, password) => async (dispatch) => {
   }
 }
 
-export const getAllShoppingCarts = () => async dispatch => {
-  const res = await fetch('/api/shoppingCarts');
+// export const getAllShoppingCarts = () => async dispatch => {
+//   const res = await fetch('/api/shoppingCarts');
 
-  if (res.ok) {
-      const shoppingCarts = await res.json();
-      dispatch(getShoppingCartsAction(shoppingCarts.shoppingCarts));
-  }
-};
+//   if (res.ok) {
+//       const shoppingCarts = await res.json();
+//       dispatch(getShoppingCartsAction(shoppingCarts.shoppingCarts));
+//   }
+// };
 
-export const createShoppingCart = (shoppingCartData) => async dispatch => {
-  const res = await fetch(`/api/shoppingCarts`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(shoppingCartData)
-  });
+// export const createShoppingCart = (shoppingCartData) => async dispatch => {
+//   const res = await fetch(`/api/shoppingCarts`, {
+//       method: 'POST',
+//       headers: { 'Content-Type': 'application/json' },
+//       body: JSON.stringify(shoppingCartData)
+//   });
 
-  if (res.ok) {
-      const shoppingCart = await res.json();
-      dispatch(createShoppingCartAction(shoppingCart));
-      return shoppingCart;
-  }
-};
+//   if (res.ok) {
+//       const shoppingCart = await res.json();
+//       dispatch(createShoppingCartAction(shoppingCart));
+//       return shoppingCart;
+//   }
+// };
 
-export const editShoppingCart = (shoppingCartId, editShoppingCartData) => async dispatch => {
-  const res = await fetch(`/api/shoppingCarts/${shoppingCartId}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(editShoppingCartData)
-  });
+// export const editShoppingCart = (shoppingCartId, editShoppingCartData) => async dispatch => {
+//   const res = await fetch(`/api/shoppingCarts/${shoppingCartId}`, {
+//       method: 'PUT',
+//       headers: { 'Content-Type': 'application/json' },
+//       body: JSON.stringify(editShoppingCartData)
+//   });
 
-  if (res.ok) {
-      const shoppingCart = await res.json();
-      dispatch(editShoppingCartAction(shoppingCart));
-      return shoppingCart;
-  }
-};
+//   if (res.ok) {
+//       const shoppingCart = await res.json();
+//       dispatch(editShoppingCartAction(shoppingCart));
+//       return shoppingCart;
+//   }
+// };
 
-export const deleteShoppingCart = (shoppingCartId) => async dispatch => {
-  const res = await fetch(`/api/shoppingCarts/${shoppingCartId}`, {
-      method: 'DELETE',
-      headers: { 'Content-Type': 'application/json' }
-  });
+// export const deleteShoppingCart = (shoppingCartId) => async dispatch => {
+//   const res = await fetch(`/api/shoppingCarts/${shoppingCartId}`, {
+//       method: 'DELETE',
+//       headers: { 'Content-Type': 'application/json' }
+//   });
 
-  if (res.ok) {
-      const shoppingCart = `${shoppingCartId}`
-      dispatch(deleteShoppingCartAction(shoppingCart))
-  }
-}
+//   if (res.ok) {
+//       const shoppingCart = `${shoppingCartId}`
+//       dispatch(deleteShoppingCartAction(shoppingCart))
+//   }
+// }
 
 export const getPurchasesAction = (id) => async dispatch => {
   // console.log("fadsfadsfdsafsa", id)
@@ -208,30 +230,39 @@ const initialState = { user: null };
 
 //Reducer
 export default function reducer(state = initialState, action) {
-  const newState = { ...state }
+  
   switch (action.type) {
     case SET_USER:
       return { user: action.payload }
     case REMOVE_USER:
       return { user: null }
-    case GET_SHOPPINGCARTS:
-        action.shoppingCarts.forEach(shoppingCart => newState[shoppingCart.id] = shoppingCart)
-        return newState;
-    case CREATE_SHOPPINGCART:
-        newState[action.shoppingCart.id] = action.shoppingCart
-        return newState;
-    case EDIT_SHOPPINGCART:
-        newState[action.shoppingCart.id] = action.shoppingCart
-        return newState;
-    case DELETE_SHOPPINGCART:
-        delete newState[action.shoppingCartId]
-        return newState;
-    case CLEAR_SHOPPINGCART:
-        return {}
+    // case GET_SHOPPINGCARTS:
+    //     action.shoppingCarts.forEach(shoppingCart => newState[shoppingCart.id] = shoppingCart)
+    //     return newState;
+    // // case CREATE_SHOPPINGCART:
+    //     newState[action.shoppingCart.id] = action.shoppingCart
+    //     return newState;
+    // case EDIT_SHOPPINGCART:
+    //     newState[action.shoppingCart.id] = action.shoppingCart
+    //     return newState;
+    // case DELETE_SHOPPINGCART:
+    //     delete newState[action.shoppingCartId]
+    //     return newState;
+    // case CLEAR_SHOPPINGCART:
+    //     return {}
     case GET_PURCHASES:
         // console.log(action.purchases.purchases)
         newState["purchases"] = action.purchases.purchases
         return newState
+    case SET_CART:
+          let newState = { ...state }
+          newState = action.payload;
+          console.log("shopping cart is ", newState)
+          return newState;   
+    case SET_CART:
+          newState = {...state};
+          newState = action.payload;
+          return newState;   
     default:
       return state;
   }

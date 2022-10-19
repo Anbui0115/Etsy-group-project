@@ -8,7 +8,7 @@ from ..forms.shopping_cart import CreateShoppingCart
 shopping_cart_routes = Blueprint('cart', __name__)
 
 
-@shopping_cart_routes.route('/')
+@shopping_cart_routes.route('')
 @login_required
 def get_shopping_cart():
     """
