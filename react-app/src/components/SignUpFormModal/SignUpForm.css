@@ -12,30 +12,27 @@
   /* border-radius: 24px;  HANDLED IN MODAL.CSS*/
   background-color: transparent;
   color: rgb(34, 34, 34);
-  font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
-    Arial, sans-serif;
 }
+
 .create-account {
   /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   margin: 10px 20px 10px;
   color: rgb(34, 34, 34);
-  font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
-    Arial, sans-serif;
   box-sizing: border-box;
 }
+
 .create-acct-text {
   margin-bottom: 8px;
   font-size: 20px;
   font-weight: 600;
-  font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
-    Arial, sans-serif;
   box-sizing: border-box;
   line-height: 28px;
   height: 28px;
   width: 200px;
 }
+
 .registration {
   box-sizing: border-box;
   margin-top: 5px;
@@ -44,26 +41,21 @@
   height: 30px;
   line-height: 24px;
   width: 324px;
-  font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
-    Arial, sans-serif;
 }
+
 .signup-container {
   margin-left: 20px;
   margin-right: 20px;
   cursor: pointer;
   color: rgb(34, 34, 34);
-  font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
-    Arial, sans-serif;
 }
+
 .signup-errors {
   /* border: 1px red dashed; */
   color: rgb(205, 47, 47);
-  font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
-    Arial, sans-serif;
   padding: 8px 8px;
 }
-.signup-body {
-}
+
 .input-field {
   /* border: 1px hotpink solid; */
   display: flex;
@@ -72,24 +64,22 @@
   color: rgb(34, 34, 34);
   justify-content: center;
   align-items: center;
-  font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
-    Arial, sans-serif;
   box-sizing: border-box;
   font-size: 14px;
   width: 324px;
   height: 74px;
   line-height: 19.6px;
 }
+
 .input {
   display: flex;
   flex-direction: column;
-  font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
-    Arial, sans-serif;
   font-size: 13px;
   font-weight: 600;
   color: rgb(34, 34, 34);
   width: 100%;
 }
+
 .credential {
   display: flex;
   width: 92%;
@@ -97,13 +87,12 @@
   border: 1px solid lightgrey;
   border-radius: 7px;
   color: rgb(34, 34, 34);
-  font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
-    Arial, sans-serif;
   padding-top: 9px;
   padding-bottom: 9px;
   padding-left: 12px;
   padding-right: 12px;
 }
+
 .signup-button {
   /* border: 1px solid black; */
   display: flex;
@@ -120,8 +109,6 @@
   cursor: pointer;
   font-size: 16px;
   font-weight: 600;
-  font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
-    Arial, sans-serif;
   cursor: pointer;
   box-sizing: border-box;
   line-height: 24px;
@@ -131,6 +118,7 @@
   width: 324px;
   border-radius: 50px;
 }
+
 .signup-button-modal {
   border: 2px black solid;
   justify-self: flex-end;

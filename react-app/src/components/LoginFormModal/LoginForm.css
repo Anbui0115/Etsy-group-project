@@ -24,7 +24,7 @@
 
 } */
 .login-form {
-  /* border: 1px dashed orange; */
+  margin-top: 20px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -38,8 +38,6 @@
   /* border-radius: 24px;  HANDLED IN MODAL.CSS*/
   background-color: transparent;
   color: rgb(34, 34, 34);
-  font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
-    Arial, sans-serif;
 }
 
 .sign-in-and-register {
@@ -65,29 +63,26 @@
   margin-left: 10px;
   margin-right: 20px;
   color: rgb(34, 34, 34);
-  font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
-    Arial, sans-serif;
 }
+
 .text-login {
   /* border: 1px slateblue solid; */
   margin: 10px;
   font-size: 21px;
   font-weight: 600;
   align-self: center;
-  font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
-    Arial, sans-serif;
 }
 
-.register {
-  /* border: dashed 1px purple; */
-  /* margin: 5px;
+/* .register {
+  border: dashed 1px purple;
+  margin: 5px;
   font-size: 13px;
   font-weight: 500;
   align-self: center;
   justify-content: space-evenly;
   font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
-    Arial, sans-serif; */
-}
+    Arial, sans-serif;
+} */
 
 /* .register-text {
   border: 2px black solid;
@@ -185,8 +180,6 @@
   cursor: pointer;
   font-size: 16px;
   font-weight: 600;
-  font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
-    Arial, sans-serif;
   cursor: pointer;
   box-sizing: border-box;
   line-height: 24px;
@@ -195,6 +188,10 @@
   text-align: center;
   width: 324px;
   border-radius: 50px;
+}
+
+.demo-user-button {
+  margin-top: 15px;
 }
 
 @media (min-width: 744px) {
@@ -211,13 +208,12 @@
   font-weight: 500;
   font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
     Arial, sans-serif;
-    box-sizing: border-box;
-    color: rgb(34, 34, 34);
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: 700;
-    height: 36px;
-    line-height: 18px;
-    width: 73px;
-
+  box-sizing: border-box;
+  color: rgb(34, 34, 34);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  height: 36px;
+  line-height: 18px;
+  width: 73px;
 }
