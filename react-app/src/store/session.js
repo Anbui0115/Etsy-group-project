@@ -25,6 +25,7 @@ const setCart=(item)=>{
   }
 }
 
+
 const removeUser = () => ({
   type: REMOVE_USER,
 })
@@ -40,6 +41,27 @@ const updateCartItem = (id) => ({
 
 })
 
+export const addToShoppingCartThunk = (item_id,quantity)=> async dispatch=>{
+  const response = await fetch(`/api/cart`,{
+    method:"POST",
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      item_id,
+      quantity,      
+    })
+  })
+  if(response.ok){
+    const data = await response.json()
+    if(data.errors){
+      return data.errors
+    } 
+    return response   
+  }
+
+
+}
 export const editShoppingCartThunk =(id,quantity)=>async dispatch => {
   console.log("item id is in thunk ....",id, "quantity is .....", quantity)
   const response = await fetch(`/api/cart/${id}`,{
