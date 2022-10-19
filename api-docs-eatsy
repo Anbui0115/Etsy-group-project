@@ -1,0 +1,503 @@
+# Etsy Clone
+
+## Database Schema Design
+
+![eatsy-database-schema]()
+
+## API Documentation
+
+## USER AUTHENTICATION/AUTHORIZATION
+
+### All endpoints that require authentication
+
+All endpoints that require a current user to be logged in.
+
+* Request: endpoints that require authentication
+* Error Response: Require authentication
+  * Status Code: 401
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "Authentication required",
+      "statusCode": 401
+    }
+    ```
+
+### All endpoints that require proper authorization
+
+All endpoints that require authentication and the current user does not have the
+correct role(s) or permission(s).
+
+* Request: endpoints that require proper authorization
+* Error Response: Require proper authorization
+  * Status Code: 403
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "Forbidden",
+      "statusCode": 403
+    }
+    ```
+
+
+### Log In a User
+
+Logs in a current user with valid credentials and returns the current user's
+information.
+
+* Require Authentication: false
+* Request
+  * Method: POST
+  * URL: /api/auth/login
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "email": "demo@aa.io",
+      "password": "password"
+    }
+    ```
+
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "id": 1,
+      "username": "demo@aa.io",
+      "email": "password"
+    }
+    ```
+
+* Error Response: Invalid credentials
+  * Status Code: 401
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+   ```json
+   {
+    "errors": [
+        "email : Email provided not found.", 
+        "password : No such user exists."
+    ]
+   }
+   ```
+
+### Sign Up a User
+
+Creates a new user, logs them in as the current user, and returns the current
+user's information.
+
+* Require Authentication: false
+* Request
+  * Method: POST
+  * URL: /api/auth/signup
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+        "username": "aapAcademy",
+        "email": "aa@aa.com", 
+        "password": "password"
+    }
+    ```
+
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+        "email": "aa@aa.com", 
+        "id": 7, 
+        "username": "aapAcademy"
+    }
+
+    ```
+<!-- discuss with team it is not 403 -->
+* Error response: User already exists with the specified email
+  * Status Code: 401 
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+        "errors": [
+            "username : Username is already in use.", 
+            "email : Email address is already in use."
+        ]
+    }
+
+    ```
+
+
+
+## ITEMS
+
+### Get all Items
+
+Returns all the items.
+
+* Require Authentication: false
+* Request
+  * Method: GET
+  * URL: /api/items
+  * Body: none
+
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "Items":[
+        {
+          "id": 1,
+          "owner_id": 1, 
+          "description": "Humanity has long been obsessed with eating small,",
+          "title": "Gummies Of Real Things",
+          "price": 86.59,
+          "Images": [
+            {
+              "id": 1,
+              "image_url": "image.url",
+            }
+          ],
+          "Reviews":[
+            {
+                "id": 1,
+                "item_id": 1,
+                "user_id": 2,
+                "stars":
+
+            }
+          ]
+        }
+      ]
+    }
+    ```
+
+### Get all Items by the Current User
+
+Returns all the items.
+
+* Require Authentication: true
+* Request
+  * Method: GET
+  * URL: /api/items/current
+  * Body: none
+
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "Items":[
+        {
+          "id": 1,
+          "owner_id": 1, 
+          "description": "Humanity has long been obsessed with eating small,",
+          "title": "Gummies Of Real Things",
+          "price": 86.59,
+          "Images": [
+            {
+              "id": 1,
+              "image_url": "image.url",
+            }
+          ],
+          "Reviews":[
+            {
+                "id": 1,
+                "item_id": 1,
+                "user_id": 2,
+                "stars":
+
+            }
+          ]
+        }
+      ]
+    }
+    ```
+
+### Get details of a Item from an id
+
+Returns the details of a item specified by its id.
+
+* Require Authentication: false
+* Request
+  * Method: GET
+  * URL: /api/items/:itemId
+  * Body: none
+
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+          "id": 1,
+          "owner_id": 1, 
+          "description": "Humanity has long been obsessed with eating small,",
+          "title": "Gummies Of Real Things",
+          "price": 86.59,
+          "Images": [
+            {
+              "id": 1,
+              "image_url": "image.url",
+            }
+          ],
+          "Reviews":[
+            {
+                "id": 1,
+                "item_id": 1,
+                "user_id": 2,
+                "stars":
+
+            }
+          ]
+    }
+    ```
+
+* Error response: Couldn't find a Item with the specified id
+  * Status Code: 404
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    
+    {
+      "errors": [
+        "message": "Item couldn't be found",  
+      ]      
+      "statusCode": 404
+    }
+    ```
+
+### Create an Item
+
+Creates and returns a new item.
+
+* Require Authentication: true
+* Request
+  * Method: POST
+  * URL: /api/items
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+        "owner_id": 1, 
+        "description": "Humanity has long been obsessed with eating small,",
+        "title": "Gummies Of Real Things",
+        "price": 86.59,
+    }
+    ```
+
+* Successful Response
+  * Status Code: 201
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+        "id": 1,
+       "owner_id": 1, 
+        "description": "Humanity has long been obsessed with eating small,",
+        "title": "Gummies Of Real Things",
+        "price": 86.59,
+    }
+    ```
+
+* Error Response: Body validation error
+  * Status Code: 400
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "Validation Error",
+      "statusCode": 400,
+      "errors": {
+        
+      }
+    }
+    ```
+
+### Add an Image to an Item based on the Item's id
+
+Create and return a new image for a item specified by id.
+
+* Require Authentication: true
+* Require proper authorization: Current User must own the item
+* Request
+  * Method: POST
+  * URL: /api/items/:itemId/images
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "url": "image url"
+    }
+    ```
+
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "id": 1,
+      "image_url": "image.url",
+      
+    }
+    ```
+
+* Error response: Couldn't find an Item with the specified id
+  * Status Code: 404
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "Item couldn't be found",
+      "statusCode": 404
+    }
+    ```
+
+### Edit an Item
+
+Updates and returns an existing item.
+
+* Require Authentication: true
+* Require proper authorization: Item must belong to the current user
+* Request
+  * Method: PUT
+  * URL: /api/items/:itemId
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "owner_id": 1, 
+       "description": "Humanity has long been obsessed with eating small,",
+       "title": "Gummies Of Real Things",
+       "price": 86.59,
+    }
+    ```
+
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "id": 1,
+      "owner_id": 1, 
+      "description": "Humanity has long been obsessed with eating small,",
+      "title": "Gummies Of Real Things",
+      "price": 86.59,
+    }
+    ```
+
+* Error Response: Body validation error
+  * Status Code: 400
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "Validation Error",
+      "statusCode": 400,
+      "errors": {
+      
+      }
+    }
+    ```
+
+* Error response: Couldn't find an Item with the specified id
+  * Status Code: 404
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "Item couldn't be found",
+      "statusCode": 404
+    }
+    ```
+
+### Delete a Item
+
+Deletes an existing item.
+
+* Require Authentication: true
+* Require proper authorization: Item must belong to the current user
+* Request
+  * Method: DELETE
+  * URL: /api/items/:itemId
+  * Body: none
+
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "Successfully deleted",
+      "statusCode": 200
+    }       
+    ```
+
+* Error response: Couldn't find an Item with the specified id
+  * Status Code: 404
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "Item couldn't be found",
+      "statusCode": 404
+    }
+    ```
+
