@@ -30,6 +30,7 @@
   text-size-adjust: 100%;
   /* width: 995px; */
   margin-top: 12px;
+  margin-bottom: 15px;
 }
 .owner-listing-subtitle {
   /* border: 1px solid black; */
@@ -39,7 +40,7 @@
   font-weight: 400;
   height: 84px;
   line-height: 28px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   margin-left: 250px;
   margin-right: 250px;
   margin-top: 0px;

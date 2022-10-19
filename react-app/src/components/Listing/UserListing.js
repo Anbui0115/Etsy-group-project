@@ -22,7 +22,11 @@ function UserListing() {
   const listingByOwner = itemsArray.filter(
     (item) => item?.owner_id === sessionUser.id
   );
+const onClickAddListing=(e)=>{
+  e.preventDefault()
+  history.push('/listings/create')
 
+}
   console.log("LISTING BY OWNER", listingByOwner);
 
   // useEffect(() => {
@@ -35,11 +39,6 @@ function UserListing() {
   //   };
   // }, [dispatch]);
 
-  // const onClickDelete = async (e, spotId) => {
-  //   e.preventDefault();
-  //   // await dispatch(deleteASpotThunk(spotId));
-  //   history.push(`/`);
-  // };
 
   if (!listingByOwner) return null;
   if (!sessionUser) return <Redirect to="/" />;
@@ -67,6 +66,7 @@ function UserListing() {
                     className="owner-each-listing-img"
                     src="https://i.imgur.com/LCd0uJx.png"
                     alt="add-a-listing"
+                    onClick={onClickAddListing}
                   ></img>
                 </div>
                 {listingByOwner.map((item) => (

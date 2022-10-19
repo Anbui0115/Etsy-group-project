@@ -1,17 +1,31 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { NavLink, Redirect } from "react-router-dom";
 // import { spotDetailsThunk } from "../../store/spots";
 // import { deleteAReview } from "../../store/reviews";
 // import reviewAvatar from "./review-avatar.jpeg";
 import "./EachItemCard.css";
+import { editItem, deleteItem } from "../../store/items";
 
 const ItemCard = ({ item }) => {
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
-
+  const history = useHistory();
   const itemImg = item["images"][0]["image_url"];
-  console.log("item---", itemImg);
+  const itemId = item.id;
+console.log('itemId--',item.id,typeof itemId)//this works
+
+  const onClickDelete = async (e, itemId) => {
+    console.log('itemID inside on click ~~~~~~',itemId)//undefined
+    e.preventDefault();
+    await dispatch(deleteItem(itemId));
+    history.push(`/listings`);
+  };
+  // const onClickEdit = async (e, itemId) => {
+  //   e.preventDefault();
+  //   await dispatch(editItem(itemId));
+  //   history.push(`/`);
+  // };
   return (
     <div className="owner-each-item">
       {/* <div>
@@ -37,19 +51,14 @@ const ItemCard = ({ item }) => {
       </div>
 
       <div className="listing-buttons">
-        <div className="onwer-edit-button">
-          {/* <NavLink
-                        to={`/spots/${spot.id}/edit`}
-                        style={{ textDecoration: "none", color: "white" }}
-                      > */}
+        <div className="onwer-edit-button"
+        // onClick={onClickEdit}
+        >
           Edit
-          {/* </NavLink> */}
         </div>
 
-        <div
-          className="onwer-delete-button"
-          // onClick={(e) => onClickDelete(e, spot.id)}
-        >
+        <div className="onwer-delete-button"
+        onClick={onClickDelete}>
           Delete
         </div>
       </div>
