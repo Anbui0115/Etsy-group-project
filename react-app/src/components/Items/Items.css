@@ -40,6 +40,7 @@
 
 .reviews {
     margin-top: 30px;
+    font-weight: 900;
 }
 
 .review-cards {
@@ -49,8 +50,10 @@
 .item-info-and-cart-button {
     display: flex;
     flex-direction: column;
-    width: 33%;
+    width: 30%;
     margin: 5px;
+    margin-left: 30px;
+    /* border: solid red 1px; */
 }
 /*
 .store-name {
@@ -62,10 +65,14 @@
     margin-bottom: 10px;
 }
 
+.add-to-cart-button{
+    font-weight: 900;
+}
+
 .individual-item-title {
     font-family: "Guardian-EgypTT",Charter,"Charter Bitstream",Cambria,"Noto Serif Light","Droid Serif",Georgia,serif;
     font-size: 26px;
-    font-weight:100;
+    font-weight: 300;
     margin-bottom: 10px;
 }
 
