@@ -1,11 +1,11 @@
 .outer_most {
-  border-bottom: 2px solid #222222;
+  border-bottom: 2px solid rgb(205, 205, 205);
   width: 100%;
   display: flex;
 }
 
 .outer_nav {
-  border: 1px solid pink;
+  /* border: 1px solid pink; */
   display: flex;
   flex-direction: row;
   position:relative;

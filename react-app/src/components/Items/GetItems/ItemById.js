@@ -1,6 +1,8 @@
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
+import ImageGallery from 'react-image-gallery';
+
 import "../Items.css"
 
 const ItemById = () => {
@@ -16,7 +18,15 @@ const ItemById = () => {
     if (!itemsStateObj) return null;
 
     const filteredItem = items.filter(item => item.id === +itemId)
-
+    const carrossel = (item) => {
+        let images = item.images.map(image => {
+            return { original: image.image_url,
+                     originalClass: "carrosselBig",
+                     thumbnail: image.image_url,
+                     thumbnailClass: "carrosselSmall",}
+        });
+        return images
+    }
 
     return (
         <div className="outer-div">
@@ -26,7 +36,9 @@ const ItemById = () => {
                         <div className="item-by-id" key={item.id}>
                             <div className="picture-and-reviews">
                                 <div className="pictures">
+                                        <ImageGallery items={carrossel(item)} thumbnailPosition="right"/>
                                     <div className="picture-list">
+
                                         {/* Display image carrossel here with {item.images} */}
                                     </div>
                                     <div className="display-picture">
@@ -34,7 +46,7 @@ const ItemById = () => {
                                     </div>
                                 </div>
                                 <div className="reviews">REVIEWS BE HERE! aggregate number and stars
-                                    <div className="review-cards">{/* render "reviews" here*/} </div>
+                                    <div className="review-cards">{/* render "reviews" here*/}Rendered reviews here </div>
                                 </div>
                             </div>
                             <div className="item-info-and-cart-button">
