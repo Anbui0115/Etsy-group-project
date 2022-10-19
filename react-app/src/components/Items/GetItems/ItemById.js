@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 import ImageGallery from 'react-image-gallery';
-
+import {ItemReviews} from './ItemReviews'
 import "../Items.css"
 import AddToCart from "../../AddToCart/AddToCart";
 
@@ -19,6 +19,8 @@ const ItemById = () => {
     if (!itemsStateObj) return null;
 
     const filteredItem = items.filter(item => item.id === +itemId)
+    // console.log(filteredItem[0].reviews)
+    // const reviews = filteredItem[0].reviews
     const carrousel = (item) => {
         let images = item.images.map(image => {
             return { original: image.image_url,
@@ -48,9 +50,6 @@ const ItemById = () => {
                                     <div className="display-picture">
                                     </div> */}
                                 </div>
-                                <div className="reviews">REVIEWS BE HERE! aggregate number and stars
-                                    <div className="review-cards">{/* render "reviews" here*/}Rendered reviews here </div>
-                                </div>
                             </div>
                             <div className="item-info-and-cart-button">
                                 <div className="store-name">From {item.owner.username}'s shop</div>
@@ -69,9 +68,7 @@ const ItemById = () => {
                     )
                 })}
             </div>
-
-
-
+            <ItemReviews reviews={filteredItem[0].reviews} />
         </div>
     )
 }
