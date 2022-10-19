@@ -2,7 +2,7 @@ from flask import Blueprint, request
 from app.forms.update_cart_form import UpdateCart
 from app.models import User, db
 from flask_login import login_required, current_user
-from app.models import User, db, Shopping_cart
+from app.models import User, db, Shopping_cart,Item
 from ..forms.shopping_cart import CreateShoppingCart
 
 
@@ -33,9 +33,16 @@ def add_shopping_cart():
         shopping_cart = Shopping_cart()
         form.populate_obj(shopping_cart)
         shopping_cart.user_id = owner_id
-              
-        db.session.add(shopping_cart)
-        db.session.commit()
+        cartItem = Shopping_cart.query.filter_by(item_id=shopping_cart.item_id, user_id=owner_id).first()
+        if cartItem is not None: 
+            print("item is here already in shopping cart ")
+            shopping_cart.quantity = cartItem.quantity +1
+            print(shopping_cart.quantity)
+            db.session.commit()
+        else:
+            db.session.add(shopping_cart)
+            db.session.commit()
+        print('shopping cart after update is ', shopping_cart.item_id)
         return {'shopping_cart': shopping_cart.to_dict()}
     else:
         return {'errors': form.errors}, 400
