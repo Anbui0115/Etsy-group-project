@@ -72,6 +72,7 @@ def get_item_by_id(id):
     return {'items': [i.to_dict() for i in items]}
 
 @item_routes.route('/<int:id>', methods=["DELETE"])
+@login_required
 def delete_item_by_id(id):
     """
     Delete item by id

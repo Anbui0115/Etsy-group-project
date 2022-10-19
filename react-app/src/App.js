@@ -15,7 +15,11 @@ import CreateUserItem from "./components/CreateItem/CreateItemForm";
 import UserListing from "./components/Listing/UserListing";
 import Footer from './components/Footer/Footer';
 import PurchasesReviews from "./components/PurchasesReviews/PurchasesReviews";
+
 import EditItemForm from "./components/EditItem";
+import Cart from "./components/Cart/Cart";
+import ItemById from "./components/Items/GetItems/ItemById";
+
 
 
 function App() {
@@ -45,19 +49,26 @@ function App() {
           <SignUpForm />
         </Route> */}
 
-        <ProtectedRoute path="/users" exact={true}>
+
+
+        <ProtectedRoute path='/users' exact={true} >
+
           <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true}>
           <User />
         </ProtectedRoute>
         <Route path="/" exact={true}>
-          {/* <h1>My Home Page</h1> */}
           <HomePage />
         </Route>
-
+        <Route path="/items/:itemId">
+          <ItemById />
+        </Route>
         <Route path="/listings" exact={true}>
           <UserListing />
+        </Route>
+        <Route path="/cart" exact={true}>
+          <Cart />
         </Route>
         <Route path="/listings/create" exact={true}>
           <CreateUserItem />

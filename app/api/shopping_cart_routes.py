@@ -1,19 +1,23 @@
 from flask import Blueprint, request
+from app.forms.update_cart_form import UpdateCart
 from app.models import User, db
 from flask_login import login_required, current_user
 from app.models import User, db, Shopping_cart
 from ..forms.shopping_cart import CreateShoppingCart
 
 
+
 shopping_cart_routes = Blueprint('cart', __name__)
 
 
-@shopping_cart_routes.route('/')
+@shopping_cart_routes.route('')
+@login_required
 def get_shopping_cart():
     """
     Get all items in the shopping cart
     """
-    shopping_cart = Shopping_cart.query.all()
+    owner_id = current_user.id
+    shopping_cart = Shopping_cart.query.filter_by(user_id=owner_id).all()
     return {'shopping_cart': [i.to_dict() for i in shopping_cart]}
 
 @shopping_cart_routes.route('', methods=["POST"])
@@ -29,18 +33,39 @@ def add_shopping_cart():
         shopping_cart = Shopping_cart()
         form.populate_obj(shopping_cart)
         shopping_cart.user_id = owner_id
+              
         db.session.add(shopping_cart)
         db.session.commit()
         return {'shopping_cart': shopping_cart.to_dict()}
     else:
         return {'errors': form.errors}, 400
 
+@shopping_cart_routes.route('/<int:id>', methods=["PUT"])
+@login_required
+def edit_cart(id):
+    """
+    Edit shopping cart
+    """
+    form = UpdateCart()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        cartItem = Shopping_cart.query.filter_by(id=id).first()
+        if cartItem is None:
+            return {'error': "This item is not in cart"}, 404 
+        else:
+            form.populate_obj(cartItem)
+            db.session.commit()
+            return cartItem.to_dict()
+
+    
+
 @shopping_cart_routes.route('/<int:id>', methods=["DELETE"])
+@login_required
 def delete_shopping_cart(id):
     """
     Delete item in shopping cart by id
     """
-    cart = Shopping_cart.query.filter(id=id).first()
+    cart = Shopping_cart.query.filter_by(id=id).first()
     if cart is not None:
         db.session.delete(cart)
         db.session.commit()

@@ -1,0 +1,117 @@
+.mainDiv{
+    display:flex;
+    flex-direction: row;
+    padding-top: 20px;
+    
+}
+
+.itemCard{
+    display:flex;
+    flex-direction: row;
+    padding-bottom: 40px;
+}
+.descDiv{
+    display: flex;
+    flex-direction: column;
+    width: 327px;
+    height: 102px;
+    padding:0px 0px 6px;
+
+}
+
+
+.price{
+    padding: 10px;
+    width:125.97;
+   
+}
+.descText{
+    display:flex;
+    font-size: 16px;
+    font-weight: 400px;
+    padding-left:10px;   
+    font-family: "Graphik Webfont",-apple-system,"Helvetica Neue","Droid Sans",Arial,sans-serif;; 
+    
+}
+.remove{
+    display: flex;
+    font-size: 14px;
+    width: 80px;
+    height:36px;
+    padding: 10px 10px 10px 10px;
+
+}
+.itemCount{
+   padding: 0px 36px 0px 12px;
+   font-size: 16px;
+   color: #222222;
+   width: 80px;
+   height: 48px; 
+   line-height: 1.4;
+   box-shadow: 0 1px 6px 0 rgb(34 34 34 / 15%);
+   background:white;
+   border-color:rgba(34, 34, 34, 0.15);
+   border-width: 1px;
+   border-style: solid;
+   border-radius: 6px;
+   text-indent: 0.01px;
+   cursor: pointer;
+   padding-left: 12px;
+   padding-right: 36px;
+   margin: 0;
+   overflow: visible !important;
+}
+
+.proceedButton{
+    display: flex;
+  flex-direction: row;
+  border: none;
+  background-color: #222222;
+  color: white;
+  justify-content: center;
+  margin-top: 20px;
+  
+  height: 48px;
+  font-size: 15pt;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
+    Arial, sans-serif;
+  cursor: pointer;
+  box-sizing: border-box;
+  line-height: 24px;
+  min-height: 48px;
+  min-width: 48px;
+  text-align: center;
+  width: 324px;
+  border-radius: 50px;
+}
+
+.rightCard{
+    display: flex;
+    box-shadow: 0 4px 20px rgb(34 34 34 / 15%);
+    border-radius: 18px !important;
+    overflow: hidden !important;
+    display: block;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
+    height: 256.78px;
+    max-width: 33.33%;
+    align-items: center;
+
+}
+
+.table{
+    display: flex;
+    flex-direction: column;
+    padding: 18px;
+    
+}
+
+.row{
+    display: flex;
+    justify-content: space-between
+}

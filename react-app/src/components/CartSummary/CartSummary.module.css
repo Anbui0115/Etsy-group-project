@@ -1,0 +1,54 @@
+
+.rightCard{
+    display: flex;
+    box-shadow: 0 4px 20px rgb(34 34 34 / 15%);
+    border-radius: 18px !important;
+    overflow: hidden !important;
+    display: block;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
+    height: 256.78px;
+    
+    align-items: center;
+
+}
+
+.table{
+    display: flex;
+    flex-direction: column;
+    padding: 18px;
+    
+}
+
+.row{
+    display: flex;
+    justify-content: space-between
+}
+
+.proceedButton{
+    display: flex;
+  flex-direction: row;
+  border: none;
+  background-color: #222222;
+  color: white;
+  justify-content: center;
+  margin-top: 20px;
+  
+  height: 48px;
+  font-size: 15pt;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
+    Arial, sans-serif;
+  cursor: pointer;
+  box-sizing: border-box;
+  line-height: 24px;
+  min-height: 48px;
+  min-width: 48px;
+  text-align: center;
+  width: 324px;
+  border-radius: 50px;
+}
