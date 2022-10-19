@@ -10,7 +10,7 @@ from ..forms.shopping_cart import CreateShoppingCart
 shopping_cart_routes = Blueprint('cart', __name__)
 
 
-@shopping_cart_routes.route('')
+@shopping_cart_routes.route('', methods=["GET"])
 @login_required
 def get_shopping_cart():
     """
@@ -29,6 +29,7 @@ def add_shopping_cart():
     owner_id = current_user.id
     form = CreateShoppingCart()
     form['csrf_token'].data = request.cookies['csrf_token']
+
     if form.validate_on_submit():
         shopping_cart = Shopping_cart()
         form.populate_obj(shopping_cart)
@@ -36,14 +37,13 @@ def add_shopping_cart():
         cartItem = Shopping_cart.query.filter_by(item_id=shopping_cart.item_id, user_id=owner_id).first()
         if cartItem is not None: 
             print("item is here already in shopping cart ")
-            shopping_cart.quantity = cartItem.quantity +1
-            print(shopping_cart.quantity)
+            cartItem.quantity = cartItem.quantity + shopping_cart.quantity
             db.session.commit()
+            return {'shopping_cart': cartItem.to_dict()}
         else:
             db.session.add(shopping_cart)
             db.session.commit()
-        print('shopping cart after update is ', shopping_cart.item_id)
-        return {'shopping_cart': shopping_cart.to_dict()}
+            return {'shopping_cart': shopping_cart.to_dict()}
     else:
         return {'errors': form.errors}, 400
 

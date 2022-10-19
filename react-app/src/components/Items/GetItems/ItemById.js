@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import ImageGallery from 'react-image-gallery';
 
 import "../Items.css"
+import AddToCart from "../../AddToCart/AddToCart";
 
 const ItemById = () => {
     const { itemId } = useParams();
@@ -59,7 +60,7 @@ const ItemById = () => {
                                     <div className="individual-item-title">{item.title}</div>
                                     <div className="individual-item-price">${item.price}</div>
                                 </div>
-                                <div className="add-to-cart-button">{/* render "add to cart" button*/}ADD TO CART BUTTON GOES HERE</div>
+                                <div className="add-to-cart-button"><AddToCart item={item.id}/></div>
                                 <div className="description-title-and-description">
                                     <div className="item-description-title">Description</div>
                                     <div className="item-description">{item.description}</div>
