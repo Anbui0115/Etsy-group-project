@@ -48,6 +48,8 @@
 
 .carrouselBig img {
     border-radius: 10px;
+    width: 56%;
+    aspect-ratio: 1/1;
 }
 
 
