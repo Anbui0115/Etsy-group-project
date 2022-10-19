@@ -15,7 +15,7 @@ import CreateUserItem from "./components/CreateItem/CreateItemForm";
 import UserListing from "./components/Listing/UserListing";
 import Footer from './components/Footer/Footer';
 import PurchasesReviews from "./components/PurchasesReviews/PurchasesReviews";
-
+import Search from "./components/Search/Search"
 import EditItemForm from "./components/EditItem";
 import Cart from "./components/Cart/Cart";
 import ItemById from "./components/Items/GetItems/ItemById";
@@ -59,6 +59,9 @@ function App() {
         </ProtectedRoute>
         <Route path="/" exact={true}>
           <HomePage />
+        </Route>
+        <Route path="/search/:params" exact={true}>
+          <Search />
         </Route>
         <Route path="/items/:itemId">
           <ItemById />

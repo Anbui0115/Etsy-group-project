@@ -22,7 +22,8 @@ const PurchasesReviews= ()=>{
         dispatch(getPurchasesAction(sessionUser.id))
     }, [dispatch]);
 
-    const purchases = useSelector((state) => state.session.purchases);
+    let purchases = useSelector((state) => state.session.purchases);
+    // if (purchases.length) purchases = purchases.reverse()
     const itemsObj = useSelector(state => state.items)
     const items = Object.values(itemsObj)
 

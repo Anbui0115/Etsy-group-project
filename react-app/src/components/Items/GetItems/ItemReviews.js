@@ -1,6 +1,10 @@
 export const ItemReviews = ({reviews}) => {
-    console.log(reviews)
+    console.log("test")
 
+    if (!reviews.length) {
+        // console.log(reviews.length)
+        return <></>
+    }
     let initialValue = parseInt(reviews[0].stars)
     let average = reviews.slice(1).reduce(
         (previousValue, currentValue) => previousValue+parseInt(currentValue.stars),
