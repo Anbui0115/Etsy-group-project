@@ -12,13 +12,13 @@ class Shopping_cart(db.Model):
     quantity = db.Column(db.Integer, nullable=False)
     
     #relationship
-    items = db.relationship("Item", back_populates="shopping_cart")
-    user = db.relationship("User",back_populates="shopping_cart")
+    item = db.relationship("Item", back_populates="shopping_cart", lazy=False)
+    user = db.relationship("User",back_populates="shopping_cart", lazy=False)
 
     def to_dict(self):
         return {
             'id': self.id,
-            'item_id': self.item_id,
-            'user_id': self.user_id,
+            'item': self.item.to_dict(),
+            'user': self.user.to_dict(),
             'quantity': self.quantity            
         }

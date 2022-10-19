@@ -1,0 +1,184 @@
+.create-item-outer-container {
+  margin-top: 40px;
+  width: 80%
+}
+
+.create-title-text {
+  font-size: 36px;
+  font-weight: 300;
+  font-family: "Guardian-EgypTT", Charter, "Charter Bitstream", Cambria,
+    "Noto Serif Light", "Droid Serif", Georgia, serif;
+  margin-bottom: 20px;
+}
+
+.create-subtitle-text {
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.create-item-error {
+  color: rgb(201, 15, 15);
+  list-style: none;
+  margin: 14px 4px;
+}
+
+.each-error {
+  padding: 3px 3px;
+}
+
+.create-item-photo {
+  border: 1px solid rgb(128, 128, 128, 0.5);
+  border-radius: 3px;
+}
+
+.create-item-photo-inner {
+  margin: 2%;
+}
+
+.photo-title {
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.photo-subtitle {
+  margin-bottom: 10px;
+  color: rgb(34, 34, 34, 0.8);
+}
+
+.create-item-input-field {
+  color: rgb(34, 34, 34, 0.8);
+}
+
+.create-item-input {
+  width: 50%;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+.item-title-and-description-container {
+  border: 1px solid rgb(128, 128, 128, 0.5);
+  border-radius: 3px;
+  margin: 2% 0px;
+}
+
+.item-title-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.listing-details-container {
+  margin: 2%;
+}
+
+.listing-detail-title {
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.listing-details-subtitle {
+  margin-bottom: 10px;
+  color: rgb(34, 34, 34, 0.8);
+}
+
+.title-and-description {
+  width: 20%;
+  margin-right: 2%;
+}
+
+.item-title {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.item-subtitle {
+  margin-bottom: 10px;
+  color: rgb(34, 34, 34, 0.8);
+}
+
+.listing-description {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.listing-description-subtitle {
+  margin-bottom: 10px;
+  color: rgb(34, 34, 34, 0.8);
+}
+
+.item-description-input-field {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.item-title-input {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 4.5rem;
+}
+
+.item-description-input {
+  width: 100%;
+  border-radius: 5px;
+  height: 220px;
+  border-style: inset;
+  border-width: 2px;
+}
+
+.title-and-description-input-fields {
+  width: 100%;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+.item-price-outer-container {
+  border: 1px solid rgb(128, 128, 128, 0.5);
+  border-radius: 3px;
+  margin: 2% 0px;
+}
+
+.item-price-input-container {
+  margin: 2%;
+  width: 100%;
+}
+
+.item-price-input-field {
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.item-price-input {
+  width: 20%;
+  margin-left: 4px;
+  border-radius: 5px;
+}
+
+.create-item-submit-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.create-item-submit-button {
+  display: flex;
+  flex-direction: row;
+  border: none;
+  background-color: #222222;
+  color: white;
+  justify-content: center;
+  margin-top: 20px;
+  height: 40px;
+  font-size: 15pt;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  box-sizing: border-box;
+  line-height: 24px;
+  text-align: center;
+  width: 150px;
+  border-radius: 5px;
+}

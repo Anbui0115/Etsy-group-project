@@ -14,6 +14,14 @@ def seed_purchases():
         item_id = 3, user_id = 1, quantity = 3, price = 4.00
     )
 
+    reviewName1 = Purchase(
+        item_id = 1, user_id = 2, quantity = 2, price = 5.30
+    )
+
+    reviewName2 = Purchase(
+        item_id = 1, user_id = 3, quantity = 3, price = 4.00
+    )
+
 
     db.session.add(reviewName)
     db.session.add(reviewName1)

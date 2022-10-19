@@ -1,3 +1,5 @@
+import { getPurchasesAction } from "./session"
+
 // Types
 const GET_REVIEWS = 'reviews/GET_REVIEWS';
 const CREATE_REVIEW = 'reviews/CREATE_REVIEW';
@@ -60,12 +62,13 @@ export const createReview = (reviewData) => async dispatch => {
 
     if (res.ok) {
         const review = await res.json();
-        dispatch(createReviewAction(review));
+        dispatch(getPurchasesAction(reviewData.user_id));
         return review;
     }
 };
 
-export const editReview = (reviewId, editReviewData) => async dispatch => {
+export const editReview = (reviewId, editReviewData, uid) => async dispatch => {
+    // console.log("fasdfdsaf")
     const res = await fetch(`/api/reviews/${reviewId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -74,12 +77,12 @@ export const editReview = (reviewId, editReviewData) => async dispatch => {
 
     if (res.ok) {
         const review = await res.json();
-        dispatch(editReviewAction(review));
+        dispatch(getPurchasesAction(uid));
         return review;
     }
 };
 
-export const deleteReview = (reviewId) => async dispatch => {
+export const deleteReview = (reviewId, uid) => async dispatch => {
     const res = await fetch(`/api/reviews/${reviewId}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' }
@@ -87,7 +90,7 @@ export const deleteReview = (reviewId) => async dispatch => {
 
     if (res.ok) {
         const review = `${reviewId}`
-        dispatch(deleteReviewAction(review))
+        dispatch(getPurchasesAction(uid));
     }
 }
 

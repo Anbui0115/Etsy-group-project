@@ -5,8 +5,8 @@ from wtforms import validators
 
 
 class CreateShoppingCart(FlaskForm):
-    item_id = IntegerField('title',validators=[validators.input_required()])
-    quantity = IntegerField('price',validators=[validators.input_required()])
+    item_id = IntegerField('item_id',validators=[validators.input_required()])
+    quantity = IntegerField('quantity',validators=[validators.input_required()])
     
     
 

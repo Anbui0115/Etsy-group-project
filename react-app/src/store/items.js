@@ -80,9 +80,10 @@ export const editItem = (itemId, editItemData) => async (dispatch) => {
 };
 
 export const deleteItem = (itemId) => async (dispatch) => {
+console.log('itemID inside delete thunk!!!!!',itemId)//undefined
   const res = await fetch(`/api/items/${itemId}`, {
     method: "DELETE",
-    headers: { "Content-Type": "application/json" },
+    // headers: { "Content-Type": "application/json" },
   });
 
   if (res.ok) {
