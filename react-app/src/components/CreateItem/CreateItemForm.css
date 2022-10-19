@@ -1,39 +1,11 @@
-.create-item-form{
-border: 1px solid black;
+.create-item-outer-container {
+    border: solid purple 2px;
 }
-.create-title{
-border: 1px solid hotpink;
-}
-.create-title-text{
-border: 1px solid orange;
-}
-.create-subtitle{
-border: 1px solid green;
-}
-.create-subtitle-text{
 
+.create-listing-header {
+    border: solid red 1px;
 }
-.create-item-container{
-border: 1px solid blue;
-}
-.create-item-error{
 
-}
-.create-item-body{
-
-}
-.create-item-photo{
-
-}
-.create-item-input-items{
-
-}
-.create-item-input-field{
-
-}
-.create-item-input{
-
-}
-.create-item-submit-button{
-
+.create-item-container {
+    border: solid green 1px;
 }
