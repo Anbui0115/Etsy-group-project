@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { NavLink, Redirect } from "react-router-dom";
-// import { spotDetailsThunk } from "../../store/spots";
+
 // import { deleteAReview } from "../../store/reviews";
 // import reviewAvatar from "./review-avatar.jpeg";
 import "./EachItemCard.css";
@@ -59,15 +59,6 @@ console.log('itemId--',item.id,typeof itemId)//this works
           onClick={(e) => onClickEdit(e, itemId)}
         >
           Edit
-{/* <NavLink
-          to={`/spots/${spot.id}/edit`}
-          style={{ textDecoration: "none", color: "white" }}
-        >
-          Edit Spot
-        </NavLink> */}
-
-
-
         </div>
 
         <div

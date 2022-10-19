@@ -6,14 +6,12 @@ import SignUpForm from "./SignUpForm";
 
 function LoginFormModal() {
   const [showModal, setShowModal] = useState(false);
-  console.log("SHOW MODAL NOW", showModal);
   return (
     <>
       <button
         className="signup-button-modal"
         onClick={
           () => setShowModal(true)
-          //  console.log("SHOW MODAL NOW",showModal)
         }
       >
         Register

@@ -3,8 +3,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Redirect } from "react-router-dom";
 import { getAllItems } from "../../store/items";
-// import { cleanUpAllSpots, getSpotByOwnerThunk } from "../../store/spots";
-// import { deleteASpotThunk } from "../../store/spots";
+
 
 import "./UserListing.css";
 import CreateUserItem from "../CreateItem/CreateItemForm";
