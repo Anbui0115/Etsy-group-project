@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Redirect } from "react-router-dom";
-
+import { getAllItems } from "../../store/items";
 // import { cleanUpAllSpots, getSpotByOwnerThunk } from "../../store/spots";
 // import { deleteASpotThunk } from "../../store/spots";
 
@@ -17,29 +17,20 @@ function UserListing() {
   const items = useSelector((state) => state.items);
   const itemsArray = Object.values(items);
   const sessionUser = useSelector((state) => state.session.user);
-  //   const userId = sessionUser.id
-
   const listingByOwner = itemsArray.filter(
     (item) => item?.owner_id === sessionUser.id
   );
   // console.log("LISTING by OWNER", listingByOwner);
+//  useEffect(() => {
+//    dispatch(getAllItems());
+//  }, [dispatch]);
 
   const onClickAddListing = (e) => {
     e.preventDefault();
     history.push("/listings/create");
   };
 
-
-  // useEffect(() => {
-  //   // todo:create get item by owner thunk
-  //   // and dispatch it here
-  //   // dispatch(getItemsByOwnerThunk());
-  //   return () => {
-  //     //optional
-  //     //   dispatch(cleanUpAllItems());
-  //   };
-  // }, [dispatch]);
-
+  if (!items) return null;
   if (!listingByOwner) return null;
   if (!sessionUser) return <Redirect to="/" />;
 
@@ -63,7 +54,8 @@ function UserListing() {
                 <div className="add-listing">
                   {/* <NavLink to="/listings/create">Add listing</NavLink> */}
                   <img
-                    style={{ width: "230px", height: "296px" }}
+                    width="300px"
+                    height="300px"
                     className="owner-each-listing-img"
                     src="https://i.imgur.com/LCd0uJx.png"
                     alt="add-a-listing"

@@ -2,7 +2,7 @@ import "./EditItem.css";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { createItem, getAllItems } from "../../store/items";
+import { createItem, editItem, getAllItems } from "../../store/items";
 
 const EditItemForm = () => {
   const dispatch = useDispatch();
@@ -10,14 +10,17 @@ const EditItemForm = () => {
 
   const items = useSelector((state) => state.items);
   const { itemId } = useParams();
-    const item = items[Number(itemId)];
-//   const item = items[itemId];
+  const item = items[Number(itemId)];
+  //   const item = items[itemId];
   console.log("ITEM to EDIT~~~~", item);
 
   const [title, setTitle] = useState(item?.title);
   const [description, setDescription] = useState(item?.description);
   const [price, setPrice] = useState(item?.price);
-  const [image_urls, setImage_urls] = useState(item?.image_urls);
+  // console.log("item image_urls", item["images"][0]["image_url"]);
+  const [image_urls, setImage_urls] = useState(
+    item?.["images"][0]["image_url"]
+  );
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const [errors, setErrors] = useState([]);
@@ -28,12 +31,15 @@ const EditItemForm = () => {
   //   }, [dispatch, spotId]);
 
   useEffect(() => {
+    dispatch(getAllItems());
+  }, [dispatch, itemId]);
+
+  useEffect(() => {
     let errors = [];
     if (title?.length < 4 || title?.length > 255)
       errors.push("Title needs to be between 4 and 255 characters");
     if (description?.length < 4 || description?.length > 2000)
       errors.push("Description needs to be between 4 and 2000 characters");
-
     if (
       !image_urls?.includes(".jpg") &&
       !image_urls?.includes(".png") &&
@@ -56,22 +62,21 @@ const EditItemForm = () => {
       price,
       image_urls,
     };
-    console.log("itemInfo inside CreatItemForm", itemData);
+    console.log("itemInfo inside CreatItemForm", itemData, item);
     setErrors([]);
-    const data = await dispatch(createItem(itemData)).catch(async (res) => {
-      const data = await res.json();
-      if (data && data.errors) setErrors(data.errors);
-    });
-    // console.log("data````````````", data);
-    // dispatch(addImgThunk({ previewImage: true, url: imageUrl }, data.id));
+    const data = await dispatch(editItem(itemId, itemData)).catch(
+      async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      }
+    );
+    await dispatch(getAllItems());
     if (data) {
-      //need to redirect to the newly created item?
-      //   history.push(`/items/${data.id}`);
       console.log("DATA IS VALID", data);
       history.push(`/listings`);
     }
   };
-
+  if (!item) return null;
   return (
     <form className="create-item-form" onSubmit={onSubmit}>
       {/* <h1>Form</h1> */}
