@@ -8,6 +8,8 @@ const DELETE_SHOPPINGCART = 'shoppingCarts/DELETE_SHOPPINGCART';
 const CLEAR_SHOPPINGCART = 'shoppingCarts/CLEAR_SHOPPINGCART';
 const GET_PURCHASES = "items/GET_PURCHASES";
 const SET_CART = "cart/setCartItems"
+const REMOVE_CART_ITEM = "cart/removeCartItem"
+const UPDATE_CART_ITEM = "cart/addCartItem"
 
 // Action Creators
 const setUser = (user) => ({
@@ -27,12 +29,41 @@ const removeUser = () => ({
   type: REMOVE_USER,
 })
 
-// const getShoppingCartsAction = (shoppingCarts) => {
-//   return {
-//       type: GET_SHOPPINGCARTS,
-//       shoppingCarts
-//   }
-// }
+const removeCartItem = (id) => ({
+  type: REMOVE_CART_ITEM,
+  payload: id
+})
+
+const updateCartItem = (id) => ({
+  type: UPDATE_CART_ITEM,
+  payload: id
+
+})
+
+export const editShoppingCartThunk =(id,quantity)=>async dispatch => {
+  console.log("item id is in thunk ....",id, "quantity is .....", quantity)
+  const response = await fetch(`/api/cart/${id}`,{
+    method: "PUT",
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      quantity,
+      
+    })
+  })
+  if (response.ok){
+    const data = await response.json()
+    console.log("response after update is .....",data)
+    if(data.errors){
+      return data.errors
+    }
+    dispatch(updateCartItem(data))
+    return response
+  }
+}
+
+
 
 export const getCartItemsThunk=()=>async dispatch =>{
   const response = await fetch("/api/cart", {
@@ -47,6 +78,21 @@ export const getCartItemsThunk=()=>async dispatch =>{
       return response
   }
 } 
+
+export const removeCartItemsThunk=(id)=>async dispatch =>{
+  const response = await fetch(`/api/cart/${id}`, {
+      method: "DELETE"
+  });
+  if(response.ok){
+      const data = await response.json();
+      if (data.errors) {
+        return data.errors;
+      }
+      dispatch(removeCartItem(id));
+      // dispatch(removeCartItem(data));
+      return response
+  }
+} 
 // const createShoppingCartAction = (shoppingCart) => {
 //   return {
 //       type: CREATE_SHOPPINGCART,
@@ -54,12 +100,6 @@ export const getCartItemsThunk=()=>async dispatch =>{
 //   }
 // }
 
-// const editShoppingCartAction = (shoppingCart) => {
-//   return {
-//       type: EDIT_SHOPPINGCART,
-//       shoppingCart
-//   }
-// }
 
 // export const deleteShoppingCartAction = (shoppingCartId) => {
 //   return {
@@ -230,8 +270,8 @@ const initialState = { user: null };
 
 //Reducer
 export default function reducer(state = initialState, action) {
-  
-  switch (action.type) {
+  const newState = {...state}
+  switch (action.type) {    
     case SET_USER:
       return { user: action.payload }
     case REMOVE_USER:
@@ -255,14 +295,17 @@ export default function reducer(state = initialState, action) {
         newState["purchases"] = action.purchases.purchases
         return newState
     case SET_CART:
-          let newState = { ...state }
-          newState = action.payload;
-          console.log("shopping cart is ", newState)
+          newState.shopping_cart = action.payload.shopping_cart;
           return newState;   
-    case SET_CART:
-          newState = {...state};
-          newState = action.payload;
-          return newState;   
+    case UPDATE_CART_ITEM:
+        newState.shopping_cart = [...newState.shopping_cart]
+        let cartItem = newState.shopping_cart.find(i => i.id === action.payload.id);
+        cartItem.quantity = action.payload.quantity
+        return newState
+
+    case REMOVE_CART_ITEM:
+          const shopping_cart = newState.shopping_cart.filter(i => i.id !== action.payload);
+          return {...state, shopping_cart}
     default:
       return state;
   }
