@@ -16,6 +16,8 @@ const PurchasesReviews= ()=>{
     const history = useHistory();
     const dispatch = useDispatch();
 
+    if (!sessionUser) history.push("/")
+
     useEffect(async () => {
         dispatch(getPurchasesAction(sessionUser.id))
     }, [dispatch]);
