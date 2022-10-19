@@ -89,6 +89,7 @@
   justify-content: center;
   gap: 1%;
   margin: auto;
+  cursor: pointer;
 }
 .owner-all-items {
   /* border: 1px dotted blue; */
