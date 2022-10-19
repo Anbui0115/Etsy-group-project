@@ -12,18 +12,19 @@ class Item(db.Model):
     description = db.Column(db.String(2000), nullable=False)
     price = db.Column(db.Float, nullable=False)
 
-    #relationships 
+    #relationships
     owner = db.relationship("User", back_populates="items", lazy=False)
     reviews = db.relationship("Review", cascade="all, delete", back_populates="item", lazy=False)
     images = db.relationship("Image", cascade="all, delete", back_populates="item",lazy=False)
     shopping_cart = db.relationship("Shopping_cart",cascade="all, delete", back_populates="items")
     purchases = db.relationship("Purchase", back_populates="item")
 
-    
+
     def to_dict(self):
         return {
             'id': self.id,
             'owner':  self.owner.to_dict(),
+            'owner_id' : self.owner_id,
             'title': self.title,
             'description': self.description,
             'price': self.price,
