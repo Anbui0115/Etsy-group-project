@@ -3,9 +3,9 @@
 }
 
 .create-listing-header {
-    border: solid red 1px;
+    border: solid black 1px;
 }
 
 .create-item-container {
-    border: solid green 1px;
+    border: solid green 3px;
 }
