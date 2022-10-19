@@ -56,7 +56,7 @@
   color: rgb(34, 34, 34);
   display: block;
   font-size: 14px;
-  height: 1162px;
+  /* height: 1162px; */
   line-height: 19.6px;
   margin: 0px 0px;
   padding: 36px;
@@ -69,7 +69,7 @@
   box-sizing: border-box;
   color: rgb(34, 34, 34);
   font-size: 14px;
-  height: 1080px;
+  /* height: 1080px; */
   line-height: 19.6px;
   padding: 36px;
   text-size-adjust: 100%;
@@ -97,7 +97,7 @@
   display: flex;
   flex-wrap: wrap;
   font-size: 14px;
-  height: 1025px;
+  /* height: 1025px; */
   line-height: 19.6px;
   /* padding: 36px; */
   text-size-adjust: 100%;
