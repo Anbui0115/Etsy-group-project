@@ -76,70 +76,96 @@ function CreateUserItem() {
           </div>
           <div className="create-subtitle">
             <div className="create-subtitle-text">
-              Add some photos and details about your item. Fill out what you can for
-              now—you will be able to edit this later.
+              Add some photos and details about your item. Fill out what you can
+              for now—you will be able to edit this later.
             </div>
           </div>
         </div>
-
 
         <div className="create-item-container">
           {isSubmitted && (
             <ul className="create-item-error">
               {errors.map((error) => (
-                <li key={error}>{error}</li>
+                <li className="each-error" key={error}>
+                  {error}
+                </li>
               ))}
             </ul>
           )}
           <div className="create-item-body">
             <div className="create-item-photo">
-              <div className="photo-title-and-subtitle">
-                <div className="photo-title">Photos</div>
-                <div className="photo-subtitle">Add up to five photos so buyers can see every detail.</div>
-              </div>
-              <div className="create-item-input-items">
-                <label className="create-item-input-field">
-                  Image url
-                  <input
-                    className="create-item-input"
-                    type="text"
-                    name="image_urls"
-                    value={image_urls}
-                    onChange={(e) => setImage_urls(e.target.value)}
-                    required
-                  />
-                </label>
+              <div className="create-item-photo-inner">
+                <div className="photo-title-and-subtitle">
+                  <div className="photo-title">Photos</div>
+                  <div className="photo-subtitle">
+                    Add a photo so buyers can see the details.
+                  </div>
+                </div>
+                <div className="create-item-input-items">
+                  <label className="create-item-input-field">
+                    Image url
+                    <input
+                      className="create-item-input"
+                      type="text"
+                      name="image_urls"
+                      value={image_urls}
+                      onChange={(e) => setImage_urls(e.target.value)}
+                      required
+                    />
+                  </label>
+                </div>
               </div>
             </div>
 
             <div className="item-title-and-description-container">
-              <div className="listing-detail-title">Listing details</div>
-              <div className="item-title-container">
-                <label className="item-title-input-field">
-                  Title
-                  <input
-                    className="item-title-input"
-                    type="text"
-                    name="title"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                    required
-                  />
-                </label>
-              </div>
+              <div className="listing-details-container">
+                <div className="listing-detail-title">Listing details</div>
+                <div className="listing-details-subtitle">
+                  Tell the world all about your item and why they'll love it
+                </div>
+                <div className="item-title-container">
+                  <div className="title-and-description">
+                    <div className="title-and-subtitle-details">
+                      <div className="item-title">Title</div>
+                      <div className="item-subtitle">
+                        Include keywords that buyers would use to search for
+                        your item
+                      </div>
+                    </div>
 
-              <div className="item-description-container">
-                <label className="item-description-input-field">
-                  Description
-                  <input
-                    className="item-description-input"
-                    type="text"
-                    name="description"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    required
-                  />
-                </label>
+                    <div className="description-and-subtitle">
+                      <div className="listing-description">Description</div>
+                      <div className="listing-description-subtitle">
+                        Start with a brief overview that describe your item's
+                        finest features
+                      </div>
+                    </div>
+                  </div>
+                  <div className="title-and-description-input-fields">
+                    <label className="item-title-input-field">
+                      <input
+                        className="item-title-input"
+                        type="text"
+                        name="title"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                        required
+                      />
+                    </label>
+                    <div className="item-description-container">
+                      <label className="item-description-input-field">
+                        <input
+                          className="item-description-input"
+                          type="text"
+                          name="description"
+                          value={description}
+                          onChange={(e) => setDescription(e.target.value)}
+                          required
+                        />
+                      </label>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 

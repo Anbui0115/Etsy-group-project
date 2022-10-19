@@ -1,11 +1,122 @@
 .create-item-outer-container {
-    border: solid purple 2px;
+  border: solid purple 2px;
+  margin-top: 40px;
+}
+.create-title-text {
+  font-size: 36px;
+  font-weight: 300;
+  font-family: "Guardian-EgypTT", Charter, "Charter Bitstream", Cambria,
+    "Noto Serif Light", "Droid Serif", Georgia, serif;
+  margin-bottom: 20px;
 }
 
-.create-listing-header {
-    border: solid black 1px;
+.create-subtitle-text {
+  font-size: 18px;
+  margin-bottom: 40px;
 }
 
-.create-item-container {
-    border: solid green 3px;
+/* .create-item-container {
+  border: solid green 3px;
+
+} */
+
+.create-item-error {
+  color: rgb(201, 15, 15);
+  list-style: none;
+  margin: 14px 4px;
+}
+.each-error {
+  padding: 3px 3px;
+}
+.create-item-photo {
+  border: 1px solid rgb(128, 128, 128, 0.5);
+  border-radius: 3px;
+}
+.create-item-photo-inner {
+  margin: 2%;
+}
+/* .photo-title-and-subtitle{
+
+} */
+.photo-title {
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.photo-subtitle {
+  margin-bottom: 10px;
+  color: rgb(34, 34, 34, 0.8);
+}
+.create-item-input-field {
+  color: rgb(34, 34, 34, 0.8);
+}
+.create-item-input {
+  width: 50%;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+.item-title-and-description-container {
+  border: 1px solid rgb(128, 128, 128, 0.5);
+  border-radius: 3px;
+  margin: 2% 0px;
+}
+.item-title-container {
+  border: 1px red solid;
+  display: flex;
+  flex-direction: row;
+}
+.listing-details-container {
+  margin: 2%;
+}
+.listing-detail-title {
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.listing-details-subtitle {
+  margin-bottom: 10px;
+  color: rgb(34, 34, 34, 0.8);
+}
+.title-and-description {
+  width: 20%;
+  margin-right: 2%;
+  /* border: 1px solid black; */
+}
+.item-title {
+  font-weight: 500;
+  font-size: 16px;
+}
+.item-subtitle {
+  margin-bottom: 10px;
+  color: rgb(34, 34, 34, 0.8);
+}
+.listing-description {
+  font-weight: 500;
+  font-size: 16px;
+}
+.listing-description-subtitle {
+  margin-bottom: 10px;
+  color: rgb(34, 34, 34, 0.8);
+}
+.item-description-input-field {
+  font-weight: 500;
+  font-size: 16px;
+}
+.item-title-input {
+  width: 50%;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+.item-title-input-field {
+  width: 50%;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+.title-and-description-input-fields {
+  border: 1px solid blue;
+}
+.item-description-input {
+  width: 50%;
+  border-radius: 5px;
+  margin-left: 5px;
 }
