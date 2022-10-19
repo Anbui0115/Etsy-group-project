@@ -4,12 +4,12 @@ import { Modal } from "../../context/Modal";
 import "./ReviewModal.css";
 import MakeReviewForm from "./MakeReviewForm";
 
-function ReviewModal({hasReview, review, item}) {
+function ReviewModal({hasReview, review, purchaseId, item}) {
   const [showModal, setShowModal] = useState(false);
   // console.log(hasReview)
   // console.log(review)
 
-  const form = hasReview ? <>has review</> : <MakeReviewForm item={item} />
+  const form = hasReview ? <>has review</> : <MakeReviewForm item={item} purchaseId={purchaseId} setShowModal={setShowModal} />
   const btntext = hasReview ? <>Manage Review</> : <>Make Review</>
   const css = hasReview ? "edit-review-modal erw" : "edit-review-modal erb"
 

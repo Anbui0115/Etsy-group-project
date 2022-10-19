@@ -1,3 +1,5 @@
+import { getPurchasesAction } from "./session"
+
 // Types
 const GET_REVIEWS = 'reviews/GET_REVIEWS';
 const CREATE_REVIEW = 'reviews/CREATE_REVIEW';
@@ -60,7 +62,7 @@ export const createReview = (reviewData) => async dispatch => {
 
     if (res.ok) {
         const review = await res.json();
-        dispatch(createReviewAction(review));
+        dispatch(getPurchasesAction(reviewData.user_id));
         return review;
     }
 };

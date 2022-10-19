@@ -29,7 +29,7 @@ const PurchasesReviews= ()=>{
         purchaseCards =
             purchases.map(purchase => {
                 const item = itemsObj[purchase.itemId]
-
+                // console.log(purchase.id)
                 let reviewPreview = <></>
                 let hasReview = false
                 if (purchase.review.length !== 0) {
@@ -57,7 +57,7 @@ const PurchasesReviews= ()=>{
                             {reviewPreview}
                         </div>
                         <div className="purchase-card-right">
-                            <ReviewModal hasReview={hasReview} review={purchase.review[0]} item={item} />
+                            <ReviewModal hasReview={hasReview} review={purchase.review[0]} purchaseId={purchase.id} item={item} />
                         </div>
                     </div>
                 )
