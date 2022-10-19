@@ -3,7 +3,7 @@ from app.models import db, Review
 
 def seed_reviews():
     reviewName = Review(
-        item_id = "item_id", user_id = "user_id", stars = "stars", title = "review title", description = "review description"
+        item_id = 1, user_id = 1, purchase_id = 1, stars = 4, title = "Man", description = "My wife divorced me for this"
     )
 
     db.session.add(reviewName)

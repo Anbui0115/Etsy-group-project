@@ -8,7 +8,7 @@ import { NavLink, Redirect } from "react-router-dom";
 
 import "./UserListing.css";
 import CreateUserItem from "../CreateItem/CreateItemForm";
-import ItemCard from "../User's_Item_Card";
+import ItemCard from "../Users_Item_Card";
 
 function UserListing() {
   const dispatch = useDispatch();
