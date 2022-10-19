@@ -35,11 +35,9 @@ function ProfileButton({ user }) {
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
+    history.push("")
   };
-  const goToCreateASpot = (e) => {
-    e.preventDefault();
-    // history.push("/spots/new");
-  };
+
   return (
     <>
       <div onClick={openMenu} className="dropdown-menu">
