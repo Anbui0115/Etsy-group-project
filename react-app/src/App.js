@@ -16,6 +16,7 @@ import UserListing from "./components/Listing/UserListing";
 import Footer from './components/Footer/Footer';
 import PurchasesReviews from "./components/PurchasesReviews/PurchasesReviews";
 import Cart from "./components/Cart/Cart";
+import ItemById from "./components/Items/GetItems/ItemById";
 
 
 
@@ -54,8 +55,10 @@ function App() {
           <User />
         </ProtectedRoute>
         <Route path="/" exact={true}>
-          {/* <h1>My Home Page</h1> */}
           <HomePage />
+        </Route>
+        <Route path="/items/:itemId">
+          <ItemById />
         </Route>
         <Route path="/listings" exact={true}>
           <UserListing />

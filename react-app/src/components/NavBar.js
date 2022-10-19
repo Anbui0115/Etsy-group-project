@@ -17,7 +17,7 @@ const NavBar = () => {
           <NavLink to="/cart" className='profile_dropdown'><i class="fa-solid fa-cart-shopping"></i></NavLink>           
         </div>
         <div className='profile_dropdown'>
-          <ProfileButton/>
+          <ProfileButton />
         </div>
        
         {/* <div>
@@ -33,7 +33,7 @@ const NavBar = () => {
           Login
         </NavLink> */}
         <div>
-          <LoginFormModal/>
+          <LoginFormModal />
         </div>
         {/* <NavLink to='/sign-up' exact={true} activeClassName='active'>
           Sign Up
@@ -45,8 +45,9 @@ const NavBar = () => {
 
 
   return (
-    <div className={styles.outer_nav}>
-      <nav className={styles.nav_bar}>
+    <div className={styles.outer_most}>
+      <div className={styles.outer_nav}>
+        <nav className={styles.nav_bar}>
           <div className={styles.nav_logo}>
             <NavLink className={styles.home_logo} to='/' exact={true} activeClassName='active'>
               Home
@@ -54,13 +55,14 @@ const NavBar = () => {
           </div>
 
           <div className={styles.nav_searchbar}>
-Searchbar here
+            Searchbar here
           </div>
           {sessionLinks}
           {/* <NavLink to='/users' exact={true} activeClassName='active'>
             Users
           </NavLink> */}
-      </nav>
+        </nav>
+      </div>
     </div>
   );
 }
