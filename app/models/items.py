@@ -16,7 +16,7 @@ class Item(db.Model):
     owner = db.relationship("User", back_populates="items", lazy=False)
     reviews = db.relationship("Review", cascade="all, delete", back_populates="item", lazy=False)
     images = db.relationship("Image", cascade="all, delete", back_populates="item",lazy=False)
-    shopping_cart = db.relationship("Shopping_cart",cascade="all, delete", back_populates="items")
+    shopping_cart = db.relationship("Shopping_cart",cascade="all, delete", back_populates="item")
     purchases = db.relationship("Purchase", back_populates="item")
 
 

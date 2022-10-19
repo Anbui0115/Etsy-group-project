@@ -1,8 +1,9 @@
 from flask import Blueprint, request
 from app.forms.update_cart_form import UpdateCart
-from app.models import User, db
+from app.models import User, db, user
 from flask_login import login_required, current_user
 from app.models import User, db, Shopping_cart,Item
+from app.models.purchases import Purchase
 from ..forms.shopping_cart import CreateShoppingCart
 
 
@@ -64,7 +65,34 @@ def edit_cart(id):
             db.session.commit()
             return cartItem.to_dict()
 
+@shopping_cart_routes.route('/checkout', methods=["POST"])
+@login_required
+def checkout_cart():
+    """
+    Delete item in shopping cart by id
+    """
+    user_id = current_user.id
+    cartItems = Shopping_cart.query.filter_by(user_id=user_id).all()
     
+    for cartItem in cartItems:
+
+        purchase = Purchase()
+        purchase.user_id = user_id
+        purchase.item_id = cartItem.item_id
+        purchase.quantity = cartItem.quantity
+        purchase.price = cartItem.item.price
+        db.session.add(purchase)
+        db.session.delete(cartItem)
+
+    db.session.commit()
+    return {"message":"successfuly added to purchase table"}
+
+        
+        
+
+
+    
+
 
 @shopping_cart_routes.route('/<int:id>', methods=["DELETE"])
 @login_required

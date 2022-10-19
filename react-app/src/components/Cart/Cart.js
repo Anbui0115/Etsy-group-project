@@ -29,25 +29,6 @@ export default function Cart() {
             <div>
                 <CartSummary shoppingCart={cartItems}/>
             </div>
-            {/* <div>
-                    Total: {Object.values(cartItems).reduce((accum, val)=>val.quantity*val.item.price+accum,0)}
-                </div> */}
-            {/* <div className={styles.rightCard}>
-                <tbody className={styles.table}>
-                    <tr className={styles.row}>
-                        <th>
-                            Item(s) total
-                        </th>
-                        
-                    </tr>
-                    <tr>
-                        <hr></hr>
-                    </tr>
-                    <tr>
-                        <button className={styles.proceedButton}> Proceed to checkout</button>
-                    </tr>
-                </tbody>
-            </div> */}
         </div>
 
     )
