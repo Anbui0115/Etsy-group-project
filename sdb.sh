@@ -30,12 +30,12 @@ if [ "$command" == "1" ]; then
     etsy-reset-db
 elif [ "$command" == "2" ]; then
     echo "Are you sure you want this?"
-    echo "You're basically replacing new migrations [Y/n]"
+    echo "You'll be replacing all migration files. [Y/n]"
     read -p ">" command2
     if [ "$command2" == "Y" ]; then
         etsy-hard-reset-db
     else
-        echo "canceling."
+        echo "canceling. did you forget the capital Y?"
     fi
 fi
 
