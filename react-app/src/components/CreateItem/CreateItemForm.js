@@ -121,7 +121,7 @@ function CreateUserItem() {
               <div className="listing-details-container">
                 <div className="listing-detail-title">Listing details</div>
                 <div className="listing-details-subtitle">
-                  Tell the world all about your item and why they'll love it
+                  Tell the world all about your item and why they'll love it.
                 </div>
                 <div className="item-title-container">
                   <div className="title-and-description">
@@ -129,7 +129,7 @@ function CreateUserItem() {
                       <div className="item-title">Title</div>
                       <div className="item-subtitle">
                         Include keywords that buyers would use to search for
-                        your item
+                        your item.
                       </div>
                     </div>
 
@@ -137,7 +137,7 @@ function CreateUserItem() {
                       <div className="listing-description">Description</div>
                       <div className="listing-description-subtitle">
                         Start with a brief overview that describe your item's
-                        finest features
+                        finest features.
                       </div>
                     </div>
                   </div>
