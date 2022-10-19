@@ -55,7 +55,7 @@ const LoggedInPage = () => {
     let blankitems = [];
     for (let i = 0; i < Math.abs(items.length % 5 - 5); i++) {
         blankitems.push(
-            <div className='INSERT CLASSNAME HERE'>
+            <div className='splash-item-card'>
             </div>
         )
     }

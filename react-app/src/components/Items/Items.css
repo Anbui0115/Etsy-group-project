@@ -18,14 +18,27 @@
     margin-bottom: 10px;
 }
 
+.pictures {
+    /* border: solid red 1px; */
+    width: 85%;
+}
+
 .image-gallery-image image {
     border-radius:5px;
 }
 
+.image-gallery-thumbnail {
+    border-radius: 10px;
+}
+
+.image-gallery-thumbnail:focus {
+    border-radius: 10px;
+}
 
 .image-gallery-thumbnail.active {
     border-radius: 10px;
 }
+
 .image-gallery-thumbnail:hover {
     border-radius: 10px;
 }
