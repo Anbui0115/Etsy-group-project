@@ -21,9 +21,9 @@ const ItemById = () => {
     const carrossel = (item) => {
         let images = item.images.map(image => {
             return { original: image.image_url,
-                     originalClass: "carrosselBig",
+                     originalClass: "carrouselBig",
                      thumbnail: image.image_url,
-                     thumbnailClass: "carrosselSmall",}
+                     thumbnailClass: "carrouselSmall",}
         });
         return images
     }
@@ -36,14 +36,18 @@ const ItemById = () => {
                         <div className="item-by-id" key={item.id}>
                             <div className="picture-and-reviews">
                                 <div className="pictures">
-                                        <ImageGallery items={carrossel(item)} thumbnailPosition="right"/>
-                                    <div className="picture-list">
+                                        <ImageGallery
+                                        items={carrossel(item)}
+                                        thumbnailPosition="left"
+                                        showFullscreenButton="false"
+                                        />
+                                    {/* <div className="picture-list">
 
-                                        {/* Display image carrossel here with {item.images} */}
+                                        Display image carrossel here with {item.images}
                                     </div>
                                     <div className="display-picture">
                                         <img src={item.images[0].image_url} />
-                                    </div>
+                                    </div> */}
                                 </div>
                                 <div className="reviews">REVIEWS BE HERE! aggregate number and stars
                                     <div className="review-cards">{/* render "reviews" here*/}Rendered reviews here </div>
