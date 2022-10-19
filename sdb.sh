@@ -19,6 +19,9 @@ function etsy-hard-reset-db(){
 	flask db migrate
 	flask db upgrade
 	flask seed all
+	cd migrations/versions
+	mv *.py migrationfile.py
+	cd ..
 }
 
 echo "please type in 1 to rebuild a database"
