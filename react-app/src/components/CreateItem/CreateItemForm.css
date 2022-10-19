@@ -1,5 +1,5 @@
 .create-item-outer-container {
-  border: solid purple 2px;
+  /* border: solid purple 2px; */
   margin-top: 40px;
 }
 .create-title-text {
@@ -61,7 +61,7 @@
   margin: 2% 0px;
 }
 .item-title-container {
-  border: 1px red solid;
+  /* border: 1px red solid; */
   display: flex;
   flex-direction: row;
 }
@@ -103,20 +103,68 @@
   font-size: 16px;
 }
 .item-title-input {
-  width: 50%;
+  width: 100%;
   border-radius: 5px;
-  margin-left: 5px;
-}
-.item-title-input-field {
-  width: 50%;
-  border-radius: 5px;
-  margin-left: 5px;
-}
-.title-and-description-input-fields {
-  border: 1px solid blue;
+  margin-bottom: 80px;
 }
 .item-description-input {
-  width: 50%;
+  width: 100%;
+  border-radius: 5px;
+  height: 220px;
+}
+
+.title-and-description-input-fields {
+  /* border: 1px solid blue; */
+  width: 100%;
   border-radius: 5px;
   margin-left: 5px;
+}
+.item-price-outer-container {
+  border: 1px solid rgb(128, 128, 128, 0.5);
+  border-radius: 3px;
+  margin: 2% 0px;
+}
+.item-price-input-container {
+  margin: 2%;
+  width: 100%;
+  /* border: 1px solid blue; */
+}
+.item-price-input-field {
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 10px;
+  width: 100%;
+  /* border: 1px solid red; */
+}
+.item-price-input {
+  width: 20%;
+  margin-left: 4px;
+  border-radius: 5px;
+}
+.create-item-submit-container {
+  display: flex;
+  justify-content: flex-end;
+}
+.create-item-submit-button {
+  display: flex;
+  flex-direction: row;
+  border: none;
+  background-color: #222222;
+  color: white;
+  justify-content: center;
+  margin-top: 20px;
+  height: 40px;
+  font-size: 15pt;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  box-sizing: border-box;
+  line-height: 24px;
+  /* min-height: 48px;
+  min-width: 48px; */
+  text-align: center;
+  width: 150px;
+  border-radius: 5px;
 }

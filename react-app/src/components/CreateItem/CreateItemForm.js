@@ -154,7 +154,7 @@ function CreateUserItem() {
                     </label>
                     <div className="item-description-container">
                       <label className="item-description-input-field">
-                        <input
+                        <textarea
                           className="item-description-input"
                           type="text"
                           name="description"
@@ -169,28 +169,32 @@ function CreateUserItem() {
               </div>
             </div>
 
-            <div className="item-price-input-container">
-              <label className="item-price-input-field">
-                Price
-                <input
-                  className="item-price-input"
-                  type="number"
-                  name="price"
-                  value={price}
-                  onChange={(e) => setPrice(e.target.value)}
-                  required
-                />
-              </label>
+            <div className="item-price-outer-container">
+              <div className="item-price-input-container">
+                <label className="item-price-input-field">
+                  Price
+                  <input
+                    className="item-price-input"
+                    type="number"
+                    name="price"
+                    value={price}
+                    onChange={(e) => setPrice(e.target.value)}
+                    required
+                    placeholder="$"
+                  />
+                </label>
+              </div>
             </div>
           </div>
-
-          <button
-            className="create-item-submit-button"
-            type="submit"
-            disabled={isSubmitted && errors.length > 0}
-          >
-            Save
-          </button>
+          <div className="create-item-submit-container">
+            <button
+              className="create-item-submit-button"
+              type="submit"
+              disabled={isSubmitted && errors.length > 0}
+            >
+              Save
+            </button>
+          </div>
         </div>
         {/* </div> */}
       </form>
