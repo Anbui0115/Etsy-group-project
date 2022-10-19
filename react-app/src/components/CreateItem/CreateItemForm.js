@@ -25,11 +25,10 @@ function CreateUserItem() {
   useEffect(() => {
     let errors = [];
     if (title.length < 4 || title.length > 255)
-      errors.push("Title needs to be less than 255 characters");
-    if (description.length <4 ||description.length > 2000)
-      errors.push("Description needs to be less than 2000 characters");
-    // if (price === "") errors.push("Price per day is required");
-    // if (imageUrl === "") errors.push("Image URL is required");
+      errors.push("Title needs to be between 4 and 255 characters");
+    if (description.length < 4 || description.length > 2000)
+      errors.push("Description needs to be between 4 and 2000 characters");
+
     if (
       !image_urls.includes(".jpg") &&
       !image_urls.includes(".png") &&
@@ -91,6 +90,10 @@ function CreateUserItem() {
         )}
         <div className="create-item-body">
           <div className="create-item-photo">
+            <div>
+              <div>Photos</div>
+              <div>Add up to five photos so buyers can see every detail.</div>
+            </div>
             <div className="create-item-input-items">
               <label className="create-item-input-field">
                 Image url
