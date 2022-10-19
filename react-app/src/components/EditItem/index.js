@@ -17,7 +17,6 @@ const EditItemForm = () => {
   const [title, setTitle] = useState(item?.title);
   const [description, setDescription] = useState(item?.description);
   const [price, setPrice] = useState(item?.price);
-  // console.log("item image_urls", item["images"][0]["image_url"]);
   const [image_urls, setImage_urls] = useState(
     item?.["images"][0]["image_url"]
   );
@@ -25,10 +24,6 @@ const EditItemForm = () => {
 
   const [errors, setErrors] = useState([]);
 
-  //   useEffect(() => {
-  //     dispatch(getAllSpotsThunk()).then(dispatch(getSpotByIdThunk(spotId)));
-  //     // .then(setIsLoaded(true));
-  //   }, [dispatch, spotId]);
 
   useEffect(() => {
     dispatch(getAllItems());
@@ -151,11 +146,11 @@ const EditItemForm = () => {
             </div>
           </div>
 
-          <div className="create-spot-input-items">
-            <label className="create-spot-input-field">
+          <div className="edit-item-input-items">
+            <label className="edit-item-input-field">
               Price
               <input
-                className="create-spot-input"
+                className="edit-item-input"
                 type="number"
                 name="price"
                 value={price}

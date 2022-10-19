@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createItem, getAllItems } from "../../store/items";
-// import { getAllSpotsThunk, addImgThunk } from "../../store/spots";
+
 // import { useHistory } from "react-router-dom";
 import "./CreateItemForm.css";
 
