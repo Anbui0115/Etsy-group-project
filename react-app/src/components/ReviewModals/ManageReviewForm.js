@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import { editReview } from "../../store/reviews";
+import { editReview, deleteReview } from "../../store/reviews";
 // import { getAllItems } from "../../store/items";
 
 
@@ -10,6 +10,8 @@ const ManageReviewForm = ({item, review, purchaseId, setShowModal}) => {
     const user = useSelector((state) => state.session.user);
     const dispatch = useDispatch();
     const history = useHistory();
+
+    const [confirmDelete, setConfirmDelete] = useState(false)
 
     // console.log(review)
     const [errors, setErrors] = useState([]);
@@ -60,6 +62,13 @@ const ManageReviewForm = ({item, review, purchaseId, setShowModal}) => {
         }
         else setErrors(verrors)
       };
+
+    const onDeleteReview = async (e) => {
+        // e.preventDefault();
+        const data = await dispatch(deleteReview(review.id, user_id))
+        setShowModal(false)
+        history.push('/purchases-and-reviews')
+    };
 
     const starField = () => {
         // const blankStar = "☆"
@@ -126,6 +135,16 @@ const ManageReviewForm = ({item, review, purchaseId, setShowModal}) => {
                 <button className="signup-button" type="submit">
                     Save Changes
                 </button>{" "}
+                {
+                    !confirmDelete ?
+                        <div className="signup-button delete-review-button" type="delete" onClick={() => {setConfirmDelete(true)}}>
+                        Delete Review
+                        </div>
+                        :
+                        <div className="signup-button delete-review-button" type="delete" onClick={()=> {onDeleteReview()}}>
+                        Click Again To Confirm Delete
+                        </div>
+                }{" "}
             </div>
         </div>
         </form>

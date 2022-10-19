@@ -30,6 +30,10 @@ def edit_review(id):
     return {'ok': "ok"}
 
 
-@review_routes.route('/')
-def delete_review():
-    pass
+@review_routes.route('/<int:id>', methods=["DELETE"])
+@login_required
+def delete_review(id):
+    review = Review.query.filter_by(id=id).first()
+    db.session.delete(review)
+    db.session.commit()
+    return {'ok': "ok"}

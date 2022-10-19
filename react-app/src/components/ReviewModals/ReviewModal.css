@@ -92,3 +92,7 @@
   font-size: 1.5em;
   cursor: pointer;
 }
+
+.delete-review-button {
+  background-color: red;
+}
