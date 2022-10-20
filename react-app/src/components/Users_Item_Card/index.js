@@ -15,7 +15,7 @@ const ItemCard = ({ item }) => {
   const itemImg = item["images"][0]["image_url"];
   const itemId = item.id;
 
-console.log('itemId--',item.id,typeof itemId)//this works
+// console.log('item owner !!!!!!!!',item.owner.username)
 
   const onClickDelete = async (e, itemId) => {
     console.log('itemID inside on click ~~~~~~',itemId)//undefined
@@ -47,7 +47,7 @@ console.log('itemId--',item.id,typeof itemId)//this works
         <div className="owner-item-info">
           <div className="owner-item-title">{item.title}</div>
           <div className="owner-item-price-and-onwer">
-            {/* <div>owner name</div> */}
+            <div>From {item.owner.username}</div>
             <div className="owner-item-price">${item.price}</div>
           </div>
         </div>

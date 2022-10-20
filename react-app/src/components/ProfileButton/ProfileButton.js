@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Modal } from "../../context/Modal";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as sessionActions from "../../store/session";
 // import profileButton from "./profileButton.png";
 import { NavLink, useHistory } from "react-router-dom";
@@ -9,12 +9,12 @@ import LogoutButton from "../auth/LogoutButton";
 
 
 
-function ProfileButton({ user }) {
+function ProfileButton() {
   // console.log("user in Profile Button", user);
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const history = useHistory();
-  // const [showModal, setShowModal] = useState(false);
+const currentUser = useSelector(state =>state.session.user)
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
@@ -38,6 +38,10 @@ function ProfileButton({ user }) {
     history.push("")
   };
 
+const goToListing = (e)=>{
+   e.preventDefault();
+   history.push('/listings')
+}
   return (
     <>
       <div onClick={openMenu} className="dropdown-menu">
@@ -65,7 +69,7 @@ function ProfileButton({ user }) {
               }
               alt={"profile-button"}
             />
-            <div>Current User's name</div>
+            <div className="current-user-name">{currentUser.username}</div>
           </div>
 
           <div
@@ -78,9 +82,9 @@ function ProfileButton({ user }) {
             className="manage-your-listing"
             // onClick={() => history.push("")}
           ></div> */}
-          <NavLink className="manage-your-listing" to="/listings">
+          <div className="manage-your-listing" onClick={e=>goToListing(e)}>
             Manage Listing
-          </NavLink>
+          </div>
           <div className="profile-log-out" onClick={logout}>
             <LogoutButton />
           </div>
