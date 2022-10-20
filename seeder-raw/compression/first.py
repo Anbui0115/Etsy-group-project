@@ -16,7 +16,7 @@ def createImageList(ppath, imageFiles):
 
     imgurFiles = []
     for imageFile in imageFiles:
-        sys.exit("dfsdf")
+        # sys.exit("dfsdf")
         imgurFile = uploadImage(os.path.join(ppath, imageFile))
         if imgurFile: imgurFiles.append(imgurFile)
         else: sys.exit("something went wrong")
