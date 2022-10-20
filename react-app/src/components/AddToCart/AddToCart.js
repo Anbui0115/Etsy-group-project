@@ -6,10 +6,15 @@ export default function AddToCart({item}){
     const dispatch = useDispatch()
     const history = useHistory()
 
+    function onHandleAddToCartSuccess(){
+        history.push("/cart");
+    }
+
     function handleAddToCart(){
-        dispatch(addToShoppingCartThunk(item,1))
+
+        dispatch(addToShoppingCartThunk(item,1,onHandleAddToCartSuccess ))
         .then(()=>{
-            history.push("/cart")
+            // history.push("/cart")
         }).catch(async (res)=>{
             // console.log("res is ....", res)
 
