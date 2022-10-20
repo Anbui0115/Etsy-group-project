@@ -57,12 +57,9 @@ function CreateUserItem() {
       const data = await res.json();
       if (data && data.errors) setErrors(data.errors);
     });
-    // console.log("data````````````", data);
-    // dispatch(addImgThunk({ previewImage: true, url: imageUrl }, data.id));
+
     if (data) {
-      //need to redirect to the newly created item?
-      //   history.push(`/items/${data.id}`);
-      // console.log("DATA IS VALID", data);
+
       history.push(`/listings`);
     }
   };
