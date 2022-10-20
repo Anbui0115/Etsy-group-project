@@ -8,33 +8,35 @@ import { makeProperPrice } from '../../utils/properPrice';
 const LoggedInPage = () => {
     const itemsObj = useSelector(state => state.items)
     let items = Object.values(itemsObj)
-    items.reverse()
+    let reversedItems = items.slice(8)
+    reversedItems.reverse()
+
     // console.log(itemsObj)
     // const imgURL = "https://purepng.com/public/uploads/medium/purepng.com-pokeballpokeballdevicepokemon-ballpokemon-capture-ball-1701527825876ch1zq.png"
     const fixed_data = {
-        "Pie": {
-            "imgUrl": "https://www.allrecipes.com/thmb/tOV-fTPq285yGwIiGxRNLe1CMok=/2000x1500/smart/filters:no_upscale():focal(1039x794:1041x796)/23439-PerfectPumpkinPie_002-4x3-1-44d015659c5c4a0888238d8f22de2a5e.jpg",
-            "searchUrl": "/search?q=pie",
+        "Classmate Gifts": {
+            "imgUrl": "https://images.pexels.com/photos/2675061/pexels-photo-2675061.jpeg",
+            "searchUrl": "/search?q=box%20fortune%20coding%20prius",
         },
-        "Cake": {
-            "imgUrl": "https://images.immediate.co.uk/production/volatile/sites/30/2020/04/strawberry-cake-8c9a6b6.jpg",
-            "searchUrl": "/search?q=cake",
+        "Uncanny Valley": {
+            "imgUrl": "https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg",
+            "searchUrl": "/search?q=existential%20potato",
         },
-        "Water": {
-            "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Water_drop_001.jpg",
+        "Holiday": {
+            "imgUrl": "https://images.pexels.com/photos/949592/pexels-photo-949592.jpeg",
+            "searchUrl": "/search?q=pancake%20funnel%20funnel",
+        },
+        "Staples": {
+            "imgUrl": "https://images.pexels.com/photos/227383/pexels-photo-227383.jpeg",
             "searchUrl": "/search?q=water",
         },
-        "1 pound items": {
-            "imgUrl": "https://coinscatalog.net/images/big-2x/16/one-pound-nations-of-the-crown-2017-uk-o-36167.jpg",
-            "searchUrl": "/search?q=1lb",
+        "Fancy Living": {
+            "imgUrl": "https://images.pexels.com/photos/67603/pexels-photo-67603.jpeg",
+            "searchUrl": "/search?q=cereal%20cesar%20edible",
         },
-        "Box": {
-            "imgUrl": "https://www.uhaul.com/MovingSupplies/Image/GetMedia/?id=8390&media=8185",
-            "searchUrl": "/search?q=box",
-        },
-        "Cookies": {
-            "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/2ChocolateChipCookies.jpg",
-            "searchUrl": "/search?q=cookies",
+        "Wedding Gifts": {
+            "imgUrl": "https://images.pexels.com/photos/888899/pexels-photo-888899.jpeg",
+            "searchUrl": "/search?q=flour",
         },
     }
 
@@ -54,7 +56,7 @@ const LoggedInPage = () => {
     })
 
     let blankitems = [];
-    for (let i = 0; i < Math.abs(items.length % 5 - 5); i++) {
+    for (let i = 0; i < Math.abs(reversedItems.length % 5 - 5); i++) {
         blankitems.push(
             <div className='splash-item-card'>
             </div>
@@ -114,7 +116,9 @@ const LoggedInPage = () => {
                 </div>
                 <div className="header-bar"></div>
             </div>
-
+            <div className='preview-text'>
+                    Featured Items
+                </div>
             {lopsided}
 
             <div className='preview-text'>
@@ -122,7 +126,7 @@ const LoggedInPage = () => {
             </div>
             <div className="basic-preview">
 
-                {items.map(item => {
+                {reversedItems.map(item => {
                     // let img = 'https://media.discordapp.net/attachments/1017492963720433868/1030624725350760448/pexels-klaus-nielsen-6294375.jpg'
                     return (
                         <Link to={"/items/"+item.id} alt={item.title} className='splash-item-card' style={{ backgroundImage: `url(${item.images[0]["image_url"]})` }}>
