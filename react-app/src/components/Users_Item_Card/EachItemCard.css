@@ -60,7 +60,6 @@
   /* border: 1px dashed red; */
   box-sizing: border-box;
   color: rgb(34, 34, 34);
-  cursor: pointer;
   display: block;
   font-size: .88em;
   margin-top: 1%;
@@ -80,7 +79,6 @@
 .owner-item-price-and-owner {
   box-sizing: border-box;
   color: rgb(34, 34, 34);
-  cursor: pointer;
   display: flex;
   font-size: .88em;
   justify-content: space-between;
