@@ -74,6 +74,7 @@ const ManageReviewForm = ({item, review, purchaseId, setShowModal}) => {
         // const blankStar = "☆"
         // const whiteStar = "★"
         let starItems = [];
+
         for (let i = 0; i < stars; i++) {
             starItems.push(
                 <div className='star-button' onClick={() => clickStars(i+1)}> ★ </div>
@@ -82,7 +83,7 @@ const ManageReviewForm = ({item, review, purchaseId, setShowModal}) => {
         for (let i = 0; i < 5-stars; i++){
             // console.log("render")
             starItems.push(
-                <div className='star-button' onClick={() => clickStars(stars+1)}> ☆ </div>
+                <div className='star-button' onClick={() => clickStars(i + 1 + stars)}> ☆ </div>
             )
         }
 
