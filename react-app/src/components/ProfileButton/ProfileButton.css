@@ -3,25 +3,18 @@
   position: relative;
   color: black;
   cursor: pointer;
-  font-family: Circular, -apple-system, "system-ui", Roboto, "Helvetica Neue",
-    sans-serif;
   border-radius: 50px;
   display: flex;
   flex-direction: row;
+  background: rgb(205, 205, 205);
+  width: 40px;
+  height: 40px;
 }
 
-#profile-avatar-dropdown {
-  /* border: 3px solid green; */
-  border-radius: 40px;
-  font-family: Circular, -apple-system, "system-ui", Roboto, "Helvetica Neue",
-    sans-serif;
-  box-sizing: border-box;
-  cursor: pointer;
-  height: 24px;
-  line-height: 16px;
-  overflow-y: hidden;
-  overflow-x: hidden;
-  width: 24px;
+.dropdown-menu-avatar {
+  position: relative;
+  left: 7px;
+  top: 5px;
 }
 
 .dropdown-menu:hover,
@@ -32,10 +25,12 @@
 
 .Username-dropdown {
   margin-left: 10px;
+  margin-top: 5px;
+  font-weight: 600;
 }
 
 .dropdown-content {
-  z-index: 10;
+  z-index: 4;
   position: absolute;
   right: 70px;
   top: 60px;
@@ -52,19 +47,8 @@
   line-height: 22.4px;
   text-align: left;
   text-size-adjust: 100%;
-  /* color: rgb(34, 34, 34); */
-  /* color: black; */
   background-color: rgb(255, 255, 255);
-  /* transition: transform 100ms ease-in-out; */
-  /* transform: translateY(-10px); */
-  /* max-height: 480px; */
-  /* max-width: 300px; */
-  /* min-width: 160px; */
-  /* overflow-y: hidden;
-  overflow-x: hidden; */
-  /* padding-bottom: 12px; */
-  /* padding-top: 12px; */
-  /* right: 130px; */
+  cursor: default;
 }
 
 .user-name-avatar {
@@ -76,11 +60,8 @@
 .purchases-and-reviews,
 .manage-your-listing,
 .profile-log-out {
-  /* border: 1px solid firebrick; */
-  /* padding: 4px; */
-  /* margin: 4px; */
+  border: 1px solid firebrick;
   align-items: center;
-  cursor: pointer;
   font-size: 16px;
   font-weight: 400;
   height: 36px;
@@ -95,17 +76,17 @@
   transition-timing-function: ease-out;
 }
 
+.purchases-and-reviews,
+.manage-your-listing,
+.profile-log-out {
+  cursor: pointer;
+}
+
 .manage-your-listing:hover,
 .purchases-and-reviews:hover,
 .profile-log-out:hover {
   box-shadow: 0px 1px 1px 1px rgba(197, 189, 189, 0.618);
-  box-sizing: border-box;
   color: rgba(13, 11, 11, 0.7);
   background-color: rgba(230, 218, 218, 0.5);
-  margin-right: 5px;
-}
 
-.dropdown-menu > img {
-  /* border: 1px hotpink solid; */
-  margin-left: 10px;
 }

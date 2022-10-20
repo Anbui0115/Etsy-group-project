@@ -38,12 +38,15 @@ function ProfileButton({ user }) {
     history.push("")
   };
 
-  const userIcon = <i class="fa-solid fa-user"></i>
+  const userIcon = <i class="fa-solid fa-user fa-2x"></i>
+  const userIconMenu = <i class="fa-solid fa-user"></i>
 
   return (
     <>
       <div onClick={openMenu} className="dropdown-menu">
-        {userIcon}
+        <div className="dropdown-menu-avatar">
+          {userIcon}
+        </div>
       </div>
 
       {showMenu && (
@@ -54,7 +57,7 @@ function ProfileButton({ user }) {
           </ul> */}
           {/* <div>Hi {user.username}</div> */}
           <div className="user-name-avatar">
-            {userIcon}
+            {userIconMenu}
             <div className="Username-dropdown">{userState.username}</div>
           </div>
 
