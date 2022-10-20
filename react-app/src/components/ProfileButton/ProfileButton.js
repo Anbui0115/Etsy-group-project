@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Modal } from "../../context/Modal";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as sessionActions from "../../store/session";
-// import profileButton from "./profileButton.png";
 import { NavLink, useHistory } from "react-router-dom";
 import "./ProfileButton.css";
 import LogoutButton from "../auth/LogoutButton";
@@ -10,11 +9,11 @@ import LogoutButton from "../auth/LogoutButton";
 
 
 function ProfileButton({ user }) {
-  // console.log("user in Profile Button", user);
   const dispatch = useDispatch();
-  const [showMenu, setShowMenu] = useState(false);
   const history = useHistory();
-  // const [showModal, setShowModal] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
+  const userState = useSelector(state => state.session.user)
+
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
@@ -35,21 +34,18 @@ function ProfileButton({ user }) {
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
+    history.push("")
   };
-  const goToCreateASpot = (e) => {
-    e.preventDefault();
-    // history.push("/spots/new");
-  };
+
+  const userIcon = <i class="fa-solid fa-user fa-2x"></i>
+  const userIconMenu = <i class="fa-solid fa-user"></i>
+
   return (
     <>
       <div onClick={openMenu} className="dropdown-menu">
-        <img
-          id="profile-avatar-dropdown"
-          src={
-            "https://img2.etsystatic.com/site-assets/images/global-nav/no-user-avatar.svg"
-          }
-          alt={"profile-button"}
-        />
+        <div className="dropdown-menu-avatar">
+          {userIcon}
+        </div>
       </div>
 
       {showMenu && (
@@ -60,14 +56,8 @@ function ProfileButton({ user }) {
           </ul> */}
           {/* <div>Hi {user.username}</div> */}
           <div className="user-name-avatar">
-            <img
-              id="profile-avatar-dropdown"
-              src={
-                "https://img2.etsystatic.com/site-assets/images/global-nav/no-user-avatar.svg"
-              }
-              alt={"profile-button"}
-            />
-            <div>Current User's name</div>
+            {userIconMenu}
+            <div className="Username-dropdown">{userState.username}</div>
           </div>
 
           <div
@@ -76,13 +66,15 @@ function ProfileButton({ user }) {
           >
             Purchases and reviews
           </div>
-          {/* <div
+          <div
             className="manage-your-listing"
-            // onClick={() => history.push("")}
-          ></div> */}
-          <NavLink className="manage-your-listing" to="/listings">
+            onClick={() => history.push("/listings")}
+          >
+            Manage Listings
+          </div>
+          {/* <NavLink className="manage-your-listing" to="/listings">
             Manage Listing
-          </NavLink>
+          </NavLink> */}
           <div className="profile-log-out" onClick={logout}>
             <LogoutButton />
           </div>

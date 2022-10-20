@@ -3,8 +3,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Redirect } from "react-router-dom";
 import { getAllItems } from "../../store/items";
-// import { cleanUpAllSpots, getSpotByOwnerThunk } from "../../store/spots";
-// import { deleteASpotThunk } from "../../store/spots";
+
 
 import "./UserListing.css";
 import CreateUserItem from "../CreateItem/CreateItemForm";
@@ -21,9 +20,9 @@ function UserListing() {
     (item) => item?.owner_id === sessionUser.id
   );
   // console.log("LISTING by OWNER", listingByOwner);
- useEffect(() => {
-   dispatch(getAllItems());
- }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getAllItems());
+  // }, [dispatch]);
 
   const onClickAddListing = (e) => {
     e.preventDefault();
@@ -36,41 +35,34 @@ function UserListing() {
 
   let blankitems = [];
   for (let i = 1; i < Math.abs((listingByOwner.length % 5) - 5); i++) {
-    blankitems.push(<div className="owner-each-item"></div>);
+    blankitems.push(<div className="owner-individual-card oidbc"></div>);
   }
 
   return (
     { listingByOwner } && (
       <>
         <div className="owner-items-outer-container">
-          <div className="onwer-listing">Stock your shop</div>
+          <div className="owner-listing">Stock your shop</div>
           <div className="owner-listing-subtitle">
             Add the rest of your items or try starting with five. Keep in mind:
             The more you have, the more likely you'll be discovered.
           </div>
-          <div className="owner-items-inner-container">
-            <div className="owner-item-display">
-              <div className="owner-all-items">
-                <div className="add-listing">
-                  {/* <NavLink to="/listings/create">Add listing</NavLink> */}
-                  <img
-                    width="300px"
-                    height="300px"
-                    className="owner-each-listing-img"
-                    src="https://i.imgur.com/LCd0uJx.png"
-                    alt="add-a-listing"
-                    onClick={onClickAddListing}
-                  ></img>
-                </div>
-                {listingByOwner.map((item) => (
-                  <>
-                    <div className="owner-each-item">
-                      <ItemCard item={item} />
-                    </div>
-                  </>
-                ))}
-                {blankitems}
-              </div>
+
+          <div className="owner-all-items-wrapper">
+            <div className="owner-all-items-inner-wrapper">
+                  <div className="add-listing">
+                    {/* <NavLink to="/listings/create">Add listing</NavLink> */}
+                    <img
+                      className="add-listing-image-clicker"
+                      src="https://i.imgur.com/LCd0uJx.png"
+                      alt="add-a-listing"
+                      onClick={onClickAddListing}
+                    ></img>
+                  </div>
+                  {listingByOwner.map((item) => (
+                        <ItemCard item={item} />
+                  ))}
+                  {blankitems}
             </div>
           </div>
         </div>

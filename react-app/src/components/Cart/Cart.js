@@ -11,14 +11,15 @@ export default function Cart() {
     const cartItems = useSelector(state => state.session.shopping_cart)
     useEffect(() => {
         dispatch(getCartItemsThunk()).catch(async (res) => {
-            console.log("res is ...", res)
+            // console.log("res is ...", res)
 
         })
     }, [dispatch])
     if (!cartItems) return null
+
     return (
         <div className={styles.mainDiv}>
-            <div>
+            <div className={styles.itemsContainer}>
                 {
 
                     Object.values(cartItems).map((item, indx) => {
@@ -26,8 +27,20 @@ export default function Cart() {
                     })
                 }
             </div>
-            <div>
-                <CartSummary shoppingCart={cartItems}/>
+            <div className={styles.rightContainer}>
+
+                {
+                    cartItems.length != 0 && (
+                         <CartSummary shoppingCart={cartItems}/>
+                    )
+
+                }
+                {
+                     cartItems.length == 0 && (
+                        <div className={styles.emptyCart}>Your cart is empty.</div>
+                   )
+                }
+
             </div>
         </div>
 

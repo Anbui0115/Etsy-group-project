@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createItem, getAllItems } from "../../store/items";
-// import { getAllSpotsThunk, addImgThunk } from "../../store/spots";
+
 // import { useHistory } from "react-router-dom";
 import "./CreateItemForm.css";
 
@@ -51,7 +51,7 @@ function CreateUserItem() {
       price,
       image_urls,
     };
-    console.log("itemInfo inside CreatItemForm", itemData);
+    // console.log("itemInfo inside CreatItemForm", itemData);
     setErrors([]);
     const data = await dispatch(createItem(itemData)).catch(async (res) => {
       const data = await res.json();
@@ -62,7 +62,7 @@ function CreateUserItem() {
     if (data) {
       //need to redirect to the newly created item?
       //   history.push(`/items/${data.id}`);
-      console.log("DATA IS VALID", data);
+      // console.log("DATA IS VALID", data);
       history.push(`/listings`);
     }
   };

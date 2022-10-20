@@ -31,7 +31,7 @@ function App() {
       await dispatch(authenticate());
       setLoaded(true);
     })();
-    dispatch(getAllItems());
+    dispatch(getAllItems())
   }, [dispatch]);
 
   if (!loaded) {
@@ -60,7 +60,7 @@ function App() {
         <Route path="/" exact={true}>
           <HomePage />
         </Route>
-        <Route path="/search/:params" exact={true}>
+        <Route path="/search/">
           <Search />
         </Route>
         <Route path="/items/:itemId">

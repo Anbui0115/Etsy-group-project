@@ -14,7 +14,11 @@ def get_item():
     """
     Get all items
     """
-    items = Item.query.all()
+    searchTerm ='%'+request.args['q']+'%' if 'q' in request.args.keys() else '%' 
+    print(searchTerm)
+    items = Item.query.filter((Item.title.like(searchTerm)) | Item.description.like(searchTerm)).all()
+    # items = Item.query.all()
+    print(items)
     return {'items': [i.to_dict() for i in items]}
 
 
@@ -71,14 +75,14 @@ def get_item_by_id(id):
     items = Item.query.filter_by(id=id).all()
     return {'items': [i.to_dict() for i in items]}
 
-@item_routes.route('/<int:id>', methods=["DELETE"])
+@item_routes.route('/<int:sid>', methods=["DELETE"])
 @login_required
-def delete_item_by_id(id):
+def delete_item_by_id(sid):
     """
     Delete item by id
     """
-    item = Item.query.filter_by(id=id).first()
-    print('ITEM WILL BE DELETED',item)
+    item = Item.query.filter_by(id=sid).first()
+    print(f'ITEM WILL BE DELETED\n\n\n\n\n\n\n',item)
     if item is not None:
         db.session.delete(item)
         db.session.commit()

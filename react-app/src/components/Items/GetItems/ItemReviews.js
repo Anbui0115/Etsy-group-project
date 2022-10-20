@@ -1,9 +1,9 @@
 export const ItemReviews = ({reviews}) => {
-    console.log("test")
+    // console.log("test")
 
     if (!reviews.length) {
         // console.log(reviews.length)
-        return <></>
+        return <div className="review-count"> No Reviews Yet! </div>
     }
     let initialValue = parseInt(reviews[0].stars)
     let average = reviews.slice(1).reduce(

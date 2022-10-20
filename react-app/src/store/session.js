@@ -53,16 +53,16 @@ const clearCart = () => ({
 
 // Thunks
 
-export const addPurchaseThunk = (cart) => async dispatch => { 
-  console.log("cart is ",cart)
-  
+export const addPurchaseThunk = (cart) => async dispatch => {
+  // console.log("cart is ",cart)
+
   const response = await fetch('/api/cart/checkout',{
     method:"POST",
     headers: {
       'Content-Type': 'application/json'
     },
   })
- 
+
   if(response.ok){
     const data = await response.json()
     if (data.errors)
@@ -92,7 +92,7 @@ export const addToShoppingCartThunk = (item_id, quantity) => async dispatch => {
   }
 }
 export const editShoppingCartThunk = (id, quantity) => async dispatch => {
-  console.log("item id is in thunk ....", id, "quantity is .....", quantity)
+  // console.log("item id is in thunk ....", id, "quantity is .....", quantity)
   const response = await fetch(`/api/cart/${id}`, {
     method: "PUT",
     headers: {
@@ -105,7 +105,7 @@ export const editShoppingCartThunk = (id, quantity) => async dispatch => {
   })
   if (response.ok) {
     const data = await response.json()
-    console.log("response after update is .....", data)
+    // console.log("response after update is .....", data)
     if (data.errors) {
       return data.errors
     }
@@ -249,6 +249,23 @@ export const getPurchasesAction = (id) => async dispatch => {
   }
 }
 
+export const searchAction = (terms) => async dispatch => {
+  const res = await fetch('/api/search', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      q : terms
+    }),
+  });
+
+  if (res.ok) {
+    const results = await res.json()
+    return results
+  }
+}
+
 const initialState = { user: null };
 
 //Reducer
@@ -276,7 +293,7 @@ export default function reducer(state = initialState, action) {
       return { ...state, shopping_cart }
     case CLEAR_CART:
       return {...state,shopping_cart:null}
-      
+
     default:
       return state;
   }

@@ -8,8 +8,9 @@
     margin: 0;
     font-size: 14px;
     line-height: 1.4;
-    height: 256.78px;
-    
+    width: 100%;
+    /* height: 256.78px; */
+
     align-items: center;
 
 }
@@ -18,7 +19,8 @@
     display: flex;
     flex-direction: column;
     padding: 18px;
-    
+    width: 100%;
+
 }
 
 .row{
@@ -27,28 +29,29 @@
 }
 
 .proceedButton{
-    display: flex;
+  display: flex;
   flex-direction: row;
   border: none;
   background-color: #222222;
   color: white;
   justify-content: center;
   margin-top: 20px;
-  
-  height: 48px;
-  font-size: 15pt;
+
+  /* height: 48px; */
+  /* font-size: 15pt; */
   align-items: center;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 1.1em;
   font-weight: 600;
   font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
     Arial, sans-serif;
   cursor: pointer;
   box-sizing: border-box;
-  line-height: 24px;
-  min-height: 48px;
-  min-width: 48px;
+  /* line-height: 24px; */
+  width: 40%;
+  aspect-ratio: 3/1;
   text-align: center;
-  width: 324px;
+  /* width: 100%; */
   border-radius: 50px;
+  /* border: 1px solid green; */
 }

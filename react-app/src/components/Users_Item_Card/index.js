@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { NavLink, Redirect } from "react-router-dom";
-// import { spotDetailsThunk } from "../../store/spots";
+
 // import { deleteAReview } from "../../store/reviews";
 // import reviewAvatar from "./review-avatar.jpeg";
 import "./EachItemCard.css";
@@ -15,10 +15,10 @@ const ItemCard = ({ item }) => {
   const itemImg = item["images"][0]["image_url"];
   const itemId = item.id;
 
-console.log('itemId--',item.id,typeof itemId)//this works
+// console.log('item owner !!!!!!!!',item.owner.username)
 
   const onClickDelete = async (e, itemId) => {
-    console.log('itemID inside on click ~~~~~~',itemId)//undefined
+    // console.log('itemID inside on click ~~~~~~',itemId)//undefined
     e.preventDefault();
     await dispatch(deleteItem(itemId));
     history.push(`/listings`);
@@ -30,24 +30,24 @@ console.log('itemId--',item.id,typeof itemId)//this works
     // <EditItemForm itemId={itemId} />;
   };
   return (
-    <div className="owner-each-item">
-      {/* <div>
-        <NavLink to="/listings/create">Add listing</NavLink>
-      </div> */}
+    <div className="owner-individual-card">
+        {/* <div>
+          <NavLink to="/listings/create">Add listing</NavLink>
+        </div> */}
 
-      <div className="owner-each-listing">
-        <img
-          className="owner-each-listing-img"
-          src={itemImg}
-          alt="owner-item"
-        />
-      </div>
+        <div className="owner-each-img-wrapper">
+          <img
+            className="owner-each-listing-img"
+            src={itemImg}
+            alt="owner-item"
+          />
+        </div>
 
       <div>
         <div className="owner-item-info">
           <div className="owner-item-title">{item.title}</div>
           <div className="owner-item-price-and-onwer">
-            <div>owner name</div>
+            <div>From {item.owner.username}</div>
             <div className="owner-item-price">${item.price}</div>
           </div>
         </div>
@@ -59,23 +59,14 @@ console.log('itemId--',item.id,typeof itemId)//this works
           onClick={(e) => onClickEdit(e, itemId)}
         >
           Edit
-{/* <NavLink
-          to={`/spots/${spot.id}/edit`}
-          style={{ textDecoration: "none", color: "white" }}
-        >
-          Edit Spot
-        </NavLink> */}
-
-
-
         </div>
 
-        <div
-          className="onwer-delete-button"
-          onClick={(e) => onClickDelete(e, itemId)}
-        >
-          Delete
-        </div>
+            <div
+              className="onwer-delete-button"
+              onClick={(e) => onClickDelete(e, itemId)}
+            >
+              Delete
+            </div>
       </div>
     </div>
   );

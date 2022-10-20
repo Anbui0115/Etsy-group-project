@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { addPurchaseThunk, removeCartItemsThunk } from "../../store/session";
+import { addPurchaseThunk } from "../../store/session";
 import styles from "../CartSummary/CartSummary.module.css"
 
 export default function CartSummary({ shoppingCart }) {
@@ -27,7 +27,6 @@ export default function CartSummary({ shoppingCart }) {
                     <th>
                         Item(s) total
                     </th>
-
                 </tr>
                 <tr>
                     <hr></hr>
@@ -36,7 +35,7 @@ export default function CartSummary({ shoppingCart }) {
                     </div>
                 </tr>
                 <tr>
-                    <button className={styles.proceedButton} onClick={handleCheckout}>Proceed to checkout</button>
+                    <button className={styles.proceedButton} onClick={handleCheckout}>Checkout</button>
                 </tr>
             </tbody>
         </div>
