@@ -16,9 +16,7 @@ def get_item(id):
     """
     Get all purchases for current user
     """
-
     purchases = Purchase.query.filter_by(user_id=id)
-    print(purchases)
     return {'purchases': [i.to_dict() for i in purchases]}
 
 

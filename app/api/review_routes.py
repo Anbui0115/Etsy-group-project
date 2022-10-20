@@ -21,8 +21,6 @@ def create_review():
 @review_routes.route('/<int:id>', methods=["PUT"])
 @login_required
 def edit_review(id):
-    print(id)
-    # print(f"test\n\n\n\n")
     form = EditReviewForm()
     review = Review.query.filter_by(id=id).first()
     form.populate_obj(review)

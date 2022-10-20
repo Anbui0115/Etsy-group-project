@@ -37,7 +37,6 @@ def add_shopping_cart():
         shopping_cart.user_id = owner_id
         cartItem = Shopping_cart.query.filter_by(item_id=shopping_cart.item_id, user_id=owner_id).first()
         if cartItem is not None: 
-            print("item is here already in shopping cart ")
             cartItem.quantity = cartItem.quantity + shopping_cart.quantity
             db.session.commit()
             return {'shopping_cart': cartItem.to_dict()}
