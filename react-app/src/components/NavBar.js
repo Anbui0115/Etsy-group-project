@@ -16,7 +16,7 @@ const NavBar = () => {
       <>
         <div className="profile_dropdown">
           <NavLink to="/cart" className="profile_dropdown">
-            <i className="fa-solid fa-cart-shopping"></i>
+            <i className="fa-solid fa-cart-shopping fa-2x"></i>
           </NavLink>
         </div>
         <div className="profile_dropdown">
