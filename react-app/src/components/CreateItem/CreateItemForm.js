@@ -15,7 +15,7 @@ function CreateUserItem() {
   const [image_urls, setImage_urls] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // //errors
+  //errors
   const [errors, setErrors] = useState([]);
 
   useEffect(() => {

@@ -53,16 +53,16 @@ const clearCart = () => ({
 
 // Thunks
 
-export const addPurchaseThunk = (cart) => async dispatch => { 
+export const addPurchaseThunk = (cart) => async dispatch => {
   console.log("cart is ",cart)
-  
+
   const response = await fetch('/api/cart/checkout',{
     method:"POST",
     headers: {
       'Content-Type': 'application/json'
     },
   })
- 
+
   if(response.ok){
     const data = await response.json()
     if (data.errors)
@@ -249,6 +249,23 @@ export const getPurchasesAction = (id) => async dispatch => {
   }
 }
 
+export const searchAction = (terms) => async dispatch => {
+  const res = await fetch('/api/search', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      params : terms
+    }),
+  });
+
+  if (res.ok) {
+    const results = await res.json()
+    return results
+  }
+}
+
 const initialState = { user: null };
 
 //Reducer
@@ -276,7 +293,7 @@ export default function reducer(state = initialState, action) {
       return { ...state, shopping_cart }
     case CLEAR_CART:
       return {...state,shopping_cart:null}
-      
+
     default:
       return state;
   }
