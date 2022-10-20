@@ -2,6 +2,7 @@
   border-bottom: 2px solid rgb(205, 205, 205);
   width: 100%;
   display: flex;
+  /* border: 1px dashed black; */
 }
 
 .outer_nav {
@@ -9,8 +10,8 @@
   display: flex;
   flex-direction: row;
   position:relative;
-  left: 8.8%;
-  width: 80%;
+  /* left: 8.0%; */
+  width: 92%;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
@@ -20,6 +21,7 @@
   line-height: 19.6px;
   margin-left: 20px;
   margin-right: 20px;
+  margin:auto;
   padding-bottom: 12px;
   padding-left: 36px;
   padding-right: 36px;
@@ -107,3 +109,10 @@
   padding: 12px 6px 12px 12px;
   background-color: grey;
 }
+.nav_logo{
+/* border: 2px solid red; */
+margin-top: 19px;
+}
+/* .eatsy-logo{
+
+} */
