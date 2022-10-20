@@ -18,8 +18,8 @@ const NavBar = () => {
   if (sessionUser) {
     sessionLinks = (
       <>
-        <div className="profile_dropdown">
-          <NavLink to="/cart" className="profile_dropdown">
+        <div className="cart_container">
+          <NavLink to="/cart" className="cart_link">
             <i className="fa-solid fa-cart-shopping fa-2x"></i>
           </NavLink>
         </div>
