@@ -3,6 +3,7 @@ if user is not logged in, render <LandingPage /> inside HomePage
 */
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux';
+import { makeProperPrice } from '../../utils/properPrice';
 
 const LoggedInPage = () => {
     const itemsObj = useSelector(state => state.items)
@@ -68,7 +69,7 @@ const LoggedInPage = () => {
         // return (<></>)
         return (
             <Link to={"/items/"+item.id} alt={item.title} className={sizeClass} style={{ backgroundImage: `url(${item.images[0]["image_url"]})` }}>
-                <div className='lopsided-item-card-price'>${String(item.price).length === 5 ? item.price : String(item.price)+"0"}</div>
+                <div className='lopsided-item-card-price'>${makeProperPrice(item.price)}</div>
             </Link>
         )
     }

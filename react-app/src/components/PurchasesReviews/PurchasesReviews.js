@@ -50,11 +50,11 @@ const PurchasesReviews= ()=>{
                     <div key={item.id} className="purchase-card">
                         <div className="purchase-card-image-container">
                             <div className="purchase-card-image">
-                                <img src={item["images"][0]["image_url"]}></img>
+                                <img src={item["images"][0]["image_url"]} onClick={()=> history.push(`/items/${item.id}`)}></img>
                             </div>
                         </div>
                         <div className="purchase-card-mid">
-                            <div className="purchase-card-title">{item.title}</div>
+                            <div className="purchase-card-title" onClick={()=> history.push(`/items/${item.id}`)}>{item.title}</div>
                             {/* <div className="purchase-card-description">{item.description}</div> */}
                             <div className="purchase-card-price"> qty. {purchase.quantity} | ${makeProperPrice(purchase.price)} ea | total ${makeProperPrice(purchase.price * purchase.quantity)}</div>
                             {reviewPreview}

@@ -12,6 +12,7 @@
   /* border-radius: 24px;  HANDLED IN MODAL.CSS*/
   background-color: transparent;
   color: rgb(34, 34, 34);
+  z-index: 200;
 }
 
 .create-account {
