@@ -1,7 +1,5 @@
 .mainDiv {
-  display: flex;
-  flex-direction: row;
-  padding-top: 20px;
+
   width: 100%;
   border: 1px solid green;
 }
@@ -9,8 +7,10 @@
 .itemCard {
   display: flex;
   flex-direction: row;
-  padding-bottom: 40px;
+  padding-top: 2%;
+  /* padding-bottom: 4%; */
   border: 1px solid red;
+  width: 100%;
 }
 .descDiv {
   display: flex;
@@ -46,11 +46,6 @@
 }
 .remove:hover {
   display: flex;
-  font-size: 14px;
-  width: 80px;
-  height: 36px;
-
-  padding: 0px 10px 10px 10px;
   cursor: pointer;
 }
 .itemCount {

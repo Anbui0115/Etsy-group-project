@@ -32,30 +32,26 @@ export default function CartItem({item}){
     }
     if (!item) return null
     return (
-        <div className={styles.mainDiv}>
-                <div>
-                    <div className={styles.itemCard}>
-                        <div><img src={item.item.images[0].image_url+"?width=187&height=148"} className={styles.image} onClick={()=> history.push(`/items/${item.item.id}`)}></img></div>
+        <div className={styles.itemCard}>
+            <div><img src={item.item.images[0].image_url+"?width=187&height=148"} className={styles.image} onClick={()=> history.push(`/items/${item.item.id}`)}></img></div>
 
-                        <div className={styles.descDiv}>
-                            <div className={styles.descText} onClick={()=> history.push(`/items/${item.item.id}`)}>{item.item.title}</div>
-                            <div className={styles.remove} key={item.id} value={item.id} onClick={()=>{handleRemove(item.id)}}><b>Remove</b></div>
+            <div className={styles.descDiv}>
+                <div className={styles.descText} onClick={()=> history.push(`/items/${item.item.id}`)}>{item.item.title}</div>
+                <div className={styles.remove} key={item.id} value={item.id} onClick={()=>{handleRemove(item.id)}}><b>Remove</b></div>
 
-                        </div>
+            </div>
 
-                        <form>
+            <form>
 
-                            <input type="number" min="1" value={quantity} className={styles.itemCount} onChange={(e)=> handleItemCount(e.target.value)} />
-                        </form>
-                        <div className={styles.price}>
-                            <div ><b> {dollarFormmatter.format(quantity * item.item.price)}</b></div>
-                            <div>(${item.item.price}&nbsp;each)</div>
-                        </div>
+                <input type="number" min="1" value={quantity} className={styles.itemCount} onChange={(e)=> handleItemCount(e.target.value)} />
+            </form>
+            <div className={styles.price}>
+                <div ><b> {dollarFormmatter.format(quantity * item.item.price)}</b></div>
+                <div>(${item.item.price}&nbsp;each)</div>
+            </div>
 
 
 
-                    </div>
-                </div>
         </div>
     )
 }
