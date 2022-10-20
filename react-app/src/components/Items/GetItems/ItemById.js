@@ -5,7 +5,7 @@ import ImageGallery from 'react-image-gallery';
 import {ItemReviews} from './ItemReviews'
 import "../Items.css"
 import AddToCart from "../../AddToCart/AddToCart";
-
+import { makeProperPrice } from "../../../utils/properPrice";
 const ItemById = () => {
     const { itemId } = useParams();
     const sessionState = useSelector(state => state.session);
@@ -61,7 +61,7 @@ const ItemById = () => {
                                 <div className="store-name">From {item.owner.username}'s shop</div>
                                 <div className="item-title-and-price">
                                     <div className="individual-item-title">{item.title}</div>
-                                    <div className="individual-item-price">${item.price}</div>
+                                    <div className="individual-item-price">${makeProperPrice(item.price)}</div>
                                 </div>
                                 {sessionState.user ? <div className="add-to-cart-button"><AddToCart item={item.id}/></div> :
                                     ""

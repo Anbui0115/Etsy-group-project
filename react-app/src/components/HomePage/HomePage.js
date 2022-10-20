@@ -25,7 +25,7 @@ const HomePage=(props)=>{
     const dispatch = useDispatch();
     useEffect(() => {
         (async () => {
-            dispatch(getAllItems(query.get("q")));
+            dispatch(getAllItems());
         })();
     }, [dispatch,props.match.params]);
 
@@ -47,4 +47,3 @@ const HomePage=(props)=>{
 
 //https://stackoverflow.com/questions/50667609/react-router-component-not-updating-on-url-search-param-change
 export default withRouter(connect()(HomePage));
-

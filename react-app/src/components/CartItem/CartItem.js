@@ -47,7 +47,7 @@ export default function CartItem({item}){
             </form>
             <div className={styles.price}>
                 <div ><b> {dollarFormmatter.format(quantity * item.item.price)}</b></div>
-                <div>(${item.item.price}&nbsp;each)</div>
+                <div>({dollarFormmatter.format(item.item.price)}&nbsp;each)</div>
             </div>
 
 
