@@ -23,7 +23,12 @@ def uploadImage(localUrl):
 
     print(r, r.status_code)
 
-    if r.status_code != 200: return None
+    if r.status_code != 200:
+        print(r.text)
+        return None
     else: return data["data"]["link"]
 
-print(uploadImage('./pexels-karolina-grabowska-4207793.jpg'))
+def test():
+    return("hi")
+
+# print(uploadImage('./pexels-karolina-grabowska-4207793.jpg'))
