@@ -64,13 +64,15 @@ function ProfileButton({ user }) {
           >
             Purchases and reviews
           </div>
-          {/* <div
+          <div
             className="manage-your-listing"
-            // onClick={() => history.push("")}
-          ></div> */}
-          <NavLink className="manage-your-listing" to="/listings">
+            onClick={() => history.push("/listings")}
+          >
+            Manage Listings
+          </div>
+          {/* <NavLink className="manage-your-listing" to="/listings">
             Manage Listing
-          </NavLink>
+          </NavLink> */}
           <div className="profile-log-out" onClick={logout}>
             <LogoutButton />
           </div>
