@@ -38,7 +38,7 @@ const LandingPage = () => {
     const splash_circle_cards = Object.keys(fixed_data).map(name => {
         return (
             <div className="splash-circle-card">
-                <Link to="/" className='no-underline'>
+                <Link to={fixed_data[name]["searchUrl"]} className='no-underline'>
                     <div className="splash-circle-photo">
                         <img alt="" src={fixed_data[name]["imgUrl"]} />
                     </div>
