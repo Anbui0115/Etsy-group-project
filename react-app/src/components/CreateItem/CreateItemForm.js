@@ -51,7 +51,7 @@ function CreateUserItem() {
       price,
       image_urls,
     };
-    console.log("itemInfo inside CreatItemForm", itemData);
+    // console.log("itemInfo inside CreatItemForm", itemData);
     setErrors([]);
     const data = await dispatch(createItem(itemData)).catch(async (res) => {
       const data = await res.json();
@@ -62,7 +62,7 @@ function CreateUserItem() {
     if (data) {
       //need to redirect to the newly created item?
       //   history.push(`/items/${data.id}`);
-      console.log("DATA IS VALID", data);
+      // console.log("DATA IS VALID", data);
       history.push(`/listings`);
     }
   };

@@ -67,8 +67,8 @@ const NavBar = () => {
                 className="eatsy-logo"
                 src={logo}
                 alt="eatsy-logo"
-                width={"90px"}
-                height={"50px"}
+                width={"80px"}
+                height={"40px"}
               ></img>
             </NavLink>
           </div>
