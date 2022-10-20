@@ -80,6 +80,7 @@ const NavBar = () => {
                   type="text"
                   className={styles.searchField}
                   value={searchQuery}
+                  placeholder="Search for anything"
                   onChange={(e) => { setSearchQuery(e.target.value) }}>
                 </input>
                 <button
