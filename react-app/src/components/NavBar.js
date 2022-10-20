@@ -13,10 +13,10 @@ const NavBar = () => {
   if (sessionUser) {
     sessionLinks = (
       <>
-        <div className='profile_dropdown'>
-          <NavLink to="/cart" className='profile_dropdown'><i className="fa-solid fa-cart-shopping"></i></NavLink>
+        <div className={styles.profile_dropdown}>
+          <NavLink to="/cart"><i className="fa-solid fa-cart-shopping fa-2xl"></i></NavLink>
         </div>
-        <div className='profile_dropdown'>
+        <div className={styles.profile_dropdown}>
           <ProfileButton />
         </div>
 

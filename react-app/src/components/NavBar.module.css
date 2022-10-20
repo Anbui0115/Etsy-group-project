@@ -95,15 +95,24 @@
 
 }
 .profile_dropdown{
-  border-radius: 50 px;
+  border-radius: 50px;
   cursor: pointer;
   text-decoration: none;
-  padding: 12px 6px 12px 12px;
+  padding: 14px 12px 12px 12px;
+  /* border: 1px solid purple; */
+  width: 2%;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  /* background-color: black; */
 }
 
 .profile_dropdown:hover{
   border-radius: 50 px;
   cursor: pointer;
-  padding: 12px 6px 12px 12px;
-  background-color: grey;
+  padding: 14px 12px 12px 12px;
+  /* border: 3px solid purple; */
+  background-color: lavender;
 }
