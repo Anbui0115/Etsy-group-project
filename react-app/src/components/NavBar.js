@@ -47,10 +47,10 @@ const NavBar = () => {
       </>
     );
   }
- function handleSearch(e){
-  e.preventDefault()
-  history.push(`/search?q=${searchQuery}`)
- }
+  function handleSearch(e) {
+    e.preventDefault()
+    history.push(`/search?q=${searchQuery}`)
+  }
 
   return (
     <div className={styles.outer_most}>
@@ -74,12 +74,23 @@ const NavBar = () => {
           </div>
 
           <div className={styles.nav_searchbar}>
-            <form>
-              <div className={styles.searchForm}>
-                <input type="text" className={styles.searchField} value={searchQuery} onChange={(e)=>{setSearchQuery(e.target.value)}}></input>
-                <button type="submit" className={styles.submitButton} onClick={(e)=>{handleSearch(e)}}><i class="fa-solid fa-magnifying-glass"></i></button>
-              </div>
-            </form>
+            <div className={styles.searchForm}>
+              <form className={styles.search_form_container}>
+                <input
+                  type="text"
+                  className={styles.searchField}
+                  value={searchQuery}
+                  placeholder="Search for anything"
+                  onChange={(e) => { setSearchQuery(e.target.value) }}>
+                </input>
+                <button
+                  type="submit"
+                  className={styles.submitButton}
+                  onClick={(e) => { handleSearch(e) }}>
+                  <i class="fa-solid fa-magnifying-glass fa-2x"></i>
+                </button>
+              </form>
+            </div>
           </div>
           {sessionLinks}
           {/* <NavLink to='/users' exact={true} activeClassName='active'>
