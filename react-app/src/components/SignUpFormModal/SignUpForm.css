@@ -125,7 +125,7 @@
 .signup-button-modal {
   border: 2px black solid;
   justify-self: flex-end;
-  font-family: "Guardian-EgypTT",Charter,"Charter Bitstream",Cambria,"Noto Serif Light","Droid Serif",Georgia,serif;
+  font-family: "Graphik Webfont",-apple-system,"Helvetica Neue","Droid Sans",Arial,sans-serif;
   font-size: 13px;
   font-weight: 600;
   padding: 9px 16px;
@@ -140,5 +140,5 @@
   cursor: pointer;
   font-size: 13px;
   font-weight: 700;
-  font-family: "Guardian-EgypTT",Charter,"Charter Bitstream",Cambria,"Noto Serif Light","Droid Serif",Georgia,serif;
+  font-family: "Graphik Webfont",-apple-system,"Helvetica Neue","Droid Sans",Arial,sans-serif;
 }
