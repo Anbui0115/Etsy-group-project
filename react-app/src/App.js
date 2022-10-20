@@ -31,7 +31,6 @@ function App() {
       await dispatch(authenticate());
       setLoaded(true);
     })();
-    dispatch(getAllItems());
   }, [dispatch]);
 
   if (!loaded) {
