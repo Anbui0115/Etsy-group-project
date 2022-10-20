@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Modal } from "../../context/Modal";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as sessionActions from "../../store/session";
-// import profileButton from "./profileButton.png";
 import { NavLink, useHistory } from "react-router-dom";
 import "./ProfileButton.css";
 import LogoutButton from "../auth/LogoutButton";
@@ -10,11 +8,13 @@ import LogoutButton from "../auth/LogoutButton";
 
 
 function ProfileButton({ user }) {
-  // console.log("user in Profile Button", user);
   const dispatch = useDispatch();
-  const [showMenu, setShowMenu] = useState(false);
   const history = useHistory();
-  // const [showModal, setShowModal] = useState(false);
+
+  const [showMenu, setShowMenu] = useState(false);
+
+  const userState = useSelector(state => state.session.user)
+
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
@@ -38,16 +38,12 @@ function ProfileButton({ user }) {
     history.push("")
   };
 
+  const userIcon = <i class="fa-solid fa-user"></i>
+
   return (
     <>
       <div onClick={openMenu} className="dropdown-menu">
-        <img
-          id="profile-avatar-dropdown"
-          src={
-            "https://img2.etsystatic.com/site-assets/images/global-nav/no-user-avatar.svg"
-          }
-          alt={"profile-button"}
-        />
+        {userIcon}
       </div>
 
       {showMenu && (
@@ -58,14 +54,8 @@ function ProfileButton({ user }) {
           </ul> */}
           {/* <div>Hi {user.username}</div> */}
           <div className="user-name-avatar">
-            <img
-              id="profile-avatar-dropdown"
-              src={
-                "https://img2.etsystatic.com/site-assets/images/global-nav/no-user-avatar.svg"
-              }
-              alt={"profile-button"}
-            />
-            <div>Current User's name</div>
+            {userIcon}
+            <div className="Username-dropdown">{userState.username}</div>
           </div>
 
           <div
