@@ -29,17 +29,19 @@ const ItemCard = ({ item }) => {
   };
   return (
     <div className="owner-individual-card">
-        {/* <div>
+      {/* <div>
           <NavLink to="/listings/create">Add listing</NavLink>
         </div> */}
 
-        <div className="owner-each-img-wrapper">
+      <div className="owner-each-img-wrapper">
+        <Link to={`/items/${item.id}`} className="item-name-link">
           <img
             className="owner-each-listing-img"
             src={itemImg}
             alt="owner-item"
           />
-        </div>
+        </Link>
+      </div>
 
       <div>
         <div className="owner-item-info">
@@ -61,12 +63,12 @@ const ItemCard = ({ item }) => {
           Edit
         </div>
 
-            <div
-              className="onwer-delete-button"
-              onClick={(e) => onClickDelete(e, itemId)}
-            >
-              Delete
-            </div>
+        <div
+          className="onwer-delete-button"
+          onClick={(e) => onClickDelete(e, itemId)}
+        >
+          Delete
+        </div>
       </div>
     </div>
   );
