@@ -75,28 +75,53 @@
   padding: 0px 18px 0px 0px;
   border-radius: 96px;
   border: 2px solid rgb(34, 34, 34);
-  box-sizing: border-box;
   color: rgb(34, 34, 34);
   cursor: text;
-  font-size: 16px;
-  font-weight: 400;
   height: 48px;
   line-height: 28px;
   text-align: start;
-  text-indent: 0px;
-  text-rendering: auto;
-  text-shadow: none;
-  text-size-adjust: 100%;
-    /* width: 1035px; */
-
 }
+
+.submitButton {
+  border: none;
+  position: relative;
+  background: transparent;
+  /* left: 100px; */
+  /* top: 10px; */
+}
+
+.searchForm{
+  display: flex;
+  flex-direction: row;
+  margin-left: 10px;
+  width: 100%;
+}
+
+.search_form_container {
+  border: 1px solid red;
+  width: 100%;
+}
+
+.searchField{
+  display: flex;
+  /* border: solid red 1px; */
+  /* margin-left: 20px; */
+  /* margin-top: 10px; */
+  border-color: white;
+  width: 100%;
+}
+
+/* .searchField:focus{
+  border: none;
+  border-color: white;
+} */
+
 
 .profile_dropdown{
   border-radius: 50 px;
   cursor: pointer;
   text-decoration: none;
   padding: 12px 6px 12px 12px;
-
 }
 
 .profile_dropdown:hover{
@@ -106,29 +131,7 @@
   background-color: grey;
 }
 
-.searchField{
-  display: flex;
-  border: none;
-  margin-left: 20px;
-  margin-top: 10px;
-  border-color: white;
-  min-width: 410px;
-  width:80%;
-}
-.searchField:focus{
-  border: none;
-  border-color: white;
-}
 
-.searchForm{
-  display: flex;
-  flex-direction: row;
-}
-
-.submitButton{
-  border-radius: 50%;
-  border-color: black;
-}
 .nav_logo{
 /* border: 2px solid red; */
 margin-top: 6px;
