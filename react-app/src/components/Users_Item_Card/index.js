@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory, Link } from "react-router-dom";
 import { NavLink, Redirect } from "react-router-dom";
+import { makeProperPrice } from '../../utils/properPrice';
 
 // import { deleteAReview } from "../../store/reviews";
 // import reviewAvatar from "./review-avatar.jpeg";
@@ -51,7 +52,7 @@ const ItemCard = ({ item }) => {
           </div>
           <div className="owner-item-price-and-owner">
             <div>From {item.owner.username}</div>
-            <div className="owner-item-price">${item.price}</div>
+            <div className="owner-item-price">${makeProperPrice(item.price)}</div>
           </div>
         </div>
       </div>
