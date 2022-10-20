@@ -61,6 +61,8 @@ def sign_up():
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
+        # current_user = User.query.filter_by(form.data['email']).first()
+        # if current_user is not None:
         user = User(
             username=form.data['username'],
             email=form.data['email'],
@@ -70,6 +72,8 @@ def sign_up():
         db.session.commit()
         login_user(user)
         return user.to_dict()
+        # else:
+        #     return {'errors':"User already exist with this email."}
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 

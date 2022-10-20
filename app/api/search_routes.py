@@ -7,7 +7,6 @@ search_routes = Blueprint('search', __name__)
 
 @search_routes.route('', methods=["POST"])
 def get_search(): #TODO query.filter().all()
-    print(f"hi\n\n\n\n")
     return {}
 
 

@@ -13,19 +13,16 @@ with open('itemcode.py', "w") as itemcodefile, open('imagecode.py', 'w') as imag
         i = 1
         i2 = 1
         for name in names.readlines():
-            # print("\n")
+            
             user_id = random.randint(1, 3)
             itemCodeString = "item" + str(i) + " = Item( user_id = " + str(user_id) + ","
-
             foldername = re.sub('[^0-9a-zA-Z]+', '_', name)
             path = os.path.join(parentdir,"seeder_data",foldername)
             with open(os.path.join(path,"title.txt")) as title_file:
                 title = title_file.readline().strip()
-                #print(title)
                 itemCodeString += " title = " + f'"{title}",'
             with open(os.path.join(path,"description.txt")) as desc_file:
                 description = desc_file.read().strip().replace('\n', '\\n').replace('"',"'")
-                #print(description)
                 itemCodeString += " description = " + f'"{description}",'
             with open(os.path.join(path,"images.txt")) as images_file:
                 for img in images_file.readlines():
@@ -46,8 +43,7 @@ with open('itemcode.py', "w") as itemcodefile, open('imagecode.py', 'w') as imag
             itemcodefile.write(f"db.session.add(item{i})"+"\n")
             i+=1
 
-            # print()
-            # print image titles, filtered
+          
 
 
 """

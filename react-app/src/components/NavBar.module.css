@@ -33,10 +33,8 @@
   /* border: 1px solid hotpink; */
   display: flex;
   flex-direction: row;
-  /* background-color: aqua; */
   margin: none;
   width: 100%;
-  /* width: 1400px; */
   min-height: 70px;
   justify-content: space-between;
   align-items: center;
@@ -45,8 +43,6 @@
   font-size: 14px;
   height: 72px;
   line-height: 19.6px;
-  /* max-width: 1400px;
-  min-width: 1400px; */
   margin-left: 20px;
   margin-right: 20px;
   margin-top: 0px;
@@ -93,31 +89,33 @@
 .search_form_container {
   /* border: 1px solid red; */
   width: 100%;
+  display: flex;
 }
 
 .searchField{
   display: flex;
-  border: solid blue 1px;
+  /* border: solid blue 1px; */
+  border:none;
   margin-top: 7px;
   margin-left: 10px;
   width: 93%;
   height: 30px;
   font-size: 16px;
+  appearance: none;
 }
 
-/* .searchField:focus{
-  border: none;
-  border-color: white;
-} */
+.searchField:focus{
+  outline: none;
+}
 
 .submitButton {
   border: none;
-  position:relative;
   background: transparent;
-  right: 250px;
-  top: 20px;
+  position: relative;
+  right: -1.5%;
+  top: 4px;
+  cursor: pointer;
 }
-
 
 .profile_dropdown{
   border-radius: 50 px;

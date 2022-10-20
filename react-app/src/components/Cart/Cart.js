@@ -26,21 +26,25 @@ export default function Cart() {
                         return <CartItem item={item} />
                     })
                 }
-            </div>
-            <div className={styles.rightContainer}>
 
-                {
-                    cartItems.length != 0 && (
-                         <CartSummary shoppingCart={cartItems}/>
-                    )
 
-                }
-                {
-                     cartItems.length == 0 && (
-                        <div className={styles.emptyCart}>Your cart is empty.</div>
-                   )
-                }
+                <div className={styles.rightContainer}>
 
+                    {
+                        cartItems.length != 0 && (
+                            <CartSummary shoppingCart={cartItems} />
+                        )
+
+                    }
+
+                </div>
+                <div>
+                    {
+                        cartItems.length == 0 && (
+                            <div className={styles.emptyCart}>Your cart is empty.</div>
+                        )
+                    }
+                </div>
             </div>
         </div>
 
