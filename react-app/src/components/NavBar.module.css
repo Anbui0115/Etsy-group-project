@@ -11,7 +11,7 @@
   flex-direction: row;
   position:relative;
   /* left: 8.0%; */
-  width: 92%;
+  width: 88%;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
@@ -111,7 +111,7 @@
 }
 .nav_logo{
 /* border: 2px solid red; */
-margin-top: 19px;
+margin-top: 6px;
 }
 /* .eatsy-logo{
 

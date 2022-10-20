@@ -7,7 +7,8 @@ import LoginFormModal from "./LoginFormModal";
 import ProfileButton from "./ProfileButton/ProfileButton";
 import Cart from "./Cart/Cart";
 
-import logo from "../eatsy-logo/eatsy-logo.png";
+import logo from "../eatsy-logo/logo-no-background.png";
+
 const NavBar = () => {
   const sessionUser = useSelector((state) => state.session.user);
   let sessionLinks;
@@ -59,8 +60,8 @@ const NavBar = () => {
                 className="eatsy-logo"
                 src={logo}
                 alt="eatsy-logo"
-                width={"180px"}
-                height={"150px"}
+                width={"90px"}
+                height={"50px"}
               ></img>
             </NavLink>
           </div>
