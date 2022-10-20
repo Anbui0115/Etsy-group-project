@@ -14,7 +14,10 @@ def get_item():
     """
     Get all items
     """
-    items = Item.query.all()
+    print(request.args)
+    print('%'+request.args['q']+'%')
+
+    items = Item.query.filter(Item.title.like('%'+request.args['q']+'%')).all()
     return {'items': [i.to_dict() for i in items]}
 
 
