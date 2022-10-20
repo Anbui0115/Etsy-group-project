@@ -12,7 +12,7 @@ const EditItemForm = () => {
   const { itemId } = useParams();
   const item = items[Number(itemId)];
   //   const item = items[itemId];
-  console.log("ITEM to EDIT~~~~", item);
+  // console.log("ITEM to EDIT~~~~", item);
 
   const [title, setTitle] = useState(item?.title);
   const [description, setDescription] = useState(item?.description);
@@ -56,7 +56,7 @@ const EditItemForm = () => {
       price,
       image_urls,
     };
-    console.log("itemInfo inside CreatItemForm", itemData, item);
+    // console.log("itemInfo inside CreatItemForm", itemData, item);
     setErrors([]);
     const data = await dispatch(editItem(itemId, itemData)).catch(
       async (res) => {
@@ -66,7 +66,7 @@ const EditItemForm = () => {
     );
     await dispatch(getAllItems());
     if (data) {
-      console.log("DATA IS VALID", data);
+      // console.log("DATA IS VALID", data);
       history.push(`/listings`);
     }
   };

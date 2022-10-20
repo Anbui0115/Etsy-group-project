@@ -44,7 +44,7 @@ export const deleteItemAction = (itemId) => {
 // Thunks
 export const getAllItems = (q = undefined) => async (dispatch) => {
   const fetchUrl = !q ? `/api/items` : `/api/items?q=${q}`;
-  console.log(fetchUrl)
+  // console.log(fetchUrl)
 
   const res = await fetch(fetchUrl);
   // const res = await fetch(`/api/items`);
@@ -58,7 +58,7 @@ export const getAllItems = (q = undefined) => async (dispatch) => {
 
 export const createItem = (itemData) => async (dispatch) => {
   // if (!itemData.imageUrl) itemData.imageUrl = "https://media.istockphoto.com/photos/scattered-crumbs-of-butter-cookies-on-white-background-picture-id1222390473?k=20&m=1222390473&s=612x612&w=0&h=6UXsl_v8Kp2aG6ykg3l4lSHjoB4biCndCx2OVIiHNSQ="
-  console.log("item data inside create item thunk-----", itemData);
+  // console.log("item data inside create item thunk-----", itemData);
   const res = await fetch(`/api/items`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -86,7 +86,7 @@ export const editItem = (itemId, editItemData) => async (dispatch) => {
 };
 
 export const deleteItem = (itemId) => async (dispatch) => {
-console.log('itemID inside delete thunk!!!!!',itemId)//undefined
+// console.log('itemID inside delete thunk!!!!!',itemId)//undefined
   const res = await fetch(`/api/items/${itemId}`, {
     method: "DELETE",
     // headers: { "Content-Type": "application/json" },

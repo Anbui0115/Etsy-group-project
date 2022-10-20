@@ -9,10 +9,10 @@ export default function AddToCart({item}){
     function handleAddToCart(){
         dispatch(addToShoppingCartThunk(item,1))
         .then(()=>{
-            history.push("/cart")            
+            history.push("/cart")
         }).catch(async (res)=>{
-            console.log("res is ....", res)
-            
+            // console.log("res is ....", res)
+
         })
     }
     return (

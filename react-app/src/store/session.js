@@ -54,7 +54,7 @@ const clearCart = () => ({
 // Thunks
 
 export const addPurchaseThunk = (cart) => async dispatch => {
-  console.log("cart is ",cart)
+  // console.log("cart is ",cart)
 
   const response = await fetch('/api/cart/checkout',{
     method:"POST",
@@ -92,7 +92,7 @@ export const addToShoppingCartThunk = (item_id, quantity) => async dispatch => {
   }
 }
 export const editShoppingCartThunk = (id, quantity) => async dispatch => {
-  console.log("item id is in thunk ....", id, "quantity is .....", quantity)
+  // console.log("item id is in thunk ....", id, "quantity is .....", quantity)
   const response = await fetch(`/api/cart/${id}`, {
     method: "PUT",
     headers: {
@@ -105,7 +105,7 @@ export const editShoppingCartThunk = (id, quantity) => async dispatch => {
   })
   if (response.ok) {
     const data = await response.json()
-    console.log("response after update is .....", data)
+    // console.log("response after update is .....", data)
     if (data.errors) {
       return data.errors
     }

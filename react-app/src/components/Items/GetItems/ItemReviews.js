@@ -1,5 +1,5 @@
 export const ItemReviews = ({reviews}) => {
-    console.log("test")
+    // console.log("test")
 
     if (!reviews.length) {
         // console.log(reviews.length)

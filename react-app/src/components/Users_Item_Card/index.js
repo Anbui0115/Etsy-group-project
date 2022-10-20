@@ -18,7 +18,7 @@ const ItemCard = ({ item }) => {
 // console.log('item owner !!!!!!!!',item.owner.username)
 
   const onClickDelete = async (e, itemId) => {
-    console.log('itemID inside on click ~~~~~~',itemId)//undefined
+    // console.log('itemID inside on click ~~~~~~',itemId)//undefined
     e.preventDefault();
     await dispatch(deleteItem(itemId));
     history.push(`/listings`);
