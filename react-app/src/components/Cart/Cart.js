@@ -27,11 +27,7 @@ export default function Cart() {
                     })
                 }
             </div>
-<<<<<<< HEAD
-            <div>
-=======
             <div className={styles.rightContainer}>
->>>>>>> feature/shopping_cart
 
                 {
                     cartItems.length != 0 && (
