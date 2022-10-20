@@ -13,27 +13,27 @@ const LoggedInPage = () => {
     // const imgURL = "https://purepng.com/public/uploads/medium/purepng.com-pokeballpokeballdevicepokemon-ballpokemon-capture-ball-1701527825876ch1zq.png"
     const fixed_data = {
         "Pie": {
-            "imgUrl": "https://images.pexels.com/photos/2675061/pexels-photo-2675061.jpeg",
+            "imgUrl": "https://www.allrecipes.com/thmb/tOV-fTPq285yGwIiGxRNLe1CMok=/2000x1500/smart/filters:no_upscale():focal(1039x794:1041x796)/23439-PerfectPumpkinPie_002-4x3-1-44d015659c5c4a0888238d8f22de2a5e.jpg",
             "searchUrl": "/search?q=pie",
         },
         "Cake": {
-            "imgUrl": "https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg",
+            "imgUrl": "https://images.immediate.co.uk/production/volatile/sites/30/2020/04/strawberry-cake-8c9a6b6.jpg",
             "searchUrl": "/search?q=cake",
         },
         "Water": {
-            "imgUrl": "https://images.pexels.com/photos/949592/pexels-photo-949592.jpeg",
+            "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Water_drop_001.jpg",
             "searchUrl": "/search?q=water",
         },
         "1 pound items": {
-            "imgUrl": "https://images.pexels.com/photos/227383/pexels-photo-227383.jpeg",
+            "imgUrl": "https://coinscatalog.net/images/big-2x/16/one-pound-nations-of-the-crown-2017-uk-o-36167.jpg",
             "searchUrl": "/search?q=1lb",
         },
         "Box": {
-            "imgUrl": "https://images.pexels.com/photos/67603/pexels-photo-67603.jpeg",
+            "imgUrl": "https://dictionary.cambridge.org/us/images/thumb/box_noun_002_04301.jpg",
             "searchUrl": "/search?q=box",
         },
         "Cookies": {
-            "imgUrl": "https://images.pexels.com/photos/888899/pexels-photo-888899.jpeg",
+            "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/2ChocolateChipCookies.jpg",
             "searchUrl": "/search?q=cookies",
         },
     }
