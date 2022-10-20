@@ -12,36 +12,36 @@ const LoggedInPage = () => {
     // console.log(itemsObj)
     // const imgURL = "https://purepng.com/public/uploads/medium/purepng.com-pokeballpokeballdevicepokemon-ballpokemon-capture-ball-1701527825876ch1zq.png"
     const fixed_data = {
-        "Classmate Gifts": {
+        "Pie": {
             "imgUrl": "https://images.pexels.com/photos/2675061/pexels-photo-2675061.jpeg",
-            "searchUrl": "/",
+            "searchUrl": "/search?q=pie",
         },
-        "Uncanny Valley": {
+        "Cake": {
             "imgUrl": "https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg",
-            "searchUrl": "/",
+            "searchUrl": "/search?q=cake",
         },
-        "Holiday": {
+        "Water": {
             "imgUrl": "https://images.pexels.com/photos/949592/pexels-photo-949592.jpeg",
-            "searchUrl": "/",
+            "searchUrl": "/search?q=water",
         },
-        "Staples": {
+        "1 pound items": {
             "imgUrl": "https://images.pexels.com/photos/227383/pexels-photo-227383.jpeg",
-            "searchUrl": "/",
+            "searchUrl": "/search?q=1lb",
         },
-        "Fancy Living": {
+        "Box": {
             "imgUrl": "https://images.pexels.com/photos/67603/pexels-photo-67603.jpeg",
-            "searchUrl": "/",
+            "searchUrl": "/search?q=box",
         },
-        "Wedding Gifts": {
+        "Cookies": {
             "imgUrl": "https://images.pexels.com/photos/888899/pexels-photo-888899.jpeg",
-            "searchUrl": "/",
+            "searchUrl": "/search?q=cookies",
         },
     }
 
     const splash_circle_cards = Object.keys(fixed_data).map(name => {
         return (
             <div className="splash-circle-card">
-                <Link to="/" className='no-underline'>
+                <Link to={fixed_data[name]["searchUrl"]} className='no-underline'>
                     <div className="splash-circle-photo">
                         <img alt="" src={fixed_data[name]["imgUrl"]} />
                     </div>
@@ -66,7 +66,6 @@ const LoggedInPage = () => {
         if (isSmall) {
             sizeClass = 'lopsided-small-card lopsided-card'
         }
-        // return (<></>)
         return (
             <Link to={"/items/"+item.id} alt={item.title} className={sizeClass} style={{ backgroundImage: `url(${item.images[0]["image_url"]})` }}>
                 <div className='lopsided-item-card-price'>${makeProperPrice(item.price)}</div>
