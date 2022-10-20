@@ -30,24 +30,24 @@ console.log('itemId--',item.id,typeof itemId)//this works
     // <EditItemForm itemId={itemId} />;
   };
   return (
-    <div className="owner-each-item">
-      {/* <div>
-        <NavLink to="/listings/create">Add listing</NavLink>
-      </div> */}
+    <div className="owner-individual-card">
+        {/* <div>
+          <NavLink to="/listings/create">Add listing</NavLink>
+        </div> */}
 
-      <div className="owner-each-listing">
-        <img
-          className="owner-each-listing-img"
-          src={itemImg}
-          alt="owner-item"
-        />
-      </div>
+        <div className="owner-each-img-wrapper">
+          <img
+            className="owner-each-listing-img"
+            src={itemImg}
+            alt="owner-item"
+          />
+        </div>
 
       <div>
         <div className="owner-item-info">
           <div className="owner-item-title">{item.title}</div>
           <div className="owner-item-price-and-onwer">
-            <div>owner name</div>
+            {/* <div>owner name</div> */}
             <div className="owner-item-price">${item.price}</div>
           </div>
         </div>
@@ -61,12 +61,12 @@ console.log('itemId--',item.id,typeof itemId)//this works
           Edit
         </div>
 
-        <div
-          className="onwer-delete-button"
-          onClick={(e) => onClickDelete(e, itemId)}
-        >
-          Delete
-        </div>
+            <div
+              className="onwer-delete-button"
+              onClick={(e) => onClickDelete(e, itemId)}
+            >
+              Delete
+            </div>
       </div>
     </div>
   );

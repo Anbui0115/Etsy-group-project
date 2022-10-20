@@ -35,7 +35,7 @@ function UserListing() {
 
   let blankitems = [];
   for (let i = 1; i < Math.abs((listingByOwner.length % 5) - 5); i++) {
-    blankitems.push(<div className="owner-each-item"></div>);
+    blankitems.push(<div className="owner-individual-card oidbc"></div>);
   }
 
   return (
@@ -47,23 +47,20 @@ function UserListing() {
             Add the rest of your items or try starting with five. Keep in mind:
             The more you have, the more likely you'll be discovered.
           </div>
+
           <div className="owner-all-items-wrapper">
-            <div className="owner-all-items">
+            <div className="owner-all-items-inner-wrapper">
                   <div className="add-listing">
                     {/* <NavLink to="/listings/create">Add listing</NavLink> */}
                     <img
-                      className="owner-each-listing-img"
+                      className="add-listing-image-clicker"
                       src="https://i.imgur.com/LCd0uJx.png"
                       alt="add-a-listing"
                       onClick={onClickAddListing}
                     ></img>
                   </div>
                   {listingByOwner.map((item) => (
-                    <>
-                      <div className="owner-each-item">
                         <ItemCard item={item} />
-                      </div>
-                    </>
                   ))}
                   {blankitems}
             </div>

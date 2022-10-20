@@ -1,34 +1,39 @@
-.owner-each-item {
-  border: 1px solid rgb(128, 128, 128, 0.2);
+.owner-individual-card {
+  border: 1.5px solid rgb(128, 128, 128, 0.2);
+  /* border: 1px solid green; */
   box-sizing: border-box;
   color: rgb(34, 34, 34);
   display: inline-block;
-  font-size: 14px;
-  /* height: 296px; */
-  line-height: 19.6px;
-  /* padding: 9px; */
-  text-size-adjust: 100%;
   width: 18%;
   aspect-ratio: 1/1.28;
   align-items: center;
   justify-content: center;
-  gap: 1%;
   margin: auto;
+  margin-bottom: 0.8%;
 }
-.owner-each-listing {
+
+.oidbc {
+  border: none;
+  aspect-ratio: 1/1.38;
+}
+
+.owner-each-img-wrapper {
+  /* border: 1px solid pink; */
   display: flex;
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid rgb(128, 128, 128, 0.2);
   /* border-bottom: 2px red solid; */
-  height: 184px;
-  width: 228px;
+  /* height: 184px; */
+  width: 100%;
+  /* aspect-ratio: 1/0.8; */
 }
 .owner-each-listing-img {
   box-sizing: border-box;
   display: block;
-  height: 182px;
-  width: 228px;
+  width: 100%;
+  aspect-ratio: 1/0.8;
+
   border-bottom: 1px solid rgb(128, 128, 128, 0.2);
 }
 .owner-item-info {
@@ -37,9 +42,9 @@
   color: rgb(34, 34, 34);
   display: block;
   font-size: 14px;
-  height: 39.4px;
-  line-height: 19.6px;
-  margin: 8px 8px;
+  /* height: 50%; */
+  /* line-height: 19.6px; */
+  margin: 5% 5%;
   text-align: left;
   /* width: 220px; */
   text-size-adjust: 100%;
@@ -53,15 +58,18 @@
   color: rgb(34, 34, 34);
   cursor: pointer;
   display: block;
-  font-size: 12px;
-  height: 19.6px;
-  line-height: 16.8px;
-  margin-bottom: 3px;
+  font-size: .88em;
+  margin-top: 1%;
+  margin-bottom: 1%;
   overflow-y: hidden;
   overflow-x: hidden;
   text-align: left;
+  width: 95%;
+  aspect-ratio: 8/1;
   text-overflow: ellipsis;
-  text-size-adjust: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  /* text-size-adjust: 100%; */
   /* width: 100%; */
 }
 
@@ -70,9 +78,7 @@
   color: rgb(34, 34, 34);
   cursor: pointer;
   display: flex;
-  font-size: 12px;
-  height: 16.8px;
-  line-height: 16.8px;
+  font-size: .88em;
   justify-content: space-between;
   overflow-y: hidden;
   overflow-x: hidden;
@@ -83,15 +89,12 @@
 }
 .listing-buttons {
   border-top: 1px solid rgb(128, 128, 128, 0.2);
+  /* border: 3px solid green; */
   box-sizing: border-box;
   color: rgb(34, 34, 34);
-  display: table;
-  font-size: 14px;
-  height: 54px;
-  line-height: 19.6px;
-  text-align: left;
-  text-size-adjust: 100%;
   width: 100%;
+  display: flex;
+  aspect-ratio: 1/0.23;
 }
 .onwer-edit-button {
   border-right: 1px solid rgb(128, 128, 128, 0.2);
@@ -101,28 +104,21 @@
   color: rgb(89, 89, 89);
   cursor: pointer;
   display: inline-flex;
-  font-size: 14px;
+  font-size: .90em;
   font-weight: 700;
-  /* height: 38px; */
-  line-height: 19.6px;
-  /* padding: 8px 12px; */
   text-align: center;
   align-items: center;
   justify-content: center;
 }
 .onwer-delete-button {
-  /* border: 1px solid black; */
   width: 50%;
   height: 100%;
   box-sizing: border-box;
   color: rgb(89, 89, 89);
   cursor: pointer;
   display: inline-flex;
-  font-size: 14px;
+  font-size: .90em;
   font-weight: 700;
-  /* height: 38px; */
-  line-height: 19.6px;
-  /* padding: 8px 12px; */
   text-align: center;
   align-items: center;
   justify-content: center;
