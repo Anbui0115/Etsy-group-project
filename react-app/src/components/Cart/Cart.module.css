@@ -116,3 +116,12 @@
     display: flex;
     justify-content: space-between
 }
+
+.emptyCart{
+    font-family: "Guardian-EgypTT", Charter, "Charter Bitstream", Cambria,
+    "Noto Serif Light", "Droid Serif", Georgia, serif;
+    font-size: 32px;
+    line-height: 36px;
+    font-weight: 300;
+
+}
