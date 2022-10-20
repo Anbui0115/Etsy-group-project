@@ -16,6 +16,7 @@ export default function Cart() {
         })
     }, [dispatch])
     if (!cartItems) return null
+
     return (
         <div className={styles.mainDiv}>
             <div>
@@ -27,7 +28,19 @@ export default function Cart() {
                 }
             </div>
             <div>
-                <CartSummary shoppingCart={cartItems}/>
+                
+                {
+                    cartItems.length != 0 && (
+                         <CartSummary shoppingCart={cartItems}/>
+                    )
+                    
+                }
+                {
+                     cartItems.length == 0 && (
+                        <div className={styles.emptyCart}>Your cart is empty.</div>
+                   )
+                }
+                
             </div>
         </div>
 

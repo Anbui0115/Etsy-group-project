@@ -29,6 +29,7 @@
     display: flex;
     border-radius: 5px;
     padding: 3px;
+    cursor: pointer;
 }
 
 .purchase-card-image-container {
@@ -46,6 +47,7 @@
     aspect-ratio: 1/1;
     margin: auto;
     object-fit: contain;
+    cursor: pointer;
     /* border: 1px solid black; */
     /* border-radius: 5px; */
 }
@@ -61,6 +63,7 @@
 .purchase-card-title {
     font-size: 20px;
     font-weight: 550;
+    cursor: pointer;
 }
 
 .purchase-card-description {

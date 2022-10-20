@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { createReview } from "../../store/reviews";
 // import { getAllItems } from "../../store/items";
+// import { getPurchasesAction } from "../../store/session";
 
 
 const MakeReviewForm = ({item, purchaseId, setShowModal}) => {
@@ -53,6 +54,7 @@ const MakeReviewForm = ({item, purchaseId, setShowModal}) => {
         }
         if (!verrors.length) {
             const data = await dispatch(createReview({title, stars, description, item_id, purchase_id, user_id}))
+
             setShowModal(false)
             history.push('/purchases-and-reviews')
         }
@@ -71,7 +73,7 @@ const MakeReviewForm = ({item, purchaseId, setShowModal}) => {
         for (let i = 0; i < 5-stars; i++){
             // console.log("render")
             starItems.push(
-                <div className='star-button' onClick={() => clickStars(stars+1)}> ☆ </div>
+                <div className='star-button' onClick={() => clickStars(i + 1 + stars)}> ☆ </div>
             )
         }
 
