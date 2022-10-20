@@ -107,3 +107,27 @@
   padding: 12px 6px 12px 12px;
   background-color: grey;
 }
+
+.searchField{
+  display: flex;
+  border: none;
+  margin-left: 20px;
+  margin-top: 10px;
+  border-color: white;
+  min-width: 410px;
+  width:80%;
+}
+.searchField:focus{
+  border: none;
+  border-color: white;
+}
+
+.searchForm{
+  display: flex;
+  flex-direction: row;
+}
+
+.submitButton{
+  border-radius: 50%;
+  border-color: black;
+}

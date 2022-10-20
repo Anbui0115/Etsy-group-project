@@ -256,7 +256,7 @@ export const searchAction = (terms) => async dispatch => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      params : terms
+      q : terms
     }),
   });
 

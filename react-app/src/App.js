@@ -60,7 +60,7 @@ function App() {
         <Route path="/" exact={true}>
           <HomePage />
         </Route>
-        <Route path="/search/:params" exact={true}>
+        <Route path="/search/" exact={true}>
           <Search />
         </Route>
         <Route path="/items/:itemId">

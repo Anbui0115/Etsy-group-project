@@ -1,33 +1,41 @@
-import { useHistory } from "react-router-dom"
-import { useParams } from "react-router";
 import { searchAction } from "../../store/session";
-import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect, useMemo } from "react";
+import { connect, useDispatch , mapStateToProps, mapDispatchToProps} from "react-redux";
+import {useLocation, withRouter} from 'react-router-dom'
+import LandingPage from "../HomePage/LandingPage";
+import HomePage from "../HomePage/HomePage";
+import { getAllItems } from "../../store/items";
 
 
-const Search = () => {
+// A custom hook that builds on useLocation to parse
+// the query string for you.
+function useQuery() {
+    const {search} = useLocation();
+    // return useMemo(() => new URLSearchParams(search), [search]);
+    return new URLSearchParams(search)
+}
+
+
+const Search = (props) => {
     const [loaded, setLoaded] = useState(false);
-
-    let history = useHistory()
-    const params = useParams()
+    const query = useQuery();
     const dispatch = useDispatch();
-    const searchTerms = params.params.split("+")
-
     useEffect(() => {
         (async () => {
-          await searchAction(searchTerms);
-          setLoaded(true);
+            dispatch(getAllItems(query.get("q")));
+            setLoaded(true);
         })();
-    }, [dispatch]);
+    }, [dispatch,props.match.params]);
 
 
 
-    console.log(searchTerms)
     return (
-        <div>
-            hi
-        </div>
+        <HomePage/>
+            
+        
     )
 }
 
-export default Search
+// export default Search
+//https://stackoverflow.com/questions/50667609/react-router-component-not-updating-on-url-search-param-change
+export default withRouter(connect()(Search));

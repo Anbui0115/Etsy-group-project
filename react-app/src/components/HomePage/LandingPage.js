@@ -3,12 +3,16 @@ if user is not logged in, render <LandingPage /> inside HomePage
 */
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux';
+import { useMemo } from 'react';
+
+
 
 const LandingPage = () => {
-    const itemsObj = useSelector(state => state.items)
-    const items = Object.values(itemsObj)
-    // console.log(itemsObj)
-    // const imgURL = "https://purepng.com/public/uploads/medium/purepng.com-pokeballpokeballdevicepokemon-ballpokemon-capture-ball-1701527825876ch1zq.png"
+    const itemsObj = useSelector(state => state.items);
+    const items = Object.values(itemsObj);
+
+
+    
     const fixed_data = {
         "Classmate Gifts": {
             "imgUrl": "https://images.pexels.com/photos/2675061/pexels-photo-2675061.jpeg",

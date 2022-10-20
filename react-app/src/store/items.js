@@ -41,8 +41,12 @@ export const deleteItemAction = (itemId) => {
 // }
 
 // Thunks
-export const getAllItems = () => async (dispatch) => {
-  const res = await fetch("/api/items");
+export const getAllItems = (q = undefined) => async (dispatch) => {
+  const fetchUrl = !q ? `/api/items` : `/api/items?q=${q}`;
+  console.log(fetchUrl)
+  
+  const res = await fetch(fetchUrl);
+  // const res = await fetch(`/api/items`);   
 
   if (res.ok) {
     const items = await res.json();
@@ -96,11 +100,12 @@ const initialState = {};
 
 // Reducer
 export default function itemsReducer(state = initialState, action) {
-  const newState = { ...state };
+  let newState = { ...state };
   switch (action.type) {
     case GET_ITEMS:
+      newState = { };
       action.items.forEach((item) => (newState[item.id] = item));
-      return newState;
+      return newState
     case CREATE_ITEM:
       newState[action.item.id] = action.item;
       return newState;

@@ -1,14 +1,16 @@
 
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState } from 'react';
+import { NavLink, useHistory} from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import styles from './NavBar.module.css'
 import { useSelector } from 'react-redux';
 import LoginFormModal from "./LoginFormModal"
 import ProfileButton from "./ProfileButton/ProfileButton"
-import Cart from './Cart/Cart';
+
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user)
+  const [searchQuery, setSearchQuery] = useState()
+  const history = useHistory()
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
@@ -42,7 +44,10 @@ const NavBar = () => {
     )
 
   }
-
+ function handleSearch(e){
+  e.preventDefault()
+  history.push(`/search?q=${searchQuery}`)
+ }
 
   return (
     <div className={styles.outer_most}>
@@ -55,7 +60,12 @@ const NavBar = () => {
           </div>
 
           <div className={styles.nav_searchbar}>
-            Searchbar here
+            <form>
+              <div className={styles.searchForm}>
+                <input type="text" className={styles.searchField} value={searchQuery} onChange={(e)=>{setSearchQuery(e.target.value)}}></input>
+                <button type="submit" className={styles.submitButton} onClick={(e)=>{handleSearch(e)}}><i class="fa-solid fa-magnifying-glass"></i></button>
+              </div>
+            </form>
           </div>
           {sessionLinks}
           {/* <NavLink to='/users' exact={true} activeClassName='active'>
