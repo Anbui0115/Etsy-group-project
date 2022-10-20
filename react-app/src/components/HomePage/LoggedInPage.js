@@ -29,7 +29,7 @@ const LoggedInPage = () => {
             "searchUrl": "/search?q=1lb",
         },
         "Box": {
-            "imgUrl": "https://dictionary.cambridge.org/us/images/thumb/box_noun_002_04301.jpg",
+            "imgUrl": "https://www.uhaul.com/MovingSupplies/Image/GetMedia/?id=8390&media=8185",
             "searchUrl": "/search?q=box",
         },
         "Cookies": {
