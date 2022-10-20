@@ -9,31 +9,31 @@ const LandingPage = () => {
     const items = Object.values(itemsObj);
 
 
-    
+
     const fixed_data = {
-        "Classmate Gifts": {
+        "Pie": {
             "imgUrl": "https://images.pexels.com/photos/2675061/pexels-photo-2675061.jpeg",
-            "searchUrl": "/",
+            "searchUrl": "/search?q=pie",
         },
-        "Uncanny Valley": {
+        "Cake": {
             "imgUrl": "https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg",
-            "searchUrl": "/",
+            "searchUrl": "/search?q=cake",
         },
-        "Holiday": {
+        "Water": {
             "imgUrl": "https://images.pexels.com/photos/949592/pexels-photo-949592.jpeg",
-            "searchUrl": "/",
+            "searchUrl": "/search?q=water",
         },
-        "Staples": {
+        "1 pound items": {
             "imgUrl": "https://images.pexels.com/photos/227383/pexels-photo-227383.jpeg",
-            "searchUrl": "/",
+            "searchUrl": "/search?q=1lb",
         },
-        "Fancy Living": {
+        "Box": {
             "imgUrl": "https://images.pexels.com/photos/67603/pexels-photo-67603.jpeg",
-            "searchUrl": "/",
+            "searchUrl": "/search?q=box",
         },
-        "Wedding Gifts": {
+        "Cookies": {
             "imgUrl": "https://images.pexels.com/photos/888899/pexels-photo-888899.jpeg",
-            "searchUrl": "/",
+            "searchUrl": "/search?q=cookies",
         },
     }
 
