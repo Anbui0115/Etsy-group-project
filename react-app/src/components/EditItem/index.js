@@ -71,106 +71,8 @@ const EditItemForm = () => {
     }
   };
   if (!item) return null;
-  // return (
-  //   <form className="create-item-form" onSubmit={onSubmit}>
-  //     {/* <h1>Form</h1> */}
-  //     <div className="create-title">
-  //       <div className="create-title-text">Edit your listing</div>
-  //     </div>
 
-  //     <div className="create-subtitle">
-  //       <div className="create-subtitle-text">
-  //         Add some photos and details about your item. Fill out what you can for
-  //         now—you will be able to edit this later.
-  //       </div>
-  //     </div>
 
-  //     <div className="create-item-container">
-  //       {isSubmitted && (
-  //         <ul className="create-item-error">
-  //           {errors.map((error) => (
-  //             <li key={error}>{error}</li>
-  //           ))}
-  //         </ul>
-  //       )}
-  //       <div className="create-item-body">
-  //         <div className="create-item-photo">
-  //           <div>
-  //             <div>Photos</div>
-  //             <div>Add up to five photos so buyers can see every detail.</div>
-  //           </div>
-  //           <div className="create-item-input-items">
-  //             <label className="create-item-input-field">
-  //               Image url
-  //               <input
-  //                 className="create-item-input"
-  //                 type="text"
-  //                 name="image_urls"
-  //                 value={image_urls}
-  //                 onChange={(e) => setImage_urls(e.target.value)}
-  //                 required
-  //               />
-  //             </label>
-  //           </div>
-  //         </div>
-
-  //         <div>
-  //           <div>Listing details</div>
-  //           <div className="create-item-input-items">
-  //             <label className="create-item-input-field">
-  //               Title
-  //               <input
-  //                 className="create-item-input"
-  //                 type="text"
-  //                 name="title"
-  //                 value={title}
-  //                 onChange={(e) => setTitle(e.target.value)}
-  //                 required
-  //               />
-  //             </label>
-  //           </div>
-
-  //           <div className="create-item-input-items">
-  //             <label className="create-item-input-field">
-  //               Description
-  //               <input
-  //                 className="create-item-input"
-  //                 type="text"
-  //                 name="description"
-  //                 value={description}
-  //                 onChange={(e) => setDescription(e.target.value)}
-  //                 required
-  //               />
-  //             </label>
-  //           </div>
-  //         </div>
-
-  //         <div className="create-spot-input-items">
-  //           <label className="create-spot-input-field">
-  //             Price
-  //             <input
-  //               className="create-spot-input"
-  //               type="number"
-  //               name="price"
-  //               value={price}
-  //               onChange={(e) => setPrice(e.target.value)}
-  //               required
-  //             />
-  //           </label>
-  //         </div>
-  //       </div>
-
-  //       <button
-  //         className="create-item-submit-button"
-  //         type="submit"
-  //         disabled={isSubmitted && errors.length > 0}
-  //       >
-  //         Save
-  //       </button>
-  //     </div>
-  //     {/* </div> */}
-  //   </form>
-  // );
   return (
     <div className="create-item-outer-container">
       <form className="create-item-form" onSubmit={onSubmit}>
@@ -274,28 +176,32 @@ const EditItemForm = () => {
               </div>
             </div>
 
-            <div className="create-spot-input-items">
-              <label className="create-spot-input-field">
-                Price
-                <input
-                  className="create-spot-input"
-                  type="number"
-                  name="price"
-                  value={price}
-                  onChange={(e) => setPrice(e.target.value)}
-                  required
-                />
-              </label>
+            <div className="item-price-outer-container">
+              <div className="item-price-input-container">
+                <label className="item-price-input-field">
+                  Price
+                  <input
+                    className="item-price-input"
+                    type="number"
+                    name="price"
+                    value={price}
+                    onChange={(e) => setPrice(e.target.value)}
+                    required
+                    placeholder="$"
+                  />
+                </label>
+              </div>
             </div>
           </div>
-
-          <button
-            className="create-item-submit-button"
-            type="submit"
-            disabled={isSubmitted && errors.length > 0}
-          >
-            Save
-          </button>
+          <div className="create-item-submit-container">
+            <button
+              className="create-item-submit-button"
+              type="submit"
+              disabled={isSubmitted && errors.length > 0}
+            >
+              Save
+            </button>
+          </div>
         </div>
         {/* </div> */}
       </form>
