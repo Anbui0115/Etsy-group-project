@@ -35,18 +35,9 @@ const Search = (props) => {
 
     return (
         <div className="Outer-container">
-            <div className="colored-header">
-                <div className="header-color-bar">
-                    <div className='header-text'>
-                        <h1 className='header-text'>Welcome to Eatsy!</h1>
-                    </div>
-
-                </div>
-                <div className="header-bar"></div>
-            </div>
-
+            <br />
             <div className='preview-text'>
-                    Search Results
+                    {items.length ? "Search Results" : "No Results Found"}
             </div>
             <div className="basic-preview">
 
