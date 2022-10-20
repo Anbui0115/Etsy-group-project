@@ -72,7 +72,7 @@ export const addPurchaseThunk = (cart) => async dispatch => {
   }
 }
 
-export const addToShoppingCartThunk = (item_id, quantity) => async dispatch => {
+export const addToShoppingCartThunk = (item_id, quantity, onHandleAddToCartSuccess) => async dispatch => {
   const response = await fetch(`/api/cart`, {
     method: "POST",
     headers: {
@@ -88,6 +88,8 @@ export const addToShoppingCartThunk = (item_id, quantity) => async dispatch => {
     if (data.errors) {
       return data.errors
     }
+    // await dispatch(updateCartItem(data));
+    onHandleAddToCartSuccess();
     return response
   }
 }

@@ -15,7 +15,7 @@ def get_item():
     Get all items
     """
     searchTerm ='%'+request.args['q']+'%' if 'q' in request.args.keys() else '%' 
-    items = Item.query.filter((Item.title.like(searchTerm)) | Item.description.like(searchTerm)).all()
+    items = Item.query.filter((Item.title.ilike(searchTerm)) | Item.description.ilike(searchTerm)).all()
     return {'items': [i.to_dict() for i in items]}
 
 
