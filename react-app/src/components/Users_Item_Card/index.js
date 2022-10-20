@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
 import { NavLink, Redirect } from "react-router-dom";
 
 // import { deleteAReview } from "../../store/reviews";
@@ -15,10 +15,8 @@ const ItemCard = ({ item }) => {
   const itemImg = item["images"][0]["image_url"];
   const itemId = item.id;
 
-// console.log('item owner !!!!!!!!',item.owner.username)
-
   const onClickDelete = async (e, itemId) => {
-    // console.log('itemID inside on click ~~~~~~',itemId)//undefined
+
     e.preventDefault();
     await dispatch(deleteItem(itemId));
     history.push(`/listings`);
@@ -45,8 +43,10 @@ const ItemCard = ({ item }) => {
 
       <div>
         <div className="owner-item-info">
-          <div className="owner-item-title">{item.title}</div>
-          <div className="owner-item-price-and-onwer">
+          <div className="owner-item-title">
+            <Link to={`/items/${item.id}`} className="item-name-link">{item.title}</Link>
+          </div>
+          <div className="owner-item-price-and-owner">
             <div>From {item.owner.username}</div>
             <div className="owner-item-price">${item.price}</div>
           </div>

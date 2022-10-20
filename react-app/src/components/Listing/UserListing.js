@@ -1,8 +1,7 @@
-import { useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { NavLink, Redirect } from "react-router-dom";
-import { getAllItems } from "../../store/items";
+import { useSelector } from "react-redux";
+import { Redirect } from "react-router-dom";
+
 
 
 import "./UserListing.css";
@@ -10,7 +9,7 @@ import CreateUserItem from "../CreateItem/CreateItemForm";
 import ItemCard from "../Users_Item_Card";
 
 function UserListing() {
-  const dispatch = useDispatch();
+
   const history = useHistory();
 
   const items = useSelector((state) => state.items);
@@ -19,10 +18,6 @@ function UserListing() {
   const listingByOwner = itemsArray.filter(
     (item) => item?.owner_id === sessionUser.id
   );
-  // console.log("LISTING by OWNER", listingByOwner);
-  useEffect(() => {
-    dispatch(getAllItems());
-  }, [dispatch]);
 
   const onClickAddListing = (e) => {
     e.preventDefault();
