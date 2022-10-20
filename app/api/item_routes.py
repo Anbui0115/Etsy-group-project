@@ -17,10 +17,15 @@ def get_item():
     searchTerm ='%'+request.args['q']+'%' if 'q' in request.args.keys() else '%'
     # print(searchTerm)
     try:
-        searchTerm = request.args.to_dict()['q'].split(" ")
-        print(searchTerm)
+        searchTerms = request.args.to_dict()['q'].split(" ")
+        print(searchTerms,f"\n\n\n\n")
+        returnList = []
+        for searchTerm in searchTerms:
+            items = Item.query.filter((Item.title.ilike("%" + searchTerm + "%"))).all()
+            returnList.extend([i.to_dict() for i in items])
+        return { 'items' : returnList}
     except:
-        items = Item.query.filter((Item.title.like(searchTerm)) | Item.description.like(searchTerm)).all()
+        items = Item.query.all()
         return {'items': [i.to_dict() for i in items]}
 
 
