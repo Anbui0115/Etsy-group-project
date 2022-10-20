@@ -53,8 +53,6 @@ function UserListing() {
                 <div className="add-listing">
                   {/* <NavLink to="/listings/create">Add listing</NavLink> */}
                   <img
-                    width="300px"
-                    height="300px"
                     className="owner-each-listing-img"
                     src="https://i.imgur.com/LCd0uJx.png"
                     alt="add-a-listing"
