@@ -103,7 +103,7 @@ const LoggedInPage = () => {
     return (
         <div className="Outer-container">
             <div className="colored-header">
-                <div className="header-color-bar">
+                <div className="header-color-bar-logged-in">
                     <div className='header-text'>
                         <h1 className='header-text'>Welcome to Eatsy!</h1>
                     </div>

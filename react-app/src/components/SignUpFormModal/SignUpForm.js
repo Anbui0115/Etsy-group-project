@@ -12,7 +12,7 @@ const SignUpForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const user = useSelector((state) => state.session.user);
-  console.log('USER``````',user)
+
   const dispatch = useDispatch();
 
   const validationError = [];
@@ -28,7 +28,6 @@ const SignUpForm = () => {
     }
     if (password !== repeatPassword)
       validationError.push("Password must match repeat password");
-
 
     setErrors(validationError);
   }, [username, email, password, repeatPassword]);
@@ -75,13 +74,12 @@ const SignUpForm = () => {
 
       <div className="signup-container">
         {isSubmitted && (
-           <div className="signup-errors">
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
-        </div>
+          <div className="signup-errors">
+            {errors.map((error, ind) => (
+              <div key={ind}>{error}</div>
+            ))}
+          </div>
         )}
-
 
         <div className="signup-body">
           <div className="input-field">
@@ -99,7 +97,7 @@ const SignUpForm = () => {
             <label className="input">Email</label>
             <input
               className="credential"
-              type="text"
+              type="email"
               name="email"
               onChange={updateEmail}
               value={email}

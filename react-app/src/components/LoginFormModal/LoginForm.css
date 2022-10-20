@@ -1,35 +1,11 @@
-/* to do: add styling here */
-/* .login-form {
 
-  display: flex;
-  flex-direction: column;
-  min-height: 48px;
-  height: 500px;
-  width: 500px;
-  border-radius: 15px;
-  cursor: pointer;
-  background-color: transparent;
-  justify-content: space-between;
-  display: flex !important;
-  flex: 0 0 auto !important;
-  align-items: center !important;
-  justify-content: space-between;
-  padding: 0px 24px !important;
-  min-height: 48px !important;
-  color: rgb(34, 34, 34) !important;
-  font-size: 16px !important;
-  line-height: 20px !important;
-  font-weight: 800 !important;
-}
-
-} */
 .login-form {
   margin-top: 20px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 380px;
+  height: 430px;
   line-height: 19.6px;
   max-width: 100%;
   width: 362px;
