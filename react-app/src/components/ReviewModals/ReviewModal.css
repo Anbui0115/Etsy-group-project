@@ -8,8 +8,7 @@
   align-items: center;
   cursor: pointer;
   font-weight: 600;
-  font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
-    Arial, sans-serif;
+  font-family: "Guardian-EgypTT",Charter,"Charter Bitstream",Cambria,"Noto Serif Light","Droid Serif",Georgia,serif;
   cursor: pointer;
   box-sizing: border-box;
   line-height: 24px;
@@ -56,8 +55,7 @@
   border-radius: 7px;
   padding-left: 3px;
   font-size: 1.2em;
-  font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
-  Arial, sans-serif;
+  font-family: "Guardian-EgypTT",Charter,"Charter Bitstream",Cambria,"Noto Serif Light","Droid Serif",Georgia,serif;
 
 }
 
