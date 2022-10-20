@@ -16,6 +16,8 @@
     flex-direction: column;
     width: 66%;
     margin-bottom: 10px;
+    padding-bottom: 2%;
+    border-bottom: 2px solid lightgray;
 }
 
 .pictures {
