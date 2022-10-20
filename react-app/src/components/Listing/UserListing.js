@@ -20,9 +20,9 @@ function UserListing() {
     (item) => item?.owner_id === sessionUser.id
   );
   // console.log("LISTING by OWNER", listingByOwner);
- useEffect(() => {
-   dispatch(getAllItems());
- }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getAllItems());
+  // }, [dispatch]);
 
   const onClickAddListing = (e) => {
     e.preventDefault();
