@@ -1,4 +1,5 @@
 // Types
+import {getSearchAction} from './search.js'
 const GET_ITEMS = "items/GET_ITEMS";
 const CREATE_ITEM = "items/CREATE_ITEM";
 const EDIT_ITEM = "items/EDIT_ITEM";
@@ -44,13 +45,14 @@ export const deleteItemAction = (itemId) => {
 export const getAllItems = (q = undefined) => async (dispatch) => {
   const fetchUrl = !q ? `/api/items` : `/api/items?q=${q}`;
   console.log(fetchUrl)
-  
+
   const res = await fetch(fetchUrl);
-  // const res = await fetch(`/api/items`);   
+  // const res = await fetch(`/api/items`);
 
   if (res.ok) {
     const items = await res.json();
-    dispatch(getItemsAction(items.items));
+    if (!q) dispatch(getItemsAction(items.items));
+    else dispatch(getSearchAction(items.items))
   }
 };
 
