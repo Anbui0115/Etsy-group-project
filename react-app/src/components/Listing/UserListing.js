@@ -42,32 +42,30 @@ function UserListing() {
     { listingByOwner } && (
       <>
         <div className="owner-items-outer-container">
-          <div className="onwer-listing">Stock your shop</div>
+          <div className="owner-listing">Stock your shop</div>
           <div className="owner-listing-subtitle">
             Add the rest of your items or try starting with five. Keep in mind:
             The more you have, the more likely you'll be discovered.
           </div>
-          <div className="owner-items-inner-container">
-            <div className="owner-item-display">
-              <div className="owner-all-items">
-                <div className="add-listing">
-                  {/* <NavLink to="/listings/create">Add listing</NavLink> */}
-                  <img
-                    className="owner-each-listing-img"
-                    src="https://i.imgur.com/LCd0uJx.png"
-                    alt="add-a-listing"
-                    onClick={onClickAddListing}
-                  ></img>
-                </div>
-                {listingByOwner.map((item) => (
-                  <>
-                    <div className="owner-each-item">
-                      <ItemCard item={item} />
-                    </div>
-                  </>
-                ))}
-                {blankitems}
-              </div>
+          <div className="owner-all-items-wrapper">
+            <div className="owner-all-items">
+                  <div className="add-listing">
+                    {/* <NavLink to="/listings/create">Add listing</NavLink> */}
+                    <img
+                      className="owner-each-listing-img"
+                      src="https://i.imgur.com/LCd0uJx.png"
+                      alt="add-a-listing"
+                      onClick={onClickAddListing}
+                    ></img>
+                  </div>
+                  {listingByOwner.map((item) => (
+                    <>
+                      <div className="owner-each-item">
+                        <ItemCard item={item} />
+                      </div>
+                    </>
+                  ))}
+                  {blankitems}
             </div>
           </div>
         </div>

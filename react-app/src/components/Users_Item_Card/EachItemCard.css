@@ -4,11 +4,12 @@
   color: rgb(34, 34, 34);
   display: inline-block;
   font-size: 14px;
-  height: 296px;
+  /* height: 296px; */
   line-height: 19.6px;
   /* padding: 9px; */
   text-size-adjust: 100%;
   width: 18%;
+  aspect-ratio: 1/1.28;
   align-items: center;
   justify-content: center;
   gap: 1%;
