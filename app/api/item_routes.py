@@ -18,7 +18,6 @@ def get_item():
     # print(searchTerm)
     try:
         searchTerms = request.args.to_dict()['q'].split(" ")
-        print(searchTerms,f"\n\n\n\n")
         returnList = []
         for searchTerm in searchTerms:
             items = Item.query.filter(Item.title.ilike("%" + searchTerm + "%") | Item.description.ilike("%" + searchTerm + "%")).all()
