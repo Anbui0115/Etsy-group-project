@@ -2,19 +2,18 @@ import React, { useState, useEffect } from "react";
 import { Modal } from "../../context/Modal";
 import { useDispatch, useSelector } from "react-redux";
 import * as sessionActions from "../../store/session";
-// import profileButton from "./profileButton.png";
 import { NavLink, useHistory } from "react-router-dom";
 import "./ProfileButton.css";
 import LogoutButton from "../auth/LogoutButton";
 
 
 
-function ProfileButton() {
-  // console.log("user in Profile Button", user);
+function ProfileButton({ user }) {
   const dispatch = useDispatch();
-  const [showMenu, setShowMenu] = useState(false);
   const history = useHistory();
-const currentUser = useSelector(state =>state.session.user)
+  const [showMenu, setShowMenu] = useState(false);
+  const userState = useSelector(state => state.session.user)
+
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
@@ -38,20 +37,15 @@ const currentUser = useSelector(state =>state.session.user)
     history.push("")
   };
 
-const goToListing = (e)=>{
-   e.preventDefault();
-   history.push('/listings')
-}
+  const userIcon = <i class="fa-solid fa-user fa-2x"></i>
+  const userIconMenu = <i class="fa-solid fa-user"></i>
+
   return (
     <>
       <div onClick={openMenu} className="dropdown-menu">
-        <img
-          id="profile-avatar-dropdown"
-          src={
-            "https://img2.etsystatic.com/site-assets/images/global-nav/no-user-avatar.svg"
-          }
-          alt={"profile-button"}
-        />
+        <div className="dropdown-menu-avatar">
+          {userIcon}
+        </div>
       </div>
 
       {showMenu && (
@@ -62,14 +56,8 @@ const goToListing = (e)=>{
           </ul> */}
           {/* <div>Hi {user.username}</div> */}
           <div className="user-name-avatar">
-            <img
-              id="profile-avatar-dropdown"
-              src={
-                "https://img2.etsystatic.com/site-assets/images/global-nav/no-user-avatar.svg"
-              }
-              alt={"profile-button"}
-            />
-            <div className="current-user-name">{currentUser.username}</div>
+            {userIconMenu}
+            <div className="Username-dropdown">{userState.username}</div>
           </div>
 
           <div
@@ -78,13 +66,15 @@ const goToListing = (e)=>{
           >
             Purchases and reviews
           </div>
-          {/* <div
+          <div
             className="manage-your-listing"
-            // onClick={() => history.push("")}
-          ></div> */}
-          <div className="manage-your-listing" onClick={e=>goToListing(e)}>
-            Manage Listing
+            onClick={() => history.push("/listings")}
+          >
+            Manage Listings
           </div>
+          {/* <NavLink className="manage-your-listing" to="/listings">
+            Manage Listing
+          </NavLink> */}
           <div className="profile-log-out" onClick={logout}>
             <LogoutButton />
           </div>
