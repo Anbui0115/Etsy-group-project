@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { signUp } from "../../store/session";
@@ -9,11 +9,35 @@ const SignUpForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
   const user = useSelector((state) => state.session.user);
+  console.log('USER``````',user)
   const dispatch = useDispatch();
+
+  const validationError = [];
+  useEffect(() => {
+    if (username.length < 4) {
+      validationError.push("Username needs to have at least 4 characters");
+    }
+    if (!email.includes("@")) {
+      validationError.push("Please provide a valid email");
+    }
+    if (password.length < 4) {
+      validationError.push("Password needs to have at least 4 characters");
+    }
+    if (password !== repeatPassword)
+      validationError.push("Password must match repeat password");
+
+
+    setErrors(validationError);
+  }, [username, email, password, repeatPassword]);
 
   const onSignUp = async (e) => {
     e.preventDefault();
+    setIsSubmitted(true);
+    if (errors.length) return;
+
     if (password === repeatPassword) {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
@@ -50,11 +74,14 @@ const SignUpForm = () => {
       </div>
 
       <div className="signup-container">
-        <div className="signup-errors">
+        {isSubmitted && (
+           <div className="signup-errors">
           {errors.map((error, ind) => (
             <div key={ind}>{error}</div>
           ))}
         </div>
+        )}
+
 
         <div className="signup-body">
           <div className="input-field">
@@ -101,7 +128,11 @@ const SignUpForm = () => {
               required={true}
             ></input>
           </div>
-          <button className="signup-button" type="submit">
+          <button
+            className="signup-button"
+            type="submit"
+            disabled={isSubmitted && errors.length > 0}
+          >
             Sign Up
           </button>{" "}
         </div>
