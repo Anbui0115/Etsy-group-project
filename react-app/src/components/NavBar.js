@@ -1,5 +1,5 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink, useHistory } from "react-router-dom";
 import LogoutButton from "./auth/LogoutButton";
 import styles from "./NavBar.module.css";
 import { useSelector } from "react-redux";
