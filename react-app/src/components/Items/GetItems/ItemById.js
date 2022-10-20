@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 import ImageGallery from 'react-image-gallery';
-import {ItemReviews} from './ItemReviews'
+import { ItemReviews } from './ItemReviews'
 import "../Items.css"
 import AddToCart from "../../AddToCart/AddToCart";
 import { makeProperPrice } from "../../../utils/properPrice";
@@ -20,19 +20,22 @@ const ItemById = () => {
 
     const filteredItem = items.filter(item => item.id === +itemId)
     let reviews = {}
+    
     try {
         reviews = filteredItem[0].reviews
     }
     catch {
         reviews = {}
     }
-    // const reviews = filteredItem[0].reviews
+
     const carrousel = (item) => {
         let images = item.images.map(image => {
-            return { original: image.image_url,
-                     originalClass: "carrouselBig",
-                     thumbnail: image.image_url,
-                     thumbnailClass: "carrouselSmall",}
+            return {
+                original: image.image_url,
+                originalClass: "carrouselBig",
+                thumbnail: image.image_url,
+                thumbnailClass: "carrouselSmall",
+            }
         });
         return images
     }
@@ -45,16 +48,11 @@ const ItemById = () => {
                         <div className="item-by-id" key={item.id}>
                             <div className="picture-and-reviews">
                                 <div className="pictures">
-                                        <ImageGallery
+                                    <ImageGallery
                                         items={carrousel(item)}
                                         thumbnailPosition="left"
-                                        showFullscreenButton="false"
                                         showPlayButton={false}
-                                        />
-                                    {/* <div className="picture-list">
-                                    </div>
-                                    <div className="display-picture">
-                                    </div> */}
+                                    />
                                 </div>
                             </div>
                             <div className="item-info-and-cart-button">
@@ -63,9 +61,8 @@ const ItemById = () => {
                                     <div className="individual-item-title">{item.title}</div>
                                     <div className="individual-item-price">${makeProperPrice(item.price)}</div>
                                 </div>
-                                {sessionState.user ? <div className="add-to-cart-button"><AddToCart item={item.id}/></div> :
+                                {sessionState.user ? <div className="add-to-cart-button"><AddToCart item={item.id} /></div> :
                                     ""
-
                                 }
                                 <div className="description-title-and-description">
                                     <div className="item-description-title">Description</div>
