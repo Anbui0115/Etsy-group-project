@@ -63,7 +63,10 @@ const ItemById = () => {
                                     <div className="individual-item-title">{item.title}</div>
                                     <div className="individual-item-price">${item.price}</div>
                                 </div>
-                                <div className="add-to-cart-button"><AddToCart item={item.id}/></div>
+                                {sessionState.user ? <div className="add-to-cart-button"><AddToCart item={item.id}/></div> :
+                                    ""
+
+                                }
                                 <div className="description-title-and-description">
                                     <div className="item-description-title">Description</div>
                                     <div className="item-description">{item.description}</div>

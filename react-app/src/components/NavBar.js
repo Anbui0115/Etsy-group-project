@@ -1,11 +1,14 @@
+import React from "react";
+import { NavLink } from "react-router-dom";
+import LogoutButton from "./auth/LogoutButton";
+import styles from "./NavBar.module.css";
+import { useSelector } from "react-redux";
+import LoginFormModal from "./LoginFormModal";
+import ProfileButton from "./ProfileButton/ProfileButton";
 
-import React, { useState } from 'react';
-import { NavLink, useHistory} from 'react-router-dom';
-import LogoutButton from './auth/LogoutButton';
-import styles from './NavBar.module.css'
-import { useSelector } from 'react-redux';
-import LoginFormModal from "./LoginFormModal"
-import ProfileButton from "./ProfileButton/ProfileButton"
+import logo from "../eatsy-logo/logo-no-background.png";
+
+
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user)
@@ -15,10 +18,12 @@ const NavBar = () => {
   if (sessionUser) {
     sessionLinks = (
       <>
-        <div className='profile_dropdown'>
-          <NavLink to="/cart" className='profile_dropdown'><i className="fa-solid fa-cart-shopping"></i></NavLink>
+        <div className="profile_dropdown">
+          <NavLink to="/cart" className="profile_dropdown">
+            <i className="fa-solid fa-cart-shopping"></i>
+          </NavLink>
         </div>
-        <div className='profile_dropdown'>
+        <div className="profile_dropdown">
           <ProfileButton />
         </div>
 
@@ -26,9 +31,8 @@ const NavBar = () => {
           <LogoutButton />
         </div> */}
       </>
-    )
-  }
-  else {
+    );
+  } else {
     sessionLinks = (
       <>
         {/* <NavLink to='/login' exact={true} activeClassName='active'>
@@ -41,8 +45,7 @@ const NavBar = () => {
           Sign Up
         </NavLink> */}
       </>
-    )
-
+    );
   }
  function handleSearch(e){
   e.preventDefault()
@@ -54,8 +57,19 @@ const NavBar = () => {
       <div className={styles.outer_nav}>
         <nav className={styles.nav_bar}>
           <div className={styles.nav_logo}>
-            <NavLink className={styles.home_logo} to='/' exact={true} activeClassName='active'>
-              Home
+            <NavLink
+              className={styles.home_logo}
+              to="/"
+              exact={true}
+              activeClassName="active"
+            >
+              <img
+                className="eatsy-logo"
+                src={logo}
+                alt="eatsy-logo"
+                width={"90px"}
+                height={"50px"}
+              ></img>
             </NavLink>
           </div>
 
@@ -75,6 +89,6 @@ const NavBar = () => {
       </div>
     </div>
   );
-}
+};
 
 export default NavBar;

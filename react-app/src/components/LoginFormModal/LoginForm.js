@@ -30,12 +30,10 @@ const LoginForm = () => {
     return <Redirect to="/" />;
   }
 
-  // const demoUser = (e) => {
-  //   e.preventDefault();
-  //   return dispatch(
-  //     sessionActions.login({ credential: "user1", password: "password1" })
-  //   );
-  // };
+  const handleDemoUser = () =>{
+    setEmail('demo@aa.io');
+    setPassword('password')
+  }
 
   return (
     <form className="login-form" onSubmit={onLogin}>
@@ -64,7 +62,6 @@ const LoginForm = () => {
               className="credential"
               name="email"
               type="text"
-              // placeholder="Email"
               value={email}
               onChange={updateEmail}
               required
@@ -79,7 +76,6 @@ const LoginForm = () => {
               className="credential"
               name="password"
               type="password"
-              // placeholder="Password"
               value={password}
               onChange={updatePassword}
               required
@@ -92,9 +88,7 @@ const LoginForm = () => {
           >
             Sign in
           </button>
-          {/* <button onClick={demoUser} className="login-button">
-            Demo User
-          </button> */}
+          <button className="demo-user-button login-button" onClick={handleDemoUser}> Demo User </button>
         </div>
       </div>
     </form>

@@ -3,8 +3,8 @@
     flex-direction: row;
     padding-top: 20px;
     width: 100%;
-    
-    
+
+
 }
 
 .itemCard{
@@ -25,21 +25,22 @@
 .price{
     padding: 10px;
     width:125.97;
-   
+
 }
 .descText{
     display:flex;
     font-size: 16px;
     font-weight: 400px;
-    padding-left:10px;   
-    font-family: "Graphik Webfont",-apple-system,"Helvetica Neue","Droid Sans",Arial,sans-serif;; 
-    
+    padding-left:10px;
+    font-family: "Graphik Webfont",-apple-system,"Helvetica Neue","Droid Sans",Arial,sans-serif;;
+    cursor: pointer;
 }
 .remove{
     display: flex;
     font-size: 14px;
     width: 80px;
     height:36px;
+    margin-top: 5%;
     padding: 0px 10px 10px 10px;
 }
 .remove:hover{
@@ -47,10 +48,10 @@
     font-size: 14px;
     width: 80px;
     height:36px;
-    
+
     padding: 0px 10px 10px 10px;
     cursor: pointer;
-   
+
 
 }
 .itemCount{
@@ -58,7 +59,7 @@
    font-size: 16px;
    color: #222222;
    width: 60px;
-   height: 48px; 
+   height: 48px;
    line-height: 1.4;
    box-shadow: 0 1px 6px 0 rgb(34 34 34 / 15%);
    background:white;
@@ -76,4 +77,5 @@
 
 .image{
     border-radius: 6px;
+    cursor: pointer;
 }

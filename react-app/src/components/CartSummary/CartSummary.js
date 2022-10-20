@@ -35,7 +35,7 @@ export default function CartSummary({ shoppingCart }) {
                     </div>
                 </tr>
                 <tr>
-                    <button className={styles.proceedButton} onClick={handleCheckout}>Proceed to checkout</button>
+                    <button className={styles.proceedButton} onClick={handleCheckout}>Checkout</button>
                 </tr>
             </tbody>
         </div>
