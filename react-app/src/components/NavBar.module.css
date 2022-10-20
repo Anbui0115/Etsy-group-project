@@ -82,13 +82,6 @@
   text-align: start;
 }
 
-.submitButton {
-  border: none;
-  position: relative;
-  background: transparent;
-  /* left: 100px; */
-  /* top: 10px; */
-}
 
 .searchForm{
   display: flex;
@@ -98,23 +91,31 @@
 }
 
 .search_form_container {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: 100%;
 }
 
 .searchField{
   display: flex;
-  /* border: solid red 1px; */
-  /* margin-left: 20px; */
-  /* margin-top: 10px; */
-  border-color: white;
-  width: 100%;
+  border: solid blue 1px;
+  margin-top: 7px;
+  margin-left: 10px;
+  width: 93%;
+  height: 30px;
 }
 
 /* .searchField:focus{
   border: none;
   border-color: white;
 } */
+
+.submitButton {
+  border: none;
+  position: absolute;
+  background: transparent;
+  right: 250px;
+  top: 20px;
+}
 
 
 .profile_dropdown{
