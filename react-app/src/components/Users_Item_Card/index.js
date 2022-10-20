@@ -16,17 +16,18 @@ const ItemCard = ({ item }) => {
   const itemId = item.id;
 
   const onClickDelete = async (e, itemId) => {
-
     e.preventDefault();
     await dispatch(deleteItem(itemId));
     history.push(`/listings`);
   };
+
   const onClickEdit = async (e, itemId) => {
     e.preventDefault();
     // await dispatch(editItem(itemId));
     history.push(`/listing/${itemId}/edit`);
     // <EditItemForm itemId={itemId} />;
   };
+
   return (
     <div className="owner-individual-card">
       {/* <div>
