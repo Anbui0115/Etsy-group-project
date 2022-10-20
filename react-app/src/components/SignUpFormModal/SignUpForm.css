@@ -3,16 +3,18 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 580px;
+  height: 640px;
   line-height: 19.6px;
   max-width: 100%;
-  width: 384px;
+  width: 380px;
   cursor: default;
   min-height: 48px;
   /* border-radius: 24px;  HANDLED IN MODAL.CSS*/
   background-color: transparent;
   color: rgb(34, 34, 34);
   z-index: 200;
+  /* border: 1px solid red; */
+  padding-left: 8px;
 }
 
 .create-account {

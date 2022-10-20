@@ -12,7 +12,7 @@ const SignUpForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const user = useSelector((state) => state.session.user);
-  console.log('USER``````',user)
+  
   const dispatch = useDispatch();
 
   const validationError = [];

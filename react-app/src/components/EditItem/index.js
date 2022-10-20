@@ -100,15 +100,15 @@ const EditItemForm = () => {
             </ul>
           )}
           <div className="create-item-body">
-            <div className="create-item-photo">
+            {/* <div className="create-item-photo">
               <div className="create-item-photo-inner">
                 <div className="photo-title-and-subtitle">
                   <div className="photo-title">Photos</div>
                   <div className="photo-subtitle">
                     Add a photo so buyers can see the details.
                   </div>
-                </div>
-                <div className="create-item-input-items">
+                </div> */}
+                {/* <div className="create-item-input-items">
                   <label className="create-item-input-field">
                     Image url
                     <input
@@ -120,9 +120,9 @@ const EditItemForm = () => {
                       required
                     />
                   </label>
-                </div>
-              </div>
-            </div>
+                </div> */}
+              {/* </div> */}
+            {/* </div> */}
 
             <div className="item-title-and-description-container">
               <div className="listing-details-container">
