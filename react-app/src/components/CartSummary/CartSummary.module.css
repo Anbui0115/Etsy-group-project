@@ -8,8 +8,9 @@
     margin: 0;
     font-size: 14px;
     line-height: 1.4;
-    height: 256.78px;
-    
+    width: 100%;
+    /* height: 256.78px; */
+
     align-items: center;
 
 }
@@ -18,7 +19,8 @@
     display: flex;
     flex-direction: column;
     padding: 18px;
-    
+    width: 100%;
+
 }
 
 .row{
@@ -34,7 +36,7 @@
   color: white;
   justify-content: center;
   margin-top: 20px;
-  
+
   height: 48px;
   font-size: 15pt;
   align-items: center;
@@ -49,6 +51,7 @@
   min-height: 48px;
   min-width: 48px;
   text-align: center;
-  width: 324px;
+  /* width: 100%; */
   border-radius: 50px;
+  /* border: 1px solid green; */
 }

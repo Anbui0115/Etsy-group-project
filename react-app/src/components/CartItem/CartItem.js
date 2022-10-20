@@ -33,7 +33,7 @@ export default function CartItem({item}){
     if (!item) return null
     return (
         <div className={styles.itemCard}>
-            <div><img src={item.item.images[0].image_url+"?width=187&height=148"} className={styles.image} onClick={()=> history.push(`/items/${item.item.id}`)}></img></div>
+            <div className={styles.shoppingImageContainer}><img src={item.item.images[0].image_url+"?width=187&height=148"} className={styles.image} onClick={()=> history.push(`/items/${item.item.id}`)}></img></div>
 
             <div className={styles.descDiv}>
                 <div className={styles.descText} onClick={()=> history.push(`/items/${item.item.id}`)}>{item.item.title}</div>
