@@ -51,11 +51,18 @@ When a user is not logged in, landing page has some info about the porducts and 
 When a user is logged in or signed up, they'll be able to start shopping and selling. Or just browsing.
 
 
+Sign In modal
 
 ![home page](screenshots_readme/signIn.png)
+
+Sign Up modal
+
 ![home page](screenshots_readme/SignUp.png)
+
+Profile dropdown
+
 ![home page](screenshots_readme/profile.png)
-![home page](screenshots_readme/)
+
 
 
 
@@ -65,6 +72,9 @@ When a user is logged in or signed up, they'll be able to start shopping and sel
 From homepage, when a user clicks on a product, they'll be redirect to another page that has all the info about that product
 
 ![home page](screenshots_readme/itemById.png)
+
+Product's reviews
+
 ![home page](screenshots_readme/review.png)
 
 
@@ -81,6 +91,9 @@ When a user wants to start selling, they will be able to click on **Manage Listi
 
 
 ![manage listing](screenshots_readme/listing.png)
+
+Create item listing form
+
 ![manage listing](screenshots_readme/createItem.png)
 
 
@@ -91,11 +104,17 @@ When a user wants to start selling, they will be able to click on **Manage Listi
 
 When a user wants to see purchase history and their reviews, they will be able to click on **Purchases and reviews** inside profile dropdown
 
+Purchase history and review
 
+![purchases and reviews](screenshots_readme/purchasesAndReviwe.png)
+
+Create review modal
 
 ![purchases and reviews](screenshots_readme/createReview.png)
+
+Edit review modal
+
 ![purchases and reviews](screenshots_readme/editReview.png)
-![purchases and reviews](screenshots_readme/purchasesAndReviwe.png)
 
 
 ## Shopping cart
