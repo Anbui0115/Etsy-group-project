@@ -130,7 +130,7 @@ When a user wants to see purchase history and their reviews, they will be able t
 
 
 
-[API Routes Documentation]()
+[API Routes Documentation](https://github.com/Anbui0115/Etsy-group-project/wiki/Eatsy-API-Documentation)
 
 
 
