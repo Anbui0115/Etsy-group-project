@@ -3,7 +3,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { signUp } from "../../store/session";
 
+import validator from 'validator'
+
 const SignUpForm = () => {
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.session.user);
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -11,16 +15,22 @@ const SignUpForm = () => {
   const [repeatPassword, setRepeatPassword] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const user = useSelector((state) => state.session.user);
+// const validateEmail = (e) => {
+//   var email = e.target.value;
 
-  const dispatch = useDispatch();
+//   if (validator.isEmail(email)) {
+//     setMessage("Thank you");
+//   } else {
+//     setMessage("Please, enter valid Email!");
+//   }
+// };
 
   const validationError = [];
   useEffect(() => {
     if (username.length < 4) {
       validationError.push("Username needs to have at least 4 characters");
     }
-    if (!email.includes("@")) {
+    if (!(validator.isEmail(email))) {
       validationError.push("Please provide a valid email");
     }
     if (password.length < 4) {
