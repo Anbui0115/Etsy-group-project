@@ -1,16 +1,11 @@
-import { useDispatch, useSelector } from "react-redux";
-import { useParams, useHistory, Link } from "react-router-dom";
-import { NavLink, Redirect } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useHistory, Link } from "react-router-dom";
 import { makeProperPrice } from '../../utils/properPrice';
+import { deleteItem } from "../../store/items";
 
-// import { deleteAReview } from "../../store/reviews";
-// import reviewAvatar from "./review-avatar.jpeg";
 import "./EachItemCard.css";
-import { editItem, deleteItem } from "../../store/items";
-import EditItemForm from "../EditItem";
 
 const ItemCard = ({ item }) => {
-  const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
   const history = useHistory();
   const itemImg = item["images"][0]["image_url"];

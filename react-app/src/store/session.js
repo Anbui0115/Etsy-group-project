@@ -5,7 +5,7 @@ const GET_PURCHASES = "items/GET_PURCHASES";
 const SET_CART = "cart/setCartItems"
 const REMOVE_CART_ITEM = "cart/removeCartItem"
 const UPDATE_CART_ITEM = "cart/addCartItem"
-const ADD_PURCHASE_ORDER = "order/addPurchase"
+// const ADD_PURCHASE_ORDER = "order/addPurchase"
 const CLEAR_CART = "cart/clearCart"
 
 // Action Creators
@@ -263,7 +263,7 @@ const initialState = { user: null };
 //Reducer
 export default function reducer(state = initialState, action) {
   const newState = { ...state }
-  let shopping_cart;
+  // let shopping_cart;
   switch (action.type) {
     case SET_USER:
       return { user: action.payload }
