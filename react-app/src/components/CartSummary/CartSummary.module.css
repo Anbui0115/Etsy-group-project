@@ -1,5 +1,5 @@
 .rightCard{
-    display: flex;
+    /* display: flex; */
     box-shadow: 0 4px 20px rgb(34 34 34 / 15%);
     border-radius: 18px !important;
     overflow: hidden !important;
@@ -8,7 +8,7 @@
     font-size: 14px;
     line-height: 1.4;
     width: 100%;
-    align-items: center;
+    /* justify-content: center; */
 
 }
 
@@ -38,8 +38,8 @@
   font-size: 1.1em;
   font-weight: 600;
   box-sizing: border-box;
-  width: 40%;
-  aspect-ratio: 3/1;
+  width: 80%;
+  aspect-ratio: 6/1;
   text-align: center;
   border-radius: 50px;
   /* border: 1px solid green; */

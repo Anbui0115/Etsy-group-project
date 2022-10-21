@@ -6,11 +6,13 @@ import styles from "../CartSummary/CartSummary.module.css"
 export default function CartSummary({ shoppingCart }) {
     const history = useHistory();
     const dispatch = useDispatch();
+
     const formatting_options = {
         style: 'currency',
         currency: 'USD',
         minimumFractionDigits: 2,
     };
+
     const dollarFormmatter = new Intl.NumberFormat("en-US", formatting_options);
     function handleCheckout() {
 
@@ -26,6 +28,7 @@ export default function CartSummary({ shoppingCart }) {
                 <tr className={styles.row}>
                     <th>
                         Item(s) total
+
                     </th>
                 </tr>
                 <tr>
