@@ -500,4 +500,139 @@ Deletes an existing item.
       "statusCode": 404
     }
     ```
+#### Add to shopping cart
 
+Adds an item to shopping cart 
+Require Authentication: True
+
+* Request
+  * Method: POST
+  * URL: /api/cart
+* Body:
+```json
+{
+  "item_id": 5, 
+  "quantity": 1
+}
+```
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+
+* Body:
+
+ ```json    
+  "shopping_cart": {
+    "id": 16, 
+    "item": {
+      "description": "It's random. No, you can't choose which flavors you get.", 
+      "id": 5, 
+      "images": [
+        {
+          "id": 15, 
+          "image_url": "https://media.discordapp.net/attachments/10174/100/9468_Pies_in_real_life.png", 
+          "item_id": 5
+        }, 
+        {
+          "id": 12, 
+          "image_url": "https://media.discordapp.net/attachments/101749298/98904/30085_Pies.png", 
+          "item_id": 5
+        }
+      ], 
+      "owner": {
+        "email": "bobbie@aa.io", 
+        "id": 3, 
+        "username": "bobbie"
+      }, 
+      "owner_id": 3, 
+      "price": 59.91, 
+      "reviews": [], 
+      "title": "Literally Just Pies"
+    }, 
+    "quantity": 79, 
+    "user": {
+      "email": "demo@aa.io", 
+      "id": 1, 
+      "username": "Demo"
+    }
+```
+#### Delete from shopping cart
+Removes an item from shooping cart 
+Require Authentication: True
+Only current user can delete from their shopping cart. 
+* Request
+  * Method: DELETE
+  * URL: /api/cart/:id
+  * Body: none
+
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+
+* Body:
+```json
+  {
+    "message":"successfully deleted",
+    "statusCode": 200
+  }
+```
+
+* Error response: Couldn't find the item in shopping cart with the specified id
+  * Status Code: 404
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+  ```json
+  {
+    "message": "Item couldn't be found",
+    "statusCode": 400
+  }
+  ```
+
+#### Edit from shopping cart
+Deletes an item from shooping cart 
+Require Authentication: True
+Only current user can edit in their shopping cart. 
+
+* Request
+  * Method: PUT
+  * URL: /api/cart
+  * Body: 
+  
+  ```json
+  {
+    "quantity": 5
+  }
+  ```
+* Response error:
+```json
+  {
+    "error": "This item is not in cart"
+  }
+```
+#### Checkout items in shopping cart
+Adds items in shopping cart to purchase and delete all from shopping cart
+Require Authentication: True
+Only cart owner can checkout.
+
+* Request:
+  * Method: POST
+  * URL: /api/cart/checkout
+  * Body: 
+  
+  ```json
+  {
+    "item_id": 5,
+    "quantity" : 2,
+    "price": 30
+  }
+  ```
+* Response:
+```json
+{
+  "message": "successfully added to purchases"
+}
+```
