@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 
 import { useHistory } from "react-router-dom";
 import { getPurchasesAction } from "../../store/session";
@@ -11,7 +11,7 @@ import ReviewModal from "../ReviewModals"
 if user is not logged in, render <LandingPage />
 else render all components for homepage
 */
-const PurchasesReviews= ()=>{
+const PurchasesReviews = () => {
     const sessionUser = useSelector((state) => state.session.user);
     const history = useHistory();
     const dispatch = useDispatch();
@@ -23,25 +23,20 @@ const PurchasesReviews= ()=>{
     }, [dispatch]);
 
     let purchases = useSelector((state) => state.session.purchases);
-    // if (purchases.length) purchases = purchases.reverse()
     const itemsObj = useSelector(state => state.items)
-    const items = Object.values(itemsObj)
 
-    let purchaseCards = ( <></>)
+    let purchaseCards = (<></>)
     try {
         purchaseCards =
             purchases.map(purchase => {
                 const item = itemsObj[purchase.itemId]
-                // console.log(purchase.id)
                 let reviewPreview = <></>
                 let hasReview = false
                 if (purchase.review.length !== 0) {
                     const itemReview = purchase.review[0]
                     reviewPreview = (
                         <div className="review-preview">
-                            {/* <div>{itemReview["title"]}</div> */}
                             <div>Your Rating: {"★".repeat(parseInt(itemReview["stars"]))}</div>
-                            {/* <div>{itemReview["description"]}</div> */}
                         </div>
                     )
                     hasReview = true
@@ -50,12 +45,11 @@ const PurchasesReviews= ()=>{
                     <div key={item.id} className="purchase-card">
                         <div className="purchase-card-image-container">
                             <div className="purchase-card-image">
-                                <img src={item["images"][0]["image_url"]} onClick={()=> history.push(`/items/${item.id}`)}></img>
+                                <img src={item["images"][0]["image_url"]} onClick={() => history.push(`/items/${item.id}`)}></img>
                             </div>
                         </div>
                         <div className="purchase-card-mid">
-                            <div className="purchase-card-title" onClick={()=> history.push(`/items/${item.id}`)}>{item.title}</div>
-                            {/* <div className="purchase-card-description">{item.description}</div> */}
+                            <div className="purchase-card-title" onClick={() => history.push(`/items/${item.id}`)}>{item.title}</div>
                             <div className="purchase-card-price"> qty. {purchase.quantity} | ${makeProperPrice(purchase.price)} ea | total ${makeProperPrice(purchase.price * purchase.quantity)}</div>
                             {reviewPreview}
                         </div>
@@ -71,7 +65,7 @@ const PurchasesReviews= ()=>{
     }
 
 
-    if(!sessionUser){ history.push(`/`); }
+    if (!sessionUser) { history.push(`/`); }
     return (
         <div className="purchases-container">
             {purchaseCards}

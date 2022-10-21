@@ -20,7 +20,7 @@ function useQuery() {
 
 const HomePage=(props)=>{
     const sessionUser = useSelector((state) => state.session.user);
-    const query = useQuery();
+    // const query = useQuery();
 
     const dispatch = useDispatch();
     useEffect(() => {

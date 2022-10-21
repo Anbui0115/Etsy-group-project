@@ -18,7 +18,7 @@ export default function Cart() {
     return (
         <div className={styles.mainDiv}>
 
-            {cartItems.length != 0 && (
+            {cartItems.length !== 0 && (
                 <div className={styles.numberOfItemsInCart}>
                     {cartItems.length} Item(s) in your cart
                 </div>
@@ -27,19 +27,19 @@ export default function Cart() {
                 <div className={styles.itemsContainer}>
                     <div className={styles.cartItemsLeft}>
                         {Object.values(cartItems).map((item, indx) => {
-                            return <CartItem item={item} />
+                            return <CartItem key={indx} item={item} />
                         })}
                     </div>
 
                     <div className={styles.rightContainer}>
-                        {cartItems.length != 0 && (
+                        {cartItems.length !== 0 && (
                             <CartSummary shoppingCart={cartItems} />
                         )}
                     </div>
                 </div>
 
                 <div className={styles.emptyCartTextContainer}>
-                    {cartItems.length == 0 && (
+                    {cartItems.length === 0 && (
                         <div className={styles.emptyCart}>Your cart is empty.</div>
                     )}
                 </div>

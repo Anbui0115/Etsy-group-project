@@ -1,8 +1,6 @@
 export const ItemReviews = ({reviews}) => {
-    // console.log("test")
 
     if (!reviews.length) {
-        // console.log(reviews.length)
         return <div className="review-count"> No Reviews Yet! </div>
     }
     let initialValue = parseInt(reviews[0].stars)
@@ -32,7 +30,7 @@ export const ItemReviews = ({reviews}) => {
             <div className="review-cards">
                 {reviews.map(review => {
                     return (
-                        <div className="review-card">
+                        <div className="review-card" key={review.id}>
                             <div className="review-card-stars">{starField(review.stars)} </div>
                             <div className="review-card-title">{review.title} </div>
                             <div className="review-card-description">{review.description} </div>

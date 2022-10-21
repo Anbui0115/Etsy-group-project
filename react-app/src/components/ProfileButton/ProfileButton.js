@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Modal } from "../../context/Modal";
 import { useDispatch, useSelector } from "react-redux";
 import * as sessionActions from "../../store/session";
-import { NavLink, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./ProfileButton.css";
 import LogoutButton from "../auth/LogoutButton";
 

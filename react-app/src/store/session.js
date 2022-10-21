@@ -1,16 +1,11 @@
 // constants
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
-const GET_SHOPPINGCARTS = 'shoppingCarts/GET_SHOPPINGCARTS';
-const CREATE_SHOPPINGCART = 'shoppingCarts/CREATE_SHOPPINGCART';
-const EDIT_SHOPPINGCART = 'shoppingCarts/EDIT_SHOPPINGCART';
-const DELETE_SHOPPINGCART = 'shoppingCarts/DELETE_SHOPPINGCART';
-const CLEAR_SHOPPINGCART = 'shoppingCarts/CLEAR_SHOPPINGCART';
 const GET_PURCHASES = "items/GET_PURCHASES";
 const SET_CART = "cart/setCartItems"
 const REMOVE_CART_ITEM = "cart/removeCartItem"
 const UPDATE_CART_ITEM = "cart/addCartItem"
-const ADD_PURCHASE_ORDER = "order/addPurchase"
+// const ADD_PURCHASE_ORDER = "order/addPurchase"
 const CLEAR_CART = "cart/clearCart"
 
 // Action Creators
@@ -32,9 +27,9 @@ const removeUser = () => ({
   type: REMOVE_USER,
 })
 
-const addPurchase = () =>({
-  type: ADD_PURCHASE_ORDER
-})
+// const addPurchase = () =>({
+//   type: ADD_PURCHASE_ORDER
+// })
 
 const removeCartItem = (id) => ({
   type: REMOVE_CART_ITEM,
@@ -54,7 +49,6 @@ const clearCart = () => ({
 // Thunks
 
 export const addPurchaseThunk = (cart) => async dispatch => {
-  // console.log("cart is ",cart)
 
   const response = await fetch('/api/cart/checkout',{
     method:"POST",
@@ -94,7 +88,6 @@ export const addToShoppingCartThunk = (item_id, quantity, onHandleAddToCartSucce
   }
 }
 export const editShoppingCartThunk = (id, quantity) => async dispatch => {
-  // console.log("item id is in thunk ....", id, "quantity is .....", quantity)
   const response = await fetch(`/api/cart/${id}`, {
     method: "PUT",
     headers: {
@@ -107,7 +100,6 @@ export const editShoppingCartThunk = (id, quantity) => async dispatch => {
   })
   if (response.ok) {
     const data = await response.json()
-    // console.log("response after update is .....", data)
     if (data.errors) {
       return data.errors
     }
@@ -241,12 +233,10 @@ export const signUp = (username, email, password) => async (dispatch) => {
 
 
 export const getPurchasesAction = (id) => async dispatch => {
-  // console.log("fadsfadsfdsafsa", id)
   const res = await fetch(`/api/purchases/${id}`)
 
   if (res.ok) {
     const purchases = await res.json()
-    // console.log(purchases)
     dispatch(getPurchases(purchases))
   }
 }
@@ -273,7 +263,7 @@ const initialState = { user: null };
 //Reducer
 export default function reducer(state = initialState, action) {
   const newState = { ...state }
-  let shopping_cart;
+  // let shopping_cart;
   switch (action.type) {
     case SET_USER:
       return { user: action.payload }

@@ -5,11 +5,9 @@ import "./LoginForm.css";
 
 function LoginFormModal() {
   const [showModal, setShowModal] = useState(false);
-// console.log("SHOW MODAL NOW",showModal)
   return (
     <>
       <button className="login-button-modal" onClick={() =>setShowModal(true)
-        //  console.log("SHOW MODAL NOW",showModal)
       } >
         Sign in
       </button>

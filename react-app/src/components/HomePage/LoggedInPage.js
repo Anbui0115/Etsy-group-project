@@ -11,7 +11,6 @@ const LoggedInPage = () => {
     let reversedItems = items.slice(8)
     reversedItems.reverse()
 
-    // console.log(itemsObj)
     // const imgURL = "https://purepng.com/public/uploads/medium/purepng.com-pokeballpokeballdevicepokemon-ballpokemon-capture-ball-1701527825876ch1zq.png"
     const fixed_data = {
         "Classmate Gifts": {
@@ -42,7 +41,7 @@ const LoggedInPage = () => {
 
     const splash_circle_cards = Object.keys(fixed_data).map(name => {
         return (
-            <div className="splash-circle-card">
+            <div className="splash-circle-card" key={name}>
                 <Link to={fixed_data[name]["searchUrl"]} className='no-underline'>
                     <div className="splash-circle-photo">
                         <img alt="" src={fixed_data[name]["imgUrl"] + "?width=300&height=300"} />
@@ -69,32 +68,32 @@ const LoggedInPage = () => {
             sizeClass = 'lopsided-small-card lopsided-card'
         }
         return (
-            <Link to={"/items/"+item.id} alt={item.title} className={sizeClass} style={{ backgroundImage: `url(${item.images[0]["image_url"]})` }}>
+            <Link to={"/items/" + item.id} alt={item.title} className={sizeClass} style={{ backgroundImage: `url(${item.images[0]["image_url"]})` }}>
                 <div className='lopsided-item-card-price'>${makeProperPrice(item.price)}</div>
             </Link>
         )
     }
 
-    let lopsided = ( <></>)
+    let lopsided = (<></>)
     try {
 
         lopsided = (
             <div className='lopsided-homepage-previews'>
                 <div className='lopsided-homepage-column'>
-                    {createLopsidedCard(items[0],false)}
-                    {createLopsidedCard(items[1],true)}
+                    {createLopsidedCard(items[0], false)}
+                    {createLopsidedCard(items[1], true)}
                 </div>
                 <div className='lopsided-homepage-column'>
-                    {createLopsidedCard(items[2],true)}
-                    {createLopsidedCard(items[3],false)}
+                    {createLopsidedCard(items[2], true)}
+                    {createLopsidedCard(items[3], false)}
                 </div>
                 <div className='lopsided-homepage-column'>
-                    {createLopsidedCard(items[4],false)}
-                    {createLopsidedCard(items[5],true)}
+                    {createLopsidedCard(items[4], false)}
+                    {createLopsidedCard(items[5], true)}
                 </div>
                 <div className='lopsided-homepage-column'>
-                    {createLopsidedCard(items[6],true)}
-                    {createLopsidedCard(items[7],false)}
+                    {createLopsidedCard(items[6], true)}
+                    {createLopsidedCard(items[7], false)}
                 </div>
             </div>
         )
@@ -117,20 +116,20 @@ const LoggedInPage = () => {
                 <div className="header-bar"></div>
             </div>
             <div className='preview-text'>
-                    Featured Items
-                </div>
+                Featured Items
+            </div>
             {lopsided}
 
             <div className='preview-text'>
-                    Look! Contemplate! Buy!
+                Look! Contemplate! Buy!
             </div>
             <div className="basic-preview">
 
                 {reversedItems.map(item => {
                     // let img = 'https://media.discordapp.net/attachments/1017492963720433868/1030624725350760448/pexels-klaus-nielsen-6294375.jpg'
                     return (
-                        <Link to={"/items/"+item.id} alt={item.title} className='splash-item-card' style={{ backgroundImage: `url(${item.images[0]["image_url"]})` }}>
-                            <div className='item-card-price'>${makeProperPrice(item.price)}</div>
+                        <Link to={"/items/" + item.id} key={item.id} alt={item.title} className='splash-item-card' style={{ backgroundImage: `url(${item.images[0]["image_url"]})` }}>
+                            <div className='item-card-price'>${String(item.price).length === 5 ? item.price : String(item.price) + "0"}</div>
                         </Link>
                     )
                 })}

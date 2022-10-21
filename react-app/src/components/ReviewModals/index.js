@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Modal } from "../../context/Modal";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import "./ReviewModal.css";
 import MakeReviewForm from "./MakeReviewForm";
@@ -10,13 +10,12 @@ import {getAllItems} from '../../store/items'
 
 function ReviewModal({hasReview, review, purchaseId, item}) {
   const [showModal, setShowModal] = useState(false);
-  const sessionUser = useSelector((state) => state.session.user);
+  // const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
+
   useEffect(async () => {
     dispatch(getAllItems())
   }, [showModal]);
-  // console.log(hasReview)
-  // console.log(review)
 
   const form = hasReview ?
                <ManageReviewForm item={item} purchaseId={purchaseId} review={review} setShowModal={setShowModal} /> :
@@ -32,7 +31,6 @@ function ReviewModal({hasReview, review, purchaseId, item}) {
         className={css}
         onClick={
           () => setShowModal(true)
-          //  console.log("SHOW MODAL NOW",showModal)
         }
       >
         {btntext}

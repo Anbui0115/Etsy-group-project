@@ -51,7 +51,7 @@ function CreateUserItem() {
       price,
       image_urls,
     };
-    // console.log("itemInfo inside CreatItemForm", itemData);
+
     setErrors([]);
     const data = await dispatch(createItem(itemData)).catch(async (res) => {
       const data = await res.json();

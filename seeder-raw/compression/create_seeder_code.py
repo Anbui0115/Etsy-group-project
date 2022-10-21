@@ -36,7 +36,6 @@ with open('itemcode.py', "w") as itemcodefile, open('imagecode.py', 'w') as imag
 
             price = str(round(random.uniform(14.00, 99.99), 2))
             if len(price) == 4: price += "0"
-            #print(price)
             itemCodeString += " price = " + f'"{price}")'
 
             itemcodefile.write(itemCodeString + "\n")
