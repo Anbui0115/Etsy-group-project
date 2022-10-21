@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import { Link, withRouter, useLocation } from "react-router-dom";
+import { withRouter, useLocation } from "react-router-dom";
 import { useSelector, useDispatch, connect } from "react-redux";
-import { makeProperPrice } from "../../utils/properPrice";
+// import { makeProperPrice } from "../../utils/properPrice";
 import { getAllItems } from "../../store/items";
 import SearchResultCard from "./SearchResultCard";
 
@@ -12,10 +12,10 @@ function useQuery() {
 }
 
 const Search = (props) => {
-  const sessionUser = useSelector((state) => state.session.user);
+  // const sessionUser = useSelector((state) => state.session.user);
   const query = useQuery();
-
   const dispatch = useDispatch();
+  
   useEffect(() => {
     (async () => {
       dispatch(getAllItems(query.get("q")));
