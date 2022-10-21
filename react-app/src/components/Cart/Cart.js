@@ -18,7 +18,12 @@ export default function Cart() {
 
     return (
         <div className={styles.mainDiv}>
-            <div className={styles.numberOfItemsInCart}>{cartItems.length} Item(s) in your cart</div>
+
+            {cartItems.length != 0 && (
+                <div className={styles.numberOfItemsInCart}>
+                    {cartItems.length} Item(s) in your cart
+                </div>
+            )}
             <div className={styles.itemsContainerOuter}>
                 <div className={styles.itemsContainer}>
                     <div className={styles.cartItemsLeft}>
@@ -32,12 +37,12 @@ export default function Cart() {
                             <CartSummary shoppingCart={cartItems} />
                         )}
                     </div>
+                </div>
 
-                    <div className={styles.emptyCartTextContainer}>
-                        {cartItems.length == 0 && (
-                            <div className={styles.emptyCart}>Your cart is empty.</div>
-                        )}
-                    </div>
+                <div className={styles.emptyCartTextContainer}>
+                    {cartItems.length == 0 && (
+                        <div className={styles.emptyCart}>Your cart is empty.</div>
+                    )}
                 </div>
             </div>
         </div>
