@@ -2,7 +2,7 @@ import "./EditItem.css";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { createItem, editItem, getAllItems } from "../../store/items";
+import { editItem, getAllItems } from "../../store/items";
 
 const EditItemForm = () => {
   const dispatch = useDispatch();

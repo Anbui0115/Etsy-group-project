@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Modal } from "../../context/Modal";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import "./ReviewModal.css";
 import MakeReviewForm from "./MakeReviewForm";
@@ -10,8 +10,9 @@ import {getAllItems} from '../../store/items'
 
 function ReviewModal({hasReview, review, purchaseId, item}) {
   const [showModal, setShowModal] = useState(false);
-  const sessionUser = useSelector((state) => state.session.user);
+  // const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
+
   useEffect(async () => {
     dispatch(getAllItems())
   }, [showModal]);

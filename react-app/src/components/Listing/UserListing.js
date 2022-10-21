@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { getAllItems } from "../../store/items"
 
 import "./UserListing.css";
-import CreateUserItem from "../CreateItem/CreateItemForm";
+// import CreateUserItem from "../CreateItem/CreateItemForm";
 import ItemCard from "../Users_Item_Card";
 
 function UserListing() {

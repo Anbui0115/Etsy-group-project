@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { createReview } from "../../store/reviews";
 // import { getAllItems } from "../../store/items";

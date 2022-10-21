@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Redirect } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { editReview, deleteReview } from "../../store/reviews";
 // import { getAllItems } from "../../store/items";
@@ -18,8 +18,8 @@ const ManageReviewForm = ({ item, review, purchaseId, setShowModal }) => {
     const [stars, setStars] = useState(review.stars);
     const [description, setDescription] = useState(review.description);
 
-    const item_id = item.id
-    const purchase_id = purchaseId
+    // const item_id = item.id
+    // const purchase_id = purchaseId
     const user_id = user.id
 
     const updateTitle = (e) => {

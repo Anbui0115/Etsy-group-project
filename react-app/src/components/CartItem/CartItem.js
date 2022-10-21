@@ -1,12 +1,12 @@
 import {  useState } from "react"
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import styles from "./CartItem.module.css"
 import { editShoppingCartThunk, removeCartItemsThunk } from "../../store/session";
 import { useHistory } from "react-router-dom";
 
 export default function CartItem({item}){
     const dispatch = useDispatch();
-    const [quantity,setQuantity] = useState(item.quantity);
+    const [quantity, setQuantity] = useState(item.quantity);
     const history = useHistory();
 
     const formatting_options = {
