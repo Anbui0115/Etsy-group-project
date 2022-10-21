@@ -20,8 +20,6 @@ export default function CartItem({item}){
 
     function handleRemove(id){
         dispatch(removeCartItemsThunk(id)).catch(async (res) => {
-            // console.log("res is ...", res)
-
         })
     }
     function handleItemCount(count){
