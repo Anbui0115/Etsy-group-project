@@ -40,7 +40,7 @@ When a user is not logged in, landing page has some info about the porducts and 
 
 
 
-![landing page](screenshots_readme/)
+![landing page](screenshots_readme/landing.png)
 
 
 
@@ -51,20 +51,33 @@ When a user is not logged in, landing page has some info about the porducts and 
 When a user is logged in or signed up, they'll be able to start shopping and selling. Or just browsing.
 
 
+Sign In modal
 
-![home page](screenshots_readme/)
+![home page](screenshots_readme/signIn.png)
+
+Sign Up modal
+
+![home page](screenshots_readme/SignUp.png)
+
+Profile dropdown
+
+![home page](screenshots_readme/profile.png)
+
 
 
 
 ## View One Item at a time
 
 
-
 From homepage, when a user clicks on a product, they'll be redirect to another page that has all the info about that product
 
+![home page](screenshots_readme/itemById.png)
+
+Product's reviews
+
+![home page](screenshots_readme/review.png)
 
 
-![each item page](screenshots_readme/)
 
 
 
@@ -72,11 +85,16 @@ From homepage, when a user clicks on a product, they'll be redirect to another p
 
 
 
+
 When a user wants to start selling, they will be able to click on **Manage Listing** inside profile dropdown
 
 
 
-![manage listing](screenshots_readme/)
+![manage listing](screenshots_readme/listing.png)
+
+Create item listing form
+
+![manage listing](screenshots_readme/createItem.png)
 
 
 
@@ -86,10 +104,22 @@ When a user wants to start selling, they will be able to click on **Manage Listi
 
 When a user wants to see purchase history and their reviews, they will be able to click on **Purchases and reviews** inside profile dropdown
 
+Purchase history and review
+
+![purchases and reviews](screenshots_readme/purchasesAndReviwe.png)
+
+Create review modal
+
+![purchases and reviews](screenshots_readme/createReview.png)
+
+Edit review modal
+
+![purchases and reviews](screenshots_readme/editReview.png)
 
 
-![purchases and reviews](screenshots_readme/)
+## Shopping cart
 
+![shopping cart](screenshots_readme/cart.png)
 
 
 ## Features List
@@ -141,8 +171,6 @@ When a user wants to see purchase history and their reviews, they will be able t
 - "/": Homepage
 
 - "/": Get all items
-
-
 
 - "/users": List of users
 
