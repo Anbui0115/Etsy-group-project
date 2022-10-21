@@ -1,9 +1,40 @@
 .mainDiv{
     display:flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     width: 75%;
     margin: auto;
+    /* border: solid red 1px; */
+}
+
+.numberOfItemsInCart {
+    display: flex;
+    /* border: solid green 1px; */
+    font-family: "Guardian-EgypTT",Charter,"Charter Bitstream",Cambria,
+        "Noto Serif Light","Droid Serif",Georgia,serif;
+    font-size: 32px;
+    line-height: 36px;
+    font-weight: 300;
+    margin-top: 40px;
+}
+
+.itemsContainer {
+    /* border: 1px solid green; */
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+}
+
+.cartItemsLeft {
+    /* border: solid 1px blue; */
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.rightContainer {
+    /* border: 1px solid red; */
+    width: 30%;
 }
 
 .emptyCart{
@@ -18,16 +49,6 @@
     align-items: center;
     margin-bottom: 50px;
     margin-top: 50px;
-}
-
-.itemsContainer {
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-}
-
-.rightContainer {
-    width: 70%;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    /* border: solid 1px red; */
 }
