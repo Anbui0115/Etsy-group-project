@@ -1,8 +1,22 @@
+body {
+    position: relative;
+    display: block;
+    min-height: 100vh;
+}
+
+body::after {
+    content: "";
+    display: block;
+    height: 126px;
+}
+
 footer {
     background-color: #2F466C;
+    position: absolute;
     width: 100%;
-    margin-top: 20px;
+    /* margin-top: 20px; */
     bottom: 0;
+    height: 106px;
 }
 
 .footer-container {
