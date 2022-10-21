@@ -4,12 +4,12 @@
     justify-content: center;
     width: 75%;
     margin: auto;
-    border: solid red 1px;
+    /* border: solid red 1px; */
 }
 
 .numberOfItemsInCart {
     display: flex;
-    border: solid green 1px;
+    /* border: solid green 1px; */
     font-family: "Guardian-EgypTT",Charter,"Charter Bitstream",Cambria,
         "Noto Serif Light","Droid Serif",Georgia,serif;
     font-size: 32px;
@@ -19,7 +19,7 @@
 }
 
 .itemsContainer {
-    border: 1px solid green;
+    /* border: 1px solid green; */
     width: 90%;
     display: flex;
     flex-direction: row;
@@ -29,6 +29,7 @@
     /* border: solid 1px blue; */
     width: 70%;
     display: flex;
+    flex-direction: column;
 }
 
 .rightContainer {
