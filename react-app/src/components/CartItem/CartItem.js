@@ -43,9 +43,9 @@ export default function CartItem({item}){
             </div>
 
             <form>
-
                 <input type="number" min="1" value={item.quantity} className={styles.itemCount} onChange={(e)=> handleItemCount(e.target.value)} />
             </form>
+    
             <div className={styles.price}>
                 <div ><b> {dollarFormmatter.format(item.quantity * item.item.price)}</b></div>
                 <div>({dollarFormmatter.format(item.item.price)}&nbsp;each)</div>
