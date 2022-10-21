@@ -17,19 +17,12 @@ const MakeReviewForm = ({item, purchaseId, setShowModal}) => {
     const [stars, setStars] = useState(3);
     const [description, setDescription] = useState("");
 
-    const item_id = item.id
-    const purchase_id = purchaseId
-    const user_id = user.id
-    // console.log(purchaseId)
-    // also need to plug in item_id, user_id, purchase_id
+    const item_id = item.id;
+    const purchase_id = purchaseId;
+    const user_id = user.id;
 
     const updateTitle = (e) => {
         setTitle(e.target.value);
-    };
-
-    const updateStars = (e) => {
-        // console.log(e)
-        setStars(e.target.value);
     };
 
     const clickStars = (n) => {
@@ -71,7 +64,6 @@ const MakeReviewForm = ({item, purchaseId, setShowModal}) => {
             )
         }
         for (let i = 0; i < 5-stars; i++){
-            // console.log("render")
             starItems.push(
                 <div className='star-button' onClick={() => clickStars(i + 1 + stars)}> ☆ </div>
             )

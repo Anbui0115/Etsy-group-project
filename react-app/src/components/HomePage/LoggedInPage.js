@@ -11,7 +11,6 @@ const LoggedInPage = () => {
     let reversedItems = items.slice(8)
     reversedItems.reverse()
 
-    // console.log(itemsObj)
     // const imgURL = "https://purepng.com/public/uploads/medium/purepng.com-pokeballpokeballdevicepokemon-ballpokemon-capture-ball-1701527825876ch1zq.png"
     const fixed_data = {
         "Classmate Gifts": {

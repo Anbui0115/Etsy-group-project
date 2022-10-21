@@ -15,8 +15,6 @@ function ReviewModal({hasReview, review, purchaseId, item}) {
   useEffect(async () => {
     dispatch(getAllItems())
   }, [showModal]);
-  // console.log(hasReview)
-  // console.log(review)
 
   const form = hasReview ?
                <ManageReviewForm item={item} purchaseId={purchaseId} review={review} setShowModal={setShowModal} /> :
@@ -32,7 +30,6 @@ function ReviewModal({hasReview, review, purchaseId, item}) {
         className={css}
         onClick={
           () => setShowModal(true)
-          //  console.log("SHOW MODAL NOW",showModal)
         }
       >
         {btntext}

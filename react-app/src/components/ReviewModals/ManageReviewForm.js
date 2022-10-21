@@ -13,7 +13,6 @@ const ManageReviewForm = ({ item, review, purchaseId, setShowModal }) => {
 
     const [confirmDelete, setConfirmDelete] = useState(false)
 
-    // console.log(review)
     const [errors, setErrors] = useState([]);
     const [title, setTitle] = useState(review.title);
     const [stars, setStars] = useState(review.stars);
@@ -22,16 +21,9 @@ const ManageReviewForm = ({ item, review, purchaseId, setShowModal }) => {
     const item_id = item.id
     const purchase_id = purchaseId
     const user_id = user.id
-    // console.log(purchaseId)
-    // also need to plug in item_id, user_id, purchase_id
 
     const updateTitle = (e) => {
         setTitle(e.target.value);
-    };
-
-    const updateStars = (e) => {
-        // console.log(e)
-        setStars(e.target.value);
     };
 
     const clickStars = (n) => {
@@ -43,7 +35,6 @@ const ManageReviewForm = ({ item, review, purchaseId, setShowModal }) => {
     };
 
     const onSubmitReview = async (e) => {
-        // console.log("afdsfsd")
         e.preventDefault();
         let verrors = []
         if (title.length <= 3) {
@@ -81,7 +72,6 @@ const ManageReviewForm = ({ item, review, purchaseId, setShowModal }) => {
             )
         }
         for (let i = 0; i < 5 - stars; i++) {
-            // console.log("render")
             starItems.push(
                 <div className='star-button' onClick={() => clickStars(i + 1 + stars)}> ☆ </div>
             )
