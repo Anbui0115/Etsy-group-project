@@ -23,6 +23,11 @@ export default function CartItem({item}){
         })
     }
     function handleItemCount(count){
+ 
+       if(parseInt(count) < 1 || isNaN(parseInt(count))) {
+            count = 1
+            alert ("quantity should be greater than 0")
+       } 
         setQuantity(count)
         dispatch(editShoppingCartThunk(item.id,count)).catch(async (res) => {})
     }
