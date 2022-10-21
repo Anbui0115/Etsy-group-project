@@ -40,7 +40,7 @@ When a user is not logged in, landing page has some info about the porducts and 
 
 
 
-![landing page](screenshots_readme/)
+![landing page](screenshots_readme/landing.png)
 
 
 
@@ -52,6 +52,9 @@ When a user is logged in or signed up, they'll be able to start shopping and sel
 
 
 
+![home page](screenshots_readme/signIn.png)
+![home page](screenshots_readme/SignUp.png)
+![home page](screenshots_readme/profile.png)
 ![home page](screenshots_readme/)
 
 
@@ -59,12 +62,12 @@ When a user is logged in or signed up, they'll be able to start shopping and sel
 ## View One Item at a time
 
 
-
 From homepage, when a user clicks on a product, they'll be redirect to another page that has all the info about that product
 
+![home page](screenshots_readme/itemById.png)
+![home page](screenshots_readme/review.png)
 
 
-![each item page](screenshots_readme/)
 
 
 
@@ -72,11 +75,13 @@ From homepage, when a user clicks on a product, they'll be redirect to another p
 
 
 
+
 When a user wants to start selling, they will be able to click on **Manage Listing** inside profile dropdown
 
 
 
-![manage listing](screenshots_readme/)
+![manage listing](screenshots_readme/listing.png)
+![manage listing](screenshots_readme/createItem.png)
 
 
 
@@ -88,8 +93,14 @@ When a user wants to see purchase history and their reviews, they will be able t
 
 
 
-![purchases and reviews](screenshots_readme/)
+![purchases and reviews](screenshots_readme/createReview.png)
+![purchases and reviews](screenshots_readme/editReview.png)
+![purchases and reviews](screenshots_readme/purchasesAndReviwe.png)
 
+
+## Shopping cart
+
+![shopping cart](screenshots_readme/cart.png)
 
 
 ## Features List
@@ -141,8 +152,6 @@ When a user wants to see purchase history and their reviews, they will be able t
 - "/": Homepage
 
 - "/": Get all items
-
-
 
 - "/users": List of users
 
