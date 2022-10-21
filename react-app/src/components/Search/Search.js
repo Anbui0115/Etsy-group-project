@@ -41,17 +41,9 @@ const Search = (props) => {
         {items.map((item) => {
           // let img = 'https://media.discordapp.net/attachments/1017492963720433868/1030624725350760448/pexels-klaus-nielsen-6294375.jpg'
           return (
-            //   <Link
-            //     to={"/items/" + item.id}
-            //     alt={item.title}
-            //     className="splash-item-card"
-            //     style={{
-            //       backgroundImage: `url(${item.images[0]["image_url"]})`,
-            //     }}
-            //   >
-            //     <div className='item-card-price'>${String(item.price).length === 5 ? item.price : String(item.price)+"0"}</div>
-            <SearchResultCard item={item} />
-            //   </Link>
+            <div key={item.id}>
+              <SearchResultCard item={item} />
+            </div>
           );
         })}
         {blankitems}

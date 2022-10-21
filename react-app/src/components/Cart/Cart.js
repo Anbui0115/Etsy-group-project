@@ -27,7 +27,7 @@ export default function Cart() {
                 <div className={styles.itemsContainer}>
                     <div className={styles.cartItemsLeft}>
                         {Object.values(cartItems).map((item, indx) => {
-                            return <CartItem item={item} />
+                            return <CartItem key={indx} item={item} />
                         })}
                     </div>
 

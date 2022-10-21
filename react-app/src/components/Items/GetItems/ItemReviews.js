@@ -32,7 +32,7 @@ export const ItemReviews = ({reviews}) => {
             <div className="review-cards">
                 {reviews.map(review => {
                     return (
-                        <div className="review-card">
+                        <div className="review-card" key={review.id}>
                             <div className="review-card-stars">{starField(review.stars)} </div>
                             <div className="review-card-title">{review.title} </div>
                             <div className="review-card-description">{review.description} </div>

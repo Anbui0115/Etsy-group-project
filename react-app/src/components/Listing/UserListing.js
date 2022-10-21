@@ -49,19 +49,21 @@ function UserListing() {
 
           <div className="owner-all-items-wrapper">
             <div className="owner-all-items-inner-wrapper">
-                  <div className="add-listing">
-                    {/* <NavLink to="/listings/create">Add listing</NavLink> */}
-                    <img
-                      className="add-listing-image-clicker"
-                      src="https://i.imgur.com/LCd0uJx.png"
-                      alt="add-a-listing"
-                      onClick={onClickAddListing}
-                    ></img>
-                  </div>
-                  {listingByOwner.map((item) => (
-                        <ItemCard item={item} />
-                  ))}
-                  {blankitems}
+              <div className="add-listing">
+                {/* <NavLink to="/listings/create">Add listing</NavLink> */}
+                <img
+                  className="add-listing-image-clicker"
+                  src="https://i.imgur.com/LCd0uJx.png"
+                  alt="add-a-listing"
+                  onClick={onClickAddListing}
+                ></img>
+              </div>
+              {listingByOwner.map((item) => (
+                <div key={item.id}>
+                  <ItemCard item={item} />
+                </div>
+              ))}
+              {blankitems}
             </div>
           </div>
         </div>
