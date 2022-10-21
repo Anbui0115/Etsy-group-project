@@ -1,12 +1,12 @@
 import {  useState } from "react"
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./CartItem.module.css"
 import { editShoppingCartThunk, removeCartItemsThunk } from "../../store/session";
 import { useHistory } from "react-router-dom";
 
 export default function CartItem({item}){
-    // console.log(item)
-
+  
+    console.log(item.id+" - "+item.quantity+"\n");
     const dispatch = useDispatch();
     const [quantity,setQuantity] = useState(item.quantity);
     const history = useHistory();
@@ -24,9 +24,7 @@ export default function CartItem({item}){
     }
     function handleItemCount(count){
         setQuantity(count)
-        dispatch(editShoppingCartThunk(item.id,count)).catch(async (res) => {
-            // console.log("res is ...", res)
-        })
+        dispatch(editShoppingCartThunk(item.id,count)).catch(async (res) => {})
     }
     if (!item) return null
     return (
@@ -41,10 +39,10 @@ export default function CartItem({item}){
 
             <form>
 
-                <input type="number" min="1" value={quantity} className={styles.itemCount} onChange={(e)=> handleItemCount(e.target.value)} />
+                <input type="number" min="1" value={item.quantity} className={styles.itemCount} onChange={(e)=> handleItemCount(e.target.value)} />
             </form>
             <div className={styles.price}>
-                <div ><b> {dollarFormmatter.format(quantity * item.item.price)}</b></div>
+                <div ><b> {dollarFormmatter.format(item.quantity * item.item.price)}</b></div>
                 <div>({dollarFormmatter.format(item.item.price)}&nbsp;each)</div>
             </div>
 

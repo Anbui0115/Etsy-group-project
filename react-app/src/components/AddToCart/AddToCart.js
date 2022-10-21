@@ -10,15 +10,10 @@ export default function AddToCart({item}){
         history.push("/cart");
     }
 
-    function handleAddToCart(){
+    async function handleAddToCart(){
 
-        dispatch(addToShoppingCartThunk(item,1,onHandleAddToCartSuccess ))
-        .then(()=>{
-            // history.push("/cart")
-        }).catch(async (res)=>{
-            // console.log("res is ....", res)
-
-        })
+        await dispatch(addToShoppingCartThunk(item,1,onHandleAddToCartSuccess ));
+       
     }
     return (
         <div>

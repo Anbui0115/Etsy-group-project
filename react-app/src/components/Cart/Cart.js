@@ -10,10 +10,7 @@ export default function Cart() {
 
     const cartItems = useSelector(state => state.session.shopping_cart)
     useEffect(() => {
-        dispatch(getCartItemsThunk()).catch(async (res) => {
-            // console.log("res is ...", res)
-
-        })
+        dispatch(getCartItemsThunk())
     }, [dispatch])
     if (!cartItems) return null
 
@@ -21,7 +18,6 @@ export default function Cart() {
         <div className={styles.mainDiv}>
             <div className={styles.itemsContainer}>
                 {
-
                     Object.values(cartItems).map((item, indx) => {
                         return <CartItem item={item} />
                     })

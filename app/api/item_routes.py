@@ -27,9 +27,6 @@ def get_item():
         items = Item.query.all()
         return {'items': [i.to_dict() for i in items]}
 
-
-
-
 @item_routes.route('', methods=["POST"])
 @login_required
 def create_new_item():
