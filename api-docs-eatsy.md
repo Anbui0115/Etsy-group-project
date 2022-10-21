@@ -703,7 +703,7 @@ Creates and returns a new review.
     ```json
     {
       "message": "Successfully created",
-      "review_id: 1,
+      "review_id": 1,
       "statusCode": 200
     }
     ```
@@ -822,5 +822,50 @@ Deletes an existing item.
     {
       "message": "Review couldn't be found",
       "statusCode": 404
+    }
+    ```
+#### Search in description or title
+
+Searches what is in url params
+
+* Require Authentication: false
+* Request
+  * Method: GET
+  * URL: /api/items?q=val
+  * Body: 
+
+
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body: none
+
+   ```json
+    {
+      "Items":[
+        {
+          "id": 1,
+          "owner_id": 1,
+          "description": "Humanity has long been obsessed with eating small,",
+          "title": "Gummies Of Real Things",
+          "price": 86.59,
+          "Images": [
+            {
+              "id": 1,
+              "image_url": "image.url",
+            }
+          ],
+          "Reviews":[
+            {
+                "id": 1,
+                "item_id": 1,
+                "user_id": 2,
+                "stars":
+
+            }
+          ]
+        }
+      ]
     }
     ```
