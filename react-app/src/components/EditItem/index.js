@@ -2,7 +2,7 @@ import "./EditItem.css";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { createItem, editItem, getAllItems } from "../../store/items";
+import { editItem, getAllItems } from "../../store/items";
 
 const EditItemForm = () => {
   const dispatch = useDispatch();
@@ -11,8 +11,6 @@ const EditItemForm = () => {
   const items = useSelector((state) => state.items);
   const { itemId } = useParams();
   const item = items[Number(itemId)];
-  //   const item = items[itemId];
-  // console.log("ITEM to EDIT~~~~", item);
 
   const [title, setTitle] = useState(item?.title);
   const [description, setDescription] = useState(item?.description);
@@ -56,7 +54,7 @@ const EditItemForm = () => {
       price,
       image_urls,
     };
-    // console.log("itemInfo inside CreatItemForm", itemData, item);
+
     setErrors([]);
     const data = await dispatch(editItem(itemId, itemData)).catch(
       async (res) => {
@@ -66,7 +64,6 @@ const EditItemForm = () => {
     );
     await dispatch(getAllItems());
     if (data) {
-      // console.log("DATA IS VALID", data);
       history.push(`/listings`);
     }
   };
@@ -100,15 +97,15 @@ const EditItemForm = () => {
             </ul>
           )}
           <div className="create-item-body">
-            <div className="create-item-photo">
+            {/* <div className="create-item-photo">
               <div className="create-item-photo-inner">
                 <div className="photo-title-and-subtitle">
                   <div className="photo-title">Photos</div>
                   <div className="photo-subtitle">
                     Add a photo so buyers can see the details.
                   </div>
-                </div>
-                <div className="create-item-input-items">
+                </div> */}
+                {/* <div className="create-item-input-items">
                   <label className="create-item-input-field">
                     Image url
                     <input
@@ -120,9 +117,9 @@ const EditItemForm = () => {
                       required
                     />
                   </label>
-                </div>
-              </div>
-            </div>
+                </div> */}
+              {/* </div> */}
+            {/* </div> */}
 
             <div className="item-title-and-description-container">
               <div className="listing-details-container">

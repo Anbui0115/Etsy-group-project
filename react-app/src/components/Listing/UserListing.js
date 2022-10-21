@@ -1,12 +1,11 @@
 import { useEffect } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, Redirect } from "react-router-dom";
-import { getAllItems } from "../../store/items";
-
+import { Redirect } from "react-router-dom";
+import { getAllItems } from "../../store/items"
 
 import "./UserListing.css";
-import CreateUserItem from "../CreateItem/CreateItemForm";
+// import CreateUserItem from "../CreateItem/CreateItemForm";
 import ItemCard from "../Users_Item_Card";
 
 function UserListing() {
@@ -19,15 +18,15 @@ function UserListing() {
   const listingByOwner = itemsArray.filter(
     (item) => item?.owner_id === sessionUser.id
   );
-  // console.log("LISTING by OWNER", listingByOwner);
-  useEffect(() => {
-    dispatch(getAllItems());
-  }, [dispatch]);
 
   const onClickAddListing = (e) => {
     e.preventDefault();
     history.push("/listings/create");
   };
+
+  useEffect(() => {
+    dispatch(getAllItems());
+  }, [dispatch]);
 
   if (!items) return null;
   if (!listingByOwner) return null;
@@ -50,19 +49,19 @@ function UserListing() {
 
           <div className="owner-all-items-wrapper">
             <div className="owner-all-items-inner-wrapper">
-                  <div className="add-listing">
-                    {/* <NavLink to="/listings/create">Add listing</NavLink> */}
-                    <img
-                      className="add-listing-image-clicker"
-                      src="https://i.imgur.com/LCd0uJx.png"
-                      alt="add-a-listing"
-                      onClick={onClickAddListing}
-                    ></img>
-                  </div>
-                  {listingByOwner.map((item) => (
-                        <ItemCard item={item} />
-                  ))}
-                  {blankitems}
+              <div className="add-listing">
+                {/* <NavLink to="/listings/create">Add listing</NavLink> */}
+                <img
+                  className="add-listing-image-clicker"
+                  src="https://i.imgur.com/LCd0uJx.png"
+                  alt="add-a-listing"
+                  onClick={onClickAddListing}
+                ></img>
+              </div>
+              {listingByOwner.map((item) => (
+                <ItemCard item={item} key={item.id} />
+              ))}
+              {blankitems}
             </div>
           </div>
         </div>

@@ -8,42 +8,43 @@ import { makeProperPrice } from '../../utils/properPrice';
 const LoggedInPage = () => {
     const itemsObj = useSelector(state => state.items)
     let items = Object.values(itemsObj)
-    items.reverse()
-    // console.log(itemsObj)
+    let reversedItems = items.slice(8)
+    reversedItems.reverse()
+
     // const imgURL = "https://purepng.com/public/uploads/medium/purepng.com-pokeballpokeballdevicepokemon-ballpokemon-capture-ball-1701527825876ch1zq.png"
     const fixed_data = {
-        "Pie": {
-            "imgUrl": "https://www.allrecipes.com/thmb/tOV-fTPq285yGwIiGxRNLe1CMok=/2000x1500/smart/filters:no_upscale():focal(1039x794:1041x796)/23439-PerfectPumpkinPie_002-4x3-1-44d015659c5c4a0888238d8f22de2a5e.jpg",
-            "searchUrl": "/search?q=pie",
+        "Classmate Gifts": {
+            "imgUrl": "https://images.pexels.com/photos/2675061/pexels-photo-2675061.jpeg",
+            "searchUrl": "/search?q=box%20fortune%20coding%20prius",
         },
-        "Cake": {
-            "imgUrl": "https://images.immediate.co.uk/production/volatile/sites/30/2020/04/strawberry-cake-8c9a6b6.jpg",
-            "searchUrl": "/search?q=cake",
+        "Uncanny Valley": {
+            "imgUrl": "https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg",
+            "searchUrl": "/search?q=existential%20potato",
         },
-        "Water": {
-            "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Water_drop_001.jpg",
+        "Holiday": {
+            "imgUrl": "https://images.pexels.com/photos/949592/pexels-photo-949592.jpeg",
+            "searchUrl": "/search?q=pancake%20funnel%20funnel",
+        },
+        "Staples": {
+            "imgUrl": "https://images.pexels.com/photos/227383/pexels-photo-227383.jpeg",
             "searchUrl": "/search?q=water",
         },
-        "1 pound items": {
-            "imgUrl": "https://coinscatalog.net/images/big-2x/16/one-pound-nations-of-the-crown-2017-uk-o-36167.jpg",
-            "searchUrl": "/search?q=1lb",
+        "Fancy Living": {
+            "imgUrl": "https://images.pexels.com/photos/67603/pexels-photo-67603.jpeg",
+            "searchUrl": "/search?q=cereal%20cesar%20edible",
         },
-        "Box": {
-            "imgUrl": "https://dictionary.cambridge.org/us/images/thumb/box_noun_002_04301.jpg",
-            "searchUrl": "/search?q=box",
-        },
-        "Cookies": {
-            "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/2ChocolateChipCookies.jpg",
-            "searchUrl": "/search?q=cookies",
+        "Wedding Gifts": {
+            "imgUrl": "https://images.pexels.com/photos/888899/pexels-photo-888899.jpeg",
+            "searchUrl": "/search?q=flour",
         },
     }
 
     const splash_circle_cards = Object.keys(fixed_data).map(name => {
         return (
-            <div className="splash-circle-card">
+            <div className="splash-circle-card" key={name}>
                 <Link to={fixed_data[name]["searchUrl"]} className='no-underline'>
                     <div className="splash-circle-photo">
-                        <img alt="" src={fixed_data[name]["imgUrl"]} />
+                        <img alt="" src={fixed_data[name]["imgUrl"] + "?width=300&height=300"} />
                     </div>
                     <div className="splash-circle-title" id="splash-circle-title-id">
                         {name}
@@ -54,7 +55,7 @@ const LoggedInPage = () => {
     })
 
     let blankitems = [];
-    for (let i = 0; i < Math.abs(items.length % 5 - 5); i++) {
+    for (let i = 0; i < Math.abs(reversedItems.length % 5 - 5); i++) {
         blankitems.push(
             <div className='splash-item-card'>
             </div>
@@ -67,32 +68,32 @@ const LoggedInPage = () => {
             sizeClass = 'lopsided-small-card lopsided-card'
         }
         return (
-            <Link to={"/items/"+item.id} alt={item.title} className={sizeClass} style={{ backgroundImage: `url(${item.images[0]["image_url"]})` }}>
+            <Link to={"/items/" + item.id} alt={item.title} className={sizeClass} style={{ backgroundImage: `url(${item.images[0]["image_url"]})` }}>
                 <div className='lopsided-item-card-price'>${makeProperPrice(item.price)}</div>
             </Link>
         )
     }
 
-    let lopsided = ( <></>)
+    let lopsided = (<></>)
     try {
 
         lopsided = (
             <div className='lopsided-homepage-previews'>
                 <div className='lopsided-homepage-column'>
-                    {createLopsidedCard(items[0],false)}
-                    {createLopsidedCard(items[1],true)}
+                    {createLopsidedCard(items[0], false)}
+                    {createLopsidedCard(items[1], true)}
                 </div>
                 <div className='lopsided-homepage-column'>
-                    {createLopsidedCard(items[2],true)}
-                    {createLopsidedCard(items[3],false)}
+                    {createLopsidedCard(items[2], true)}
+                    {createLopsidedCard(items[3], false)}
                 </div>
                 <div className='lopsided-homepage-column'>
-                    {createLopsidedCard(items[4],false)}
-                    {createLopsidedCard(items[5],true)}
+                    {createLopsidedCard(items[4], false)}
+                    {createLopsidedCard(items[5], true)}
                 </div>
                 <div className='lopsided-homepage-column'>
-                    {createLopsidedCard(items[6],true)}
-                    {createLopsidedCard(items[7],false)}
+                    {createLopsidedCard(items[6], true)}
+                    {createLopsidedCard(items[7], false)}
                 </div>
             </div>
         )
@@ -103,7 +104,7 @@ const LoggedInPage = () => {
     return (
         <div className="Outer-container">
             <div className="colored-header">
-                <div className="header-color-bar">
+                <div className="header-color-bar-logged-in">
                     <div className='header-text'>
                         <h1 className='header-text'>Welcome to Eatsy!</h1>
                     </div>
@@ -114,19 +115,21 @@ const LoggedInPage = () => {
                 </div>
                 <div className="header-bar"></div>
             </div>
-
+            <div className='preview-text'>
+                Featured Items
+            </div>
             {lopsided}
 
             <div className='preview-text'>
-                    Look! Contemplate! Buy!
+                Look! Contemplate! Buy!
             </div>
             <div className="basic-preview">
 
-                {items.map(item => {
+                {reversedItems.map(item => {
                     // let img = 'https://media.discordapp.net/attachments/1017492963720433868/1030624725350760448/pexels-klaus-nielsen-6294375.jpg'
                     return (
-                        <Link to={"/items/"+item.id} alt={item.title} className='splash-item-card' style={{ backgroundImage: `url(${item.images[0]["image_url"]})` }}>
-                            <div className='item-card-price'>${String(item.price).length === 5 ? item.price : String(item.price)+"0"}</div>
+                        <Link to={"/items/" + item.id} key={item.id} alt={item.title} className='splash-item-card' style={{ backgroundImage: `url(${item.images[0]["image_url"]})` }}>
+                            <div className='item-card-price'>${String(item.price).length === 5 ? item.price : String(item.price) + "0"}</div>
                         </Link>
                     )
                 })}

@@ -15,19 +15,19 @@ const getReviewsAction = (reviews) => {
     }
 }
 
-const createReviewAction = (review) => {
-    return {
-        type: CREATE_REVIEW,
-        review
-    }
-}
+// const createReviewAction = (review) => {
+//     return {
+//         type: CREATE_REVIEW,
+//         review
+//     }
+// }
 
-const editReviewAction = (review) => {
-    return {
-        type: EDIT_REVIEW,
-        review
-    }
-}
+// const editReviewAction = (review) => {
+//     return {
+//         type: EDIT_REVIEW,
+//         review
+//     }
+// }
 
 export const deleteReviewAction = (reviewId) => {
     return {
@@ -68,7 +68,6 @@ export const createReview = (reviewData) => async dispatch => {
 };
 
 export const editReview = (reviewId, editReviewData, uid) => async dispatch => {
-    // console.log("fasdfdsaf")
     const res = await fetch(`/api/reviews/${reviewId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -89,7 +88,6 @@ export const deleteReview = (reviewId, uid) => async dispatch => {
     });
 
     if (res.ok) {
-        const review = `${reviewId}`
         dispatch(getPurchasesAction(uid));
     }
 }

@@ -9,6 +9,9 @@ review_routes = Blueprint('review', __name__)
 @review_routes.route('', methods=["POST"])
 @login_required
 def create_review():
+    """
+    Add review
+    """
     form = CreateReviewForm()
     review = Review()
     form.populate_obj(review)
@@ -21,6 +24,9 @@ def create_review():
 @review_routes.route('/<int:id>', methods=["PUT"])
 @login_required
 def edit_review(id):
+    """
+    Update item by Id
+    """
     form = EditReviewForm()
     review = Review.query.filter_by(id=id).first()
     form.populate_obj(review)
@@ -31,6 +37,9 @@ def edit_review(id):
 @review_routes.route('/<int:id>', methods=["DELETE"])
 @login_required
 def delete_review(id):
+    """
+    Delete item by id
+    """
     review = Review.query.filter_by(id=id).first()
     db.session.delete(review)
     db.session.commit()

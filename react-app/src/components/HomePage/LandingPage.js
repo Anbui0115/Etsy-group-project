@@ -26,7 +26,7 @@ const LandingPage = () => {
             "searchUrl": "/search?q=1lb",
         },
         "Box": {
-            "imgUrl": "https://dictionary.cambridge.org/us/images/thumb/box_noun_002_04301.jpg",
+            "imgUrl": "https://www.uhaul.com/MovingSupplies/Image/GetMedia/?id=8390&media=8185",
             "searchUrl": "/search?q=box",
         },
         "Cookies": {
@@ -37,7 +37,7 @@ const LandingPage = () => {
 
     const splash_circle_cards = Object.keys(fixed_data).map(name => {
         return (
-            <div className="splash-circle-card">
+            <div className="splash-circle-card" key={name}>
                 <Link to={fixed_data[name]["searchUrl"]} className='no-underline'>
                     <div className="splash-circle-photo">
                         <img alt="" src={fixed_data[name]["imgUrl"]} />
@@ -67,14 +67,14 @@ const LandingPage = () => {
             </div>
 
             <div className='preview-text'>
-                    Please Spend Your Money Here!
+                Please Spend Your Money Here!
             </div>
             <div className="basic-preview">
 
                 {items.slice(0, 10).map(item => {
                     // let img = 'https://media.discordapp.net/attachments/1017492963720433868/1030624725350760448/pexels-klaus-nielsen-6294375.jpg'
                     return (
-                        <Link to={"/items/"+item.id} alt={item.title} className='splash-item-card' style={{ backgroundImage: `url(${item.images[0]["image_url"]})` }}>
+                        <Link to={"/items/" + item.id} key={item.id} alt={item.title} className='splash-item-card' style={{ backgroundImage: `url(${item.images[0]["image_url"]})` }}>
                             <div className='item-card-price'>${makeProperPrice(item.price)}</div>
                         </Link>
                     )

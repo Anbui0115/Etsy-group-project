@@ -68,7 +68,7 @@ def edit_cart(id):
 @login_required
 def checkout_cart():
     """
-    Delete item in shopping cart by id
+    Empty shopping cart and send items to purchase
     """
     user_id = current_user.id
     cartItems = Shopping_cart.query.filter_by(user_id=user_id).all()
@@ -85,13 +85,6 @@ def checkout_cart():
 
     db.session.commit()
     return {"message":"successfuly added to purchase table"}
-
-        
-        
-
-
-    
-
 
 @shopping_cart_routes.route('/<int:id>', methods=["DELETE"])
 @login_required

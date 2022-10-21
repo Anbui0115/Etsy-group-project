@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Modal } from "../../context/Modal";
 import { useDispatch, useSelector } from "react-redux";
 import * as sessionActions from "../../store/session";
-import { NavLink, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./ProfileButton.css";
 import LogoutButton from "../auth/LogoutButton";
 
@@ -64,19 +63,18 @@ function ProfileButton({ user }) {
             className="purchases-and-reviews"
             onClick={() => history.push("/purchases-and-reviews")}
           >
-            Purchases and reviews
+            <i class="fa-solid fa-clipboard-list"></i>&nbsp;&nbsp; Purchases and reviews
           </div>
           <div
             className="manage-your-listing"
             onClick={() => history.push("/listings")}
           >
-            Manage Listings
-          </div>
+            <i class="fa-solid fa-shop"></i>&nbsp; Manage Listings</div>
           {/* <NavLink className="manage-your-listing" to="/listings">
             Manage Listing
           </NavLink> */}
           <div className="profile-log-out" onClick={logout}>
-            <LogoutButton />
+          <i class="fa-solid fa-right-from-bracket"></i>&nbsp;&nbsp;&nbsp;<LogoutButton />
           </div>
         </div>
       )}

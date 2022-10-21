@@ -1,54 +1,53 @@
-import { useDispatch, useSelector } from "react-redux";
-import { useParams, useHistory } from "react-router-dom";
-import { NavLink, Redirect } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useHistory, Link } from "react-router-dom";
+import { makeProperPrice } from '../../utils/properPrice';
+import { deleteItem } from "../../store/items";
 
-// import { deleteAReview } from "../../store/reviews";
-// import reviewAvatar from "./review-avatar.jpeg";
 import "./EachItemCard.css";
-import { editItem, deleteItem } from "../../store/items";
-import EditItemForm from "../EditItem";
 
 const ItemCard = ({ item }) => {
-  const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
   const history = useHistory();
   const itemImg = item["images"][0]["image_url"];
   const itemId = item.id;
 
-// console.log('item owner !!!!!!!!',item.owner.username)
-
   const onClickDelete = async (e, itemId) => {
-    // console.log('itemID inside on click ~~~~~~',itemId)//undefined
     e.preventDefault();
     await dispatch(deleteItem(itemId));
     history.push(`/listings`);
   };
+
   const onClickEdit = async (e, itemId) => {
     e.preventDefault();
     // await dispatch(editItem(itemId));
     history.push(`/listing/${itemId}/edit`);
     // <EditItemForm itemId={itemId} />;
   };
+
   return (
     <div className="owner-individual-card">
-        {/* <div>
+      {/* <div>
           <NavLink to="/listings/create">Add listing</NavLink>
         </div> */}
 
-        <div className="owner-each-img-wrapper">
+      <div className="owner-each-img-wrapper">
+        <Link to={`/items/${item.id}`} className="item-name-link">
           <img
             className="owner-each-listing-img"
             src={itemImg}
             alt="owner-item"
           />
-        </div>
+        </Link>
+      </div>
 
       <div>
         <div className="owner-item-info">
-          <div className="owner-item-title">{item.title}</div>
-          <div className="owner-item-price-and-onwer">
+          <div className="owner-item-title">
+            <Link to={`/items/${item.id}`} className="item-name-link">{item.title}</Link>
+          </div>
+          <div className="owner-item-price-and-owner">
             <div>From {item.owner.username}</div>
-            <div className="owner-item-price">${item.price}</div>
+            <div className="owner-item-price">${makeProperPrice(item.price)}</div>
           </div>
         </div>
       </div>
@@ -61,12 +60,12 @@ const ItemCard = ({ item }) => {
           Edit
         </div>
 
-            <div
-              className="onwer-delete-button"
-              onClick={(e) => onClickDelete(e, itemId)}
-            >
-              Delete
-            </div>
+        <div
+          className="onwer-delete-button"
+          onClick={(e) => onClickDelete(e, itemId)}
+        >
+          Delete
+        </div>
       </div>
     </div>
   );

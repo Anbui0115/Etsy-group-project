@@ -1,19 +1,19 @@
 import { useDispatch } from "react-redux"
-import { Redirect, useHistory } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 import { addToShoppingCartThunk} from "../../store/session"
 import styles from "../AddToCart/AddToCart.module.css"
 export default function AddToCart({item}){
     const dispatch = useDispatch()
     const history = useHistory()
 
-    function handleAddToCart(){
-        dispatch(addToShoppingCartThunk(item,1))
-        .then(()=>{
-            history.push("/cart")
-        }).catch(async (res)=>{
-            // console.log("res is ....", res)
+    function onHandleAddToCartSuccess(){
+        history.push("/cart");
+    }
 
-        })
+    async function handleAddToCart(){
+
+        await dispatch(addToShoppingCartThunk(item,1,onHandleAddToCartSuccess ));
+
     }
     return (
         <div>

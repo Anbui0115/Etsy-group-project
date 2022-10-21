@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { NavLink, useHistory, useLocation } from "react-router-dom";
 import styles from "./NavBar.module.css";
 import { useSelector } from "react-redux";
 import LoginFormModal from "./LoginFormModal";
@@ -9,10 +9,19 @@ import logo from "../eatsy-logo/logo-no-background.png";
 
 
 
-const NavBar = () => {
+const NavBar = (props) => {
+  const location = useLocation();
+
   const sessionUser = useSelector(state => state.session.user)
   const [searchQuery, setSearchQuery] = useState()
   const history = useHistory()
+  
+  useEffect( () => {
+    if(location.pathname.toLowerCase()!== '/search') setSearchQuery("")
+  },[location]);
+
+
+
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (

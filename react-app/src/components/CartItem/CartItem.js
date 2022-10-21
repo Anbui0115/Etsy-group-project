@@ -5,10 +5,8 @@ import { editShoppingCartThunk, removeCartItemsThunk } from "../../store/session
 import { useHistory } from "react-router-dom";
 
 export default function CartItem({item}){
-    // console.log(item)
-
     const dispatch = useDispatch();
-    const [quantity,setQuantity] = useState(item.quantity);
+    const [quantity, setQuantity] = useState(item.quantity);
     const history = useHistory();
 
     const formatting_options = {
@@ -20,15 +18,16 @@ export default function CartItem({item}){
 
     function handleRemove(id){
         dispatch(removeCartItemsThunk(id)).catch(async (res) => {
-            // console.log("res is ...", res)
-
         })
     }
     function handleItemCount(count){
+
+       if(parseInt(count) < 1 || isNaN(parseInt(count))) {
+            count = 1
+            alert ("Quantity should be greater than 0")
+       }
         setQuantity(count)
-        dispatch(editShoppingCartThunk(item.id,count)).catch(async (res) => {
-            // console.log("res is ...", res)
-        })
+        dispatch(editShoppingCartThunk(item.id,count)).catch(async (res) => {})
     }
     if (!item) return null
     return (
@@ -42,11 +41,11 @@ export default function CartItem({item}){
             </div>
 
             <form>
-
-                <input type="number" min="1" value={quantity} className={styles.itemCount} onChange={(e)=> handleItemCount(e.target.value)} />
+                <input type="number" min="1" value={item.quantity} className={styles.itemCount} onChange={(e)=> handleItemCount(e.target.value)} />
             </form>
+
             <div className={styles.price}>
-                <div ><b> {dollarFormmatter.format(quantity * item.item.price)}</b></div>
+                <div ><b> {dollarFormmatter.format(item.quantity * item.item.price)}</b></div>
                 <div>({dollarFormmatter.format(item.item.price)}&nbsp;each)</div>
             </div>
 

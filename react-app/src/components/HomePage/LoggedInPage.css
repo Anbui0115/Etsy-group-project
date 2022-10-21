@@ -72,3 +72,10 @@
     margin-left: 2%;
 
 }
+
+.preview-text {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 20px;
+    margin-top: 20px;
+}

@@ -3,7 +3,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { signUp } from "../../store/session";
 
+import validator from 'validator'
+
 const SignUpForm = () => {
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.session.user);
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -11,16 +15,22 @@ const SignUpForm = () => {
   const [repeatPassword, setRepeatPassword] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const user = useSelector((state) => state.session.user);
-  console.log('USER``````',user)
-  const dispatch = useDispatch();
+// const validateEmail = (e) => {
+//   var email = e.target.value;
+
+//   if (validator.isEmail(email)) {
+//     setMessage("Thank you");
+//   } else {
+//     setMessage("Please, enter valid Email!");
+//   }
+// };
 
   const validationError = [];
   useEffect(() => {
     if (username.length < 4) {
       validationError.push("Username needs to have at least 4 characters");
     }
-    if (!email.includes("@")) {
+    if (!(validator.isEmail(email))) {
       validationError.push("Please provide a valid email");
     }
     if (password.length < 4) {
@@ -28,7 +38,6 @@ const SignUpForm = () => {
     }
     if (password !== repeatPassword)
       validationError.push("Password must match repeat password");
-
 
     setErrors(validationError);
   }, [username, email, password, repeatPassword]);
@@ -75,13 +84,12 @@ const SignUpForm = () => {
 
       <div className="signup-container">
         {isSubmitted && (
-           <div className="signup-errors">
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
-        </div>
+          <div className="signup-errors">
+            {errors.map((error, ind) => (
+              <div key={ind}>{error}</div>
+            ))}
+          </div>
         )}
-
 
         <div className="signup-body">
           <div className="input-field">
@@ -99,7 +107,7 @@ const SignUpForm = () => {
             <label className="input">Email</label>
             <input
               className="credential"
-              type="text"
+              type="email"
               name="email"
               onChange={updateEmail}
               value={email}

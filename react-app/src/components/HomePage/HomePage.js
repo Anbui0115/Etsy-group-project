@@ -20,7 +20,7 @@ function useQuery() {
 
 const HomePage=(props)=>{
     const sessionUser = useSelector((state) => state.session.user);
-    const query = useQuery();
+    // const query = useQuery();
 
     const dispatch = useDispatch();
     useEffect(() => {
@@ -33,12 +33,6 @@ const HomePage=(props)=>{
        return <LoggedInPage/>
     }
     else{
-        //if the user is not logged in,
-        //the code forces them
-        //to be in the "/login" route
-        //even if I try to go to "/" manually
-        //it would redirect me back to "/login"
-        //need some thinking here
         return <LandingPage/>
     }
 

@@ -1,6 +1,5 @@
-
 .rightCard{
-    display: flex;
+    /* display: flex; */
     box-shadow: 0 4px 20px rgb(34 34 34 / 15%);
     border-radius: 18px !important;
     overflow: hidden !important;
@@ -9,9 +8,7 @@
     font-size: 14px;
     line-height: 1.4;
     width: 100%;
-    /* height: 256.78px; */
-
-    align-items: center;
+    /* justify-content: center; */
 
 }
 
@@ -36,22 +33,14 @@
   color: white;
   justify-content: center;
   margin-top: 20px;
-
-  /* height: 48px; */
-  /* font-size: 15pt; */
   align-items: center;
   cursor: pointer;
   font-size: 1.1em;
   font-weight: 600;
-  font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans",
-    Arial, sans-serif;
-  cursor: pointer;
   box-sizing: border-box;
-  /* line-height: 24px; */
-  width: 40%;
-  aspect-ratio: 3/1;
+  width: 80%;
+  aspect-ratio: 6/1;
   text-align: center;
-  /* width: 100%; */
   border-radius: 50px;
   /* border: 1px solid green; */
 }

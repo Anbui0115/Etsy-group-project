@@ -1,29 +1,54 @@
 .mainDiv{
     display:flex;
-    flex-direction: row;    
+    flex-direction: column;
     justify-content: center;
     width: 75%;
-    margin: auto;    
+    margin: auto;
+    /* border: solid red 1px; */
 }
-.emptyCart{
-    font-family: "Guardian-EgypTT", Charter, "Charter Bitstream", Cambria,
-    "Noto Serif Light", "Droid Serif", Georgia, serif;
+
+.numberOfItemsInCart {
+    display: flex;
+    /* border: solid green 1px; */
+    font-family: "Guardian-EgypTT",Charter,"Charter Bitstream",Cambria,
+        "Noto Serif Light","Droid Serif",Georgia,serif;
     font-size: 32px;
     line-height: 36px;
-    font-weight: 300;  
+    font-weight: 300;
+    margin-top: 40px;
+}
+
+.itemsContainer {
+    /* border: 1px solid green; */
+    width: 90%;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
 }
-.itemsContainer {
+
+.cartItemsLeft {
+    /* border: solid 1px blue; */
     width: 70%;
     display: flex;
     flex-direction: column;
 }
 
 .rightContainer {
-    width: 70%;
+    /* border: 1px solid red; */
+    width: 30%;
+}
+
+.emptyCart{
+    font-family: "Guardian-EgypTT", Charter, "Charter Bitstream", Cambria,
+    "Noto Serif Light", "Droid Serif", Georgia, serif;
+    font-size: 48px;
+    line-height: 36px;
+    font-weight: 300;
+    display: flex;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;    
+    align-items: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    width: 100%;
+    /* border: solid 1px red; */
 }

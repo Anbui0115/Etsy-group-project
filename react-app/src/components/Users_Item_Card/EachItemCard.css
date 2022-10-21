@@ -23,40 +23,40 @@
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid rgb(128, 128, 128, 0.2);
-  /* border-bottom: 2px red solid; */
-  /* height: 184px; */
   width: 100%;
-  /* aspect-ratio: 1/0.8; */
 }
+
 .owner-each-listing-img {
   box-sizing: border-box;
   display: block;
   width: 100%;
   aspect-ratio: 1/0.8;
-
+  object-fit: cover;
   border-bottom: 1px solid rgb(128, 128, 128, 0.2);
 }
+
 .owner-item-info {
   /* border: 1px solid red; */
   box-sizing: border-box;
   color: rgb(34, 34, 34);
   display: block;
   font-size: 14px;
-  /* height: 50%; */
-  /* line-height: 19.6px; */
   margin: 5% 5%;
   text-align: left;
-  /* width: 220px; */
   text-size-adjust: 100%;
   overflow-y: hidden;
   overflow-x: hidden;
+}
+
+.item-name-link {
+  text-decoration: none;
+  color: black;
 }
 
 .owner-item-title {
   /* border: 1px dashed red; */
   box-sizing: border-box;
   color: rgb(34, 34, 34);
-  cursor: pointer;
   display: block;
   font-size: .88em;
   margin-top: 1%;
@@ -69,14 +69,11 @@
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  /* text-size-adjust: 100%; */
-  /* width: 100%; */
 }
 
-.owner-item-price-and-onwer {
+.owner-item-price-and-owner {
   box-sizing: border-box;
   color: rgb(34, 34, 34);
-  cursor: pointer;
   display: flex;
   font-size: .88em;
   justify-content: space-between;
