@@ -45,7 +45,7 @@ const LoggedInPage = () => {
             <div className="splash-circle-card">
                 <Link to={fixed_data[name]["searchUrl"]} className='no-underline'>
                     <div className="splash-circle-photo">
-                        <img alt="" src={fixed_data[name]["imgUrl"]} />
+                        <img alt="" src={fixed_data[name]["imgUrl"] + "?width=300&height=300"} />
                     </div>
                     <div className="splash-circle-title" id="splash-circle-title-id">
                         {name}
