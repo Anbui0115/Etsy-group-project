@@ -59,9 +59,7 @@ function UserListing() {
                 ></img>
               </div>
               {listingByOwner.map((item) => (
-                <div key={item.id}>
-                  <ItemCard item={item} />
-                </div>
+                <ItemCard item={item} key={item.id} />
               ))}
               {blankitems}
             </div>
