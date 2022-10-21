@@ -15,7 +15,6 @@ def get_item():
     Get all items
     """
     searchTerm ='%'+request.args['q']+'%' if 'q' in request.args.keys() else '%'
-    # print(searchTerm)
     try:
         searchTerms = request.args.to_dict()['q'].split(" ")
         returnList = []
