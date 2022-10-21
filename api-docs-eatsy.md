@@ -89,7 +89,7 @@ information.
    ```json
    {
     "errors": [
-        "email : Email provided not found.", 
+        "email : Email provided not found.",
         "password : No such user exists."
     ]
    }
@@ -111,7 +111,7 @@ user's information.
     ```json
     {
         "username": "aapAcademy",
-        "email": "aa@aa.com", 
+        "email": "aa@aa.com",
         "password": "password"
     }
     ```
@@ -124,15 +124,15 @@ user's information.
 
     ```json
     {
-        "email": "aa@aa.com", 
-        "id": 7, 
+        "email": "aa@aa.com",
+        "id": 7,
         "username": "aapAcademy"
     }
 
     ```
 <!-- discuss with team it is not 403 -->
 * Error response: User already exists with the specified email
-  * Status Code: 401 
+  * Status Code: 401
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -140,7 +140,7 @@ user's information.
     ```json
     {
         "errors": [
-            "username : Username is already in use.", 
+            "username : Username is already in use.",
             "email : Email address is already in use."
         ]
     }
@@ -172,7 +172,7 @@ Returns all the items.
       "Items":[
         {
           "id": 1,
-          "owner_id": 1, 
+          "owner_id": 1,
           "description": "Humanity has long been obsessed with eating small,",
           "title": "Gummies Of Real Things",
           "price": 86.59,
@@ -217,7 +217,7 @@ Returns all the items.
       "Items":[
         {
           "id": 1,
-          "owner_id": 1, 
+          "owner_id": 1,
           "description": "Humanity has long been obsessed with eating small,",
           "title": "Gummies Of Real Things",
           "price": 86.59,
@@ -260,7 +260,7 @@ Returns the details of a item specified by its id.
     ```json
     {
           "id": 1,
-          "owner_id": 1, 
+          "owner_id": 1,
           "description": "Humanity has long been obsessed with eating small,",
           "title": "Gummies Of Real Things",
           "price": 86.59,
@@ -289,11 +289,11 @@ Returns the details of a item specified by its id.
   * Body:
 
     ```json
-    
+
     {
       "errors": [
-        "message": "Item couldn't be found",  
-      ]      
+        "message": "Item couldn't be found",
+      ]
       "statusCode": 404
     }
     ```
@@ -312,7 +312,7 @@ Creates and returns a new item.
 
     ```json
     {
-        "owner_id": 1, 
+        "owner_id": 1,
         "description": "Humanity has long been obsessed with eating small,",
         "title": "Gummies Of Real Things",
         "price": 86.59,
@@ -328,7 +328,7 @@ Creates and returns a new item.
     ```json
     {
         "id": 1,
-       "owner_id": 1, 
+       "owner_id": 1,
         "description": "Humanity has long been obsessed with eating small,",
         "title": "Gummies Of Real Things",
         "price": 86.59,
@@ -346,7 +346,7 @@ Creates and returns a new item.
       "message": "Validation Error",
       "statusCode": 400,
       "errors": {
-        
+
       }
     }
     ```
@@ -380,7 +380,7 @@ Create and return a new image for a item specified by id.
     {
       "id": 1,
       "image_url": "image.url",
-      
+
     }
     ```
 
@@ -412,7 +412,7 @@ Updates and returns an existing item.
 
     ```json
     {
-      "owner_id": 1, 
+      "owner_id": 1,
        "description": "Humanity has long been obsessed with eating small,",
        "title": "Gummies Of Real Things",
        "price": 86.59,
@@ -428,7 +428,7 @@ Updates and returns an existing item.
     ```json
     {
       "id": 1,
-      "owner_id": 1, 
+      "owner_id": 1,
       "description": "Humanity has long been obsessed with eating small,",
       "title": "Gummies Of Real Things",
       "price": 86.59,
@@ -446,7 +446,7 @@ Updates and returns an existing item.
       "message": "Validation Error",
       "statusCode": 400,
       "errors": {
-      
+
       }
     }
     ```
@@ -485,7 +485,7 @@ Deletes an existing item.
     {
       "message": "Successfully deleted",
       "statusCode": 200
-    }       
+    }
     ```
 
 * Error response: Couldn't find an Item with the specified id
@@ -502,7 +502,7 @@ Deletes an existing item.
     ```
 #### Add to shopping cart
 
-Adds an item to shopping cart 
+Adds an item to shopping cart
 Require Authentication: True
 
 * Request
@@ -511,7 +511,7 @@ Require Authentication: True
 * Body:
 ```json
 {
-  "item_id": 5, 
+  "item_id": 5,
   "quantity": 1
 }
 ```
@@ -522,45 +522,45 @@ Require Authentication: True
 
 * Body:
 
- ```json    
+ ```json
   "shopping_cart": {
-    "id": 16, 
+    "id": 16,
     "item": {
-      "description": "It's random. No, you can't choose which flavors you get.", 
-      "id": 5, 
+      "description": "It's random. No, you can't choose which flavors you get.",
+      "id": 5,
       "images": [
         {
-          "id": 15, 
-          "image_url": "https://media.discordapp.net/attachments/10174/100/9468_Pies_in_real_life.png", 
+          "id": 15,
+          "image_url": "https://media.discordapp.net/attachments/10174/100/9468_Pies_in_real_life.png",
           "item_id": 5
-        }, 
+        },
         {
-          "id": 12, 
-          "image_url": "https://media.discordapp.net/attachments/101749298/98904/30085_Pies.png", 
+          "id": 12,
+          "image_url": "https://media.discordapp.net/attachments/101749298/98904/30085_Pies.png",
           "item_id": 5
         }
-      ], 
+      ],
       "owner": {
-        "email": "bobbie@aa.io", 
-        "id": 3, 
+        "email": "bobbie@aa.io",
+        "id": 3,
         "username": "bobbie"
-      }, 
-      "owner_id": 3, 
-      "price": 59.91, 
-      "reviews": [], 
+      },
+      "owner_id": 3,
+      "price": 59.91,
+      "reviews": [],
       "title": "Literally Just Pies"
-    }, 
-    "quantity": 79, 
+    },
+    "quantity": 79,
     "user": {
-      "email": "demo@aa.io", 
-      "id": 1, 
+      "email": "demo@aa.io",
+      "id": 1,
       "username": "Demo"
     }
 ```
 #### Delete from shopping cart
-Removes an item from shooping cart 
+Removes an item from shooping cart
 Require Authentication: True
-Only current user can delete from their shopping cart. 
+Only current user can delete from their shopping cart.
 * Request
   * Method: DELETE
   * URL: /api/cart/:id
@@ -593,15 +593,15 @@ Only current user can delete from their shopping cart.
   ```
 
 #### Edit from shopping cart
-Deletes an item from shooping cart 
+Deletes an item from shooping cart
 Require Authentication: True
-Only current user can edit in their shopping cart. 
+Only current user can edit in their shopping cart.
 
 * Request
   * Method: PUT
   * URL: /api/cart
-  * Body: 
-  
+  * Body:
+
   ```json
   {
     "quantity": 5
@@ -621,8 +621,8 @@ Only cart owner can checkout.
 * Request:
   * Method: POST
   * URL: /api/cart/checkout
-  * Body: 
-  
+  * Body:
+
   ```json
   {
     "item_id": 5,
@@ -636,3 +636,191 @@ Only cart owner can checkout.
   "message": "successfully added to purchases"
 }
 ```
+## Purchases
+
+### Get all Purchases by the Current User
+
+Returns all the items.
+
+* Require Authentication: true
+* Request
+  * Method: GET
+  * URL: /api/purchases/current
+  * Body: none
+
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "Purchases":[
+        {
+          "id": 1,
+          "item_id": 1,
+          "user_id": 1
+          "quantity": 1
+          "price": 86.59,
+        }
+      ]
+    }
+    ```
+
+# Reviews
+
+### Create an Review
+
+Creates and returns a new review.
+
+* Require Authentication: true
+* Request
+  * Method: POST
+  * URL: /api/reviews/
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+        "id": 1,
+        "item_id" : 1,
+        "user_id" : 1,
+        "purchase_id" : 1,
+        "stars" :4,
+        "title" : "wow i really enjoyed this",
+        "description" : "not!",
+    }
+    ```
+
+* Successful Response
+  * Status Code: 201
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "Successfully created",
+      "review_id: 1,
+      "statusCode": 200
+    }
+    ```
+
+* Error Response: Body validation error
+  * Status Code: 400
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "Validation Error",
+      "statusCode": 400,
+      "errors": {
+      }
+    }
+    ```
+
+
+### Edit a Review
+
+Updates and returns an existing item.
+
+* Require Authentication: true
+* Require proper authorization: Item must belong to the current user
+* Request
+  * Method: PUT
+  * URL: /api/items/:reviewId
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+        "stars" :1,
+        "title" : "wow i really enjoyed this",
+        "description" : "not!",
+    }
+    ```
+
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+        "stars" :1,
+        "title" : "wow i really enjoyed this",
+        "description" : "not!",
+    }
+    ```
+
+* Error Response: Body validation error
+  * Status Code: 400
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "Validation Error",
+      "statusCode": 400,
+      "errors": {
+
+      }
+    }
+    ```
+
+* Error response: Couldn't find an review with the specified id
+  * Status Code: 404
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "Review couldn't be found",
+      "statusCode": 404
+    }
+    ```
+
+### Delete a Review
+
+Deletes an existing item.
+
+* Require Authentication: true
+* Require proper authorization: Item must belong to the current user
+* Request
+  * Method: DELETE
+  * URL: /api/items/:reviewId
+  * Body: none
+
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "Successfully deleted",
+      "statusCode": 200
+    }
+    ```
+
+* Error response: Couldn't find an review with the specified id
+  * Status Code: 404
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "Review couldn't be found",
+      "statusCode": 404
+    }
+    ```
