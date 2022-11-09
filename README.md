@@ -36,7 +36,7 @@ Explore and start buying at [Eatsy](https://eatsy-2022.herokuapp.com/)
 
 
 
-When a user is not logged in, landing page has some info about the porducts and a Sign in option
+When a user is not logged in, landing page has some info about the products and a Sign in option
 
 
 
