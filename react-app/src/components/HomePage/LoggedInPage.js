@@ -7,6 +7,7 @@ import { makeProperPrice } from '../../utils/properPrice';
 
 const LoggedInPage = () => {
     const itemsObj = useSelector(state => state.items)
+    const user = useSelector(state => state.session.user)
     let items = Object.values(itemsObj)
     let reversedItems = items.slice(8)
     reversedItems.reverse()
@@ -106,7 +107,7 @@ const LoggedInPage = () => {
             <div className="colored-header">
                 <div className="header-color-bar-logged-in">
                     <div className='header-text'>
-                        <h1 className='header-text'>Welcome to Eatsy!</h1>
+                        <h1 className='header-text'>Welcome to Eatsy, {user.username}!</h1>
                     </div>
 
                 </div>
